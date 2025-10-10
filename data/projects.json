@@ -94,9 +94,13 @@
         "Premiere Pro"
       ],
       "coverImage": "/projects/who-vr/cover.jpg",
+      "images": [],
       "projectUrl": "https://example.com",
       "behanceUrl": "https://www.behance.net/gallery/226515375/Who-VR-A-VR-Short-Film",
-      "featured": false
+      "featured": false,
+      "challenges": "Creating an immersive VR narrative that effectively conveys complex health issues while maintaining viewer engagement and emotional impact.",
+      "solution": "Utilized 360-degree filming techniques and spatial audio to place viewers directly into the stories, fostering empathy through first-person experiences.",
+      "results": "The film successfully raised awareness and received positive feedback from WHO stakeholders and audiences for its innovative approach to health communication."
     },
     {
       "id": "aruler-redesign",
@@ -110,29 +114,38 @@
         "Photoshop"
       ],
       "coverImage": "/projects/aruler-redesign/cover.jpg",
+      "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/234129723/Usability-Engineering-Case-Study-Redesigning-ARuler",
-      "featured": false
+      "featured": false,
+      "challenges": "Identifying and addressing usability issues in an existing AR app that caused user confusion and reduced task efficiency.",
+      "solution": "Conducted user testing to identify pain points, then redesigned the interface with clearer iconography, better labeling, and intuitive controls.",
+      "results": "The redesigned interface significantly improved user comprehension and task completion rates, with positive feedback on ease of use."
     },
     {
       "id": "ghanta-ghar",
       "title": "Ghanta Ghar — Streets in Monochrome",
-      "description": "A black and white street photography collection tracing light, shadow, and everyday rhythms around Ghanta Ghar, Jodhpur. ",
-      "fullDescription": "The series studies how morning and late afternoon sun carves alleys, grilles, and cobbles into graphic lines, using negative space and silhouettes to choreograph movement. Narrative frames—like a child pausing at a threshold, a tree rising from a demolition plot, and a carved sentinel watching the bazaar—anchor the geometry in lived emotion. Each image is composed for edge tension and leading lines, favoring available light, high contrast, and restrained tonality to keep attention on gesture and place. ",
+      "description": "A black and white street photography collection tracing light, shadow, and everyday rhythms around Ghanta Ghar, Jodhpur.",
+      "fullDescription": "The series studies how morning and late afternoon sun carves alleys, grilles, and cobbles into graphic lines, using negative space and silhouettes to choreograph movement. Narrative frames—like a child pausing at a threshold, a tree rising from a demolition plot, and a carved sentinel watching the bazaar—anchor the geometry in lived emotion. Each image is composed for edge tension and leading lines, favoring available light, high contrast, and restrained tonality to keep attention on gesture and place.",
       "category": "Photography",
       "year": "2025",
       "technologies": [
         "Photoshop"
       ],
       "coverImage": "/projects/ghanta-ghar/cover.jpg",
+      "images": [],
+      "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/your-project-id",
-      "featured": false
+      "featured": false,
+      "challenges": "Capturing the essence of Jodhpur's streets in monochrome while maintaining narrative depth and compositional interest.",
+      "solution": "Focused on high-contrast lighting, leading lines, and negative space to create visually striking images that tell stories of everyday life.",
+      "results": "Created a compelling photo series that effectively showcases street photography techniques and the cultural richness of Ghanta Ghar."
     },
     {
       "id": "this-website",
       "title": "Personal Portfolio Website",
       "description": "This very website - a modern portfolio built with Next.js and advanced animations.",
-      "fullDescription": "Designed and developed a personal portfolio .",
+      "fullDescription": "Designed and developed a personal portfolio website showcasing creative and technical projects.",
       "category": "Vibe Coding",
       "year": "2025",
       "technologies": [
@@ -142,9 +155,14 @@
         "Framer Motion"
       ],
       "coverImage": "/projects/this-website/cover.png",
+      "images": [],
       "projectUrl": "https://edwinmeleth.com",
+      "behanceUrl": "#",
       "githubUrl": "https://github.com/Edwin-IITJ/Portfolio-25",
-      "featured": false
+      "featured": false,
+      "challenges": "Building a performant, visually appealing portfolio that effectively showcases diverse projects while maintaining fast load times.",
+      "solution": "Leveraged Next.js for server-side rendering, Tailwind for styling, and Framer Motion for smooth animations to create an engaging user experience.",
+      "results": "Successfully deployed a fast, responsive portfolio website that effectively presents projects and skills to potential collaborators and employers."
     }
   ]
 }
