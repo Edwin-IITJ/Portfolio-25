@@ -35,9 +35,9 @@ const About = () => {
 
   const stats = [
     { number: '3+', label: 'Years Experience' },
-    { number: '20+', label: 'Projects Completed' },
-    { number: '15+', label: 'Happy Clients' },
-    { number: '5+', label: 'Awards Won' },
+    // { number: '20+', label: 'Projects Completed' },
+    { number: '15+', label: 'Licenses & Certifications' },
+    // { number: '5+', label: 'Awards Won' },
   ]
 
   return (
