@@ -1,0 +1,150 @@
+{
+  "majorProjects": [
+    {
+      "id": "aam-vr",
+      "title": "Aam – Usability Engineering Project",
+      "description": "An immersive VR prototype for educational fruit identification, built around intuitive interactions and calm UX principles.",
+      "fullDescription": "A conceptual VR experience centered on fruit learning, where users virtually interact with 3D fruit models, pluck them, inspect cross-sections, and gradually internalize identity cues. The project emphasizes gesture‑based interactions, minimal UI distractions, and an exploratory learning flow. The design went through multiple iterations, tested with a pilot group, and incorporated heuristic feedback to refine onboarding, error prevention, and interface consistency.",
+      "category": "Usability / Interaction Design",
+      "year": "2025",
+      "technologies": [
+        "Figma",
+        "Unreal Engine 5",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/aam-vr/cover.png",
+      "images": [
+        "/projects/aam-vr/screenshot-1.jpg",
+        "/projects/aam-vr/screenshot-2.jpg",
+        "/projects/aam-vr/screenshot-3.jpg"
+      ],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
+      "featured": true,
+      "challenges": "Designing intuitive VR fruit interactions: balancing realism with usability while maintaining high frame rates; guiding users without clutter; onboarding gesture controls in a calm, distraction‑free environment.",
+      "solution": "Adopted heuristic iteration and prototyping: created minimal onboarding overlays, added color‑based growth/decay cues for fruits, introduced confirmation prompts, and visibly constrained interaction affordances. Optimized models and interactions to reduce motion sickness and maintain smooth performance.",
+      "results": "Conducted a pilot study with a small group; questionnaire responses showed 100% found the interface simple and uncluttered, and majority found the app calming. Iterative feedback led to enhancements in user control, error recovery, and recognition over recall. The concept demonstrates feasibility and strong user acceptance."
+    },
+    {
+      "id": "random-rampage",
+      "title": "Random Rampage - VR Game",
+      "description": "An augmented reality (AR) virtual pet application designed to provide companionship and stress relief for users with lifestyle constraints.",
+      "fullDescription": "Digimal is an AR-based virtual pet application that allows users to adopt, nurture, and interact with lifelike virtual pets in their real-world environment. The app aims to foster emotional connection and responsibility without the challenges of real pet ownership. Users can experience companionship through engaging animations and interactive care mechanics, all within an immersive AR setting.",
+      "category": "Game Design",
+      "year": "2025",
+      "technologies": [
+        "Unity",
+        "Procreate",
+        "Figma",
+        "DaVinci Resolve",
+        "C#",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/random-rampage/cover.jpg",
+      "images": [
+        "/projects/random-rampage/screenshot-1.jpg",
+        "/projects/random-rampage/screenshot-2.jpg"
+      ],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "featured": true,
+      "challenges": "Designing unique boss behaviors and balancing difficulty progression in a VR environment while minimizing motion sickness and ensuring performance with free assets.",
+      "solution": "Implemented a tunnel vision effect during movement, created stylized characters blending eastern and western mythology, and prototyped a full level in Unity using Sketchfab assets. Designed a reward system around strategic play and a punishment loop to encourage mastery.",
+      "results": "Successfully developed and showcased a full prototype level with functioning combat mechanics, environmental storytelling, and a stylized visual identity. Received positive feedback from academic reviewers and peers for creative world-building and immersion."
+    },
+    {
+      "id": "digimal",
+      "title": "Digimal – XR Virtual Pet Experience",
+      "description": "Complete UX/UI redesign of an e-commerce platform focusing on mobile-first approach and conversion optimization.",
+      "fullDescription": "Led the end-to-end redesign of a mid-sized e-commerce platform, conducting user research, creating wireframes, prototypes, and final designs. Implemented design system for consistency across 50+ pages.",
+      "category": "XR Design",
+      "year": "2025",
+      "technologies": [
+        "Unity",
+        "Figma",
+        "Procreate",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/digimal/cover.jpg",
+      "images": [
+        "/projects/digimal/screenshot-1.jpg",
+        "/projects/digimal/screenshot-2.jpg",
+        "/projects/digimal/screenshot-3.jpg",
+        "/projects/digimal/screenshot-4.jpg"
+      ],
+      "projectUrl": "https://example.com",
+      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "featured": false,
+      "challenges": "Designing an engaging and emotionally resonant virtual pet experience that seamlessly integrates into the user's real-world environment, while ensuring intuitive interaction and maintaining user interest over time.",
+      "solution": "Developed a dynamic pet evolution system where the pet's growth and behavior are influenced by user interactions, including health and affection levels. Implemented AR technology to place the pet in the user's environment, enhancing immersion and fostering a sense of companionship.",
+      "results": "Successfully created a prototype that demonstrates the potential of AR in providing virtual companionship. The app's design encourages regular interaction, promoting emotional connection and stress relief for users with limited time or space for real pets."
+    }
+  ],
+  "otherWorks": [
+    {
+      "id": "who-vr",
+      "title": "Who VR - VR Film",
+      "description": "A VR film created for the World Health Organization that immerses viewers in the experiences of people impacted by health challenges across the world.",
+      "fullDescription": "WHO VR is an immersive virtual reality storytelling project developed in collaboration with the World Health Organization. The film allows audiences to experience powerful human stories from global health crises through a first-person perspective. It combines cinematic visuals, spatial sound design, and interactive elements to create empathy-driven awareness about real-world health issues. The project aimed to transform traditional health communication into an emotionally engaging, technology-driven experience.",
+      "category": "Immersive Media / VR Film",
+      "year": "2025",
+      "technologies": [
+        "Photoshop",
+        "Insta360 Studio",
+        "Premiere Pro"
+      ],
+      "coverImage": "/projects/who-vr/cover.jpg",
+      "projectUrl": "https://example.com",
+      "behanceUrl": "https://www.behance.net/gallery/226515375/Who-VR-A-VR-Short-Film",
+      "featured": false
+    },
+    {
+      "id": "aruler-redesign",
+      "title": "ARuler - Usability Engineering Study",
+      "description": "A usability engineering project analyzing and redesigning an AR measuring app for Android to improve user experience and interface clarity.",
+      "fullDescription": "ARuler is an augmented reality measuring tool built for Android devices using ARCore. This usability engineering study identified key usability issues through user testing, including confusing icons, unclear navigation, and poor labeling. The redesigned version proposed solutions like clearer iconography, undo and clear buttons, clipping microinteractions, and improved labeling to enhance intuitiveness and reduce task friction. The project involved pilot studies, pain point analysis, and iterative UI redesigns based on user feedback.",
+      "category": "UX Research / Usability Engineering",
+      "year": "2025",
+      "technologies": [
+        "Figma",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/aruler-redesign/cover.jpg",
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/234129723/Usability-Engineering-Case-Study-Redesigning-ARuler",
+      "featured": false
+    },
+    {
+      "id": "ghanta-ghar",
+      "title": "Ghanta Ghar — Streets in Monochrome",
+      "description": "A black and white street photography collection tracing light, shadow, and everyday rhythms around Ghanta Ghar, Jodhpur. ",
+      "fullDescription": "The series studies how morning and late afternoon sun carves alleys, grilles, and cobbles into graphic lines, using negative space and silhouettes to choreograph movement. Narrative frames—like a child pausing at a threshold, a tree rising from a demolition plot, and a carved sentinel watching the bazaar—anchor the geometry in lived emotion. Each image is composed for edge tension and leading lines, favoring available light, high contrast, and restrained tonality to keep attention on gesture and place. ",
+      "category": "Photography",
+      "year": "2025",
+      "technologies": [
+        "Photoshop"
+      ],
+      "coverImage": "/projects/ghanta-ghar/cover.jpg",
+      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "featured": false
+    },
+    {
+      "id": "this-website",
+      "title": "Personal Portfolio Website",
+      "description": "This very website - a modern portfolio built with Next.js and advanced animations.",
+      "fullDescription": "Designed and developed a personal portfolio .",
+      "category": "Vibe Coding",
+      "year": "2025",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion"
+      ],
+      "coverImage": "/projects/this-website/cover.png",
+      "projectUrl": "https://edwinmeleth.com",
+      "githubUrl": "https://github.com/Edwin-IITJ/Portfolio-25",
+      "featured": false
+    }
+  ]
+}
