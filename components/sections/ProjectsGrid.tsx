@@ -190,7 +190,7 @@ const ProjectsGrid = () => {
         )}
 
         {/* View All Projects Link */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -206,7 +206,7 @@ const ProjectsGrid = () => {
             View Full Portfolio on Behance
             <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   )

@@ -97,11 +97,11 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                     View Live Project
                   </Button>
                 )}
-                {project.behanceUrl && (
+                {/* {project.behanceUrl && (
                   <Button variant="outline" href={project.behanceUrl} target="_blank" size="lg">
                     View on Behance
                   </Button>
-                )}
+                )} */}
               </div>
             </motion.div>
           </section>
