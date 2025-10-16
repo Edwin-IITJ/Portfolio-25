@@ -1,40 +1,40 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Download, Award, Briefcase, GraduationCap } from 'lucide-react'
+import { Download, Award, Briefcase, GraduationCap, Code, LayoutTemplate, Hammer, Library, Table } from 'lucide-react'
 import Button from '../ui/Button'
 
 const About = () => {
   const skills = [
     {
       category: 'Design & HCI Tools: ',
-      icon: Award,
+      icon: Hammer,
       items: ['Figma', 'Photoshop', 'Unity', 'Unreal Engine 5', 'Procreate', 'DaVinci Resolve']
     },
     {
       category: 'Frameworks & Libraries',
-      icon: Award,
+      icon: Library,
       items: ['Angular', 'ASP.NET', 'Pandas']
     },
     {
       category: 'Programming',
-      icon: Briefcase,
+      icon: Code,
       items: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'C#']
     },
     {
       category: 'Web Skills',
-      icon: GraduationCap,
+      icon: LayoutTemplate,
       items: ['HTML', 'CSS', 'Bootstrap']
     },
     {
       category: 'Other',
-      icon: GraduationCap,
+      icon: Table,
       items: ['Microsoft SQL Server', 'Microsoft Excel']
     },
   ]
 
   const stats = [
-    { number: '3+', label: 'Years Experience' },
+    { number: '2+', label: 'Years Experience' },
     // { number: '20+', label: 'Projects Completed' },
     { number: '15+', label: 'Licenses & Certifications' },
     // { number: '5+', label: 'Awards Won' },
