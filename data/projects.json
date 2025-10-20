@@ -18,18 +18,50 @@
         "/projects/aam-vr/screenshot-2.jpg",
         "/projects/aam-vr/screenshot-3.jpg"
       ],
-      "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
       "featured": true,
       "challenges": "Designing intuitive VR fruit interactions: balancing realism with usability while maintaining high frame rates; guiding users without clutter; onboarding gesture controls in a calm, distraction‑free environment.",
       "solution": "Adopted heuristic iteration and prototyping: created minimal onboarding overlays, added color‑based growth/decay cues for fruits, introduced confirmation prompts, and visibly constrained interaction affordances. Optimized models and interactions to reduce motion sickness and maintain smooth performance.",
-      "results": "Conducted a pilot study with a small group; questionnaire responses showed 100% found the interface simple and uncluttered, and majority found the app calming. Iterative feedback led to enhancements in user control, error recovery, and recognition over recall. The concept demonstrates feasibility and strong user acceptance."
+      "results": "Conducted a pilot study with a small group; questionnaire responses showed 100% found the interface simple and uncluttered, and majority found the app calming. Iterative feedback led to enhancements in user control, error recovery, and recognition over recall. The concept demonstrates feasibility and strong user acceptance.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/aam-vr/docs/Aam - Section I.png",
+          "alt": "Aam documentation overview panel"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aam-vr/docs/Aam - Section II.png",
+          "alt": "Aam documentation section II"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/aam-vr/docs/mango-animation.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aam-vr/docs/Aam - Section III.png",
+          "alt": "Aam documentation section III"
+        },
+        {
+          "type": "video",
+          "src": "/assets/projects/aam-vr/video/aam_Final.mp4",
+          "poster": "/assets/projects/aam-vr/cover/cover.png",
+          "controls": true
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aam-vr/docs/Aam - Section IV.png",
+          "alt": "Aam documentation section IV"
+        }
+      ]
     },
     {
       "id": "random-rampage",
       "title": "Random Rampage - VR Game",
-      "description": "An augmented reality (AR) virtual pet application designed to provide companionship and stress relief for users with lifestyle constraints.",
-      "fullDescription": "Digimal is an AR-based virtual pet application that allows users to adopt, nurture, and interact with lifelike virtual pets in their real-world environment. The app aims to foster emotional connection and responsibility without the challenges of real pet ownership. Users can experience companionship through engaging animations and interactive care mechanics, all within an immersive AR setting.",
+      "description": "VR boss-fight prototype created for the Appreciation of Gaming: Applications and Infrastructure XR module at IIT Jodhpur, featuring sword-based combat against mythic bosses.",
+      "fullDescription": "Designed and prototyped a room-scale VR fighting game where players study enemy strengths and weaknesses and defeat bosses using a sword in contained arenas. The process covered brainstorming, game design, a reward–punishment loop, character concepts blending Eastern and Western mythic cues, and a storyboard to structure levels. Delivered a Unity vertical slice for one level using free Sketchfab models and Freesound audio, paired with a hand-drawn title treatment and cut‑scene direction in a gritty calligraphic style. ",
       "category": "Game Design",
       "year": "2025",
       "technologies": [
@@ -49,14 +81,72 @@
       "behanceUrl": "https://www.behance.net/gallery/your-project-id",
       "featured": true,
       "challenges": "Designing unique boss behaviors and balancing difficulty progression in a VR environment while minimizing motion sickness and ensuring performance with free assets.",
-      "solution": "Implemented a tunnel vision effect during movement, created stylized characters blending eastern and western mythology, and prototyped a full level in Unity using Sketchfab assets. Designed a reward system around strategic play and a punishment loop to encourage mastery.",
-      "results": "Successfully developed and showcased a full prototype level with functioning combat mechanics, environmental storytelling, and a stylized visual identity. Received positive feedback from academic reviewers and peers for creative world-building and immersion."
+      "solution": "Implemented a tunnel vision effect during movement, defined a clear reward–punishment loop, gave each boss distinct strengths/weaknesses, constrained arenas for readability, and tuned timing for sword attacks and counters",
+      "results": "Successfully developed and showcased a full prototype level with functioning combat mechanics, environmental storytelling, and a stylized visual identity. Received positive feedback from academic reviewers and peers for creative world-building and immersion.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section I.png",
+          "alt": "RR documentation section I"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section II.png",
+          "alt": "RR documentation section II"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/aam-vr/docs/mango-animation.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section III.png",
+          "alt": "RR documentation section III"
+        },
+        {
+          "type": "video",
+          "src": "/assets/projects/aam-vr/video/aam_Final.mp4",
+          "poster": "/assets/projects/aam-vr/cover/cover.png",
+          "controls": true
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section IV.png",
+          "alt": "RR documentation section IV"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section V.png",
+          "alt": "RR documentation section V"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section VI.png",
+          "alt": "RR documentation section VI"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section VII.png",
+          "alt": "RR documentation section VII"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section VIII.png",
+          "alt": "RR documentation section VIII"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section IX.png",
+          "alt": "RR documentation section IX"
+        }
+      ]
     },
     {
       "id": "digimal",
       "title": "Digimal – XR Virtual Pet Experience",
-      "description": "Complete UX/UI redesign of an e-commerce platform focusing on mobile-first approach and conversion optimization.",
-      "fullDescription": "Led the end-to-end redesign of a mid-sized e-commerce platform, conducting user research, creating wireframes, prototypes, and final designs. Implemented design system for consistency across 50+ pages.",
+      "description": "An augmented reality (AR) virtual pet application designed to provide companionship and stress relief for users with lifestyle constraints.",
+      "fullDescription": "Digimal is an AR-based virtual pet application that allows users to adopt, nurture, and interact with lifelike virtual pets in their real-world environment. The app aims to foster emotional connection and responsibility without the challenges of real pet ownership. Users can experience companionship through engaging animations and interactive care mechanics, all within an immersive AR setting.",
       "category": "XR Design",
       "year": "2025",
       "technologies": [
@@ -72,20 +162,67 @@
         "/projects/digimal/screenshot-3.jpg",
         "/projects/digimal/screenshot-4.jpg"
       ],
-      "projectUrl": "https://example.com",
+      "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/your-project-id",
       "featured": false,
       "challenges": "Designing an engaging and emotionally resonant virtual pet experience that seamlessly integrates into the user's real-world environment, while ensuring intuitive interaction and maintaining user interest over time.",
       "solution": "Developed a dynamic pet evolution system where the pet's growth and behavior are influenced by user interactions, including health and affection levels. Implemented AR technology to place the pet in the user's environment, enhancing immersion and fostering a sense of companionship.",
-      "results": "Successfully created a prototype that demonstrates the potential of AR in providing virtual companionship. The app's design encourages regular interaction, promoting emotional connection and stress relief for users with limited time or space for real pets."
+      "results": "Successfully created a prototype that demonstrates the potential of AR in providing virtual companionship. The app's design encourages regular interaction, promoting emotional connection and stress relief for users with limited time or space for real pets.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal I.png",
+          "alt": "Digimal I"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal II.png",
+          "alt": "Digimal II"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/digimal/docs/Interaction.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal III.png",
+          "alt": "Digimal III"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/digimal/docs/Microinteraction.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal IV.png",
+          "alt": "Digimal IV"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/digimal/docs/Test.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal V.png",
+          "alt": "Digimal V"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal VI.png",
+          "alt": "Digimal VI"
+        }
+      ]
     }
   ],
   "otherWorks": [
     {
       "id": "who-vr",
       "title": "Who VR - VR Film",
-      "description": "A VR film created for the World Health Organization that immerses viewers in the experiences of people impacted by health challenges across the world.",
-      "fullDescription": "WHO VR is an immersive virtual reality storytelling project developed in collaboration with the World Health Organization. The film allows audiences to experience powerful human stories from global health crises through a first-person perspective. It combines cinematic visuals, spatial sound design, and interactive elements to create empathy-driven awareness about real-world health issues. The project aimed to transform traditional health communication into an emotionally engaging, technology-driven experience.",
+      "description": "A location-shot 360° VR documentary exploring identity and place through spatial storytelling and ambisonic sound.",
+      "fullDescription": "End‑to‑end production covering concept, script, character development, shot planning, on‑location filming on water and in mountain landscapes, and post that included stitching, editing, color, and a spatial audio mix; delivered as an immersive VR viewing experience with poster and deliverables documented.",
       "category": "Immersive Media / VR Film",
       "year": "2025",
       "technologies": [
@@ -95,12 +232,34 @@
       ],
       "coverImage": "/projects/who-vr/cover.jpg",
       "images": [],
-      "projectUrl": "https://example.com",
+      "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/226515375/Who-VR-A-VR-Short-Film",
       "featured": false,
-      "challenges": "Creating an immersive VR narrative that effectively conveys complex health issues while maintaining viewer engagement and emotional impact.",
-      "solution": "Utilized 360-degree filming techniques and spatial audio to place viewers directly into the stories, fostering empathy through first-person experiences.",
-      "results": "The film successfully raised awareness and received positive feedback from WHO stakeholders and audiences for its innovative approach to health communication."
+      "challenges": "Maintaining viewer comfort and horizon stability during moving platform shots, handling stitch seams and exposure shifts, and capturing clean location audio in busy outdoor settings.",
+      "solution": "Previsualized shot types and lighting plans guided stable monopod placements, while an ambisonic workflow and careful post stitching/color balanced the scenes for immersive presence.",
+      "results": "A cohesive VR documentary slice with clear narrative beats, lake‑side visuals, thorough storyboard coverage, and spatial audio that anchors attention and presence throughout the experience.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/who-vr/docs/Who VR Section I.png",
+          "alt": "Who VR documentation"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/who-vr/docs/Who VR - Teaser.png",
+          "alt": "Who VR documentation section II"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/who-vr/docs/Who VR - YT.png",
+          "alt": "Who VR documentation section III"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/who-vr/docs/Who VR - Thank you.png",
+          "alt": "Who VR documentation section IV"
+        }
+      ]
     },
     {
       "id": "aruler-redesign",
@@ -120,13 +279,155 @@
       "featured": false,
       "challenges": "Identifying and addressing usability issues in an existing AR app that caused user confusion and reduced task efficiency.",
       "solution": "Conducted user testing to identify pain points, then redesigned the interface with clearer iconography, better labeling, and intuitive controls.",
-      "results": "The redesigned interface significantly improved user comprehension and task completion rates, with positive feedback on ease of use."
+      "results": "The redesigned interface significantly improved user comprehension and task completion rates, with positive feedback on ease of use.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame.png",
+          "alt": "ARuler Frame 0"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-1.png",
+          "alt": "ARuler Frame 1"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-2.png",
+          "alt": "ARuler Frame 2"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-3.png",
+          "alt": "ARuler Frame 3"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-4.png",
+          "alt": "ARuler Frame 4"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-5.png",
+          "alt": "ARuler Frame 5"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-6.png",
+          "alt": "ARuler Frame 6"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-7.png",
+          "alt": "ARuler Frame 7"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-8.png",
+          "alt": "ARuler Frame 8"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-9.png",
+          "alt": "ARuler Frame 9"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-10.png",
+          "alt": "ARuler Frame 10"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-11.png",
+          "alt": "ARuler Frame 11"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-12.png",
+          "alt": "ARuler Frame 12"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-13.png",
+          "alt": "ARuler Frame 13"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-14.png",
+          "alt": "ARuler Frame 14"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-15.png",
+          "alt": "ARuler Frame 15"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-16.png",
+          "alt": "ARuler Frame 16"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-17.png",
+          "alt": "ARuler Frame 17"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-18.png",
+          "alt": "ARuler Frame 18"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-19.png",
+          "alt": "ARuler Frame 19"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-20.png",
+          "alt": "ARuler Frame 20"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-21.png",
+          "alt": "ARuler Frame 21"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-22.png",
+          "alt": "ARuler Frame 22"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-23.png",
+          "alt": "ARuler Frame 23"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-24.png",
+          "alt": "ARuler Frame 24"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-25.png",
+          "alt": "ARuler Frame 25"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-26.png",
+          "alt": "ARuler Frame 26"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aruler-redesign/docs/Frame-27.png",
+          "alt": "ARuler Frame 27"
+        }
+      ]
     },
     {
       "id": "ghanta-ghar",
       "title": "Ghanta Ghar — Streets in Monochrome",
       "description": "A black and white street photography collection tracing light, shadow, and everyday rhythms around Ghanta Ghar, Jodhpur.",
-      "fullDescription": "The series studies how morning and late afternoon sun carves alleys, grilles, and cobbles into graphic lines, using negative space and silhouettes to choreograph movement. Narrative frames—like a child pausing at a threshold, a tree rising from a demolition plot, and a carved sentinel watching the bazaar—anchor the geometry in lived emotion. Each image is composed for edge tension and leading lines, favoring available light, high contrast, and restrained tonality to keep attention on gesture and place.",
+      "fullDescription": "The series studies how morning sun carves alleys, grilles, and cobbles into graphic lines, using negative space and silhouettes to choreograph movement. Narrative frames—like a child pausing at a threshold, a tree rising from a demolition plot, and a carved sentinel watching the bazaar—anchor the geometry in lived emotion. Each image is composed for edge tension and leading lines, favoring available light, high contrast, and restrained tonality to keep attention on gesture and place.",
       "category": "Photography",
       "year": "2025",
       "technologies": [
@@ -139,7 +440,64 @@
       "featured": false,
       "challenges": "Capturing the essence of Jodhpur's streets in monochrome while maintaining narrative depth and compositional interest.",
       "solution": "Focused on high-contrast lighting, leading lines, and negative space to create visually striking images that tell stories of everyday life.",
-      "results": "Created a compelling photo series that effectively showcases street photography techniques and the cultural richness of Ghanta Ghar."
+      "results": "Created a compelling photo series that effectively showcases street photography techniques and the cultural richness of Ghanta Ghar.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 1.png",
+          "alt": "GG Frame 1"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 2.png",
+          "alt": "GG Frame 2"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 3.png",
+          "alt": "GG Frame 3"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 4.png",
+          "alt": "GG Frame 4"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 5.png",
+          "alt": "GG Frame 5"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 6.png",
+          "alt": "GG Frame 6"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 7.png",
+          "alt": "GG Frame 7"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 8.png",
+          "alt": "GG Frame 8"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 9.png",
+          "alt": "GG Frame 9"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 10.png",
+          "alt": "GG Frame 10"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 11.png",
+          "alt": "GG Frame 11"
+        }
+      ]
     },
     {
       "id": "this-website",
