@@ -86,7 +86,7 @@
       "contentMedia": [
         {
           "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section I.png",
+          "src": "/assets/projects/random-rampage/docs/RR Section I.jpg",
           "alt": "RR documentation section I"
         },
         {
@@ -171,7 +171,7 @@
         "Procreate",
         "Photoshop"
       ],
-      "coverImage": "/projects/digimal/cover.jpg",
+      "coverImage": "/projects/digimal/cover.png",
       "images": [
         "/projects/digimal/screenshot-1.jpg",
         "/projects/digimal/screenshot-2.jpg",
@@ -548,7 +548,7 @@
       ],
       "coverImage": "/projects/this-website/cover.png",
       "images": [],
-      "projectUrl": "https://edwinmeleth.com",
+      "projectUrl": "https://edwinm.vercel.app/",
       "behanceUrl": "#",
       "githubUrl": "https://github.com/Edwin-IITJ/Portfolio-25",
       "featured": false,

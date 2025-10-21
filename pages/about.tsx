@@ -13,7 +13,7 @@ export default function AboutPage() {
           name="description" 
           content="Learn more about Edwin Meleth - UI/UX Designer and Creative Developer with expertise in VR/AR experiences and user-centered design." 
         />
-        <link rel="canonical" href="https://edwinmeleth.com/about" />
+        <link rel="canonical" href="https://edwinm.vercel.app/about" />
       </Head>
       
       <div className="relative min-h-screen bg-white">

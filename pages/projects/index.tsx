@@ -14,7 +14,7 @@ export default function ProjectsPage() {
           name="description" 
           content="Browse through my portfolio of UI/UX design, VR experiences, and web development projects." 
         />
-        <link rel="canonical" href="https://edwinmeleth.com/projects" />
+        <link rel="canonical" href="https://edwinm.vercel.app/projects" />
       </Head>
 
       <div className="min-h-screen bg-white">

@@ -8,13 +8,14 @@ import About from '@/components/sections/About'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/sections/Footer'
 import LoadingScreen from '@/components/ui/LoadingScreen'
+import StructuredData from '@/components/SEO/StructuredData'
 
 // Dynamically import 3D components to avoid SSR issues
 const BackgroundCanvas = dynamic(
   () => import('@/components/3d/BackgroundCanvas'),
   { 
     ssr: false,
-    loading: () => null 
+    loading: () => null
   }
 )
 
@@ -44,32 +45,27 @@ export default function Home() {
 
   return (
     <>
+      {/* SEO Meta Tags */}
       <Head>
-        <title>Edwin Meleth - UI/UX Designer & Creative Developer</title>
-        <meta 
-          name="description" 
-          content="Portfolio of Edwin Meleth - UI/UX Designer and Creative Developer specializing in VR experiences, usability engineering, and innovative digital solutions." 
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href="https://edwinmeleth.com" />
+        <title>Edwin Meleth | UX/UI Designer & VR Developer Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      
-      <div className="relative min-h-screen bg-white overflow-x-hidden">
-        {/* 3D Background Canvas */}
-        <BackgroundCanvas />
-        
-        {/* Navigation */}
+
+      {/* Structured Data for Google */}
+      <StructuredData />
+
+      {/* Background Canvas */}
+      <BackgroundCanvas />
+
+      {/* Main Content */}
+      <div className="relative z-10">
         <Navbar />
-        
-        {/* Main Content */}
-        <main className="relative z-10">
+        <main>
           <Hero />
           <ProjectsGrid />
           <About />
           <Contact />
         </main>
-        
-        {/* Footer */}
         <Footer />
       </div>
     </>
