@@ -49,6 +49,8 @@ export default function Document() {
         {/* Additional Meta Tags */}
         <meta name="theme-color" content="#3b82f6" />
         <meta name="color-scheme" content="light" />
+        
+        <meta name="google-site-verification" content="cLOLJFWh4q8ds2XP2dt-gBwKDEybnqdnYIGPPp01P1g" />
       </Head>
       <body>
         <Main />
