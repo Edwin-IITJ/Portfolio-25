@@ -1,9 +1,24 @@
+// pages/_app.tsx
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
+import { League_Spartan, Space_Grotesk } from 'next/font/google'
+
+// Configure fonts
+const spartan = League_Spartan({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -35,5 +50,9 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <main className={`${spartan.variable} ${spaceGrotesk.variable} font-sans`}>
+      <Component {...pageProps} />
+    </main>
+  )
 }

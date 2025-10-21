@@ -1,3 +1,4 @@
+/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,8 +7,6 @@
 :root {
   --color-primary: 37 99 235;
   --color-accent: 234 88 12;
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Playfair Display', serif;
 }
 
 /* Base Styles */
