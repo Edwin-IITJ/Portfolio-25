@@ -1,9 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+// pages/api/contact.ts
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 type ResponseData = {
-  message: string
-  error?: string
-}
+  message: string;
+  error?: string;
+};
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,110 +15,106 @@ export default async function handler(
 ) {
   // Only allow POST requests
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' })
+    return res.status(405).json({ 
+      message: 'Method not allowed',
+      error: 'Only POST requests are accepted'
+    });
   }
 
   try {
-    const { name, email, subject, message } = req.body
+    const { name, email, subject, message } = req.body;
 
-    // Validation
+    // Basic validation
     if (!name || !email || !subject || !message) {
-      return res.status(400).json({ 
+      return res.status(400).json({
         message: 'Missing required fields',
-        error: 'All fields are required' 
-      })
+        error: 'Please fill in all fields'
+      });
     }
 
     // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ 
+      return res.status(400).json({
         message: 'Invalid email',
-        error: 'Please provide a valid email address' 
-      })
+        error: 'Please enter a valid email address'
+      });
     }
 
-    // TODO: Implement your email sending logic here
-    // Option 1: Using a service like SendGrid, Mailgun, or Resend
-    // Option 2: Using nodemailer with SMTP
-    // Option 3: Using a form service like Formspree or Getform
-
-    // Example with console log (replace with actual implementation)
-    console.log('Contact form submission:', {
-      name,
-      email,
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
-    })
-
-    // EXAMPLE: SendGrid implementation (uncomment and configure)
-    /*
-    const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-
-    const msg = {
-      to: process.env.CONTACT_EMAIL,
-      from: process.env.SENDGRID_FROM_EMAIL,
+    // Send email using Resend
+    const { data, error } = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>', // Resend's verified sender
+      to: [process.env.CONTACT_EMAIL || 'your.email@gmail.com'],
+      replyTo: email, // Important: allows you to reply directly
       subject: `Portfolio Contact: ${subject}`,
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Subject: ${subject}
-        Message: ${message}
-      `,
       html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <style>
+              body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+              .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+              .header { background: #f4f4f4; padding: 20px; border-radius: 8px 8px 0 0; }
+              .content { background: #fff; padding: 30px; border: 1px solid #ddd; }
+              .field { margin-bottom: 20px; }
+              .label { font-weight: bold; color: #555; display: block; margin-bottom: 5px; }
+              .value { color: #333; }
+              .message-box { background: #f9f9f9; padding: 15px; border-left: 4px solid #4CAF50; margin-top: 10px; }
+              .footer { background: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #777; border-radius: 0 0 8px 8px; }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <div class="header">
+                <h2 style="margin: 0; color: #333;">New Portfolio Contact</h2>
+              </div>
+              <div class="content">
+                <div class="field">
+                  <span class="label">From:</span>
+                  <span class="value">${name}</span>
+                </div>
+                <div class="field">
+                  <span class="label">Email:</span>
+                  <span class="value"><a href="mailto:${email}">${email}</a></span>
+                </div>
+                <div class="field">
+                  <span class="label">Subject:</span>
+                  <span class="value">${subject}</span>
+                </div>
+                <div class="field">
+                  <span class="label">Message:</span>
+                  <div class="message-box">
+                    ${message.replace(/\n/g, '<br>')}
+                  </div>
+                </div>
+              </div>
+              <div class="footer">
+                <p>This message was sent via your portfolio contact form</p>
+                <p>Reply directly to this email to respond to ${name}</p>
+              </div>
+            </div>
+          </body>
+        </html>
       `,
+    });
+
+    if (error) {
+      console.error('Resend error:', error);
+      return res.status(500).json({
+        message: 'Failed to send message',
+        error: 'Email service error. Please try again.'
+      });
     }
 
-    await sgMail.send(msg)
-    */
-
-    // EXAMPLE: Nodemailer implementation (uncomment and configure)
-    /*
-    const nodemailer = require('nodemailer')
-
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: true,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
-      },
-    })
-
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM,
-      to: process.env.CONTACT_EMAIL,
-      subject: `Portfolio Contact: ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    })
-    */
-
-    // Success response
-    return res.status(200).json({ 
-      message: 'Message sent successfully! I will get back to you soon.' 
-    })
+    return res.status(200).json({
+      message: 'Message sent successfully! I will get back to you soon.'
+    });
 
   } catch (error) {
-    console.error('Contact form error:', error)
-    return res.status(500).json({ 
+    console.error('Contact form error:', error);
+    return res.status(500).json({
       message: 'Failed to send message',
-      error: 'Something went wrong. Please try again later.' 
-    })
+      error: 'Something went wrong. Please try again later.'
+    });
   }
 }

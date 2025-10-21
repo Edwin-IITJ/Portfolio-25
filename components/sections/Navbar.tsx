@@ -59,20 +59,19 @@ const Navbar = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
             ? 'bg-white/80 backdrop-blur-md shadow-md'
             : 'bg-transparent'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link
               href="/"
-              className="text-xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent"
+              className="text-xl md:text-2xl font-display font-bold hover:text-primary-600 transition-colors duration-200"
             >
-              Edwin Meleth
+              <span className="gradient-text">Edwin Meleth</span>
             </Link>
 
             {/* Desktop Navigation */}
