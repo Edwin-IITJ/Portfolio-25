@@ -13,7 +13,7 @@ import StructuredData from '@/components/SEO/StructuredData'
 // Dynamically import 3D components to avoid SSR issues
 const BackgroundCanvas = dynamic(
   () => import('@/components/3d/BackgroundCanvas'),
-  { 
+  {
     ssr: false,
     loading: () => null
   }
@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true)
-    
+
     // Simulate loading time for assets
     const timer = setTimeout(() => {
       setLoading(false)
@@ -47,7 +47,7 @@ export default function Home() {
     <>
       {/* SEO Meta Tags */}
       <Head>
-        <title>Edwin Meleth | UX/UI Designer & VR Developer Portfolio</title>
+        <title>Edwin Meleth | Designer | UX/UI/XR</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 

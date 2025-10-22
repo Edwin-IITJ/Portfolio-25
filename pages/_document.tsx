@@ -11,10 +11,10 @@ export default function Document() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
         {/* Primary SEO Meta Tags */}
-        <meta name="title" content="Edwin Meleth - UX/UI Designer & VR Developer Portfolio" />
+        <meta name="title" content="Edwin Meleth - Designer | UX/UI/XR" />
         <meta
           name="description"
-          content="Edwin Meleth is a UX/UI Designer and VR Developer specializing in immersive experiences, game design, and user-centered interaction design. View portfolio and projects."
+          content="Edwin Meleth is a UX/UI Designer and Creative Developer specializing in immersive experiences, game design, and user-centered interaction design. View portfolio and projects."
         />
         <meta
           name="keywords"
@@ -29,15 +29,15 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://edwinm.vercel.app/" />
         <meta property="og:site_name" content="Edwin Meleth Portfolio" />
-        <meta property="og:title" content="Edwin Meleth - UX/UI Designer & VR Developer" />
+        <meta property="og:title" content="Edwin Meleth - Designer | UX/UI/XR" />
         <meta
           property="og:description"
           content="Portfolio showcasing UX/UI design and VR development projects by Edwin Meleth. Explore immersive experiences and user-centered designs."
         />
-        <meta property="og:image" content="https://edwinm.vercel.app/og-image.png" />
+        <meta property="og:image" content="/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Edwin Meleth - UX/UI Designer & VR Developer Portfolio" />
+        <meta property="og:image:alt" content="Edwin Meleth - Designer | UX/UI/XR" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://edwinm.vercel.app/" />
@@ -49,7 +49,7 @@ export default function Document() {
         {/* Additional Meta Tags */}
         <meta name="theme-color" content="#3b82f6" />
         <meta name="color-scheme" content="light" />
-        
+
         <meta name="google-site-verification" content="cLOLJFWh4q8ds2XP2dt-gBwKDEybnqdnYIGPPp01P1g" />
       </Head>
       <body>
