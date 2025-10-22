@@ -88,7 +88,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <a
-                href="/resume.pdf"
+                href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200"
@@ -150,7 +150,7 @@ const Navbar = () => {
                 </motion.div>
               ))}
               <a
-                href="/resume.pdf"
+                href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 text-center"
