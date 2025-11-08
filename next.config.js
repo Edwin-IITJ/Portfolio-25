@@ -18,6 +18,20 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
-}
+  // NEW: Headers for PWA manifest MIME type (ensures proper serving)
+  async headers() {
+    return [
+      {
+        source: '/site.webmanifest',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/manifest+json; charset=utf-8',
+          },
+        ],
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
