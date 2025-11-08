@@ -104,19 +104,26 @@ const About = () => {
             <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed mb-8">
               <p>
                 I'm a passionate <span className="font-semibold text-gray-900">UI/UX Designer</span> and{' '}
-                <span className="font-semibold text-gray-900">Creative Developer</span> currently pursuing my studies
-                at <span className="font-semibold text-primary-600">IIT Jodhpur</span>, specializing in creating
-                immersive digital experiences that bridge the gap between design and technology.
+                <span className="font-semibold text-gray-900">Creative Developer</span> currently pursuing my Master's in Design
+                at <span className="font-semibold text-primary-600">IIT Jodhpur</span>, focusing on creating user-centered
+                immersive digital experiences that merge creativity and technology, and feel human.
               </p>
 
               <p>
-                My work focuses on <span className="font-semibold text-gray-900">VR/AR applications</span>,
-                usability engineering, and innovative web experiences. I believe in user-centered design
-                principles and love exploring how emerging technologies can solve real-world problems.
+                I’m exploring interaction design, usability engineering, storytelling, and
+                spatial experience design through projects in  <span className="font-semibold text-gray-900">VR/AR/MR</span> and
+                creative web technologies.
               </p>
 
               <p>
-                Previously, I worked as a full-stack developer for over 2 years at IQVIA contributing to the Supply Integrity Management System (SiMS) using Angular, ASP.NET, and SQL. My responsibilities included designing and developing new user interfaces, writing SQL stored procedures to meet project requirements, and handling web application deployment on IIS, as well as SP deployment on SQL Server, hosted in Azure virtual machines.
+                Before design, I worked as a <span className="font-semibold text-gray-900">Full-Stack Developer at IQVIA</span>, contributing to the
+                Supply Integrity Management System (SiMS) using Angular, ASP.NET, SQL, and handling front-end deployment in IIS web/API front ends
+                and SQL jobs/SPs, on Azure VMs across environments - experience that  now helps me think systematically, prototype fast, and understand how design
+                decisions translate into code and product behavior.
+              </p>
+
+              <p>
+                Beyond design, I’m fascinated by narrative structure and storytelling.
               </p>
             </div>
 
