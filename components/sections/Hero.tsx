@@ -84,8 +84,7 @@ const Hero = () => {
             UI/UX Designer & Creative Developer
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Crafting immersive digital experiences through XR technologies,
-            user-centered design, and innovative problem-solving.
+            Blending design, technology, and storytelling to craft immersive digital experiences.
           </p>
         </motion.div>
 

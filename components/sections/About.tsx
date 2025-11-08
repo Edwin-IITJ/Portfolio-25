@@ -103,7 +103,7 @@ const About = () => {
 
             <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed mb-8">
               <p>
-                I'm a passionate <span className="font-semibold text-gray-900">UI/UX Designer</span> and{' '}
+                I'm a <span className="font-semibold text-gray-900">UI/UX Designer</span> and{' '}
                 <span className="font-semibold text-gray-900">Creative Developer</span> currently pursuing my Master's in Design
                 at <span className="font-semibold text-primary-600">IIT Jodhpur</span>, focusing on creating user-centered
                 immersive digital experiences that merge creativity and technology, and feel human.
@@ -123,7 +123,7 @@ const About = () => {
               </p>
 
               <p>
-                Beyond design, I’m fascinated by narrative structure and storytelling.
+                Beyond design, I’m fascinated by narrative structure and the power of storytelling.
               </p>
             </div>
 
