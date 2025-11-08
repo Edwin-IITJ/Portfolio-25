@@ -118,7 +118,7 @@ const About = () => {
               <p>
                 Before design, I worked as a <span className="font-semibold text-gray-900">Full-Stack Developer at IQVIA</span>, contributing to the
                 Supply Integrity Management System (SiMS) using Angular, ASP.NET, SQL, and handling front-end deployment in IIS web/API front ends
-                and SQL jobs/SPs, on Azure VMs across environments - experience that  now helps me think systematically, prototype fast, and understand how design
+                and SQL jobs/SPs, on Azure VMs across environments - experience that now helps me think systematically, prototype fast, and understand how design
                 decisions translate into code and product behavior.
               </p>
 
