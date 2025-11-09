@@ -105,12 +105,7 @@ const About = () => {
               <p>
                 I'm a <span className="font-semibold text-gray-900">UI/UX Designer</span> and{' '}
                 <span className="font-semibold text-gray-900">Creative Developer</span> currently pursuing my Master's in Design
-                at <span className="font-semibold text-primary-600">IIT Jodhpur</span>, focusing on creating user-centered
-                immersive digital experiences that merge creativity and technology, and feel human.
-              </p>
-
-              <p>
-                I’m exploring interaction design, usability engineering, storytelling, and
+                at <span className="font-semibold text-primary-600">IIT Jodhpur</span>, exploring interaction design, usability engineering, storytelling, and
                 spatial experience design through projects in  <span className="font-semibold text-gray-900">VR/AR/MR</span> and
                 creative web technologies.
               </p>
