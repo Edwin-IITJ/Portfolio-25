@@ -555,6 +555,67 @@
       "challenges": "Building a performant, visually appealing portfolio that effectively showcases diverse projects while maintaining fast load times.",
       "solution": "Leveraged Next.js for server-side rendering, Tailwind for styling, and Framer Motion for smooth animations to create an engaging user experience.",
       "results": "Successfully deployed a fast, responsive portfolio website that effectively presents projects and skills to potential collaborators and employers."
+    },
+    {
+      "id": "mehndi",
+      "title": "Mehndi - Sand Animation",
+      "description": "An experimental sand animation film visualising a traditional Rajasthani folk song about longing, created through hand-crafted frame-by-frame processes.",
+      "category": "Animation / Visual Storytelling",
+      "year": "2025",
+      "technologies": [
+        "Figma",
+        "Adobe Premiere Pro",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/mehndi/cover.png",
+      "images": [
+        "/projects/mehndi/screenshot-1.jpg",
+        "/projects/mehndi/screenshot-2.jpg",
+        "/projects/mehndi/screenshot-3.jpg"
+      ],
+      "behanceUrl": "https://www.behance.net/gallery/239881955/Mehndi-Sand-Animation",
+      "featured": false,
+      "challenges": "Selecting a folk song that was emotionally powerful yet not widely known; navigating verse-by-verse translation from Marwari without any team members speaking the language; learning and controlling the sand medium for the first time under tight time constraints; coordinating a near 24-hour animation schedule with a single camera setup; and integrating live-action performance footage with abstract sand visuals in a coherent narrative flow.",
+      "solution": "Conducted field research at Mehrangarh Fort to collaborate directly with a traditional singer, recorded multiple performances, and shortlisted the song with the strongest emotional core. Developed storyboards for each verse and filler, drawing from mehndi motifs and Rajasthani visual traditions to ground the style. Set up a dark-room lightbox studio and worked in rotating shifts to keep animation continuous. Prioritized 'quality over quantity' by trimming weaker shots and focusing on clear, expressive movements. Intercut sand animation with performance footage of Pappu Ram to retain authenticity while enhancing the emotional arc.",
+      "results": "The teaser for Mehndi was screened at the end of Prof. Delwyn’s talk, “Hand-Crafted Animation,” at IIT Jodhpur, where it received strong audience appreciation. The project strengthened the team’s understanding of hand-made, analogue animation and the value of patience in frame-by-frame work. It also reinforced the importance of field research, collaboration with local artists, and embracing visible traces of the maker’s hand as an aesthetic strength in an era dominated by digital and AI-generated imagery.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part I.png",
+          "alt": "Mehndi documentation overview panel"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/mehndi/docs/mehnd1_f1.gif",
+          "alt": "Filler loop"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/mehndi/docs/mehnd1_f2_3.gif",
+          "alt": "Filler loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part II.png",
+          "alt": "Mehndi documentation section II"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part III.png",
+          "alt": "Mehndi documentation section III"
+        },
+        {
+          "type": "video",
+          "src": "/assets/projects/mehndi/video/Mehndi_teaser_lowres.mp4",
+          "poster": "/assets/projects/mehndi/cover/cover_alt.jpg",
+          "controls": true
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/ty.png",
+          "alt": "Thank You"
+        }
+      ]
     }
   ]
 }
