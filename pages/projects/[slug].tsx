@@ -67,7 +67,7 @@ export default function ProjectPage({
       >
         {/* Back to Projects */}
         <div className="max-w-7xl mx-auto py-8">
-          <Link href="/#projects">
+          <Link href="/projects">
             <motion.div
               className="inline-flex items-center text-gray-600 hover:text-primary-600 transition-colors cursor-pointer"
               whileHover={{ x: -5 }}

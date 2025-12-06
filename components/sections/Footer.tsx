@@ -9,12 +9,12 @@ const Footer = () => {
   }
 
   const footerLinks = {
-    Navigation: [
-      { name: 'Home', href: '#home' },
-      { name: 'Work', href: '#projects' },
-      { name: 'About', href: '#about' },
-      { name: 'Contact', href: '#contact' },
-    ],
+    // Navigation: [
+    //   { name: 'Home', href: '#home' },
+    //   { name: 'Work', href: '#projects' },
+    //   { name: 'About', href: '#about' },
+    //   { name: 'Contact', href: '#contact' },
+    // ],
     Projects: [
       // { name: 'VR Experiences', href: '/projects' },
       // { name: 'UI/UX Design', href: '/projects' },
@@ -60,7 +60,7 @@ const Footer = () => {
             <p className="text-gray-400 mb-6">
               UI/UX Designer & Creative Developer crafting meaningful digital experiences.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
@@ -75,7 +75,7 @@ const Footer = () => {
                   <social.icon className="w-5 h-5" />
                 </motion.a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Footer Links */}
