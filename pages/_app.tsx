@@ -1,4 +1,5 @@
 // pages/_app.tsx
+
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
@@ -6,6 +7,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
 import { League_Spartan, Space_Grotesk } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react' // NEW: Added Vercel Analytics
 
 // Configure fonts
 const spartan = League_Spartan({
@@ -51,8 +53,9 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <main className={`${spartan.variable} ${spaceGrotesk.variable} font-sans`}>
+    <div className={`${spartan.variable} ${spaceGrotesk.variable} font-sans`}>
       <Component {...pageProps} />
-    </main>
+      <Analytics /> {/* Vercel Analytics component */}
+    </div>
   )
 }
