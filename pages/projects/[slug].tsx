@@ -19,7 +19,11 @@ function removeUndefinedDeep<T>(obj: T): T {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const all = [...projectsData.majorProjects, ...projectsData.otherWorks];
+  const all = [
+    ...projectsData.majorProjects,
+    ...projectsData.otherWorks,
+    ...projectsData.labWorks,
+  ];
   return {
     paths: all.map((p) => ({ params: { slug: p.id } })),
     fallback: false,
@@ -30,7 +34,11 @@ export const getStaticProps: GetStaticProps<{
   project: (typeof projectsData.majorProjects)[number];
 }> = async (ctx) => {
   const slug = ctx.params?.slug as string;
-  const all = [...projectsData.majorProjects, ...projectsData.otherWorks];
+  const all = [
+    ...projectsData.majorProjects,
+    ...projectsData.otherWorks,
+    ...projectsData.labWorks,
+  ];
   const project = all.find((p) => p.id === slug);
   if (!project) return { notFound: true };
 
