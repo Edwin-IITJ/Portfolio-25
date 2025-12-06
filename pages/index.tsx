@@ -47,7 +47,7 @@ export default function Home() {
     <>
       {/* SEO Meta Tags */}
       <Head>
-        <title>Edwin Meleth | Designer | UX/UI/XR</title>
+        <title>Edwin Meleth | Designer | UI/UX/XR</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
