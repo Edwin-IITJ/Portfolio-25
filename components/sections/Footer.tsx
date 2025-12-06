@@ -16,10 +16,11 @@ const Footer = () => {
       { name: 'Contact', href: '#contact' },
     ],
     Projects: [
-      { name: 'VR Experiences', href: '/projects' },
-      { name: 'UI/UX Design', href: '/projects' },
-      { name: 'Web Development', href: '/projects' },
-      { name: 'Case Studies', href: '/projects' },
+      // { name: 'VR Experiences', href: '/projects' },
+      // { name: 'UI/UX Design', href: '/projects' },
+      // { name: 'Web Development', href: '/projects' },
+      // { name: 'Case Studies', href: '/projects' },
+      { name: 'Design Projects', href: '/projects' },
     ],
     Connect: [
       { name: 'GitHub', href: 'https://github.com/Edwin-IITJ' },
