@@ -5,39 +5,39 @@
 
 export type ProjectMedia =
   | {
-      type: 'image';
-      src: string;
-      alt?: string;
-      width?: number;
-      height?: number;
-      priority?: boolean;
-      caption?: string;
-    }
+    type: 'image';
+    src: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    priority?: boolean;
+    caption?: string;
+  }
   | {
-      type: 'gif';
-      src: string;
-      alt?: string;
-      caption?: string;
-    }
+    type: 'gif';
+    src: string;
+    alt?: string;
+    caption?: string;
+  }
   | {
-      type: 'video';
-      // Current: MP4/H.264 with controls; future: HLS/DASH optional fields.
-      src: string;
-      poster?: string;
-      alt?: string;
-      controls?: boolean;
-      loop?: boolean;
-      muted?: boolean;
-      hlsSrc?: string; // future streaming
-      dashSrc?: string; // future streaming
-      caption?: string;
-    }
+    type: 'video';
+    // Current: MP4/H.264 with controls; future: HLS/DASH optional fields.
+    src: string;
+    poster?: string;
+    alt?: string;
+    controls?: boolean;
+    loop?: boolean;
+    muted?: boolean;
+    hlsSrc?: string; // future streaming
+    dashSrc?: string; // future streaming
+    caption?: string;
+  }
   | {
-      type: 'youtube';
-      videoId: string; // e.g., "dQw4w9WgXcQ"
-      title?: string;
-      caption?: string;
-    };
+    type: 'youtube';
+    videoId: string; // e.g., "dQw4w9WgXcQ"
+    title?: string;
+    caption?: string;
+  };
 
 export type Project = {
   id: string;
@@ -66,6 +66,7 @@ export type Project = {
 export type ProjectsData = {
   majorProjects: Project[];
   otherWorks: Project[];
+  labWorks: Project[];
 };
 
 // Import your existing JSON so all current projects are preserved.
@@ -154,7 +155,7 @@ function ensureProject(p: any): Project {
 function augmentContentMedia(p: Project): Project {
   // Example: Add special logic for specific projects if needed
   // For most projects, contentMedia is already in JSON, so just return as-is
-  
+
   // Uncomment below if you want to add special handling for specific projects:
   /*
   if (p.id === 'special-project') {
@@ -180,6 +181,7 @@ function augmentContentMedia(p: Project): Project {
 function normalizeData(input: any): ProjectsData {
   const majors = Array.isArray(input?.majorProjects) ? input.majorProjects : [];
   const others = Array.isArray(input?.otherWorks) ? input.otherWorks : [];
+  const labs = Array.isArray(input?.labWorks) ? input.labWorks : []; // NEW
 
   const majorProjects: Project[] = majors
     .map(ensureProject)
@@ -191,7 +193,12 @@ function normalizeData(input: any): ProjectsData {
     .map(rewritePaths)
     .map(augmentContentMedia);
 
-  return { majorProjects, otherWorks };
+  const labWorks: Project[] = labs
+    .map(ensureProject)
+    .map(rewritePaths)
+    .map(augmentContentMedia);
+
+  return { majorProjects, otherWorks, labWorks };
 }
 
 // Export the fully normalized, JSON-safe data.
@@ -204,6 +211,7 @@ export const projectsData: ProjectsData = normalizeData(raw);
 export const getAllProjects = (): Project[] => [
   ...projectsData.majorProjects,
   ...projectsData.otherWorks,
+  ...projectsData.labWorks,
 ];
 
 export const getProjectById = (id: string): Project | undefined =>

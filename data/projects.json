@@ -60,7 +60,7 @@
     {
       "id": "random-rampage",
       "title": "Random Rampage - VR Game",
-      "description": "VR boss-fight prototype created for the Appreciation of Gaming: Applications and Infrastructure XR module at IIT Jodhpur, featuring sword-based combat against mythic bosses.",
+      "description": "VR boss-fight prototype featuring sword-based combat against mythic bosses.",
       "fullDescription": "Designed and prototyped a room-scale VR fighting game where players study enemy strengths and weaknesses and defeat bosses using a sword in contained arenas. The process covered brainstorming, game design, a reward–punishment loop, character concepts blending Eastern and Western mythic cues, and a storyboard to structure levels. Delivered a Unity vertical slice for one level using free Sketchfab models and Freesound audio, paired with a hand-drawn title treatment and cut‑scene direction in a gritty calligraphic style. ",
       "category": "Game Design",
       "year": "2025",
@@ -243,8 +243,8 @@
     {
       "id": "who-vr",
       "title": "Who VR - VR Film",
-      "description": "A location-shot 360° VR documentary exploring identity and place through spatial storytelling and ambisonic sound.",
-      "fullDescription": "End‑to‑end production covering concept, script, character development, shot planning, on‑location filming on water and in mountain landscapes, and post that included stitching, editing, color, and a spatial audio mix; delivered as an immersive VR viewing experience with poster and deliverables documented.",
+      "description": "A location-shot 360° coming-of-age VR short film exploring the theme of solitude through spatial storytelling and sound.",
+      "fullDescription": "End‑to‑end production covering concept, script, character development, shot planning, on‑location filming on various locations, and post that included stitching, editing, color, and a spatial audio mix; delivered as an immersive VR viewing experience with poster and deliverables documented.",
       "category": "Immersive Media / VR Film",
       "year": "2025",
       "technologies": [
@@ -298,7 +298,7 @@
     {
       "id": "aruler-redesign",
       "title": "ARuler - Usability Engineering Study",
-      "description": "A usability engineering project analyzing and redesigning an AR measuring app for Android to improve user experience and interface clarity.",
+      "description": "A usability engineering project analyzing and redesigning an AR Ruler Android app to improve user experience and interface clarity.",
       "fullDescription": "ARuler is an augmented reality measuring tool built for Android devices using ARCore. This usability engineering study identified key usability issues through user testing, including confusing icons, unclear navigation, and poor labeling. The redesigned version proposed solutions like clearer iconography, undo and clear buttons, clipping microinteractions, and improved labeling to enhance intuitiveness and reduce task friction. The project involved pilot studies, pain point analysis, and iterative UI redesigns based on user feedback.",
       "category": "UX Research / Usability Engineering",
       "year": "2025",
@@ -458,6 +458,92 @@
       ]
     },
     {
+      "id": "mehndi",
+      "title": "Mehndi - Sand Animation",
+      "description": "An experimental sand animation film visualising a traditional Rajasthani folk song about longing, created through hand-crafted frame-by-frame processes.",
+      "category": "Animation / Visual Storytelling",
+      "year": "2025",
+      "technologies": [
+        "Figma",
+        "Adobe Premiere Pro",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/mehndi/cover.png",
+      "images": [
+        "/projects/mehndi/screenshot-1.jpg",
+        "/projects/mehndi/screenshot-2.jpg",
+        "/projects/mehndi/screenshot-3.jpg"
+      ],
+      "behanceUrl": "https://www.behance.net/gallery/239881955/Mehndi-Sand-Animation",
+      "featured": false,
+      "challenges": "Selecting a folk song that was emotionally powerful yet not widely known; navigating verse-by-verse translation from Marwari without any team members speaking the language; learning and controlling the sand medium for the first time under tight time constraints; coordinating a near 24-hour animation schedule with a single camera setup; and integrating live-action performance footage with abstract sand visuals in a coherent narrative flow.",
+      "solution": "Conducted field research at Mehrangarh Fort to collaborate directly with a traditional singer, recorded multiple performances, and shortlisted the song with the strongest emotional core. Developed storyboards for each verse and filler, drawing from mehndi motifs and Rajasthani visual traditions to ground the style. Set up a dark-room lightbox studio and worked in rotating shifts to keep animation continuous. Prioritized 'quality over quantity' by trimming weaker shots and focusing on clear, expressive movements. Intercut sand animation with performance footage of Pappu Ram to retain authenticity while enhancing the emotional arc.",
+      "results": "The teaser for Mehndi was screened at the end of Prof. Delwyn’s talk, “Hand-Crafted Animation,” at IIT Jodhpur, where it received strong audience appreciation. The project strengthened the team’s understanding of hand-made, analogue animation and the value of patience in frame-by-frame work. It also reinforced the importance of field research, collaboration with local artists, and embracing visible traces of the maker’s hand as an aesthetic strength in an era dominated by digital and AI-generated imagery.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part I.png",
+          "alt": "Mehndi documentation overview panel"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/mehndi/docs/mehnd1_f1.gif",
+          "alt": "Filler loop"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/mehndi/docs/mehnd1_f2_3.gif",
+          "alt": "Filler loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part II.png",
+          "alt": "Mehndi documentation section II"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part III.png",
+          "alt": "Mehndi documentation section III"
+        },
+        {
+          "type": "video",
+          "src": "/assets/projects/mehndi/video/Mehndi_teaser_lowres.mp4",
+          "poster": "/assets/projects/mehndi/cover/cover_alt.jpg",
+          "controls": true
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/ty.png",
+          "alt": "Thank You"
+        }
+      ]
+    },
+    {
+      "id": "this-website",
+      "title": "Personal Portfolio Website",
+      "description": "This very website - a modern portfolio built with Next.js and advanced animations.",
+      "fullDescription": "Designed and developed a personal portfolio website showcasing creative and technical projects.",
+      "category": "Vibe Coding",
+      "year": "2025",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion"
+      ],
+      "coverImage": "/projects/this-website/cover.png",
+      "images": [],
+      "projectUrl": "https://edwinm.vercel.app/",
+      "behanceUrl": "#",
+      "githubUrl": "https://github.com/Edwin-IITJ/Portfolio-25",
+      "featured": false,
+      "challenges": "Building a performant, visually appealing portfolio that effectively showcases diverse projects while maintaining fast load times.",
+      "solution": "Leveraged Next.js for server-side rendering, Tailwind for styling, and Framer Motion for smooth animations to create an engaging user experience.",
+      "results": "Successfully deployed a fast, responsive portfolio website that effectively presents projects and skills to potential collaborators and employers."
+    }
+  ],
+  "labWorks": [
+    {
       "id": "ghanta-ghar",
       "title": "Ghanta Ghar — Streets in Monochrome",
       "description": "A black and white street photography collection tracing light, shadow, and everyday rhythms around Ghanta Ghar, Jodhpur.",
@@ -530,90 +616,6 @@
           "type": "image",
           "src": "/assets/projects/ghanta-ghar/docs/GG Frame 11.png",
           "alt": "GG Frame 11"
-        }
-      ]
-    },
-    {
-      "id": "this-website",
-      "title": "Personal Portfolio Website",
-      "description": "This very website - a modern portfolio built with Next.js and advanced animations.",
-      "fullDescription": "Designed and developed a personal portfolio website showcasing creative and technical projects.",
-      "category": "Vibe Coding",
-      "year": "2025",
-      "technologies": [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Framer Motion"
-      ],
-      "coverImage": "/projects/this-website/cover.png",
-      "images": [],
-      "projectUrl": "https://edwinm.vercel.app/",
-      "behanceUrl": "#",
-      "githubUrl": "https://github.com/Edwin-IITJ/Portfolio-25",
-      "featured": false,
-      "challenges": "Building a performant, visually appealing portfolio that effectively showcases diverse projects while maintaining fast load times.",
-      "solution": "Leveraged Next.js for server-side rendering, Tailwind for styling, and Framer Motion for smooth animations to create an engaging user experience.",
-      "results": "Successfully deployed a fast, responsive portfolio website that effectively presents projects and skills to potential collaborators and employers."
-    },
-    {
-      "id": "mehndi",
-      "title": "Mehndi - Sand Animation",
-      "description": "An experimental sand animation film visualising a traditional Rajasthani folk song about longing, created through hand-crafted frame-by-frame processes.",
-      "category": "Animation / Visual Storytelling",
-      "year": "2025",
-      "technologies": [
-        "Figma",
-        "Adobe Premiere Pro",
-        "Photoshop"
-      ],
-      "coverImage": "/projects/mehndi/cover.png",
-      "images": [
-        "/projects/mehndi/screenshot-1.jpg",
-        "/projects/mehndi/screenshot-2.jpg",
-        "/projects/mehndi/screenshot-3.jpg"
-      ],
-      "behanceUrl": "https://www.behance.net/gallery/239881955/Mehndi-Sand-Animation",
-      "featured": false,
-      "challenges": "Selecting a folk song that was emotionally powerful yet not widely known; navigating verse-by-verse translation from Marwari without any team members speaking the language; learning and controlling the sand medium for the first time under tight time constraints; coordinating a near 24-hour animation schedule with a single camera setup; and integrating live-action performance footage with abstract sand visuals in a coherent narrative flow.",
-      "solution": "Conducted field research at Mehrangarh Fort to collaborate directly with a traditional singer, recorded multiple performances, and shortlisted the song with the strongest emotional core. Developed storyboards for each verse and filler, drawing from mehndi motifs and Rajasthani visual traditions to ground the style. Set up a dark-room lightbox studio and worked in rotating shifts to keep animation continuous. Prioritized 'quality over quantity' by trimming weaker shots and focusing on clear, expressive movements. Intercut sand animation with performance footage of Pappu Ram to retain authenticity while enhancing the emotional arc.",
-      "results": "The teaser for Mehndi was screened at the end of Prof. Delwyn’s talk, “Hand-Crafted Animation,” at IIT Jodhpur, where it received strong audience appreciation. The project strengthened the team’s understanding of hand-made, analogue animation and the value of patience in frame-by-frame work. It also reinforced the importance of field research, collaboration with local artists, and embracing visible traces of the maker’s hand as an aesthetic strength in an era dominated by digital and AI-generated imagery.",
-      "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part I.png",
-          "alt": "Mehndi documentation overview panel"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/mehndi/docs/mehnd1_f1.gif",
-          "alt": "Filler loop"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/mehndi/docs/mehnd1_f2_3.gif",
-          "alt": "Filler loop"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part II.png",
-          "alt": "Mehndi documentation section II"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part III.png",
-          "alt": "Mehndi documentation section III"
-        },
-        {
-          "type": "video",
-          "src": "/assets/projects/mehndi/video/Mehndi_teaser_lowres.mp4",
-          "poster": "/assets/projects/mehndi/cover/cover_alt.jpg",
-          "controls": true
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/mehndi/docs/ty.png",
-          "alt": "Thank You"
         }
       ]
     }
