@@ -4,7 +4,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   const siteUrl = "https://edwinm.vercel.app"; // keep in sync with deployment
   const title = "Edwin Meleth - Designer | UI/UX/XR";
-  const description = "Edwin Meleth is a UI/UX/Product Designer and Creative Developer specializing in immersive experiences, interaction design, and usable interfaces.";
+  const description = "Edwin Meleth is a UI/UX/XR Designer and Creative Developer specializing in immersive experiences, interaction design, and usable interfaces.";
   const ogImage = `${siteUrl}/og-image.png`; // Ensure this 1200x630px image exists in /public
 
   return (
