@@ -48,7 +48,7 @@ export default function Home() {
       {/* SEO Meta Tags */}
       <Head>
         <title>Edwin Meleth | Designer | UI/UX/XR</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Remove viewport - Next.js handles this automatically */}
       </Head>
 
       {/* Structured Data for Google */}
