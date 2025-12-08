@@ -23,12 +23,12 @@ export default function Document() {
 
         {/* Required Meta */}
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Remove viewport - Next.js handles this automatically */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#2563eb" /> {/* Your primary blue from tailwind.config */}
 
         {/* Primary SEO Meta Tags */}
-        <title>{title}</title>
+        {/* Remove title - set in individual pages instead */}
         <meta name="description" content={description} />
         <meta name="keywords" content="Edwin Meleth, UX Designer, UI Designer, VR Developer, Portfolio, Interaction Design, Game Design, Unreal Engine, Unity, Figma, User Experience, Virtual Reality" />
         <meta name="author" content="Edwin Meleth" />
