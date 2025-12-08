@@ -102,7 +102,7 @@ export default function ProjectPage({
         </motion.div> */}
 
         {/* Description */}
-        <motion.p variants={fadeIn} className="text-xl text-gray-600 mb-8 max-w-4xl">
+        <motion.p variants={fadeIn} className="text-xl text-gray-600 mb-8 max-w-7xl">
           {project.description}
         </motion.p>
 
