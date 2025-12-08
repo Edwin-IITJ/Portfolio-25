@@ -170,7 +170,7 @@ export default function ProjectPage({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="mt-8 grid gap-6 sm:grid-cols-3"
+          className="mt-8 grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto"
         >
           <motion.div variants={fadeInUp}>
             <h3 className="text-lg font-semibold mb-4">Category</h3>
