@@ -11,7 +11,7 @@ const BLUR_DATA_URL =
 
 export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8 space-y-10">
+    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
       {items.map((m, idx) => {
         if (m.type === 'image') {
           return (

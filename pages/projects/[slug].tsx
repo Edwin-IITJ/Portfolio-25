@@ -164,7 +164,7 @@ export default function ProjectPage({
       </motion.section>
 
       {/* Detailed meta grid (wide container) */}
-      <section className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
