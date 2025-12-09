@@ -58,6 +58,147 @@
       ]
     },
     {
+      "id": "digimal",
+      "title": "Digimal – XR Virtual Pet Experience",
+      "description": "An augmented reality (AR) virtual pet application designed to provide companionship and stress relief for users with lifestyle constraints.",
+      "fullDescription": "Digimal is an AR-based virtual pet application that allows users to adopt, nurture, and interact with lifelike virtual pets in their real-world environment. The app aims to foster emotional connection and responsibility without the challenges of real pet ownership. Users can experience companionship through engaging animations and interactive care mechanics, all within an immersive AR setting.",
+      "category": "XR Design",
+      "year": "2025",
+      "technologies": [
+        "Unity",
+        "Figma",
+        "Procreate",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/digimal/cover.png",
+      "images": [
+        "/projects/digimal/screenshot-1.jpg",
+        "/projects/digimal/screenshot-2.jpg",
+        "/projects/digimal/screenshot-3.jpg",
+        "/projects/digimal/screenshot-4.jpg"
+      ],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "featured": false,
+      "challenges": "Designing an engaging and emotionally resonant virtual pet experience that seamlessly integrates into the user's real-world environment, while ensuring intuitive interaction and maintaining user interest over time.",
+      "solution": "Developed a dynamic pet evolution system where the pet's growth and behavior are influenced by user interactions, including health and affection levels. Implemented AR technology to place the pet in the user's environment, enhancing immersion and fostering a sense of companionship.",
+      "results": "Successfully created a prototype that demonstrates the potential of AR in providing virtual companionship. The app's design encourages regular interaction, promoting emotional connection and stress relief for users with limited time or space for real pets.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal I.png",
+          "alt": "Digimal I"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal II.png",
+          "alt": "Digimal II"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/digimal/docs/Interaction.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal III.png",
+          "alt": "Digimal III"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/digimal/docs/Microinteraction.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal IV.png",
+          "alt": "Digimal IV"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/digimal/docs/Test.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal V.png",
+          "alt": "Digimal V"
+        },
+        {
+          "type": "youtube",
+          "videoId": "VEQ3JTu0XxY",
+          "title": "Digimal - Gameplay Video",
+          "caption": "Gameplay Video"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal VI.png",
+          "alt": "Digimal VI"
+        }
+      ]
+    },
+    {
+      "id": "mehndi",
+      "title": "Mehndi - Sand Animation",
+      "description": "An experimental sand animation film visualising a traditional Rajasthani folk song about longing, created through hand-crafted frame-by-frame processes.",
+      "category": "Animation / Visual Storytelling",
+      "year": "2025",
+      "technologies": [
+        "Figma",
+        "Adobe Premiere Pro",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/mehndi/cover.png",
+      "images": [
+        "/projects/mehndi/screenshot-1.jpg",
+        "/projects/mehndi/screenshot-2.jpg",
+        "/projects/mehndi/screenshot-3.jpg"
+      ],
+      "behanceUrl": "https://www.behance.net/gallery/239881955/Mehndi-Sand-Animation",
+      "featured": false,
+      "challenges": "Selecting a folk song that was emotionally powerful yet not widely known; navigating verse-by-verse translation from Marwari without any team members speaking the language; learning and controlling the sand medium for the first time under tight time constraints; coordinating a near 24-hour animation schedule with a single camera setup; and integrating live-action performance footage with abstract sand visuals in a coherent narrative flow.",
+      "solution": "Conducted field research at Mehrangarh Fort to collaborate directly with a traditional singer, recorded multiple performances, and shortlisted the song with the strongest emotional core. Developed storyboards for each verse and filler, drawing from mehndi motifs and Rajasthani visual traditions to ground the style. Set up a dark-room lightbox studio and worked in rotating shifts to keep animation continuous. Prioritized 'quality over quantity' by trimming weaker shots and focusing on clear, expressive movements. Intercut sand animation with performance footage of Pappu Ram to retain authenticity while enhancing the emotional arc.",
+      "results": "The teaser for Mehndi was screened at the end of Prof. Delwyn’s talk, “Hand-Crafted Animation,” at IIT Jodhpur, where it received strong audience appreciation. The project strengthened the team’s understanding of hand-made, analogue animation and the value of patience in frame-by-frame work. It also reinforced the importance of field research, collaboration with local artists, and embracing visible traces of the maker’s hand as an aesthetic strength in an era dominated by digital and AI-generated imagery.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part I.png",
+          "alt": "Mehndi documentation overview panel"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/mehndi/docs/mehnd1_f1.gif",
+          "alt": "Filler loop"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/mehndi/docs/mehnd1_f2_3.gif",
+          "alt": "Filler loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part II.png",
+          "alt": "Mehndi documentation section II"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part III.png",
+          "alt": "Mehndi documentation section III"
+        },
+        {
+          "type": "video",
+          "src": "/assets/projects/mehndi/video/Mehndi_teaser_lowres.mp4",
+          "poster": "/assets/projects/mehndi/cover/cover_alt.jpg",
+          "controls": true
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/mehndi/docs/ty.png",
+          "alt": "Thank You"
+        }
+      ]
+    },
+    {
       "id": "random-rampage",
       "title": "Random Rampage - VR Game",
       "description": "VR boss-fight prototype featuring sword-based combat against mythic bosses.",
@@ -155,86 +296,6 @@
           "type": "image",
           "src": "/assets/projects/random-rampage/docs/RR Section IX.png",
           "alt": "RR documentation section IX"
-        }
-      ]
-    },
-    {
-      "id": "digimal",
-      "title": "Digimal – XR Virtual Pet Experience",
-      "description": "An augmented reality (AR) virtual pet application designed to provide companionship and stress relief for users with lifestyle constraints.",
-      "fullDescription": "Digimal is an AR-based virtual pet application that allows users to adopt, nurture, and interact with lifelike virtual pets in their real-world environment. The app aims to foster emotional connection and responsibility without the challenges of real pet ownership. Users can experience companionship through engaging animations and interactive care mechanics, all within an immersive AR setting.",
-      "category": "XR Design",
-      "year": "2025",
-      "technologies": [
-        "Unity",
-        "Figma",
-        "Procreate",
-        "Photoshop"
-      ],
-      "coverImage": "/projects/digimal/cover.png",
-      "images": [
-        "/projects/digimal/screenshot-1.jpg",
-        "/projects/digimal/screenshot-2.jpg",
-        "/projects/digimal/screenshot-3.jpg",
-        "/projects/digimal/screenshot-4.jpg"
-      ],
-      "projectUrl": "#",
-      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
-      "featured": false,
-      "challenges": "Designing an engaging and emotionally resonant virtual pet experience that seamlessly integrates into the user's real-world environment, while ensuring intuitive interaction and maintaining user interest over time.",
-      "solution": "Developed a dynamic pet evolution system where the pet's growth and behavior are influenced by user interactions, including health and affection levels. Implemented AR technology to place the pet in the user's environment, enhancing immersion and fostering a sense of companionship.",
-      "results": "Successfully created a prototype that demonstrates the potential of AR in providing virtual companionship. The app's design encourages regular interaction, promoting emotional connection and stress relief for users with limited time or space for real pets.",
-      "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal I.png",
-          "alt": "Digimal I"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal II.png",
-          "alt": "Digimal II"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/digimal/docs/Interaction.gif",
-          "alt": "Interaction loop"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal III.png",
-          "alt": "Digimal III"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/digimal/docs/Microinteraction.gif",
-          "alt": "Interaction loop"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal IV.png",
-          "alt": "Digimal IV"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/digimal/docs/Test.gif",
-          "alt": "Interaction loop"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal V.png",
-          "alt": "Digimal V"
-        },
-        {
-          "type": "youtube",
-          "videoId": "VEQ3JTu0XxY",
-          "title": "Digimal - Gameplay Video",
-          "caption": "Gameplay Video"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal VI.png",
-          "alt": "Digimal VI"
         }
       ]
     }
@@ -454,67 +515,6 @@
           "type": "image",
           "src": "/assets/projects/aruler-redesign/docs/Frame-27.png",
           "alt": "ARuler Frame 27"
-        }
-      ]
-    },
-    {
-      "id": "mehndi",
-      "title": "Mehndi - Sand Animation",
-      "description": "An experimental sand animation film visualising a traditional Rajasthani folk song about longing, created through hand-crafted frame-by-frame processes.",
-      "category": "Animation / Visual Storytelling",
-      "year": "2025",
-      "technologies": [
-        "Figma",
-        "Adobe Premiere Pro",
-        "Photoshop"
-      ],
-      "coverImage": "/projects/mehndi/cover.png",
-      "images": [
-        "/projects/mehndi/screenshot-1.jpg",
-        "/projects/mehndi/screenshot-2.jpg",
-        "/projects/mehndi/screenshot-3.jpg"
-      ],
-      "behanceUrl": "https://www.behance.net/gallery/239881955/Mehndi-Sand-Animation",
-      "featured": false,
-      "challenges": "Selecting a folk song that was emotionally powerful yet not widely known; navigating verse-by-verse translation from Marwari without any team members speaking the language; learning and controlling the sand medium for the first time under tight time constraints; coordinating a near 24-hour animation schedule with a single camera setup; and integrating live-action performance footage with abstract sand visuals in a coherent narrative flow.",
-      "solution": "Conducted field research at Mehrangarh Fort to collaborate directly with a traditional singer, recorded multiple performances, and shortlisted the song with the strongest emotional core. Developed storyboards for each verse and filler, drawing from mehndi motifs and Rajasthani visual traditions to ground the style. Set up a dark-room lightbox studio and worked in rotating shifts to keep animation continuous. Prioritized 'quality over quantity' by trimming weaker shots and focusing on clear, expressive movements. Intercut sand animation with performance footage of Pappu Ram to retain authenticity while enhancing the emotional arc.",
-      "results": "The teaser for Mehndi was screened at the end of Prof. Delwyn’s talk, “Hand-Crafted Animation,” at IIT Jodhpur, where it received strong audience appreciation. The project strengthened the team’s understanding of hand-made, analogue animation and the value of patience in frame-by-frame work. It also reinforced the importance of field research, collaboration with local artists, and embracing visible traces of the maker’s hand as an aesthetic strength in an era dominated by digital and AI-generated imagery.",
-      "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part I.png",
-          "alt": "Mehndi documentation overview panel"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/mehndi/docs/mehnd1_f1.gif",
-          "alt": "Filler loop"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/mehndi/docs/mehnd1_f2_3.gif",
-          "alt": "Filler loop"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part II.png",
-          "alt": "Mehndi documentation section II"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part III.png",
-          "alt": "Mehndi documentation section III"
-        },
-        {
-          "type": "video",
-          "src": "/assets/projects/mehndi/video/Mehndi_teaser_lowres.mp4",
-          "poster": "/assets/projects/mehndi/cover/cover_alt.jpg",
-          "controls": true
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/mehndi/docs/ty.png",
-          "alt": "Thank You"
         }
       ]
     }
