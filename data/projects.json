@@ -155,7 +155,7 @@
         "/projects/mehndi/screenshot-3.jpg"
       ],
       "behanceUrl": "https://www.behance.net/gallery/239881955/Mehndi-Sand-Animation",
-      "featured": false,
+      "featured": true,
       "challenges": "Selecting a folk song that was emotionally powerful yet not widely known; navigating verse-by-verse translation from Marwari without any team members speaking the language; learning and controlling the sand medium for the first time under tight time constraints; coordinating a near 24-hour animation schedule with a single camera setup; and integrating live-action performance footage with abstract sand visuals in a coherent narrative flow.",
       "solution": "Conducted field research at Mehrangarh Fort to collaborate directly with a traditional singer, recorded multiple performances, and shortlisted the song with the strongest emotional core. Developed storyboards for each verse and filler, drawing from mehndi motifs and Rajasthani visual traditions to ground the style. Set up a dark-room lightbox studio and worked in rotating shifts to keep animation continuous. Prioritized 'quality over quantity' by trimming weaker shots and focusing on clear, expressive movements. Intercut sand animation with performance footage of Pappu Ram to retain authenticity while enhancing the emotional arc.",
       "results": "The teaser for Mehndi was screened at the end of Prof. Delwyn’s talk, “Hand-Crafted Animation,” at IIT Jodhpur, where it received strong audience appreciation. The project strengthened the team’s understanding of hand-made, analogue animation and the value of patience in frame-by-frame work. It also reinforced the importance of field research, collaboration with local artists, and embracing visible traces of the maker’s hand as an aesthetic strength in an era dominated by digital and AI-generated imagery.",
@@ -220,7 +220,7 @@
       ],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/your-project-id",
-      "featured": true,
+      "featured": false,
       "challenges": "Designing unique boss behaviors and balancing difficulty progression in a VR environment while minimizing motion sickness and ensuring performance with free assets.",
       "solution": "Implemented a tunnel vision effect during movement, defined a clear reward–punishment loop, gave each boss distinct strengths/weaknesses, constrained arenas for readability, and tuned timing for sword attacks and counters",
       "results": "Successfully developed and showcased a full prototype level with functioning combat mechanics, environmental storytelling, and a stylized visual identity. Received positive feedback from academic reviewers and peers for creative world-building and immersion.",
