@@ -78,7 +78,7 @@
         "/projects/digimal/screenshot-4.jpg"
       ],
       "projectUrl": "#",
-      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "behanceUrl": "https://www.behance.net/gallery/219805115/Digimal-XR-Project",
       "featured": false,
       "challenges": "Designing an engaging and emotionally resonant virtual pet experience that seamlessly integrates into the user's real-world environment, while ensuring intuitive interaction and maintaining user interest over time.",
       "solution": "Developed a dynamic pet evolution system where the pet's growth and behavior are influenced by user interactions, including health and affection levels. Implemented AR technology to place the pet in the user's environment, enhancing immersion and fostering a sense of companionship.",
@@ -219,7 +219,7 @@
         "/projects/random-rampage/screenshot-2.jpg"
       ],
       "projectUrl": "#",
-      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "behanceUrl": "https://www.behance.net/gallery/221480197/Random-Rampage-Game-Design",
       "featured": false,
       "challenges": "Designing unique boss behaviors and balancing difficulty progression in a VR environment while minimizing motion sickness and ensuring performance with free assets.",
       "solution": "Implemented a tunnel vision effect during movement, defined a clear reward–punishment loop, gave each boss distinct strengths/weaknesses, constrained arenas for readability, and tuned timing for sword attacks and counters",
@@ -533,7 +533,7 @@
       "coverImage": "/projects/ghanta-ghar/cover.jpg",
       "images": [],
       "projectUrl": "#",
-      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "behanceUrl": "https://www.behance.net/gallery/224496345/Lights-Sound-Camera",
       "featured": false,
       "challenges": "Capturing the essence of Jodhpur's streets in monochrome while maintaining narrative depth and compositional interest.",
       "solution": "Focused on high-contrast lighting, leading lines, and negative space to create visually striking images that tell stories of everyday life.",
@@ -593,6 +593,28 @@
           "type": "image",
           "src": "/assets/projects/ghanta-ghar/docs/GG Frame 11.png",
           "alt": "GG Frame 11"
+        }
+      ]
+    },
+        {
+      "id": "fashion-in-motion",
+      "title": "Fashion In Motion",
+      "description": "A black and white street photography collection tracing light, shadow, and everyday rhythms around Ghanta Ghar, Jodhpur.",
+      "category": "Photography",
+      "year": "2025",
+      "technologies": [
+        "Photoshop"
+      ],
+      "coverImage": "/projects/fashion-in-motion/cover.png",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/fashion-in-motion/docs/FiM_1.png",
+          "alt": "FiM_1"
         }
       ]
     },
