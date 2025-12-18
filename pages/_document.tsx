@@ -26,6 +26,7 @@ export default function Document() {
         {/* Remove viewport - Next.js handles this automatically */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#2563eb" /> {/* Your primary blue from tailwind.config */}
+        <meta name="google-site-verification" content="cLOLJFWh4q8ds2XP2dt-gBwKDEybnqdnYIGPPp01P1g" />
 
         {/* Primary SEO Meta Tags */}
         {/* Remove title - set in individual pages instead */}
