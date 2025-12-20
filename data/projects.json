@@ -517,6 +517,28 @@
           "alt": "ARuler Frame 27"
         }
       ]
+    },
+    {
+      "id": "shape-chase",
+      "title": "Shape Chase: Zero-Cost Playground  Game",
+      "description": "A low-cost, movement-based educational game designed for 5th standard students that turns NCERT geometry concepts on shapes and angles into an engaging playground experience through play, reasoning, and physical interaction.",
+      "category": "Educational Game Design/Low-Resource Design",
+      "year": "2025",
+      "technologies": [
+        "Photoshop"
+      ],
+      "coverImage": "/projects/shape-chase/cover.png",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/shape-chase/docs/SC-1.png",
+          "alt": "SC-1"
+        }
+      ]
     }
   ],
   "labWorks": [
@@ -596,7 +618,7 @@
         }
       ]
     },
-        {
+    {
       "id": "fashion-in-motion",
       "title": "Fashion In Motion",
       "description": "A six-image fashion series that visually tracks a character’s descent from reality into psychedelic chaos, using surreal settings, distorted forms, and unrestrained styling to depict an unhinged state of mind.",
