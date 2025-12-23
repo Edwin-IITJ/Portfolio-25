@@ -199,164 +199,6 @@
       ]
     },
     {
-      "id": "random-rampage",
-      "title": "Random Rampage - VR Game",
-      "description": "VR boss-fight prototype featuring sword-based combat against mythic bosses.",
-      "fullDescription": "Designed and prototyped a room-scale VR fighting game where players study enemy strengths and weaknesses and defeat bosses using a sword in contained arenas. The process covered brainstorming, game design, a reward–punishment loop, character concepts blending Eastern and Western mythic cues, and a storyboard to structure levels. Delivered a Unity vertical slice for one level using free Sketchfab models and Freesound audio, paired with a hand-drawn title treatment and cut‑scene direction in a gritty calligraphic style. ",
-      "category": "Game Design",
-      "year": "2025",
-      "technologies": [
-        "Unity",
-        "Procreate",
-        "Figma",
-        "DaVinci Resolve",
-        "C#",
-        "Photoshop"
-      ],
-      "coverImage": "/projects/random-rampage/cover.jpg",
-      "images": [
-        "/projects/random-rampage/screenshot-1.jpg",
-        "/projects/random-rampage/screenshot-2.jpg"
-      ],
-      "projectUrl": "#",
-      "behanceUrl": "https://www.behance.net/gallery/221480197/Random-Rampage-Game-Design",
-      "featured": false,
-      "challenges": "Designing unique boss behaviors and balancing difficulty progression in a VR environment while minimizing motion sickness and ensuring performance with free assets.",
-      "solution": "Implemented a tunnel vision effect during movement, defined a clear reward–punishment loop, gave each boss distinct strengths/weaknesses, constrained arenas for readability, and tuned timing for sword attacks and counters",
-      "results": "Successfully developed and showcased a full prototype level with functioning combat mechanics, environmental storytelling, and a stylized visual identity. Received positive feedback from academic reviewers and peers for creative world-building and immersion.",
-      "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section I.jpg",
-          "alt": "RR documentation section I"
-        },
-        {
-          "type": "youtube",
-          "videoId": "yqXhTjSnK6c",
-          "title": "Random Rampage - Teaser",
-          "caption": "Teaser"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section II.png",
-          "alt": "RR documentation section II"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section III.png",
-          "alt": "RR documentation section III"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section IV.png",
-          "alt": "RR documentation section IV"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/random-rampage/docs/TunnelVision.gif",
-          "alt": "TunnelVision"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section V.png",
-          "alt": "RR documentation section V"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/random-rampage/docs/EnemyDamage.gif",
-          "alt": "EnemyDamage"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section VI.png",
-          "alt": "RR documentation section VI"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/random-rampage/docs/EnemyAggress.gif",
-          "alt": "EnemyAggress"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section VII.png",
-          "alt": "RR documentation section VII"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section VIII.png",
-          "alt": "RR documentation section VIII"
-        },
-        {
-          "type": "youtube",
-          "videoId": "met__Lo8tMY",
-          "title": "Random Rampage - Gameplay Video",
-          "caption": "Gameplay Video"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/random-rampage/docs/RR Section IX.png",
-          "alt": "RR documentation section IX"
-        }
-      ]
-    }
-  ],
-  "otherWorks": [
-    {
-      "id": "who-vr",
-      "title": "Who VR - VR Film",
-      "description": "A location-shot 360° coming-of-age VR short film exploring the theme of solitude through spatial storytelling and sound.",
-      "fullDescription": "End‑to‑end production covering concept, script, character development, shot planning, on‑location filming on various locations, and post that included stitching, editing, color, and a spatial audio mix; delivered as an immersive VR viewing experience with poster and deliverables documented.",
-      "category": "Immersive Media / VR Film",
-      "year": "2025",
-      "technologies": [
-        "Photoshop",
-        "Insta360 Studio",
-        "Premiere Pro"
-      ],
-      "coverImage": "/projects/who-vr/cover.jpg",
-      "images": [],
-      "projectUrl": "#",
-      "behanceUrl": "https://www.behance.net/gallery/226515375/Who-VR-A-VR-Short-Film",
-      "featured": false,
-      "challenges": "Maintaining viewer comfort and horizon stability during moving platform shots, handling stitch seams and exposure shifts, and capturing clean location audio in busy outdoor settings.",
-      "solution": "Previsualized shot types and lighting plans guided stable monopod placements, while an ambisonic workflow and careful post stitching/color balanced the scenes for immersive presence.",
-      "results": "A cohesive VR documentary slice with clear narrative beats, lake‑side visuals, thorough storyboard coverage, and spatial audio that anchors attention and presence throughout the experience.",
-      "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/who-vr/docs/Who VR Section I.png",
-          "alt": "Who VR documentation"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/who-vr/docs/Who VR - Teaser.png",
-          "alt": "Who VR documentation section II"
-        },
-        {
-          "type": "youtube",
-          "videoId": "Yr2jwTDvUlI",
-          "title": "Who VR - Teaser ",
-          "caption": "Teaser"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/who-vr/docs/Who VR - YT.png",
-          "alt": "Who VR documentation section III"
-        },
-        {
-          "type": "youtube",
-          "videoId": "fIXPMuOx_Io",
-          "title": "WhoVR - VR 360° Short Film",
-          "caption": "Full Film"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/who-vr/docs/Who VR - Thank you.png",
-          "alt": "Who VR documentation section IV"
-        }
-      ]
-    },
-    {
       "id": "aruler-redesign",
       "title": "ARuler - Usability Engineering Study",
       "description": "A usability engineering project analyzing and redesigning an AR Ruler Android app to improve user experience and interface clarity.",
@@ -519,6 +361,164 @@
       ]
     },
     {
+      "id": "random-rampage",
+      "title": "Random Rampage - VR Game",
+      "description": "VR boss-fight prototype featuring sword-based combat against mythic bosses.",
+      "fullDescription": "Designed and prototyped a room-scale VR fighting game where players study enemy strengths and weaknesses and defeat bosses using a sword in contained arenas. The process covered brainstorming, game design, a reward–punishment loop, character concepts blending Eastern and Western mythic cues, and a storyboard to structure levels. Delivered a Unity vertical slice for one level using free Sketchfab models and Freesound audio, paired with a hand-drawn title treatment and cut‑scene direction in a gritty calligraphic style. ",
+      "category": "Game Design",
+      "year": "2025",
+      "technologies": [
+        "Unity",
+        "Procreate",
+        "Figma",
+        "DaVinci Resolve",
+        "C#",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/random-rampage/cover.jpg",
+      "images": [
+        "/projects/random-rampage/screenshot-1.jpg",
+        "/projects/random-rampage/screenshot-2.jpg"
+      ],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/221480197/Random-Rampage-Game-Design",
+      "featured": false,
+      "challenges": "Designing unique boss behaviors and balancing difficulty progression in a VR environment while minimizing motion sickness and ensuring performance with free assets.",
+      "solution": "Implemented a tunnel vision effect during movement, defined a clear reward–punishment loop, gave each boss distinct strengths/weaknesses, constrained arenas for readability, and tuned timing for sword attacks and counters",
+      "results": "Successfully developed and showcased a full prototype level with functioning combat mechanics, environmental storytelling, and a stylized visual identity. Received positive feedback from academic reviewers and peers for creative world-building and immersion.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section I.jpg",
+          "alt": "RR documentation section I"
+        },
+        {
+          "type": "youtube",
+          "videoId": "yqXhTjSnK6c",
+          "title": "Random Rampage - Teaser",
+          "caption": "Teaser"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section II.png",
+          "alt": "RR documentation section II"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section III.png",
+          "alt": "RR documentation section III"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section IV.png",
+          "alt": "RR documentation section IV"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/random-rampage/docs/TunnelVision.gif",
+          "alt": "TunnelVision"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section V.png",
+          "alt": "RR documentation section V"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/random-rampage/docs/EnemyDamage.gif",
+          "alt": "EnemyDamage"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section VI.png",
+          "alt": "RR documentation section VI"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/random-rampage/docs/EnemyAggress.gif",
+          "alt": "EnemyAggress"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section VII.png",
+          "alt": "RR documentation section VII"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section VIII.png",
+          "alt": "RR documentation section VIII"
+        },
+        {
+          "type": "youtube",
+          "videoId": "met__Lo8tMY",
+          "title": "Random Rampage - Gameplay Video",
+          "caption": "Gameplay Video"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/random-rampage/docs/RR Section IX.png",
+          "alt": "RR documentation section IX"
+        }
+      ]
+    }
+  ],
+  "otherWorks": [
+    {
+      "id": "who-vr",
+      "title": "Who VR - VR Film",
+      "description": "A location-shot 360° coming-of-age VR short film exploring the theme of solitude through spatial storytelling and sound.",
+      "fullDescription": "End‑to‑end production covering concept, script, character development, shot planning, on‑location filming on various locations, and post that included stitching, editing, color, and a spatial audio mix; delivered as an immersive VR viewing experience with poster and deliverables documented.",
+      "category": "Immersive Media / VR Film",
+      "year": "2025",
+      "technologies": [
+        "Photoshop",
+        "Insta360 Studio",
+        "Premiere Pro"
+      ],
+      "coverImage": "/projects/who-vr/cover.jpg",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/226515375/Who-VR-A-VR-Short-Film",
+      "featured": false,
+      "challenges": "Maintaining viewer comfort and horizon stability during moving platform shots, handling stitch seams and exposure shifts, and capturing clean location audio in busy outdoor settings.",
+      "solution": "Previsualized shot types and lighting plans guided stable monopod placements, while an ambisonic workflow and careful post stitching/color balanced the scenes for immersive presence.",
+      "results": "A cohesive VR documentary slice with clear narrative beats, lake‑side visuals, thorough storyboard coverage, and spatial audio that anchors attention and presence throughout the experience.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/who-vr/docs/Who VR Section I.png",
+          "alt": "Who VR documentation"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/who-vr/docs/Who VR - Teaser.png",
+          "alt": "Who VR documentation section II"
+        },
+        {
+          "type": "youtube",
+          "videoId": "Yr2jwTDvUlI",
+          "title": "Who VR - Teaser ",
+          "caption": "Teaser"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/who-vr/docs/Who VR - YT.png",
+          "alt": "Who VR documentation section III"
+        },
+        {
+          "type": "youtube",
+          "videoId": "fIXPMuOx_Io",
+          "title": "WhoVR - VR 360° Short Film",
+          "caption": "Full Film"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/who-vr/docs/Who VR - Thank you.png",
+          "alt": "Who VR documentation section IV"
+        }
+      ]
+    },
+    {
       "id": "shape-chase",
       "title": "Shape Chase: Zero-Cost Playground  Game",
       "description": "A low-cost, movement-based educational game designed for 5th standard students that turns NCERT geometry concepts on shapes and angles into an engaging playground experience through play, reasoning, and physical interaction.",
@@ -537,6 +537,28 @@
           "type": "image",
           "src": "/assets/projects/shape-chase/docs/SC-1.png",
           "alt": "SC-1"
+        }
+      ]
+    },
+    {
+      "id": "fashion-in-motion",
+      "title": "Fashion In Motion",
+      "description": "A six-image fashion series that visually tracks a character’s descent from reality into psychedelic chaos, using surreal settings, distorted forms, and unrestrained styling to depict an unhinged state of mind.",
+      "category": "Photography",
+      "year": "2025",
+      "technologies": [
+        "Lightroom"
+      ],
+      "coverImage": "/projects/fashion-in-motion/cover.png",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/fashion-in-motion/docs/FiM_1.png",
+          "alt": "FiM_1"
         }
       ]
     }
@@ -615,28 +637,6 @@
           "type": "image",
           "src": "/assets/projects/ghanta-ghar/docs/GG Frame 11.png",
           "alt": "GG Frame 11"
-        }
-      ]
-    },
-    {
-      "id": "fashion-in-motion",
-      "title": "Fashion In Motion",
-      "description": "A six-image fashion series that visually tracks a character’s descent from reality into psychedelic chaos, using surreal settings, distorted forms, and unrestrained styling to depict an unhinged state of mind.",
-      "category": "Photography",
-      "year": "2025",
-      "technologies": [
-        "Lightroom"
-      ],
-      "coverImage": "/projects/fashion-in-motion/cover.png",
-      "images": [],
-      "projectUrl": "#",
-      "behanceUrl": "https://www.behance.net/gallery/your-project-id",
-      "featured": false,
-      "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/fashion-in-motion/docs/FiM_1.png",
-          "alt": "FiM_1"
         }
       ]
     },
