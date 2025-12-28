@@ -201,7 +201,7 @@
     {
       "id": "aruler-redesign",
       "title": "ARuler - Usability Engineering Study",
-      "description": "A usability engineering project analyzing and redesigning an AR Ruler Android app to improve user experience and interface clarity.",
+      "description": "A usability engineering project analyzing and redesigning an ARuler Android app to improve user experience and interface clarity.",
       "fullDescription": "ARuler is an augmented reality measuring tool built for Android devices using ARCore. This usability engineering study identified key usability issues through user testing, including confusing icons, unclear navigation, and poor labeling. The redesigned version proposed solutions like clearer iconography, undo and clear buttons, clipping microinteractions, and improved labeling to enhance intuitiveness and reduce task friction. The project involved pilot studies, pain point analysis, and iterative UI redesigns based on user feedback.",
       "category": "UX Research / Usability Engineering",
       "year": "2025",
