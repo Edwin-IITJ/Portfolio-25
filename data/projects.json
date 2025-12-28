@@ -541,6 +541,29 @@
       ]
     },
     {
+      "id": "rasta-la-vista",
+      "title": "Rasta La Vista: Board Game",
+      "description": "A modular, hex-tile board game that teaches players of all ages how to plan travel across India by simulating real public transport trade-offs through strategic route building and resource management.",
+      "category": "Board Game Design",
+      "year": "2025",
+      "technologies": [
+        "Figma",
+        "Photoshop"
+      ],
+      "coverImage": "/projects/rasta-la-vista/cover.png",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/241145563/Rasta-La-Vista-Board-Game",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/rasta-la-vista/docs/RLV-1.png",
+          "alt": "RLV-1"
+        }
+      ]
+    },
+    {
       "id": "fashion-in-motion",
       "title": "Fashion In Motion",
       "description": "A six-image fashion series that visually tracks a character’s descent from reality into psychedelic chaos, using surreal settings, distorted forms, and unrestrained styling to depict an unhinged state of mind.",
