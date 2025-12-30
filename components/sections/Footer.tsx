@@ -24,7 +24,7 @@ const Footer = () => {
     ],
     Connect: [
       { name: 'GitHub', href: 'https://github.com/Edwin-IITJ' },
-      { name: 'LinkedIn', href: 'https://linkedin.com/in/edwinmeleth' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/in/edwinmeleth' },
       // { name: 'Behance', href: 'https://behance.net/edwin_m' },
       { name: 'Email', href: 'mailto:m24ldx008@iitj.ac.in' },
     ],
@@ -32,7 +32,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Edwin-IITJ', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:m24ldx008@iitj.ac.in', label: 'Email' },
   ]
 

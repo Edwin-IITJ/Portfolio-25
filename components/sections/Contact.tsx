@@ -76,7 +76,7 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Edwin-IITJ', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
     // { icon: Twitter, href: 'https://twitter.com/yourusername', label: 'Twitter' },
   ]
 

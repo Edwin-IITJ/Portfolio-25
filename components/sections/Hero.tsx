@@ -39,7 +39,7 @@ const Hero = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Edwin-IITJ', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:m24ldx008@iitj.ac.in', label: 'Email' },
   ]
 
