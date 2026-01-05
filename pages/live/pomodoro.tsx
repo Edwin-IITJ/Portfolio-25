@@ -358,7 +358,7 @@ export default function PomodoroTimer() {
                                 {/* Running indicator */}
                                 {isRunning && (
                                     <motion.div
-                                        className="absolute bottom-20 left-1/2 -translate-x-1/2"
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                     >
