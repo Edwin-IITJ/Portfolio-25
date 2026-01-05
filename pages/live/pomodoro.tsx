@@ -151,9 +151,9 @@ export default function PomodoroTimer() {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        // Get current pointer position
-        const clientX = 'touches' in event ? event.touches[0].clientX : (event as MouseEvent).clientX;
-        const clientY = 'touches' in event ? event.touches[0].clientY : (event as MouseEvent).clientY;
+        // Get current pointer position using Framer Motion's info.point (works for both mouse and touch)
+        const clientX = info.point.x;
+        const clientY = info.point.y;
 
         // Calculate angle from center
         const angle = Math.atan2(clientY - centerY, clientX - centerX) * (180 / Math.PI) + 90;
@@ -290,7 +290,7 @@ export default function PomodoroTimer() {
                     {/* Timer Dial - Braun/Bauhaus Style with Gesture */}
                     <motion.div
                         ref={dialRef}
-                        className="relative mb-16 cursor-grab active:cursor-grabbing select-none"
+                        className="relative mb-16 cursor-grab active:cursor-grabbing select-none touch-none"
                         onPanStart={handleWindStart}
                         onPan={handleWindDrag}
                         onPanEnd={handleWindEnd}
