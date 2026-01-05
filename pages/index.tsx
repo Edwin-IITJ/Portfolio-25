@@ -44,10 +44,10 @@ export default function Home() {
       setMinTimeElapsed(true)
     }, 2000)
 
-    // 2. Maximum safety timeout (5s) - prevents infinite loading if WebGL fails
+    // 2. Maximum safety timeout (3s) - prevents infinite loading if WebGL fails
     const maxTimer = setTimeout(() => {
       setAssetsLoaded(true)
-    }, 5000)
+    }, 3000)
 
     return () => {
       clearTimeout(minTimer)
