@@ -241,7 +241,7 @@ export default function PomodoroTimer() {
                 style={{ backgroundColor: config.color }}
             >
                 {/* Header */}
-                <header className="w-full max-w-4xl mx-auto px-6 py-8 flex justify-between items-center">
+                <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
                     <Link href="/projects" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors group">
                         <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                         <span className="font-medium">Back to Projects</span>
