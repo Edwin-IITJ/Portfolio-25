@@ -59,6 +59,10 @@ export type Project = {
   solution?: string;
   results?: string;
 
+  // Live project fields (for embedded interactive projects):
+  isLiveProject?: boolean;
+  liveProjectPath?: string;
+
   // Behance-style long-form documentation sequence:
   contentMedia?: ProjectMedia[];
 };
@@ -139,6 +143,10 @@ function ensureProject(p: any): Project {
     challenges: p.challenges ? String(p.challenges) : undefined,
     solution: p.solution ? String(p.solution) : undefined,
     results: p.results ? String(p.results) : undefined,
+
+    // Live project fields
+    isLiveProject: typeof p.isLiveProject === 'boolean' ? p.isLiveProject : undefined,
+    liveProjectPath: p.liveProjectPath ? String(p.liveProjectPath) : undefined,
 
     // ContentMedia now comes directly from JSON
     contentMedia: Array.isArray(p.contentMedia)

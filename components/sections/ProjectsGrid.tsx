@@ -65,8 +65,8 @@ const ProjectsGrid = () => {
           <button
             onClick={() => setActiveTab('major')}
             className={`px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-300 ${activeTab === 'major'
-                ? 'bg-primary-600 text-white shadow-md'
-                : 'text-gray-600 hover:text-primary-600'
+              ? 'bg-primary-600 text-white shadow-md'
+              : 'text-gray-600 hover:text-primary-600'
               }`}
           >
             Major Projects
@@ -74,8 +74,8 @@ const ProjectsGrid = () => {
           <button
             onClick={() => setActiveTab('other')}
             className={`px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-300 ${activeTab === 'other'
-                ? 'bg-primary-600 text-white shadow-md'
-                : 'text-gray-600 hover:text-primary-600'
+              ? 'bg-primary-600 text-white shadow-md'
+              : 'text-gray-600 hover:text-primary-600'
               }`}
           >
             Other Works
@@ -83,8 +83,8 @@ const ProjectsGrid = () => {
           <button
             onClick={() => setActiveTab('lab')}
             className={`px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-300 ${activeTab === 'lab'
-                ? 'bg-primary-600 text-white shadow-md'
-                : 'text-gray-600 hover:text-primary-600'
+              ? 'bg-primary-600 text-white shadow-md'
+              : 'text-gray-600 hover:text-primary-600'
               }`}
           >
             Lab
@@ -104,7 +104,7 @@ const ProjectsGrid = () => {
         >
           {projects.map((project) => (
             <motion.div key={project.id} variants={itemVariants}>
-              <Link href={`/projects/${project.id}`}>
+              <Link href={project.isLiveProject && project.liveProjectPath ? project.liveProjectPath : `/projects/${project.id}`}>
                 <Card hover className="group cursor-pointer overflow-hidden h-full hover:shadow-2xl transition-shadow duration-300">
                   {/* Project Image */}
                   <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden bg-gray-100">
@@ -126,6 +126,17 @@ const ProjectsGrid = () => {
                         <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
+
+                    {/* Live Project Badge */}
+                    {project.isLiveProject && (
+                      <div className="absolute top-4 left-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg flex items-center gap-1.5">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                        </span>
+                        LIVE
+                      </div>
+                    )}
 
                     {/* Featured Badge */}
                     {project.featured && (
