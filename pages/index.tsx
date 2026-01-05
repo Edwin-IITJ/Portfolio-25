@@ -22,17 +22,46 @@ const BackgroundCanvas = dynamic(
 export default function Home() {
   const [loading, setLoading] = useState(true)
   const [mounted, setMounted] = useState(false)
+  const [assetsLoaded, setAssetsLoaded] = useState(false)
+  const [minTimeElapsed, setMinTimeElapsed] = useState(false)
 
   useEffect(() => {
     setMounted(true)
 
-    // Simulate loading time for assets
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 2500)
+    // Check if we've already loaded this session to skip animation
+    const hasLoaded = sessionStorage.getItem('hasVisited')
 
-    return () => clearTimeout(timer)
+    if (hasLoaded) {
+      setLoading(false)
+      // If already visited, we assume "assets loaded" state for logic consistency
+      setAssetsLoaded(true)
+      setMinTimeElapsed(true)
+      return
+    }
+
+    // 1. Minimum branding time (2s)
+    const minTimer = setTimeout(() => {
+      setMinTimeElapsed(true)
+    }, 2000)
+
+    // 2. Maximum safety timeout (5s) - prevents infinite loading if WebGL fails
+    const maxTimer = setTimeout(() => {
+      setAssetsLoaded(true)
+    }, 5000)
+
+    return () => {
+      clearTimeout(minTimer)
+      clearTimeout(maxTimer)
+    }
   }, [])
+
+  // Combine conditions to finish loading
+  useEffect(() => {
+    if (minTimeElapsed && assetsLoaded && loading) {
+      setLoading(false)
+      sessionStorage.setItem('hasVisited', 'true')
+    }
+  }, [minTimeElapsed, assetsLoaded, loading])
 
   // Prevent flash of content during SSR
   if (!mounted) {
@@ -55,7 +84,7 @@ export default function Home() {
       <StructuredData />
 
       {/* Background Canvas */}
-      <BackgroundCanvas />
+      <BackgroundCanvas onLoaded={() => setAssetsLoaded(true)} />
 
       {/* Main Content */}
       <div className="relative z-10">

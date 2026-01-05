@@ -7,7 +7,7 @@ import * as THREE from 'three'
 // Animated particle field component
 function StarField() {
   const ref = useRef<THREE.Points>(null)
-  
+
   // Generate random positions for particles
   const particles = useMemo(() => {
     const positions = new Float32Array(5000 * 3)
@@ -68,19 +68,20 @@ function FloatingSphere() {
   )
 }
 
-const BackgroundCanvas = () => {
+const BackgroundCanvas = ({ onLoaded }: { onLoaded?: () => void }) => {
   return (
     <div className="fixed inset-0 -z-10 bg-gradient-to-br from-white via-primary-50/30 to-accent-50/30">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 75 }}
         style={{ background: 'transparent' }}
+        onCreated={() => onLoaded?.()}
       >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
-        
+
         <StarField />
         <FloatingSphere />
-        
+
         {/* Optional: Enable user interaction */}
         {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
       </Canvas>
