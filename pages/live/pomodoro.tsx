@@ -309,27 +309,34 @@ export default function PomodoroTimer() {
                                 {Array.from({ length: 60 }).map((_, i) => (
                                     <div
                                         key={i}
-                                        className="absolute top-0 left-1/2 w-px origin-bottom"
-                                        style={{
-                                            height: i % 5 === 0 ? '24px' : '12px',
-                                            backgroundColor: i % 5 === 0 ? '#1a1a1a' : '#9ca3af',
-                                            transform: `translateX(-50%) rotate(${i * 6}deg)`,
-                                            transformOrigin: `0 ${144}px`,
-                                        }}
-                                    />
+                                        className="absolute inset-0 flex justify-center"
+                                        style={{ transform: `rotate(${i * 6}deg)` }}
+                                    >
+                                        <div
+                                            style={{
+                                                height: i % 5 === 0 ? '24px' : '12px',
+                                                width: '1px',
+                                                backgroundColor: i % 5 === 0 ? '#1a1a1a' : '#9ca3af',
+                                                marginTop: '8px', // Gap from edge
+                                            }}
+                                        />
+                                    </div>
                                 ))}
 
                                 {/* Progress indicator - rotating hand */}
                                 <motion.div
-                                    className="absolute top-4 left-1/2 w-1 bg-red-600 rounded-full origin-bottom"
-                                    style={{
-                                        height: '120px',
-                                        transformOrigin: 'center bottom',
-                                        marginLeft: '-2px',
-                                    }}
+                                    className="absolute inset-0 flex justify-center"
                                     animate={{ rotate: getDialRotation() }}
                                     transition={isWinding ? { type: 'tween', duration: 0 } : { type: 'spring', stiffness: 100, damping: 15 }}
-                                />
+                                >
+                                    <div
+                                        className="w-1 bg-red-600 rounded-full"
+                                        style={{
+                                            height: 'calc(50% - 32px)',
+                                            marginTop: '32px'
+                                        }}
+                                    />
+                                </motion.div>
 
                                 {/* Center cap with tactile ridges */}
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gradient-to-b from-neutral-600 to-neutral-900 shadow-lg flex items-center justify-center">
@@ -337,7 +344,7 @@ export default function PomodoroTimer() {
                                 </div>
 
                                 {/* Time display */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-10">
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-10 md:translate-y-12">
                                     <motion.span
                                         key={timeLeft}
                                         initial={{ scale: isWinding ? 1 : 1.02 }}
