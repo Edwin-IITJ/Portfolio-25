@@ -181,12 +181,12 @@ const ProjectsGrid = () => {
                     </div>
 
                     {/* Live Project Indicator */}
-                    {project.projectUrl && project.projectUrl !== '#' && (
+                    {/* {project.projectUrl && project.projectUrl !== '#' && (
                       <div className="flex items-center gap-2 text-primary-600 text-sm font-medium">
                         <ExternalLink className="w-4 h-4" />
                         <span>Live Project Available</span>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </Card>
               </Link>
