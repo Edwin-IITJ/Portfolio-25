@@ -10,8 +10,10 @@ const BLUR_DATA_URL =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgcng9IjIiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4=';
 
 export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
+  const containerClassName = 'mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8';
+
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
+    <div className="w-full space-y-10">
       {items.map((m, idx) => {
         if (m.type === 'image') {
           return (
@@ -19,16 +21,16 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
               <Image
                 src={m.src}
                 alt={m.alt ?? ''}
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full"
                 width={2400}
                 height={1350}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 92vw, 1000px"
+                sizes="100vw"
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
                 priority={m.priority ?? false}
               />
               {m.caption ? (
-                <figcaption className="mt-2 text-sm text-neutral-500">
+                <figcaption className="mt-2 text-center text-sm text-neutral-500">
                   {m.caption}
                 </figcaption>
               ) : null}
@@ -47,7 +49,7 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
                 loading="lazy"
               />
               {m.caption ? (
-                <figcaption className="mt-2 text-sm text-neutral-500">
+                <figcaption className="mt-2 text-center text-sm text-neutral-500">
                   {m.caption}
                 </figcaption>
               ) : null}
@@ -56,11 +58,19 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
         }
 
         if (m.type === 'video') {
-          return <VideoBlock key={idx} {...m} />;
+          return (
+            <div key={idx} className={containerClassName}>
+              <VideoBlock {...m} />
+            </div>
+          );
         }
 
         if (m.type === 'youtube') {
-          return <YouTubeEmbed key={idx} {...m} />;
+          return (
+            <div key={idx} className={containerClassName}>
+              <YouTubeEmbed {...m} />
+            </div>
+          );
         }
 
         return null;

@@ -209,13 +209,14 @@ export default function ProjectPage({
           </section>
         )}
 
-        {/* Documentation media (Behance-style panels) */}
-        {project.contentMedia?.length ? (
-          <section className="pb-20">
-            <MediaRenderer items={project.contentMedia} />
-          </section>
-        ) : null}
       </section>
+
+      {/* Documentation media (Behance-style panels) */}
+      {project.contentMedia?.length ? (
+        <section className="w-full pb-20">
+          <MediaRenderer items={project.contentMedia} />
+        </section>
+      ) : null}
 
       {/* Global footer */}
       <Footer />
