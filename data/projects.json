@@ -90,11 +90,6 @@
           "alt": "Digimal I"
         },
         {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal II.png",
-          "alt": "Digimal II"
-        },
-        {
           "type": "gif",
           "src": "/assets/projects/digimal/docs/Interaction.gif",
           "alt": "Interaction loop"
@@ -704,6 +699,22 @@
       "featured": false,
       "isLiveProject": true,
       "liveProjectPath": "/live/pomodoro"
+    },
+    {
+      "id": "photo-essay",
+      "title": "Photo Essay",
+      "coverImage": "/projects/photo-essay/cover.png",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/photo-essay/docs/essay.png",
+          "alt": "essay"
+        }
+      ]
     }
   ]
 }
