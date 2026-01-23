@@ -73,6 +73,10 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
           );
         }
 
+        if (m.type === 'collage') {
+          return <CollageBlock key={idx} {...m} />;
+        }
+
         return null;
       })}
     </div>
@@ -112,6 +116,60 @@ function VideoBlock({
       )}
       {caption ? (
         <figcaption className="mt-2 text-sm text-neutral-500">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
+// Collage component for multiple images/GIFs in a row with lazy loading
+function CollageBlock({
+  items,
+  caption,
+}: Extract<ProjectMedia, { type: 'collage' }>) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { margin: '200px', once: true });
+
+  return (
+    <figure ref={ref} className="w-full">
+      <div
+        className="grid gap-2 sm:gap-4 w-full"
+        style={{
+          gridTemplateColumns: `repeat(${items.length}, 1fr)`,
+        }}
+      >
+        {items.map((item, idx) => (
+          <div key={idx} className="w-full h-full">
+            {inView ? (
+              item.mediaType === 'image' ? (
+                <Image
+                  src={item.src}
+                  alt={item.alt ?? ''}
+                  className="h-auto w-full rounded-lg"
+                  width={1200}
+                  height={900}
+                  sizes={`${Math.floor(100 / items.length)}vw`}
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
+                />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={item.src}
+                  alt={item.alt ?? ''}
+                  className="h-auto w-full rounded-lg"
+                  loading="lazy"
+                />
+              )
+            ) : (
+              <div className="aspect-video w-full rounded-lg bg-neutral-100 animate-pulse" />
+            )}
+          </div>
+        ))}
+      </div>
+      {caption ? (
+        <figcaption className="mt-2 text-center text-sm text-neutral-500">
           {caption}
         </figcaption>
       ) : null}

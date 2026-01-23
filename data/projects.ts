@@ -37,6 +37,15 @@ export type ProjectMedia =
     videoId: string; // e.g., "dQw4w9WgXcQ"
     title?: string;
     caption?: string;
+  }
+  | {
+    type: 'collage';
+    items: Array<{
+      src: string;
+      alt?: string;
+      mediaType: 'image' | 'gif';
+    }>;
+    caption?: string;
   };
 
 export type Project = {
