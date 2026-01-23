@@ -96,13 +96,45 @@
         },
         {
           "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal II.png",
+          "alt": "Digimal III"
+        },
+        {
+          "type": "collage",
+          "items": [
+            {
+              "src": "/assets/projects/digimal/docs/Clap.gif",
+              "alt": "Interaction 1",
+              "mediaType": "gif"
+            },
+            {
+              "src": "/assets/projects/digimal/docs/Idle.gif",
+              "alt": "Interaction 2",
+              "mediaType": "gif"
+            }
+          ],
+          "caption": ""
+        },
+        {
+          "type": "image",
           "src": "/assets/projects/digimal/docs/Digimal III.png",
           "alt": "Digimal III"
         },
         {
-          "type": "gif",
-          "src": "/assets/projects/digimal/docs/Microinteraction.gif",
-          "alt": "Interaction loop"
+          "type": "collage",
+          "items": [
+            {
+              "src": "/assets/projects/digimal/docs/Roll.gif",
+              "alt": "Interaction 3",
+              "mediaType": "gif"
+            },
+            {
+              "src": "/assets/projects/digimal/docs/Sit.gif",
+              "alt": "Interaction 4",
+              "mediaType": "gif"
+            }
+          ],
+          "caption": ""
         },
         {
           "type": "image",
@@ -110,9 +142,20 @@
           "alt": "Digimal IV"
         },
         {
-          "type": "gif",
-          "src": "/assets/projects/digimal/docs/Test.gif",
-          "alt": "Interaction loop"
+          "type": "collage",
+          "items": [
+            {
+              "src": "/assets/projects/digimal/docs/Test_Sr1.gif",
+              "alt": "Test 1",
+              "mediaType": "gif"
+            },
+            {
+              "src": "/assets/projects/digimal/docs/Test_Sr2.gif",
+              "alt": "Test 2",
+              "mediaType": "gif"
+            }
+          ],
+          "caption": ""
         },
         {
           "type": "image",
@@ -120,15 +163,20 @@
           "alt": "Digimal V"
         },
         {
-          "type": "youtube",
-          "videoId": "VEQ3JTu0XxY",
-          "title": "Digimal - Gameplay Video",
-          "caption": "Gameplay Video"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal VI.png",
-          "alt": "Digimal VI"
+          "type": "collage",
+          "items": [
+            {
+              "src": "/assets/projects/digimal/docs/Greet.gif",
+              "alt": "Greet",
+              "mediaType": "gif"
+            },
+            {
+              "src": "/assets/projects/digimal/docs/Digimal VI.png",
+              "alt": "Digimal VI",
+              "mediaType": "image"
+            }
+          ],
+          "caption": ""
         }
       ]
     },
