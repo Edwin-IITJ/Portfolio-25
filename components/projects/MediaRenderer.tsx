@@ -18,17 +18,19 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
         if (m.type === 'image') {
           return (
             <figure key={idx} className="w-full">
-              <Image
-                src={m.src}
-                alt={m.alt ?? ''}
-                className="h-auto w-full"
-                width={2400}
-                height={1350}
-                sizes="100vw"
-                placeholder="blur"
-                blurDataURL={BLUR_DATA_URL}
-                priority={m.priority ?? false}
-              />
+              <div className="zoom-responsive-image">
+                <Image
+                  src={m.src}
+                  alt={m.alt ?? ''}
+                  className="h-auto w-full"
+                  width={2400}
+                  height={1350}
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
+                  priority={m.priority ?? false}
+                />
+              </div>
               {m.caption ? (
                 <figcaption className="mt-2 text-center text-sm text-neutral-500">
                   {m.caption}
@@ -41,13 +43,15 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
         if (m.type === 'gif') {
           return (
             <figure key={idx} className="w-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={m.src}
-                alt={m.alt ?? ''}
-                className="h-auto w-full rounded-lg"
-                loading="lazy"
-              />
+              <div className="zoom-responsive-image">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={m.src}
+                  alt={m.alt ?? ''}
+                  className="h-auto w-full rounded-lg"
+                  loading="lazy"
+                />
+              </div>
               {m.caption ? (
                 <figcaption className="mt-2 text-center text-sm text-neutral-500">
                   {m.caption}
@@ -58,19 +62,11 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
         }
 
         if (m.type === 'video') {
-          return (
-            <div key={idx} className={containerClassName}>
-              <VideoBlock {...m} />
-            </div>
-          );
+          return <VideoBlock key={idx} {...m} />;
         }
 
         if (m.type === 'youtube') {
-          return (
-            <div key={idx} className={containerClassName}>
-              <YouTubeEmbed {...m} />
-            </div>
-          );
+          return <YouTubeEmbed key={idx} {...m} />;
         }
 
         if (m.type === 'collage') {
@@ -98,22 +94,24 @@ function VideoBlock({
 
   return (
     <figure ref={ref} className="w-full">
-      {inView ? (
-        <video
-          className="h-auto w-full rounded-lg"
-          src={src}
-          poster={poster}
-          controls={controls}
-          preload="metadata"
-          playsInline
-          loop={loop}
-          muted={muted}
-        >
-          {alt && <track kind="descriptions" label={alt} />}
-        </video>
-      ) : (
-        <div className="aspect-video w-full rounded-lg bg-neutral-100" />
-      )}
+      <div className="zoom-responsive-image">
+        {inView ? (
+          <video
+            className="h-auto w-full rounded-lg"
+            src={src}
+            poster={poster}
+            controls={controls}
+            preload="metadata"
+            playsInline
+            loop={loop}
+            muted={muted}
+          >
+            {alt && <track kind="descriptions" label={alt} />}
+          </video>
+        ) : (
+          <div className="aspect-video w-full rounded-lg bg-neutral-100" />
+        )}
+      </div>
       {caption ? (
         <figcaption className="mt-2 text-sm text-neutral-500">
           {caption}
@@ -133,40 +131,42 @@ function CollageBlock({
 
   return (
     <figure ref={ref} className="w-full">
-      <div
-        className="grid gap-2 sm:gap-4 w-full"
-        style={{
-          gridTemplateColumns: `repeat(${items.length}, 1fr)`,
-        }}
-      >
-        {items.map((item, idx) => (
-          <div key={idx} className="w-full h-full">
-            {inView ? (
-              item.mediaType === 'image' ? (
-                <Image
-                  src={item.src}
-                  alt={item.alt ?? ''}
-                  className="h-auto w-full rounded-lg"
-                  width={1200}
-                  height={900}
-                  sizes={`${Math.floor(100 / items.length)}vw`}
-                  placeholder="blur"
-                  blurDataURL={BLUR_DATA_URL}
-                />
+      <div className="zoom-responsive-image">
+        <div
+          className="grid gap-2 sm:gap-4 w-full"
+          style={{
+            gridTemplateColumns: `repeat(${items.length}, 1fr)`,
+          }}
+        >
+          {items.map((item, idx) => (
+            <div key={idx} className="w-full h-full">
+              {inView ? (
+                item.mediaType === 'image' ? (
+                  <Image
+                    src={item.src}
+                    alt={item.alt ?? ''}
+                    className="h-auto w-full rounded-lg"
+                    width={1200}
+                    height={900}
+                    sizes={`${Math.floor(100 / items.length)}vw`}
+                    placeholder="blur"
+                    blurDataURL={BLUR_DATA_URL}
+                  />
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={item.src}
+                    alt={item.alt ?? ''}
+                    className="h-auto w-full rounded-lg"
+                    loading="lazy"
+                  />
+                )
               ) : (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={item.src}
-                  alt={item.alt ?? ''}
-                  className="h-auto w-full rounded-lg"
-                  loading="lazy"
-                />
-              )
-            ) : (
-              <div className="aspect-video w-full rounded-lg bg-neutral-100 animate-pulse" />
-            )}
-          </div>
-        ))}
+                <div className="aspect-video w-full rounded-lg bg-neutral-100 animate-pulse" />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
       {caption ? (
         <figcaption className="mt-2 text-center text-sm text-neutral-500">
@@ -188,19 +188,21 @@ function YouTubeEmbed({
 
   return (
     <figure ref={ref} className="w-full">
-      {inView ? (
-        <div className="relative aspect-video w-full rounded-lg overflow-hidden bg-neutral-900 shadow-lg">
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`}
-            title={title || 'Project video'}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full border-0"
-          />
-        </div>
-      ) : (
-        <div className="aspect-video w-full rounded-lg bg-neutral-100 animate-pulse" />
-      )}
+      <div className="zoom-responsive-image">
+        {inView ? (
+          <div className="relative aspect-video w-full rounded-lg overflow-hidden bg-neutral-900 shadow-lg">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`}
+              title={title || 'Project video'}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full border-0"
+            />
+          </div>
+        ) : (
+          <div className="aspect-video w-full rounded-lg bg-neutral-100 animate-pulse" />
+        )}
+      </div>
       {caption ? (
         <figcaption className="mt-2 text-sm text-neutral-500">
           {caption}
