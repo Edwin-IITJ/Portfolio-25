@@ -2,9 +2,10 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
 import type { ProjectMedia } from '@/data/projects';
+import ImageSkeleton from '@/components/ui/ImageSkeleton';
 
 const BLUR_DATA_URL =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgcng9IjIiIGZpbGw9IiNlZWVlZWUiLz48L3N2Zz4=';
@@ -16,49 +17,11 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
     <div className="w-full space-y-10">
       {items.map((m, idx) => {
         if (m.type === 'image') {
-          return (
-            <figure key={idx} className="w-full">
-              <div className="zoom-responsive-image">
-                <Image
-                  src={m.src}
-                  alt={m.alt ?? ''}
-                  className="h-auto w-full"
-                  width={2400}
-                  height={1350}
-                  sizes="100vw"
-                  placeholder="blur"
-                  blurDataURL={BLUR_DATA_URL}
-                  priority={m.priority ?? false}
-                />
-              </div>
-              {m.caption ? (
-                <figcaption className="mt-2 text-center text-sm text-neutral-500">
-                  {m.caption}
-                </figcaption>
-              ) : null}
-            </figure>
-          );
+          return <ImageBlock key={idx} {...m} />;
         }
 
         if (m.type === 'gif') {
-          return (
-            <figure key={idx} className="w-full">
-              <div className="zoom-responsive-image">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={m.src}
-                  alt={m.alt ?? ''}
-                  className="h-auto w-full rounded-lg"
-                  loading="lazy"
-                />
-              </div>
-              {m.caption ? (
-                <figcaption className="mt-2 text-center text-sm text-neutral-500">
-                  {m.caption}
-                </figcaption>
-              ) : null}
-            </figure>
-          );
+          return <GifBlock key={idx} {...m} />;
         }
 
         if (m.type === 'video') {
@@ -76,6 +39,89 @@ export default function MediaRenderer({ items }: { items: ProjectMedia[] }) {
         return null;
       })}
     </div>
+  );
+}
+
+// Image component with lazy loading and loading state
+function ImageBlock({
+  src,
+  alt,
+  priority,
+  caption,
+}: Extract<ProjectMedia, { type: 'image' }>) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { margin: '200px', once: true });
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <figure ref={ref} className="w-full">
+      <div className="zoom-responsive-image">
+        {inView || priority ? (
+          <>
+            {!isLoaded && <ImageSkeleton className="absolute inset-0" />}
+            <Image
+              src={src}
+              alt={alt ?? ''}
+              className={`h-auto w-full transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+              width={2400}
+              height={1350}
+              sizes="100vw"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
+              priority={priority ?? false}
+              onLoad={() => setIsLoaded(true)}
+            />
+          </>
+        ) : (
+          <ImageSkeleton />
+        )}
+      </div>
+      {caption ? (
+        <figcaption className="mt-2 text-center text-sm text-neutral-500">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
+// GIF component with lazy loading and skeleton state
+function GifBlock({
+  src,
+  alt,
+  caption,
+}: Extract<ProjectMedia, { type: 'gif' }>) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { margin: '200px', once: true });
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <figure ref={ref} className="w-full">
+      <div className="zoom-responsive-image">
+        {inView ? (
+          <>
+            {!isLoaded && <ImageSkeleton className="absolute inset-0" />}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={src}
+              alt={alt ?? ''}
+              className={`h-auto w-full rounded-lg transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+              loading="lazy"
+              onLoad={() => setIsLoaded(true)}
+            />
+          </>
+        ) : (
+          <ImageSkeleton />
+        )}
+      </div>
+      {caption ? (
+        <figcaption className="mt-2 text-center text-sm text-neutral-500">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
   );
 }
 

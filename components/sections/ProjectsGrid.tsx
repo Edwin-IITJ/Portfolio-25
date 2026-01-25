@@ -102,7 +102,7 @@ const ProjectsGrid = () => {
           exit="hidden"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects.map((project) => (
+          {projects.map((project, idx) => (
             <motion.div key={project.id} variants={itemVariants}>
               <Link href={project.isLiveProject && project.liveProjectPath ? project.liveProjectPath : `/projects/${project.id}`}>
                 <Card hover className="group cursor-pointer overflow-hidden h-full hover:shadow-2xl transition-shadow duration-300">
@@ -113,6 +113,8 @@ const ProjectsGrid = () => {
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      priority={idx < 3}
+                      loading={idx < 3 ? undefined : "lazy"}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement
                         target.src = '/images/placeholder-project.jpg'
