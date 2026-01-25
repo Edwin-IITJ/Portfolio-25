@@ -11,6 +11,7 @@ const Navbar = () => {
   const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,48 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Scroll spy to track active section
+  useEffect(() => {
+    // Only enable scroll spy on homepage
+    if (router.pathname !== '/') {
+      setActiveSection('')
+      return
+    }
+
+    const sections = ['home', 'projects', 'about', 'contact']
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px', // Trigger when section is 20% from top
+      threshold: 0
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }, observerOptions)
+
+    // Observe all sections
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        observer.observe(element)
+      }
+    })
+
+    return () => {
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          observer.unobserve(element)
+        }
+      })
+    }
+  }, [router.pathname])
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -60,8 +103,8 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-white/80 backdrop-blur-md shadow-md'
-            : 'bg-transparent'
+          ? 'bg-white/80 backdrop-blur-md shadow-md'
+          : 'bg-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,17 +119,24 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-gray-600 hover:text-primary-600 transition-colors duration-200 font-medium relative group"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300" />
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const sectionId = item.href.split('#')[1]
+                const isActive = activeSection === sectionId
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`transition-colors duration-200 font-medium relative group ${isActive ? 'text-primary-600' : 'text-gray-600 hover:text-primary-600'
+                      }`}
+                  >
+                    {item.name}
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-primary-600 transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`} />
+                  </Link>
+                )
+              })}
               <a
                 href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
@@ -133,22 +183,28 @@ const Navbar = () => {
             className="fixed top-16 right-0 bottom-0 w-64 bg-white shadow-2xl z-50 md:hidden overflow-y-auto"
           >
             <div className="flex flex-col p-6">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className="text-lg text-gray-700 hover:text-primary-600 transition-colors duration-200 py-2 border-b border-gray-100"
+              {navItems.map((item, index) => {
+                const sectionId = item.href.split('#')[1]
+                const isActive = activeSection === sectionId
+
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`text-lg transition-colors duration-200 py-2 border-b border-gray-100 block ${isActive ? 'text-primary-600 font-semibold' : 'text-gray-700 hover:text-primary-600'
+                        }`}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                )
+              })}
               <a
                 href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
