@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowLeft, Coffee, Brain, Volume2, VolumeX } from 'lucide-react';
+import { ArrowLeft, Coffee, Brain, Volume2, VolumeX, Info, X } from 'lucide-react';
 import { motion, AnimatePresence, useMotionValue, useTransform, PanInfo } from 'framer-motion';
 
 type TimerMode = 'work' | 'shortBreak' | 'longBreak';
@@ -80,6 +80,7 @@ export default function PomodoroTimer() {
     const [isWinding, setIsWinding] = useState(false);
     const [windAngle, setWindAngle] = useState(0);
     const [soundEnabled, setSoundEnabled] = useState(true);
+    const [showInfo, setShowInfo] = useState(false);
 
     const audioContextRef = useRef<AudioContext | null>(null);
     const dialRef = useRef<HTMLDivElement>(null);
@@ -247,15 +248,71 @@ export default function PomodoroTimer() {
                         <span className="font-medium">Back to Projects</span>
                     </Link>
 
-                    {/* Sound toggle */}
-                    <button
-                        onClick={() => setSoundEnabled(!soundEnabled)}
-                        className="p-2 text-white/40 hover:text-white transition-colors"
-                        aria-label={soundEnabled ? 'Mute sounds' : 'Enable sounds'}
-                    >
-                        {soundEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
-                    </button>
+                    {/* Header Controls */}
+                    <div className="flex items-center gap-2">
+                        {/* Sound toggle */}
+                        <button
+                            onClick={() => setSoundEnabled(!soundEnabled)}
+                            className="p-2 text-white/40 hover:text-white transition-colors"
+                            aria-label={soundEnabled ? 'Mute sounds' : 'Enable sounds'}
+                        >
+                            {soundEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
+                        </button>
+
+                        {/* Info button */}
+                        <button
+                            onClick={() => setShowInfo(true)}
+                            className="p-2 text-white/40 hover:text-white transition-colors"
+                            aria-label="Information"
+                        >
+                            <Info className="w-5 h-5" />
+                        </button>
+                    </div>
                 </header>
+
+                <AnimatePresence>
+                    {showInfo && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-50 flex items-center justify-center px-6 bg-black/60 backdrop-blur-sm"
+                            onClick={() => setShowInfo(false)}
+                        >
+                            <motion.div
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.9, opacity: 0 }}
+                                onClick={(e) => e.stopPropagation()}
+                                className="bg-[#1a1a1a] p-8 md:p-12 max-w-2xl w-full relative shadow-2xl border border-white/10"
+                            >
+                                <button
+                                    onClick={() => setShowInfo(false)}
+                                    className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
+                                >
+                                    <X className="w-6 h-6" />
+                                </button>
+
+                                <div className="space-y-6 text-neutral-300 font-light leading-relaxed">
+                                    <p>
+                                        This page was created to recreate the physical ritual of the Pomodoro technique in a digital context, where winding the timer signals commitment, ticking externalizes the desire to complete the task, and ringing announces a break. Instead of features and tracking, it focuses on intent and presence. The design stays minimal so focus can stay uninterrupted.
+                                    </p>
+
+                                    <div className="pt-4">
+                                        <a
+                                            href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-white/60 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white transition-all text-sm"
+                                        >
+                                            Read more on Wikipedia
+                                        </a>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
                 {/* Main Timer */}
                 <main className="flex flex-col items-center justify-center px-6 pb-20">
