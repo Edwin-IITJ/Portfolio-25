@@ -13,11 +13,7 @@
         "Photoshop"
       ],
       "coverImage": "/projects/aam-vr/cover.png",
-      "images": [
-        "/projects/aam-vr/screenshot-1.jpg",
-        "/projects/aam-vr/screenshot-2.jpg",
-        "/projects/aam-vr/screenshot-3.jpg"
-      ],
+      "images": [],
       "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
       "featured": true,
       "challenges": "Designing intuitive VR fruit interactions: balancing realism with usability while maintaining high frame rates; guiding users without clutter; onboarding gesture controls in a calm, distraction‑free environment.",
@@ -71,12 +67,7 @@
         "Photoshop"
       ],
       "coverImage": "/projects/digimal/cover.png",
-      "images": [
-        "/projects/digimal/screenshot-1.jpg",
-        "/projects/digimal/screenshot-2.jpg",
-        "/projects/digimal/screenshot-3.jpg",
-        "/projects/digimal/screenshot-4.jpg"
-      ],
+      "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/219805115/Digimal-XR-Project",
       "featured": false,
@@ -86,8 +77,13 @@
       "contentMedia": [
         {
           "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal I.png",
+          "src": "/assets/projects/digimal/docs/Digimal I.webp",
           "alt": "Digimal I"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal II.webp",
+          "alt": "Digimal II"
         },
         {
           "type": "gif",
@@ -96,7 +92,7 @@
         },
         {
           "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal II.png",
+          "src": "/assets/projects/digimal/docs/Digimal III.webp",
           "alt": "Digimal III"
         },
         {
@@ -117,8 +113,8 @@
         },
         {
           "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal III.png",
-          "alt": "Digimal III"
+          "src": "/assets/projects/digimal/docs/Digimal IV.webp",
+          "alt": "Digimal IV"
         },
         {
           "type": "collage",
@@ -138,8 +134,8 @@
         },
         {
           "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal IV.png",
-          "alt": "Digimal IV"
+          "src": "/assets/projects/digimal/docs/Digimal V.webp",
+          "alt": "Digimal V"
         },
         {
           "type": "collage",
@@ -159,8 +155,8 @@
         },
         {
           "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal V.png",
-          "alt": "Digimal V"
+          "src": "/assets/projects/digimal/docs/Digimal VI.webp",
+          "alt": "Digimal VI"
         },
         {
           "type": "collage",
@@ -171,8 +167,8 @@
               "mediaType": "gif"
             },
             {
-              "src": "/assets/projects/digimal/docs/Digimal VI.png",
-              "alt": "Digimal VI",
+              "src": "/assets/projects/digimal/docs/Digimal VII.webp",
+              "alt": "Digimal VII",
               "mediaType": "image"
             }
           ],
