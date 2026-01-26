@@ -566,7 +566,7 @@
       "technologies": [
         "Figma"
       ],
-      "coverImage": "/projects/shape-chase/cover.png",
+      "coverImage": "/projects/shape-chase/ShapeChase Cover.png",
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/your-project-id",
@@ -574,8 +574,13 @@
       "contentMedia": [
         {
           "type": "image",
-          "src": "/assets/projects/shape-chase/docs/SC-1.png",
-          "alt": "SC-1"
+          "src": "/assets/projects/shape-chase/docs/ShapeChase I.webp",
+          "alt": "ShapeChase I"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/shape-chase/docs/ShapeChase II.webp",
+          "alt": "ShapeChase II"
         }
       ]
     },
