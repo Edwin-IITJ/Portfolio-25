@@ -201,7 +201,7 @@
       "contentMedia": [
         {
           "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part I.png",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part I.webp",
           "alt": "Mehndi documentation overview panel"
         },
         {
@@ -216,12 +216,12 @@
         },
         {
           "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part II.png",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part II.webp",
           "alt": "Mehndi documentation section II"
         },
         {
           "type": "image",
-          "src": "/assets/projects/mehndi/docs/Mehndi Part III.png",
+          "src": "/assets/projects/mehndi/docs/Mehndi Part III.webp",
           "alt": "Mehndi documentation section III"
         },
         {
@@ -232,7 +232,7 @@
         },
         {
           "type": "image",
-          "src": "/assets/projects/mehndi/docs/ty.png",
+          "src": "/assets/projects/mehndi/docs/ty.webp",
           "alt": "Thank You"
         }
       ]
