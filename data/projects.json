@@ -616,7 +616,7 @@
       "technologies": [
         "Lightroom"
       ],
-      "coverImage": "/projects/fashion-in-motion/cover.png",
+      "coverImage": "/assets/projects/fashion-in-motion/cover/FashionInMotion Cover.webp",
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/your-project-id",
@@ -624,7 +624,7 @@
       "contentMedia": [
         {
           "type": "image",
-          "src": "/assets/projects/fashion-in-motion/docs/FiM_1.png",
+          "src": "/assets/projects/fashion-in-motion/docs/FashionInMotion I.webp",
           "alt": "FiM_1"
         }
       ]
