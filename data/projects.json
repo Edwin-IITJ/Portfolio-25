@@ -641,7 +641,7 @@
       "technologies": [
         "Photoshop"
       ],
-      "coverImage": "/projects/ghanta-ghar/cover.jpg",
+      "coverImage": "/assets/projects/ghanta-ghar/cover/GhantaGhar Cover.webp",
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/224496345/Lights-Sound-Camera",
@@ -652,58 +652,58 @@
       "contentMedia": [
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 1.png",
-          "alt": "GG Frame 1"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar I.webp",
+          "alt": "GhantaGhar I"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 2.png",
-          "alt": "GG Frame 2"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar II.webp",
+          "alt": "GhantaGhar II"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 3.png",
-          "alt": "GG Frame 3"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar III.webp",
+          "alt": "GhantaGhar III"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 4.png",
-          "alt": "GG Frame 4"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar IV.webp",
+          "alt": "GhantaGhar IV"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 5.png",
-          "alt": "GG Frame 5"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar V.webp",
+          "alt": "GhantaGhar V"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 6.png",
-          "alt": "GG Frame 6"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar VI.webp",
+          "alt": "GhantaGhar VI"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 7.png",
-          "alt": "GG Frame 7"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar VII.webp",
+          "alt": "GhantaGhar VII"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 8.png",
-          "alt": "GG Frame 8"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar VIII.webp",
+          "alt": "GhantaGhar VIII"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 9.png",
-          "alt": "GG Frame 9"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar IX.webp",
+          "alt": "GhantaGhar IX"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 10.png",
-          "alt": "GG Frame 10"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar X.webp",
+          "alt": "GhantaGhar X"
         },
         {
           "type": "image",
-          "src": "/assets/projects/ghanta-ghar/docs/GG Frame 11.png",
-          "alt": "GG Frame 11"
+          "src": "/assets/projects/ghanta-ghar/docs/GhantaGhar XI.webp",
+          "alt": "GhantaGhar XI"
         }
       ]
     },
