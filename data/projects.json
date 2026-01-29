@@ -752,7 +752,8 @@
     {
       "id": "photo-essay",
       "title": "Photo Essay",
-      "coverImage": "/projects/photo-essay/cover.png",
+      "layout": "minimal",
+      "coverImage": "/assets/projects/photo-essay/cover/PhotoEssay Cover.webp",
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "",
