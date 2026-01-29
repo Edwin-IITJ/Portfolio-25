@@ -146,51 +146,55 @@ export default function ProjectPage({
       </motion.header>
 
       {/* Cover Image Showcase - Old Style (Dramatic, Cinematic) */}
-      <motion.section
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16"
-      >
-        <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-          <Image
-            src={project.coverImage}
-            alt={project.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </motion.section>
+      {project.layout !== 'minimal' && (
+        <motion.section
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        >
+          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src={project.coverImage}
+              alt={project.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </motion.section>
+      )}
 
       {/* Detailed meta grid (wide container) */}
       <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-8 grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto mb-6"
-        >
-          <motion.div variants={fadeInUp}>
-            <h3 className="text-lg font-semibold mb-4">Category</h3>
-            <p className="text-gray-600">{project.category}</p>
+        {project.layout !== 'minimal' && (
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-8 grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto mb-6"
+          >
+            <motion.div variants={fadeInUp}>
+              <h3 className="text-lg font-semibold mb-4">Category</h3>
+              <p className="text-gray-600">{project.category}</p>
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <h3 className="text-lg font-semibold mb-4">Timeline</h3>
+              <p className="text-gray-600">{project.year}</p>
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <h3 className="text-lg font-semibold mb-4">Technologies</h3>
+              <ul className="mt-1 flex flex-wrap gap-2">
+                {project.technologies.map((t) => (
+                  <li key={t} className="rounded-md bg-neutral-100 px-3 py-1 text-sm">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           </motion.div>
-          <motion.div variants={fadeInUp}>
-            <h3 className="text-lg font-semibold mb-4">Timeline</h3>
-            <p className="text-gray-600">{project.year}</p>
-          </motion.div>
-          <motion.div variants={fadeInUp}>
-            <h3 className="text-lg font-semibold mb-4">Technologies</h3>
-            <ul className="mt-1 flex flex-wrap gap-2">
-              {project.technologies.map((t) => (
-                <li key={t} className="rounded-md bg-neutral-100 px-3 py-1 text-sm">
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
+        )}
 
         {/* Overview section - narrow content width */}
         {project.fullDescription && (

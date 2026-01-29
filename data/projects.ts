@@ -74,6 +74,9 @@ export type Project = {
 
   // Behance-style long-form documentation sequence:
   contentMedia?: ProjectMedia[];
+
+  // Layout preference
+  layout?: 'standard' | 'minimal';
 };
 
 export type ProjectsData = {
@@ -161,6 +164,9 @@ function ensureProject(p: any): Project {
     contentMedia: Array.isArray(p.contentMedia)
       ? (p.contentMedia as ProjectMedia[])
       : undefined,
+
+    // Layout
+    layout: (p.layout === 'standard' || p.layout === 'minimal') ? p.layout : undefined,
   } as const;
 
   // Prune undefined keys so getStaticProps never sees undefined values.
