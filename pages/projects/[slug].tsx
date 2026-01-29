@@ -184,7 +184,7 @@ export default function ProjectPage({
               <p className="text-gray-600">{project.year}</p>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <h3 className="text-lg font-semibold mb-4">Technologies</h3>
+              <h3 className="text-lg font-semibold mb-4">Technologies & Skills</h3>
               <ul className="mt-1 flex flex-wrap gap-2">
                 {project.technologies.map((t) => (
                   <li key={t} className="rounded-md bg-neutral-100 px-3 py-1 text-sm">
