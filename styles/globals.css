@@ -81,33 +81,7 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Zoom-responsive image container */
-  .zoom-responsive-image {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-  }
 
-  /* When zoomed out below 100%, viewport becomes wider in CSS pixels,
-     so we apply max-width to scale content appropriately */
-  @media (min-width: 1920px) {
-    .zoom-responsive-image {
-      max-width: 1920px;
-      margin-left: auto;
-      margin-right: auto;
-      left: 0;
-      right: 0;
-    }
-  }
-
-  @media (min-width: 2560px) {
-    .zoom-responsive-image {
-      max-width: 2560px;
-    }
-  }
 }
 
 /* Animation Keyframes */

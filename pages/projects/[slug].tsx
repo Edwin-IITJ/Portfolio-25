@@ -217,7 +217,7 @@ export default function ProjectPage({
 
       {/* Documentation media (Behance-style panels) */}
       {project.contentMedia?.length ? (
-        <section className="w-full pb-20">
+        <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
           <MediaRenderer items={project.contentMedia} />
         </section>
       ) : null}

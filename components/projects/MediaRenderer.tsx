@@ -55,7 +55,7 @@ function ImageBlock({
 
   return (
     <figure ref={ref} className="w-full">
-      <div className="zoom-responsive-image">
+      <div className="w-full">
         {inView || priority ? (
           <>
             {!isLoaded && <ImageSkeleton className="absolute inset-0" />}
@@ -98,7 +98,7 @@ function GifBlock({
 
   return (
     <figure ref={ref} className="w-full">
-      <div className="zoom-responsive-image">
+      <div className="w-full">
         {inView ? (
           <>
             {!isLoaded && <ImageSkeleton className="absolute inset-0" />}
@@ -140,7 +140,7 @@ function VideoBlock({
 
   return (
     <figure ref={ref} className="w-full">
-      <div className="zoom-responsive-image">
+      <div className="w-full">
         {inView ? (
           <video
             className="h-auto w-full rounded-lg"
@@ -177,7 +177,7 @@ function CollageBlock({
 
   return (
     <figure ref={ref} className="w-full">
-      <div className="zoom-responsive-image">
+      <div className="w-full">
         <div
           className="grid gap-2 sm:gap-4 w-full"
           style={{
@@ -234,7 +234,7 @@ function YouTubeEmbed({
 
   return (
     <figure ref={ref} className="w-full">
-      <div className="zoom-responsive-image">
+      <div className="w-full">
         {inView ? (
           <div className="relative aspect-video w-full rounded-lg overflow-hidden bg-neutral-900 shadow-lg">
             <iframe
