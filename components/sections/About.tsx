@@ -54,7 +54,7 @@ const About = () => {
           >
             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/profile.jpg"
+                src="/images/profile.webp"
                 alt="Edwin Meleth"
                 fill
                 className="object-cover"

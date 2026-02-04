@@ -2,18 +2,18 @@
 
 A modern, production-ready portfolio website built with Next.js 14, TypeScript, Tailwind CSS, Framer Motion, and GSAP.
 
-## ✨ Features
+## Features
 
-- 🎨 **Modern Design**: Clean, professional UI inspired by top portfolio sites
-- ⚡ **Performance Optimized**: Fast loading with Next.js 14 and image optimization
-- 🎭 **Smooth Animations**: GSAP and Framer Motion powered interactions
-- 🌐 **Responsive**: Fully responsive design for all devices
-- 🎯 **SEO Ready**: Proper meta tags and structured data
-- 🎪 **3D Elements**: Three.js integration for immersive experiences
-- 📱 **Mobile First**: Optimized mobile experience
-- ♿ **Accessible**: WCAG 2.1 compliant
+- **Modern Design**: Clean, professional UI inspired by top portfolio sites
+- **Performance Optimized**: Fast loading with Next.js 14 and image optimization
+- **Smooth Animations**: GSAP and Framer Motion powered interactions
+- **Responsive**: Fully responsive design for all devices
+- **SEO Ready**: Proper meta tags and structured data
+- **3D Elements**: Three.js integration for immersive experiences
+- **Mobile First**: Optimized mobile experience
+- **Accessible**: WCAG 2.1 compliant
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework**: Next.js 14 (React 18)
 - **Language**: TypeScript
@@ -25,7 +25,7 @@ A modern, production-ready portfolio website built with Next.js 14, TypeScript, 
 - **Forms**: React Hook Form
 - **Deployment**: Vercel
 
-## 📦 Installation
+## Installation
 
 1. **Clone the repository**
 git clone https://github.com/Edwin-IITJ/portfolio.git
@@ -39,7 +39,7 @@ npm run dev
 
 4. **Open** [http://localhost:3000](http://localhost:3000) in your browser
 
-## 🚀 Build & Deploy
+## Build & Deploy
 
 ### Local Build
 npm run build
@@ -54,7 +54,7 @@ vercel --prod
 
 Or use the [Vercel GitHub integration](https://vercel.com/docs/git) for automatic deployments.
 
-## 📁 Project Structure
+## Project Structure
 
 edwin-portfolio/
 ├── components/ # React components
@@ -86,7 +86,7 @@ edwin-portfolio/
 │ └── resume.pdf # Resume file
 └── ...config files
 
-## 🎨 Customization
+## Customization
 
 ### Update Projects
 Edit `data/projects.json` with your Behance projects:
@@ -137,12 +137,12 @@ display: 'swap',
 - **Contact Section**: `components/sections/Contact.tsx`
 - **Footer**: `components/sections/Footer.tsx`
 
-## 📝 Environment Variables
+## Environment Variables
 
 Create a `.env.local` file (see `.env.example`):
 NEXT_PUBLIC_CONTACT_EMAIL=your-email@example.com
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Images not loading
 - Ensure images exist in the `public/` folder
@@ -166,7 +166,7 @@ Mac: Cmd + Shift + R
 Run type check
 npm run type-check
 
-## 📄 Scripts
+## Scripts
 
 npm run dev # Start development server
 npm run build # Build for production
@@ -174,7 +174,7 @@ npm start # Start production server
 npm run lint # Run ESLint
 npm run type-check # Check TypeScript types
 
-## 👨‍💻 Author
+## Author
 
 **Edwin Meleth**
 - Portfolio: [https://edwinm.vercel.app/](https://edwinm.vercel.app/)
