@@ -632,6 +632,50 @@
   ],
   "labWorks": [
     {
+      "id": "lucid-past",
+      "title": "LucidPast",
+      "layout": "minimal",
+      "coverImage": "/assets/projects/lucid-past/cover/PhotoEssay Cover.webp",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/lucid-past/docs/LucidPast I.webp",
+          "alt": "LucidPast I"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/lucid-past/docs/LucidPast II.webp",
+          "alt": "LucidPast II"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/lucid-past/docs/LucidPast III.webp",
+          "alt": "LucidPast III"
+        }
+      ]
+    },
+    {
+      "id": "pomodoro-tracker",
+      "title": "Pomodoro Tracker",
+      "description": "A simple pomodoro tracker.",
+      "fullDescription": "A simple pomodoro tracker.",
+      "category": "Interactive Web App",
+      "year": "2026",
+      "technologies": [
+        "Google Antigravity",
+        "React"
+      ],
+      "coverImage": "/assets/projects/pomodoro-tracker/cover.png",
+      "images": [],
+      "featured": false,
+      "isLiveProject": true,
+      "liveProjectPath": "/live/pomodoro"
+    },
+    {
       "id": "ghanta-ghar",
       "title": "Ghanta Ghar — Streets in Monochrome",
       "description": "A black and white street photography collection tracing light, shadow, and everyday rhythms around Ghanta Ghar, Jodhpur.",
@@ -708,6 +752,23 @@
       ]
     },
     {
+      "id": "photo-essay",
+      "title": "Photo Essay",
+      "layout": "minimal",
+      "coverImage": "/assets/projects/photo-essay/cover/PhotoEssay Cover.webp",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/photo-essay/docs/essay.webp",
+          "alt": "essay"
+        }
+      ]
+    },
+    {
       "id": "this-website",
       "title": "Personal Portfolio Website",
       "description": "This very website - a modern portfolio built with Next.js and advanced animations.",
@@ -731,40 +792,6 @@
       "results": "Successfully deployed a fast, responsive portfolio website that effectively presents projects and skills to potential collaborators and employers.",
       "isLiveProject": true,
       "liveProjectPath": "/"
-    },
-    {
-      "id": "pomodoro-tracker",
-      "title": "Pomodoro Tracker",
-      "description": "A simple pomodoro tracker.",
-      "fullDescription": "A simple pomodoro tracker.",
-      "category": "Interactive Web App",
-      "year": "2026",
-      "technologies": [
-        "Google Antigravity",
-        "React"
-      ],
-      "coverImage": "/assets/projects/pomodoro-tracker/cover.png",
-      "images": [],
-      "featured": false,
-      "isLiveProject": true,
-      "liveProjectPath": "/live/pomodoro"
-    },
-    {
-      "id": "photo-essay",
-      "title": "Photo Essay",
-      "layout": "minimal",
-      "coverImage": "/assets/projects/photo-essay/cover/PhotoEssay Cover.webp",
-      "images": [],
-      "projectUrl": "#",
-      "behanceUrl": "",
-      "featured": false,
-      "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/photo-essay/docs/essay.png",
-          "alt": "essay"
-        }
-      ]
     }
   ]
 }
