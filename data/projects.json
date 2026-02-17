@@ -634,8 +634,16 @@
     {
       "id": "lucid-past",
       "title": "LucidPast",
-      "layout": "minimal",
-      "coverImage": "/assets/projects/lucid-past/cover/PhotoEssay Cover.webp",
+      "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
+      "fullDescription": "",
+      "category": "XR Design",
+      "year": "2025",
+      "technologies": [
+        "Python",
+        "DepthAnything V2",
+        "Applr Depth Pro"
+      ],
+      "coverImage": "/assets/projects/lucid-past/cover/LucidPast Cover.webp",
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "",
