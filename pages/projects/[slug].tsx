@@ -9,7 +9,8 @@ import { motion } from 'framer-motion';
 import Navbar from '../../components/sections/Navbar';
 import Footer from '../../components/sections/Footer';
 import MediaRenderer from '../../components/projects/MediaRenderer';
-import { projectsData } from '../../data/projects';
+import RelatedProjects from '../../components/projects/RelatedProjects';
+import { projectsData, type Project } from '../../data/projects';
 import { cn } from '../../lib/utils';
 import { fadeInUp, fadeIn, staggerContainer } from '../../lib/animations';
 
@@ -30,23 +31,49 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
+type GroupKey = 'majorProjects' | 'otherWorks' | 'labWorks';
+const GROUP_LABELS: Record<GroupKey, string> = {
+  majorProjects: 'Major Projects',
+  otherWorks: 'Other Works',
+  labWorks: 'Lab',
+};
+
 export const getStaticProps: GetStaticProps<{
-  project: (typeof projectsData.majorProjects)[number];
+  project: Project;
+  relatedProjects: Project[];
+  groupLabel: string;
 }> = async (ctx) => {
   const slug = ctx.params?.slug as string;
-  const all = [
-    ...projectsData.majorProjects,
-    ...projectsData.otherWorks,
-    ...projectsData.labWorks,
-  ];
-  const project = all.find((p) => p.id === slug);
+
+  // Determine which group this project belongs to
+  let group: GroupKey = 'majorProjects';
+  let project: Project | undefined;
+
+  for (const key of Object.keys(GROUP_LABELS) as GroupKey[]) {
+    const found = projectsData[key].find((p) => p.id === slug);
+    if (found) { project = found; group = key; break; }
+  }
+
   if (!project) return { notFound: true };
 
-  return { props: { project: removeUndefinedDeep(project) } };
+  // Pick up to 3 sibling projects (excluding current), shuffled
+  const siblings = projectsData[group].filter((p) => p.id !== slug);
+  const shuffled = [...siblings].sort(() => Math.random() - 0.5);
+  const relatedProjects = shuffled.slice(0, 3);
+
+  return {
+    props: {
+      project: removeUndefinedDeep(project),
+      relatedProjects: removeUndefinedDeep(relatedProjects),
+      groupLabel: GROUP_LABELS[group],
+    },
+  };
 };
 
 export default function ProjectPage({
   project,
+  relatedProjects,
+  groupLabel,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -221,6 +248,9 @@ export default function ProjectPage({
           <MediaRenderer items={project.contentMedia} />
         </section>
       ) : null}
+
+      {/* Related projects strip */}
+      <RelatedProjects projects={relatedProjects} groupLabel={groupLabel} />
 
       {/* Global footer */}
       <Footer />
