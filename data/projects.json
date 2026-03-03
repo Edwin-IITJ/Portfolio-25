@@ -632,6 +632,13 @@
     {
       "id": "poster-art",
       "title": "Posters and Art",
+      "description": "A collection of posters and illustrations spanning digital, print, and typographic work — ranging from event posters to abstract art explorations.",
+      "category": "Graphic Design / Illustration",
+      "year": "2022–25",
+      "technologies": [
+        "Photoshop",
+        "Procreate"
+      ],
       "layout": "minimal",
       "coverImage": "/assets/projects/poster-art/cover/Posterart Cover.webp",
       "images": [],
@@ -779,6 +786,13 @@
     {
       "id": "photo-essay",
       "title": "Photo Essay",
+      "description": "A visual photo essay series exploring dream-like connectivity through theme, object, patterns.",
+      "category": "Photography / Documentary",
+      "year": "2024–25",
+      "technologies": [
+        "Lightroom",
+        "Photoshop"
+      ],
       "layout": "minimal",
       "coverImage": "/assets/projects/photo-essay/cover/PhotoEssay Cover.webp",
       "images": [],

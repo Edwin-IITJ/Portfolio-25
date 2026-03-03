@@ -161,26 +161,30 @@ const ProjectsGrid = () => {
                       {project.title}
                     </h3>
 
-                    <p className="text-gray-600 mb-4 flex-1">
-                      {project.description}
-                    </p>
+                    {project.description && (
+                      <p className="text-gray-600 mb-4 flex-1">
+                        {project.description}
+                      </p>
+                    )}
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.slice(0, 3).map((tech) => (
-                        <span
-                          key={tech}
-                          className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className="text-xs px-2 py-1 text-gray-500">
-                          +{project.technologies.length - 3} more
-                        </span>
-                      )}
-                    </div>
+                    {project.technologies && project.technologies.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <span
+                            key={tech}
+                            className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="text-xs px-2 py-1 text-gray-500">
+                            +{project.technologies.length - 3} more
+                          </span>
+                        )}
+                      </div>
+                    )}
 
                     {/* Live Project Indicator */}
                     {/* {project.projectUrl && project.projectUrl !== '#' && (
