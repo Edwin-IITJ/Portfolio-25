@@ -55,10 +55,10 @@ function ImageBlock({
 
   return (
     <figure ref={ref} className="w-full">
-      <div className="w-full">
+      <div className="relative w-full">
         {inView || priority ? (
           <>
-            {!isLoaded && <ImageSkeleton className="absolute inset-0" />}
+            {!isLoaded && <ImageSkeleton className="absolute inset-0 z-10" />}
             <Image
               src={src}
               alt={alt ?? ''}
@@ -98,10 +98,10 @@ function GifBlock({
 
   return (
     <figure ref={ref} className="w-full">
-      <div className="w-full">
+      <div className="relative w-full">
         {inView ? (
           <>
-            {!isLoaded && <ImageSkeleton className="absolute inset-0" />}
+            {!isLoaded && <ImageSkeleton className="absolute inset-0 z-10" />}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={src}
