@@ -703,6 +703,7 @@
       ],
       "coverImage": "/assets/projects/pomodoro-tracker/cover.png",
       "images": [],
+      "projectUrl": "https://edwinm.vercel.app/live/pomodoro",
       "featured": false,
       "isLiveProject": true,
       "liveProjectPath": "/live/pomodoro"
