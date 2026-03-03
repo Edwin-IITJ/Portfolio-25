@@ -628,6 +628,23 @@
           "alt": "FiM_1"
         }
       ]
+    },
+    {
+      "id": "poster-art",
+      "title": "Posters and Art",
+      "layout": "minimal",
+      "coverImage": "/assets/projects/poster-art/cover/Posterart Cover.webp",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/poster-art/docs/posterart.webp",
+          "alt": "poster-art"
+        }
+      ]
     }
   ],
   "labWorks": [
