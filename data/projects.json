@@ -177,6 +177,29 @@
       ]
     },
     {
+      "id": "lucid-past",
+      "title": "LucidPast",
+      "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
+      "fullDescription": "",
+      "category": "XR Design",
+      "year": "2025",
+      "technologies": [
+        "Python",
+        "DepthAnything V2",
+        "Applr Depth Pro",
+        "Apple SHARP"
+      ],
+      "coverImage": "/assets/projects/lucid-past/cover/LucidPast Cover.webp",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "",
+      "featured": false,
+      "layout": "lucidpast",
+      "contentMedia": [
+        {}
+      ]
+    },
+    {
       "id": "aruler-redesign",
       "title": "ARuler - Usability Engineering Study",
       "description": "A usability engineering project analyzing and redesigning an ARuler Android app to improve user experience and interface clarity.",
@@ -336,29 +359,6 @@
           "src": "/assets/projects/aruler-redesign/docs/Frame-27.png",
           "alt": "ARuler Frame 27"
         }
-      ]
-    },
-    {
-      "id": "lucid-past",
-      "title": "LucidPast",
-      "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
-      "fullDescription": "",
-      "category": "XR Design",
-      "year": "2025",
-      "technologies": [
-        "Python",
-        "DepthAnything V2",
-        "Applr Depth Pro",
-        "Apple SHARP"
-      ],
-      "coverImage": "/assets/projects/lucid-past/cover/LucidPast Cover.webp",
-      "images": [],
-      "projectUrl": "#",
-      "behanceUrl": "",
-      "featured": false,
-      "layout": "lucidpast",
-      "contentMedia": [
-        {}
       ]
     },
     {
