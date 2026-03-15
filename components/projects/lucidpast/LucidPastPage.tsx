@@ -175,7 +175,7 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
               <FadeUp className="md:col-span-2">
                 <h3 className="text-3xl font-bold font-sans text-[#1A1410] mb-6">Archives as Unexplored Territory</h3>
                 <p className="mb-6 leading-relaxed">
-                  The Library of Congress has 12 million digitized photographs spanning 1850-2000. Museums worldwide have similar collections. Yet most remain locked behind keyword search and chronological browsing - interactions designed for librarians, not storytellers.
+                  The Library of Congress holds over 16 million images in its Prints and Photographs Division, with around 1.6 million digitized. Museums worldwide have similar collections. Yet most remain locked behind keyword search and chronological browsing - interactions designed for librarians, not storytellers.
                 </p>
                 <blockquote className="font-display italic text-2xl text-[#8B6F47] border-l-2 border-[#8B6F47] pl-6 my-10 leading-snug">
                   XR enables natural, curiosity-driven exploration. But existing museum VR experiences are linear guided tours - just digital versions of audio guides.
@@ -431,7 +431,7 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                 </div>
 
                 <blockquote className="font-display italic text-xl text-[#8B6F47] border-l-2 border-[#8B6F47] pl-4">
-                  Dwell time calibration validation: Research shows 300-400ms causes accidental activation ("Midas Touch problem"). Apple Vision Pro standard is 1000ms. I validated this matches user expectations.
+                  Dwell time calibration validation: Research shows 300-400ms causes accidental activation ("Midas Touch problem"). Apple Vision Pro's Dwell Control (accessibility mode) defaults to 1000ms - I validated this as the right threshold to avoid accidental activation.
                 </blockquote>
               </FadeUp>
 
@@ -597,6 +597,7 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
                 {([
                   { src: '/assets/projects/lucid-past/test-dataset/02_migrant1.webp', label: 'Migrant Mother', tag: 'Close portrait' },
+                  { src: '/assets/projects/lucid-past/test-dataset/06_migrant.webp', label: 'Migrant Mother', tag: 'Close portrait' },
                   { src: '/assets/projects/lucid-past/test-dataset/07_keller.webp', label: 'Helen Keller', tag: 'Close portrait' },
                   { src: '/assets/projects/lucid-past/test-dataset/08_mlk.webp', label: 'MLK gathering', tag: 'Crowd scene' },
                   { src: '/assets/projects/lucid-past/test-dataset/10_tesla.webp', label: 'Tesla double exposure', tag: 'Unusual lighting' },
