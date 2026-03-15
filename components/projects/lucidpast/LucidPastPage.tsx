@@ -45,6 +45,8 @@ function ImageSlot({ src, alt, className = "", imgClassName = "object-cover" }: 
 export default function LucidPastPage({ project }: LucidPastPageProps) {
   const [heroBgError, setHeroBgError] = useState(false);
   const [expandedDecision, setExpandedDecision] = useState<number | null>(null);
+  const [expandedSharp, setExpandedSharp] = useState<number | null>(null);
+  const [expandedLearning, setExpandedLearning] = useState<number | null>(null);
   const shouldReduceMotion = useReducedMotion();
 
   const heroVariants = {
@@ -295,29 +297,47 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                 {/* 3.1 */}
                 <div className="p-8">
                   <div className="font-sans font-black text-2xl text-[#8B6F47] mb-4">3.1</div>
-                  <h4 className="font-bold text-[#1A1410] mb-4">Persistent Object Transition</h4>
-                  <p className="text-sm italic text-[#8B6F47] mb-4">Challenge: Environmental changes in VR cause disorientation. How do you morph between completely different scenes without losing the user?</p>
-                  <p className="text-sm leading-relaxed">
-                    Solution: The object you gaze at becomes a spatial anchor. Context morphs around it over 6-8 seconds while the anchor remains stable. Research shows maintaining one stable reference point reduces disorientation seamlessly.
-                  </p>
+                  <h4 className="font-bold text-[#1A1410] mb-5">Persistent Object Transition</h4>
+                  <div className="space-y-3">
+                    <div className="flex gap-3">
+                      <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#D4C4A8] mt-[3px] shrink-0 w-20">Challenge</span>
+                      <p className="text-sm leading-relaxed opacity-80">Environmental changes in VR cause disorientation. How do you morph between completely different scenes without losing the user?</p>
+                    </div>
+                    <div className="flex gap-3 pt-3 border-t border-[#D4C4A8]">
+                      <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#8B6F47] mt-[3px] shrink-0 w-20">Solution</span>
+                      <p className="text-sm leading-relaxed">The object you gaze at becomes a spatial anchor. Context morphs around it over 6-8 seconds while the anchor remains stable. Research shows maintaining one stable reference point reduces disorientation seamlessly.</p>
+                    </div>
+                  </div>
                 </div>
                 {/* 3.2 */}
                 <div className="p-8">
                   <div className="font-sans font-black text-2xl text-[#8B6F47] mb-4">3.2</div>
-                  <h4 className="font-bold text-[#1A1410] mb-4">Three-Act Progressive Narrowing</h4>
-                  <p className="text-sm italic text-[#8B6F47] mb-4">Challenge: Pure random exploration becomes meaningless. Pure curation removes agency. How do you balance both?</p>
-                  <p className="text-sm leading-relaxed">
-                    Solution: I borrowed three-act structure from screenwriting and applied it algorithmically. The possibility space narrows over 20 minutes from completely open to thematically focused, creating an inevitable yet organic conclusion.
-                  </p>
+                  <h4 className="font-bold text-[#1A1410] mb-5">Three-Act Progressive Narrowing</h4>
+                  <div className="space-y-3">
+                    <div className="flex gap-3">
+                      <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#D4C4A8] mt-[3px] shrink-0 w-20">Challenge</span>
+                      <p className="text-sm leading-relaxed opacity-80">Pure random exploration becomes meaningless. Pure curation removes agency. How do you balance both?</p>
+                    </div>
+                    <div className="flex gap-3 pt-3 border-t border-[#D4C4A8]">
+                      <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#8B6F47] mt-[3px] shrink-0 w-20">Solution</span>
+                      <p className="text-sm leading-relaxed">I borrowed three-act structure from screenwriting and applied it algorithmically. The possibility space narrows over 20 minutes from completely open to thematically focused, creating an inevitable yet organic conclusion.</p>
+                    </div>
+                  </div>
                 </div>
                 {/* 3.3 */}
                 <div className="p-8">
                   <div className="font-sans font-black text-2xl text-[#8B6F47] mb-4">3.3</div>
-                  <h4 className="font-bold text-[#1A1410] mb-4">Pathway-Dependent Interpretation</h4>
-                  <p className="text-sm italic text-[#8B6F47] mb-4">Challenge: The same photograph can reveal labor history, tech innovation, or cultural change. Institutions usually pick one.</p>
-                  <p className="text-sm leading-relaxed mb-6">
-                    Solution: Applied the Kuleshov Effect. Users approaching the same photograph through different pathways bring different mental frameworks. The system doesn't choose - pathway priming activates different semantic networks unconsciously.
-                  </p>
+                  <h4 className="font-bold text-[#1A1410] mb-5">Pathway-Dependent Interpretation</h4>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex gap-3">
+                      <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#D4C4A8] mt-[3px] shrink-0 w-20">Challenge</span>
+                      <p className="text-sm leading-relaxed opacity-80">The same photograph can reveal labor history, tech innovation, or cultural change. Institutions usually pick one.</p>
+                    </div>
+                    <div className="flex gap-3 pt-3 border-t border-[#D4C4A8]">
+                      <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#8B6F47] mt-[3px] shrink-0 w-20">Solution</span>
+                      <p className="text-sm leading-relaxed">Applied the Kuleshov Effect. Users approaching the same photograph through different pathways bring different mental frameworks. The system doesn't choose - pathway priming activates different semantic networks unconsciously.</p>
+                    </div>
+                  </div>
                   <div className="w-full border border-[#D4C4A8] bg-[#EAE3D5] p-2">
                     <img
                       src="/assets/projects/lucid-past/docs/Contextual_Priming.webp"
@@ -519,24 +539,38 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
             </FadeUp>
 
             <FadeUp delay={0.2} className="my-16">
-              <h4 className="font-sans font-bold text-xl mb-6">Why SHARP produces better results for LucidPast:</h4>
-              <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
-                <div>
-                  <div className="font-sans font-black text-[#8B6F47] mb-2">01 / Visual fidelity</div>
-                  <p className="text-sm opacity-80 leading-relaxed">Gaussian Splats preserve fine photographic texture - film grain, tonal gradation, edge softness - that polygon meshes lose during reconstruction. Archival photographs carry their age as meaning. That texture matters.</p>
-                </div>
-                <div>
-                  <div className="font-sans font-black text-[#8B6F47] mb-2">02 / XR rendering performance</div>
-                  <p className="text-sm opacity-80 leading-relaxed">Splats render at &gt;100fps on standard GPU vs. mesh-based scenes requiring LOD management. Critical for sustained gaze interaction without frame drops.</p>
-                </div>
-                <div>
-                  <div className="font-sans font-black text-[#8B6F47] mb-2">03 / Enforced ethical constraint</div>
-                  <p className="text-sm opacity-80 leading-relaxed">SHARP's limited parallax range naturally prevents fabricating viewpoints the original camera never captured - the same constraint I designed into Pipeline A, here enforced architecturally rather than by convention.</p>
-                </div>
-                <div>
-                  <div className="font-sans font-black text-[#8B6F47] mb-2">04 / Pipeline simplicity</div>
-                  <p className="text-sm opacity-80 leading-relaxed">One step vs. four eliminates three potential failure points and reduces per-image processing from ~20 minutes to under 1 second.</p>
-                </div>
+              <h4 className="font-sans font-bold text-xl mb-4">Why SHARP produces better results for LucidPast:</h4>
+              <div className="space-y-2">
+                {([
+                  { id: 1, label: '01 / Visual fidelity', body: 'Gaussian Splats preserve fine photographic texture - film grain, tonal gradation, edge softness - that polygon meshes lose during reconstruction. Archival photographs carry their age as meaning. That texture matters.' },
+                  { id: 2, label: '02 / XR rendering performance', body: 'Splats render at >100fps on standard GPU vs. mesh-based scenes requiring LOD management. Critical for sustained gaze interaction without frame drops.' },
+                  { id: 3, label: '03 / Enforced ethical constraint', body: "SHARP's limited parallax range naturally prevents fabricating viewpoints the original camera never captured - the same constraint I designed into Pipeline A, here enforced architecturally rather than by convention." },
+                  { id: 4, label: '04 / Pipeline simplicity', body: 'One step vs. four eliminates three potential failure points and reduces per-image processing from ~20 minutes to under 1 second.' },
+                ] as { id: number; label: string; body: string }[]).map((item) => (
+                  <div key={item.id} className="border border-[#D4C4A8] bg-[#FAF8F5] transition-all duration-300 hover:border-[#8B6F47]/50">
+                    <button
+                      className="w-full text-left px-5 py-4 flex justify-between items-center font-sans font-black text-sm text-[#8B6F47] outline-none"
+                      onClick={() => setExpandedSharp(expandedSharp === item.id ? null : item.id)}
+                    >
+                      <span>{item.label}</span>
+                      <span className="text-[#8B6F47] text-lg ml-4 font-light shrink-0">
+                        {expandedSharp === item.id ? '−' : '+'}
+                      </span>
+                    </button>
+                    <AnimatePresence>
+                      {expandedSharp === item.id && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <p className="px-5 pb-5 text-sm opacity-80 leading-relaxed border-t border-[#D4C4A8] pt-4">{item.body}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
               </div>
             </FadeUp>
 
@@ -759,16 +793,36 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
               <div className="space-y-12">
                 <FadeUp delay={0.2}>
                   <h3 className="text-2xl font-bold font-sans text-[#1A1410] mb-6">What I Learned</h3>
-                  <div className="space-y-6 text-sm leading-relaxed opacity-90">
-                    <p>
-                      <strong className="text-[#8B6F47]">About narrative design:</strong> The tension between agency and meaning is fundamental to interactive storytelling. This project proves you can let users feel they're authoring their journey while algorithmic structure ensures coherence - applicable to any content discovery system.
-                    </p>
-                    <p>
-                      <strong className="text-[#8B6F47]">About spatial computing:</strong> Zero-friction inputs (gaze, dwell time) will define next-generation interfaces as controllers disappear. Designing for implicit interaction requires rethinking feedback, confirmation, and error prevention patterns.
-                    </p>
-                    <p>
-                      <strong className="text-[#8B6F47]">About technical feasibility:</strong> Iterating across two reconstruction pipelines revealed that the right technical choice isn't always the first working one. Pipeline A proved the concept; Pipeline B proved it could be production-viable. Both validations were necessary.
-                    </p>
+                  <div className="space-y-2">
+                    {([
+                      { id: 1, label: 'About narrative design', body: "The tension between agency and meaning is fundamental to interactive storytelling. This project proves you can let users feel they're authoring their journey while algorithmic structure ensures coherence - applicable to any content discovery system." },
+                      { id: 2, label: 'About spatial computing', body: 'Zero-friction inputs (gaze, dwell time) will define next-generation interfaces as controllers disappear. Designing for implicit interaction requires rethinking feedback, confirmation, and error prevention patterns.' },
+                      { id: 3, label: 'About technical feasibility', body: "Iterating across two reconstruction pipelines revealed that the right technical choice isn't always the first working one. Pipeline A proved the concept; Pipeline B proved it could be production-viable. Both validations were necessary." },
+                    ] as { id: number; label: string; body: string }[]).map((item) => (
+                      <div key={item.id} className="border border-[#D4C4A8] bg-white transition-all duration-300 hover:border-[#8B6F47]/50">
+                        <button
+                          className="w-full text-left px-5 py-4 flex justify-between items-center font-bold text-sm text-[#1A1410] outline-none"
+                          onClick={() => setExpandedLearning(expandedLearning === item.id ? null : item.id)}
+                        >
+                          <span className="text-[#8B6F47]">{item.label}</span>
+                          <span className="text-[#8B6F47] text-lg ml-4 font-light shrink-0">
+                            {expandedLearning === item.id ? '−' : '+'}
+                          </span>
+                        </button>
+                        <AnimatePresence>
+                          {expandedLearning === item.id && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden"
+                            >
+                              <p className="px-5 pb-5 text-sm opacity-80 leading-relaxed border-t border-[#D4C4A8] pt-4">{item.body}</p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ))}
                   </div>
                 </FadeUp>
 
