@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Navbar from '../../sections/Navbar';
 import Footer from '../../sections/Footer';
@@ -47,6 +49,7 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
   const [expandedDecision, setExpandedDecision] = useState<number | null>(null);
   const [expandedSharp, setExpandedSharp] = useState<number | null>(null);
   const [expandedLearning, setExpandedLearning] = useState<number | null>(null);
+  const [expandedFutureWork, setExpandedFutureWork] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const heroVariants = {
@@ -70,6 +73,19 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
       {/* Global Navbar */}
       <div className="absolute top-0 w-full z-50 mix-blend-difference">
         <Navbar />
+      </div>
+
+      {/* Back to Projects — fixed below navbar, matches standard project pages */}
+      <div className="fixed top-20 left-4 md:left-8 z-[100] pointer-events-auto">
+        <Link href="/projects">
+          <motion.div
+            className="inline-flex items-center gap-2 text-[#F5F0E8]/70 hover:text-[#F5F0E8] transition-colors cursor-pointer font-sans text-sm"
+            whileHover={{ x: -5 }}
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span className="hidden sm:inline">Back to Projects</span>
+          </motion.div>
+        </Link>
       </div>
 
       <main>
@@ -164,9 +180,6 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                 <blockquote className="font-display italic text-2xl text-[#8B6F47] border-l-2 border-[#8B6F47] pl-6 my-10 leading-snug">
                   XR enables natural, curiosity-driven exploration. But existing museum VR experiences are linear guided tours - just digital versions of audio guides.
                 </blockquote>
-                <p className="leading-relaxed">
-                  The opportunity: This project explores one possible direction - using archival photographs as test domain for attention-driven narrative systems.
-                </p>
               </FadeUp>
 
               <FadeUp className="md:col-span-3" delay={0.2}>
@@ -176,20 +189,17 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                   <div className="space-y-12">
                     <div className="relative pl-12 md:pl-16">
                       <span className="absolute left-0 top-[-8px] text-5xl md:text-6xl font-black text-[#D4C4A8] opacity-50 select-none">01</span>
-                      <h5 className="font-bold text-lg mb-2">Discovery is broken.</h5>
-                      <p className="opacity-80">Users must know what they're looking for before they find it.</p>
+                      <h5 className="font-bold text-lg">Discovery is broken.</h5>
                     </div>
 
                     <div className="relative pl-12 md:pl-16">
                       <span className="absolute left-0 top-[-8px] text-5xl md:text-6xl font-black text-[#D4C4A8] opacity-50 select-none">02</span>
-                      <h5 className="font-bold text-lg mb-2">Context is rigid.</h5>
-                      <p className="opacity-80">Institutional labels provide single interpretations, missing the richness of diverse perspectives.</p>
+                      <h5 className="font-bold text-lg">Context is rigid.</h5>
                     </div>
 
                     <div className="relative pl-12 md:pl-16">
                       <span className="absolute left-0 top-[-8px] text-5xl md:text-6xl font-black text-[#D4C4A8] opacity-50 select-none">03</span>
-                      <h5 className="font-bold text-lg mb-2">Engagement is shallow.</h5>
-                      <p className="opacity-80">People skim thumbnails, not experience photographs as portals into lived history.</p>
+                      <h5 className="font-bold text-lg">Engagement is shallow.</h5>
                     </div>
                   </div>
                 </div>
@@ -202,21 +212,21 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
         <section className="w-full bg-[#1A1410] text-[#F5F0E8] py-24 md:py-32 relative z-10 selection:bg-[#8B6F47] selection:text-[#1A1410]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
             <SectionLabel title="The Insight" isDark={true} />
-            
+
             <FadeUp>
               <h3 className="font-display italic text-3xl md:text-5xl text-[#F5F0E8] mb-8 leading-snug">
                 The brain holds personal memory.<br />
                 Archives hold collective memory.
               </h3>
             </FadeUp>
-            
+
             <FadeUp delay={0.2}>
               <h4 className="font-sans font-black text-sm md:text-base tracking-[0.2em] md:tracking-[0.3em] uppercase text-[#8B6F47] mb-12">
                 Dreams are how we explore one.<br />
                 LucidPast is how we explore the other.
               </h4>
             </FadeUp>
-            
+
             <FadeUp delay={0.3}>
               <p className="text-lg md:text-xl opacity-80 leading-relaxed mb-6 max-w-2xl mx-auto">
                 When you dream, your brain does not present memories in chronological order. It follows associations - a face leads to a place leads to a feeling. The result is not chaos. It is meaning, arrived at sideways.
@@ -239,32 +249,29 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
             <div className="grid md:grid-cols-2 gap-12 md:gap-24 mb-16">
               <FadeUp>
                 <h3 className="text-3xl font-bold font-sans text-[#F5F0E8] mb-6">How Dreams Actually Work</h3>
-                <p className="mb-6 opacity-80 leading-relaxed">
-                  Dreams flow through association - a dog becomes your childhood friend becomes your old house - yet retrospectively reveal coherent patterns. You feel loss, or nostalgia, or anxiety threading through seemingly random shifts.
-                </p>
                 <p className="text-[#8B6F47] font-bold italic text-xl mb-6">
                   I asked: Can we recreate this algorithmically?
                 </p>
               </FadeUp>
 
               <FadeUp delay={0.2}>
-                <h4 className="font-sans font-black text-[10px] tracking-[0.3em] uppercase text-[#8B6F47] mb-8">The system I designed:</h4>
-                <ul className="space-y-6 opacity-90">
-                  <li className="flex gap-4">
-                    <span className="text-[#8B6F47] font-bold">→</span>
-                    <p>Your <strong>gaze</strong> reveals unconscious attention (where you look = what interests you)</p>
+                <h4 className="font-sans font-black text-[10px] tracking-[0.3em] uppercase text-[#8B6F47] mb-6">The system I designed:</h4>
+                <ul className="space-y-3 opacity-90">
+                  <li className="flex gap-4 items-center">
+                    <span className="text-[#8B6F47] font-bold shrink-0">→</span>
+                    <p className="font-sans font-black text-sm">Gaze reveals intent</p>
                   </li>
-                  <li className="flex gap-4">
-                    <span className="text-[#8B6F47] font-bold">→</span>
-                    <p>Each gaze triggers transitions to <strong>semantically related</strong> photographs</p>
+                  <li className="flex gap-4 items-center">
+                    <span className="text-[#8B6F47] font-bold shrink-0">→</span>
+                    <p className="font-sans font-black text-sm">Intent triggers transitions</p>
                   </li>
-                  <li className="flex gap-4">
-                    <span className="text-[#8B6F47] font-bold">→</span>
-                    <p>A hidden <strong>3-act algorithm</strong> progressively narrows possibilities toward coherent themes</p>
+                  <li className="flex gap-4 items-center">
+                    <span className="text-[#8B6F47] font-bold shrink-0">→</span>
+                    <p className="font-sans font-black text-sm">Transitions build themes</p>
                   </li>
-                  <li className="flex gap-4">
-                    <span className="text-[#8B6F47] font-bold">→</span>
-                    <p>You experience spontaneity; the system ensures meaning</p>
+                  <li className="flex gap-4 items-center">
+                    <span className="text-[#8B6F47] font-bold shrink-0">→</span>
+                    <p className="font-sans font-black text-sm">Themes create meaning</p>
                   </li>
                 </ul>
               </FadeUp>
@@ -305,7 +312,7 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                     </div>
                     <div className="flex gap-3 pt-3 border-t border-[#D4C4A8]">
                       <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#8B6F47] mt-[3px] shrink-0 w-20">Solution</span>
-                      <p className="text-sm leading-relaxed">The object you gaze at becomes a spatial anchor. Context morphs around it over 6-8 seconds while the anchor remains stable. Research shows maintaining one stable reference point reduces disorientation seamlessly.</p>
+                      <p className="text-sm leading-relaxed">The gazed object becomes a spatial anchor - context morphs around it, eliminating disorientation.</p>
                     </div>
                   </div>
                 </div>
@@ -320,7 +327,7 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                     </div>
                     <div className="flex gap-3 pt-3 border-t border-[#D4C4A8]">
                       <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#8B6F47] mt-[3px] shrink-0 w-20">Solution</span>
-                      <p className="text-sm leading-relaxed">I borrowed three-act structure from screenwriting and applied it algorithmically. The possibility space narrows over 20 minutes from completely open to thematically focused, creating an inevitable yet organic conclusion.</p>
+                      <p className="text-sm leading-relaxed">Three-act structure applied algorithmically - 100% open for 7 minutes, narrowing to 30% of options by minute 20.</p>
                     </div>
                   </div>
                 </div>
@@ -335,7 +342,7 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                     </div>
                     <div className="flex gap-3 pt-3 border-t border-[#D4C4A8]">
                       <span className="font-sans font-black text-[9px] tracking-[0.25em] uppercase text-[#8B6F47] mt-[3px] shrink-0 w-20">Solution</span>
-                      <p className="text-sm leading-relaxed">Applied the Kuleshov Effect. Users approaching the same photograph through different pathways bring different mental frameworks. The system doesn't choose - pathway priming activates different semantic networks unconsciously.</p>
+                      <p className="text-sm leading-relaxed">Pathway priming activates different semantic networks - the same photograph means different things depending on how you arrived at it.</p>
                     </div>
                   </div>
                   <div className="w-full border border-[#D4C4A8] bg-[#EAE3D5] p-2">
@@ -586,15 +593,37 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
             </FadeUp>
 
             <FadeUp delay={0.4} className="mt-16 p-8 bg-[#EDE8DC] border border-[#D4C4A8]">
-              <h5 className="font-bold mb-4">Test dataset validated across extreme conditions:</h5>
-              <div className="flex flex-wrap gap-2 text-sm">
-                <span className="px-3 py-1 bg-[#F5F0E8] border border-[#D4C4A8]">Close portraits (Migrant Mother, Helen Keller)</span>
-                <span className="px-3 py-1 bg-[#F5F0E8] border border-[#D4C4A8]">Crowd scenes (MLK gathering)</span>
-                <span className="px-3 py-1 bg-[#F5F0E8] border border-[#D4C4A8]">Unusual lighting (Tesla double exposure)</span>
-                <span className="px-3 py-1 bg-[#F5F0E8] border border-[#D4C4A8]">Extreme environments (Aldrin on moon)</span>
-                <span className="px-3 py-1 bg-[#F5F0E8] border border-[#D4C4A8]">Interior architecture (1940s diner, radio studio)</span>
+              <h5 className="font-bold mb-6">Test dataset validated across extreme conditions:</h5>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+                {([
+                  { src: '/assets/projects/lucid-past/test-dataset/02_migrant1.webp', label: 'Migrant Mother', tag: 'Close portrait' },
+                  { src: '/assets/projects/lucid-past/test-dataset/07_keller.webp', label: 'Helen Keller', tag: 'Close portrait' },
+                  { src: '/assets/projects/lucid-past/test-dataset/08_mlk.webp', label: 'MLK gathering', tag: 'Crowd scene' },
+                  { src: '/assets/projects/lucid-past/test-dataset/10_tesla.webp', label: 'Tesla double exposure', tag: 'Unusual lighting' },
+                  { src: '/assets/projects/lucid-past/test-dataset/05_aldrin.webp', label: 'Aldrin on moon', tag: 'Extreme environment' },
+                  { src: '/assets/projects/lucid-past/test-dataset/01_diner_1940.webp', label: '1940s diner', tag: 'Interior architecture' },
+                  { src: '/assets/projects/lucid-past/test-dataset/03_radio_studio_1942.webp', label: 'Radio studio 1942', tag: 'Interior architecture' },
+                  { src: '/assets/projects/lucid-past/test-dataset/01_diner_1940_2.webp', label: 'Diner detail', tag: 'Interior (alt angle)' },
+                  { src: '/assets/projects/lucid-past/test-dataset/04_gandhi.webp', label: 'Gandhi', tag: 'Group of People' },
+                ] as { src: string; label: string; tag: string }[]).map((item) => (
+                  <div key={item.src} className="flex flex-col gap-1">
+                    <Lightbox src={item.src} alt={item.label}>
+                      <div className="relative aspect-square bg-[#D4C4A8] border border-[#C4B498] group overflow-hidden hover:border-[#8B6F47] transition-colors cursor-zoom-in">
+                        <img
+                          src={item.src}
+                          alt={item.label}
+                          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                        />
+                      </div>
+                    </Lightbox>
+                    <div>
+                      <div className="text-[10px] font-sans font-black uppercase tracking-widest text-[#8B6F47] leading-tight">{item.tag}</div>
+                      <div className="text-[10px] opacity-70 leading-tight">{item.label}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <p className="mt-6 text-sm opacity-80 italic">Both pipelines generated convincing 3D across all conditions. SHARP showed measurably superior texture preservation in portrait-heavy content - the dominant image type in institutional archives.</p>
+              <p className="mt-8 text-sm opacity-80 italic">Both pipelines generated convincing 3D across all conditions. SHARP showed measurably superior texture preservation in portrait-heavy content - the dominant image type in institutional archives.</p>
             </FadeUp>
 
             <FadeUp delay={0.5}>
@@ -612,7 +641,24 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                     <div className="border-l-2 border-[#8B6F47] pl-4 mt-4">
                       <p className="text-xs text-[#8B6F47] italic font-display">LucidPast limits parallax to visible content only. What the photographer did not capture, the system does not invent.</p>
                     </div>
-                    {/* TODO: Replace this block with side-by-side screenshots once WorldLabs images are available */}
+                    {/* WorldLabs output screenshot */}
+                    <div className="mt-4">
+                      <Lightbox src="/assets/projects/lucid-past/docs/worldlabs.webp" alt="WorldLabs output - Migrant Mother manipulated">
+                        <div className="relative group border border-[#8B6F47]/20 hover:border-[#8B6F47]/50 transition-colors cursor-zoom-in">
+                          <img
+                            src="/assets/projects/lucid-past/docs/worldlabs.webp"
+                            alt="WorldLabs output"
+                            className="w-full h-auto object-cover opacity-70 group-hover:opacity-90 transition-opacity"
+                          />
+                          <div className="absolute top-2 right-2 bg-[#8B6F47] text-[#F5F0E8] px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                            Click to Enlarge
+                          </div>
+                        </div>
+                      </Lightbox>
+                      <p className="mt-2 text-[10px] text-[#F5F0E8]/40 italic leading-relaxed">
+                        WorldLabs output - Migrant Mother's face altered beyond recognition, child removed, background fabricated from partial scene data.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -827,13 +873,32 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                 </FadeUp>
 
                 <FadeUp delay={0.3}>
-                  <div className="p-8 border-l-4 border-[#8B6F47] bg-[#EDE8DC]">
-                    <h3 className="text-lg font-bold font-sans text-[#1A1410] mb-4">Future Work</h3>
-                    <ol className="list-decimal pl-4 space-y-4 text-sm opacity-90 marker:text-[#8B6F47] marker:font-bold">
-                      <li className="pl-2"><strong>Multi-user divergence study:</strong> Test 3 users starting at the same photograph. Do their pathways actually diverge? How different are their emergent themes?</li>
-                      <li className="pl-2"><strong>Long-term engagement patterns:</strong> Does discovery vs. exhaustion of novelty hold up over multiple return sessions?</li>
-                      <li className="pl-2"><strong>Institutional partnership:</strong> Scale to 500+ photographs with automated semantic tagging via vision-language models and deploy as museum installation.</li>
-                    </ol>
+                  <div className="border border-[#D4C4A8] bg-[#EDE8DC] transition-all duration-300 hover:border-[#8B6F47]/50">
+                    <button
+                      className="w-full text-left px-5 py-4 flex justify-between items-center font-bold text-sm text-[#1A1410] outline-none"
+                      onClick={() => setExpandedFutureWork(!expandedFutureWork)}
+                    >
+                      <span>Future Work</span>
+                      <span className="text-[#8B6F47] text-lg ml-4 font-light shrink-0">
+                        {expandedFutureWork ? '−' : '+'}
+                      </span>
+                    </button>
+                    <AnimatePresence>
+                      {expandedFutureWork && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <ol className="list-decimal pl-8 pr-5 pb-5 space-y-4 text-sm opacity-90 marker:text-[#8B6F47] marker:font-bold border-t border-[#D4C4A8] pt-4">
+                            <li className="pl-2"><strong>Multi-user divergence study:</strong> Test 3 users starting at the same photograph. Do their pathways actually diverge? How different are their emergent themes?</li>
+                            <li className="pl-2"><strong>Long-term engagement patterns:</strong> Does discovery vs. exhaustion of novelty hold up over multiple return sessions?</li>
+                            <li className="pl-2"><strong>Institutional partnership:</strong> Scale to 500+ photographs with automated semantic tagging via vision-language models and deploy as museum installation.</li>
+                          </ol>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </FadeUp>
               </div>
