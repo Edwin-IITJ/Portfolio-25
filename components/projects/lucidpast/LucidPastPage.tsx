@@ -10,6 +10,8 @@ import FilmGrain from './FilmGrain';
 import FadeUp from './FadeUp';
 import SectionLabel from './SectionLabel';
 import NarrativeSequence from './NarrativeSequence';
+import ModelViewer from '../../projects/ModelViewer';
+import SplatViewer from '../../projects/SplatViewer';
 import ImageCompare from './ImageCompare';
 import PipelineComparison from './PipelineComparison';
 import Lightbox from './Lightbox';
@@ -514,6 +516,13 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                         <Image src="/assets/projects/lucid-past/docs/depthanything.webp" alt="Depth Anything V2 Model Output" fill className="object-cover" />
                         <div className="absolute bottom-2 left-2 bg-[#1A1410]/80 text-[#F5F0E8] px-2 py-0.5 text-[9px] uppercase tracking-widest font-bold">Output Map</div>
                       </div>
+                      <div className="mb-3">
+                        <ModelViewer
+                          src="/assets/projects/lucid-past/models/migrant_depthanythingv2-mesh.glb"
+                          height={360}
+                          label="Drag to rotate / Scroll to zoom"
+                        />
+                      </div>
                       <div className="inline-block bg-[#D4C4A8]/20 border border-[#D4C4A8] text-[9px] uppercase tracking-widest px-2 py-1 font-sans font-black text-[#8B6F47]">Eliminated  -  portrait fidelity insufficient</div>
                     </div>
                   </div>
@@ -528,6 +537,13 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                         <Image src="/assets/projects/lucid-past/docs/depthpro.webp" alt="Apple Depth Pro Model Output" fill className="object-cover" />
                         <div className="absolute bottom-2 left-2 bg-[#1A1410]/80 text-[#F5F0E8] px-2 py-0.5 text-[9px] uppercase tracking-widest font-bold">Output Map</div>
                       </div>
+                      <div className="mb-3">
+                        <ModelViewer
+                          src="/assets/projects/lucid-past/models/migrant_depthpro-mesh.glb"
+                          height={360}
+                          label="Drag to rotate / Scroll to zoom"
+                        />
+                      </div>
                       <div className="inline-block bg-[#8B6F47]/10 border border-[#8B6F47]/40 text-[9px] uppercase tracking-widest px-2 py-1 font-sans font-black text-[#8B6F47]">Selected over Depth Anything V2</div>
                     </div>
                   </div>
@@ -535,7 +551,14 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
                     <div className="font-sans font-black text-xs text-[#8B6F47] uppercase tracking-widest mb-2">Round 2  -  Dec 2025</div>
                     <div className="font-bold text-sm text-[#F5F0E8] mb-2">SHARP (Gaussian Splats)</div>
                     <div className="text-xs text-[#F5F0E8]/80 leading-relaxed">Released Dec 2025. Tested on same dataset. Photorealistic splats in under 1 second. Texture fidelity  -  film grain, tonal gradation  -  surpassed Depth Pro mesh output. Ethical constraint enforced architecturally.</div>
-                    <div className="mt-3 inline-block bg-[#8B6F47] text-[#F5F0E8] text-[9px] uppercase tracking-widest px-2 py-1 font-sans font-black">Final selection</div>
+                    <div className="mb-3">
+                      <SplatViewer
+                        src="/assets/projects/lucid-past/models/migrant_sharp-splat.splat"
+                        height={360}
+                        label="Drag to rotate / Scroll to zoom"
+                      />
+                    </div>
+                    <div className="inline-block bg-[#8B6F47] text-[#F5F0E8] text-[9px] uppercase tracking-widest px-2 py-1 font-sans font-black">Final selection</div>
                   </div>
                 </div>
               </div>
@@ -915,6 +938,25 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
             </p>
           </FadeUp>
         </section>
+
+        {/* Image Sources footnote — minimal, low-contrast, not a named section */}
+        <div className="w-full bg-[#0F0B07] border-t border-[#F5F0E8]/5 py-8 relative z-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="font-sans font-black text-[8px] tracking-[0.25em] uppercase text-[#F5F0E8]/25 mb-3">Image Sources</p>
+            <ul className="space-y-1">
+              {[
+                'Archival photographs: Library of Congress, Prints and Photographs Division',
+                'Neil Armstrong portrait: NASA (public domain)',
+                'Black Mirror - Eulogy (S07E05): Netflix / House of Tomorrow - used for critical commentary',
+                'Depth map outputs and 3D reconstructions: author\'s own work',
+              ].map((line) => (
+                <li key={line} className="text-[#F5F0E8]/25 text-[10px] font-sans leading-relaxed">
+                  {line}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </main>
 
       <div className="relative z-20 bg-white">

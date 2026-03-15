@@ -348,7 +348,8 @@
       "technologies": [
         "Python",
         "DepthAnything V2",
-        "Applr Depth Pro"
+        "Applr Depth Pro",
+        "Apple SHARP"
       ],
       "coverImage": "/assets/projects/lucid-past/cover/LucidPast Cover.webp",
       "images": [],
@@ -357,21 +358,7 @@
       "featured": false,
       "layout": "lucidpast",
       "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/lucid-past/docs/LucidPast I.webp",
-          "alt": "LucidPast I"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/lucid-past/docs/LucidPast II.webp",
-          "alt": "LucidPast II"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/lucid-past/docs/LucidPast III.webp",
-          "alt": "LucidPast III"
-        }
+        {}
       ]
     },
     {
