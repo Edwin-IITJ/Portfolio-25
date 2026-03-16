@@ -89,7 +89,7 @@ export default function Home() {
       {/* Main Content */}
       <div className="relative z-10">
         <Navbar />
-        <main>
+        <main className="overflow-x-hidden w-full">
           <Hero />
           <ProjectsGrid />
           <About />
