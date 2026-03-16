@@ -10,7 +10,7 @@ const StructuredData = () => {
     "image": "https://edwinm.vercel.app/profile-photo.jpg",
     "jobTitle": "Designer | UI/UX/XR",
     "description": "UI/UX Designer specializing in immersive experiences and user-centered design",
-    "email": "m24ldx008@ad.iitj.ac.in",
+    "email": "edwinmeleth@gmail.com",
     "sameAs": [
       "https://www.linkedin.com/in/edwinmeleth",
       "https://github.com/Edwin-IITJ",

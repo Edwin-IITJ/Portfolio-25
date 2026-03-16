@@ -25,15 +25,15 @@ const Footer = () => {
     Connect: [
       { name: 'GitHub', href: 'https://github.com/Edwin-IITJ' },
       { name: 'LinkedIn', href: 'https://www.linkedin.com/in/edwinmeleth' },
-      // { name: 'Behance', href: 'https://behance.net/edwin_m' },
-      { name: 'Email', href: 'mailto:m24ldx008@iitj.ac.in' },
+      { name: 'Behance', href: 'https://behance.net/edwin_m' },
+      { name: 'Email', href: 'mailto:edwinmeleth@gmail.com' },
     ],
   }
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Edwin-IITJ', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:m24ldx008@iitj.ac.in', label: 'Email' },
+    { icon: Mail, href: 'mailto:edwinmeleth@gmail.com', label: 'Email' },
   ]
 
   return (

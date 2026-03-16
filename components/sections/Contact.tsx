@@ -57,8 +57,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'm24ldx008@iitj.ac.in',
-      href: 'mailto:m24ldx008@iitj.ac.in',
+      value: 'edwinmeleth@gmail.com',
+      href: 'mailto:edwinmeleth@gmail.com',
     },
     // {
     //   icon: Phone,
@@ -201,7 +201,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
               <p className="text-gray-600 mb-8">
-                Feel free to reach out for collaborations, freelance opportunities, 
+                Feel free to reach out for collaborations, freelance opportunities,
                 or just a friendly chat about design and technology.
               </p>
 

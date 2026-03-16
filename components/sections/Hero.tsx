@@ -40,13 +40,13 @@ const Hero = () => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Edwin-IITJ', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:m24ldx008@iitj.ac.in', label: 'Email' },
+    { icon: Mail, href: 'mailto:edwinmeleth@gmail.com', label: 'Email' },
   ]
 
   return (
-    <section 
+    <section
       ref={heroRef}
-      id="home" 
+      id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-50"
     >
       {/* Background Pattern */}
