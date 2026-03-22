@@ -2,8 +2,8 @@
   "majorProjects": [
     {
       "id": "aam-vr",
-      "title": "Aam – Usability Engineering Project",
-      "description": "An immersive VR prototype for educational fruit identification, built around intuitive interactions and calm UX principles.",
+      "title": "Aam – VR Experience",
+      "description": "A hand-tracking VR experience that puts the harvest back in your hands. Built for the city person with no tree.",
       "fullDescription": "A conceptual VR experience centered on fruit learning, where users virtually interact with 3D fruit models, pluck them, inspect cross-sections, and gradually internalize identity cues. The project emphasizes gesture‑based interactions, minimal UI distractions, and an exploratory learning flow. The design went through multiple iterations, tested with a pilot group, and incorporated heuristic feedback to refine onboarding, error prevention, and interface consistency.",
       "category": "Usability / Interaction Design",
       "year": "2025",
@@ -12,9 +12,10 @@
         "Unreal Engine 5",
         "Photoshop"
       ],
-      "coverImage": "/projects/aam-vr/cover.png",
+      "coverImage": "/assets/projects/aam-vr/cover/aam_cover.webp",
       "images": [],
       "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
+      "layout": "aam",
       "featured": true,
       "challenges": "Designing intuitive VR fruit interactions: balancing realism with usability while maintaining high frame rates; guiding users without clutter; onboarding gesture controls in a calm, distraction‑free environment.",
       "solution": "Adopted heuristic iteration and prototyping: created minimal onboarding overlays, added color‑based growth/decay cues for fruits, introduced confirmation prompts, and visibly constrained interaction affordances. Optimized models and interactions to reduce motion sickness and maintain smooth performance.",

@@ -12,6 +12,7 @@ import MediaRenderer from '../../components/projects/MediaRenderer';
 import RelatedProjects from '../../components/projects/RelatedProjects';
 import { projectsData, type Project } from '../../data/projects';
 import LucidPastPage from '../../components/projects/lucidpast/LucidPastPage';
+import AamPage from '../../components/projects/aam/AamPage';
 import { cn } from '../../lib/utils';
 import { fadeInUp, fadeIn, staggerContainer } from '../../lib/animations';
 
@@ -78,6 +79,16 @@ export default function ProjectPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   if (project.layout === 'lucidpast') {
     return <LucidPastPage project={project} relatedProjects={relatedProjects} />;
+  }
+
+  if (project.layout === 'aam') {
+    return (
+      <AamPage 
+        project={project} 
+        relatedProjects={relatedProjects} 
+        groupLabel={groupLabel} 
+      />
+    );
   }
 
   return (

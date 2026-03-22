@@ -6,9 +6,10 @@ interface ImageCompareProps {
   afterImage: string;
   beforeLabel: string;
   afterLabel: string;
+  aspect?: string;
 }
 
-export default function ImageCompare({ beforeImage, afterImage, beforeLabel, afterLabel }: ImageCompareProps) {
+export default function ImageCompare({ beforeImage, afterImage, beforeLabel, afterLabel, aspect }: ImageCompareProps) {
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,7 +44,7 @@ export default function ImageCompare({ beforeImage, afterImage, beforeLabel, aft
 
   return (
     <div 
-      className="relative w-full aspect-[3/4] md:aspect-[4/5] select-none touch-none overflow-hidden bg-[#D4C4A8] my-12 cursor-ew-resize rounded-sm"
+      className={`relative w-full ${aspect || 'aspect-[3/4] md:aspect-[4/5]'} select-none touch-none overflow-hidden bg-[#D4C4A8] my-12 cursor-ew-resize rounded-sm`}
       ref={containerRef}
       onMouseDown={(e: ReactMouseEvent) => {
         setIsDragging(true);
@@ -65,7 +66,7 @@ export default function ImageCompare({ beforeImage, afterImage, beforeLabel, aft
             onError={() => setAfterError(true)}
           />
         )}
-        <div className="absolute top-4 right-4 bg-[#0F0B07]/80 text-[#F5F0E8] px-3 py-1 text-[10px] font-sans font-black tracking-widest uppercase rounded">
+        <div className="ic-label ic-label--after absolute top-4 right-4 bg-[#0F0B07]/80 text-[#F5F0E8] px-3 py-1 text-[10px] font-sans font-black tracking-widest uppercase rounded">
           {afterLabel}
         </div>
       </div>
@@ -84,7 +85,7 @@ export default function ImageCompare({ beforeImage, afterImage, beforeLabel, aft
             onError={() => setBeforeError(true)}
           />
         )}
-        <div className="absolute top-4 left-4 bg-[#0F0B07]/80 text-[#F5F0E8] px-3 py-1 text-[10px] font-sans font-black tracking-widest uppercase rounded">
+        <div className="ic-label ic-label--before absolute top-4 left-4 bg-[#0F0B07]/80 text-[#F5F0E8] px-3 py-1 text-[10px] font-sans font-black tracking-widest uppercase rounded">
           {beforeLabel}
         </div>
       </div>

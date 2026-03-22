@@ -254,8 +254,8 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope .strip img, .aam-scope .strip .ph { border-radius: var(--r); }
           .aam-scope .ba-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; background: var(--cr); border: 1.5px solid var(--cm); border-radius: var(--rm); padding: 20px; }
           .aam-scope .ba-item { position: relative; }
-          .aam-scope .ba-label { position: absolute; top: 12px; left: 12px; background: var(--gd); color: var(--y); padding: 4px 10px; border-radius: 4px; font-family: var(--fh); font-weight: 800; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; z-index: 2; }
-          .aam-scope .ba-label--after { left: auto; right: 12px; color: var(--gd); background: var(--y); }
+          .aam-scope .ba-label, .aam-scope .ic-label { position: absolute; top: 16px; left: 16px; background: var(--gd); color: var(--y); padding: 8px 18px; border-radius: 999px; font-family: var(--fh); font-weight: 700; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; z-index: 2; line-height: 1; }
+          .aam-scope .ba-label--after, .aam-scope .ic-label--after { left: auto; right: 16px; color: var(--gd); background: var(--y); }
           .aam-scope .flow-wrap { background: var(--gd); border-radius: var(--rl); overflow: hidden; margin-top: 24px; }
           .aam-scope .flow-wrap img { border-radius: 0; }
           .aam-scope .hgrid { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
@@ -754,11 +754,11 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
               <p>Plucking gesture was missing from onboarding, causing confusion mid-experience. Added to the onboarding flow with contextual hints for available actions.</p>
               <div className="ba-wrap">
                 <div className="ba-item">
-                  <div className="ba-label">ITERATION 3 — DIEGETIC SIGNS</div>
+                  <div className="ba-label">ITERATION 3 — ONBOARDING CARD</div>
                   <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr1.webp" alt="Iteration 3 - Diegetic Signs" fallback="Iteration 3 - Diegetic Signs" aspect="16/9" />
                 </div>
                 <div className="ba-item">
-                  <div className="ba-label ba-label--after">ITERATION 3 — ONBOARDING CARD</div>
+                  <div className="ba-label ba-label--after">ITERATION 3 — CONTEXTUAL HINTS</div>
                   <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr2.webp" alt="Iteration 3 - Onboarding Card" fallback="Iteration 3 - Onboarding Card" aspect="16/9" />
                 </div>
               </div>
