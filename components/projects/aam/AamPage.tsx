@@ -7,6 +7,7 @@ import RelatedProjects from '../RelatedProjects';
 import { type Project } from '../../../data/projects';
 import MediaRenderer from '../MediaRenderer';
 import Lightbox from '../lucidpast/Lightbox';
+import ImageCompare from '../lucidpast/ImageCompare';
 
 interface AamPageProps {
   project: Project;
@@ -28,12 +29,12 @@ const SafeImage = ({ src, alt, fallback, className = "", aspect = "auto" }: { sr
   );
 
   return (
-    <div className={aspectClass} style={{ overflow: 'hidden', borderRadius: 'var(--rm)', height: aspect !== 'auto' ? '100%' : undefined }}>
+    <div className={aspectClass} style={{ overflow: 'hidden', borderRadius: 'var(--rm)' }}>
       <img
         src={src}
         alt={alt}
         className={className}
-        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        style={{ width: '100%', height: 'auto', display: 'block' }}
         onError={() => setError(true)}
       />
     </div>
@@ -72,7 +73,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope *, .aam-scope *::before, .aam-scope *::after { box-sizing: border-box; margin: 0; padding: 0; }
 														  
 		   
-          .aam-scope img { display: block; width: 100%; height: auto; border-radius: var(--rm); object-fit: cover; }
+          .aam-scope img { display: block; width: 100%; height: auto; border-radius: var(--rm); object-fit: contain; }
           .aam-scope .aspect-16-9 { aspect-ratio: 16 / 9; }
           .aam-scope .aspect-4-3 { aspect-ratio: 4 / 3; }
           .aam-scope a { color: inherit; text-decoration: none; }
@@ -122,7 +123,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope .hero__grad { position: absolute; inset: 0; z-index: 1; background: linear-gradient(160deg, rgba(245,196,0,.06) 0%, rgba(245,196,0,0) 35%, rgba(26,46,26,.74) 100%); }
 		   
           .aam-scope .hero__body { position: relative; z-index: 2; padding: 0 56px 56px; max-width: 780px; }
-          .aam-scope .hero__tag { display: inline-flex; align-items: center; background: var(--y); color: var(--gd); font-family: var(--fh); font-weight: 800; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; margin-bottom: 20px; }
+          .aam-scope .hero__tag { display: inline-flex; align-items: center; background: var(--y); color: var(--gd); font-family: var(--fh); font-weight: 700; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; margin-bottom: 20px; }
 																							  
 																							 
 																									
@@ -199,9 +200,9 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
 															   
 		   
           .aam-scope .ph::before { content: '[ img ]'; font-size: 18px; opacity: .4; }
-          .aam-scope .ph--tall { min-height: 440px; }
-          .aam-scope .ph--med { min-height: 300px; }
-          .aam-scope .ph--sh { min-height: 200px; }
+          .aam-scope .ph.ph--tall { min-height: 440px; }
+          .aam-scope .ph.ph--med { min-height: 300px; }
+          .aam-scope .ph.ph--sh { min-height: 200px; }
           .aam-scope [class*="aspect-"] { min-height: 0 !important; }
           .aam-scope .env-g { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
           .aam-scope .env-g--stack { display: flex; flex-direction: column; gap: 32px; margin-top: 24px; }
@@ -251,6 +252,10 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope .strip figure { margin: 0; display: flex; flex-direction: column; }
           .aam-scope .strip figcaption { font-family: var(--fh); font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--inkm); text-align: center; margin-top: 6px; }
           .aam-scope .strip img, .aam-scope .strip .ph { border-radius: var(--r); }
+          .aam-scope .ba-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; background: var(--cr); border: 1.5px solid var(--cm); border-radius: var(--rm); padding: 20px; }
+          .aam-scope .ba-item { position: relative; }
+          .aam-scope .ba-label { position: absolute; top: 12px; left: 12px; background: var(--gd); color: var(--y); padding: 4px 10px; border-radius: 4px; font-family: var(--fh); font-weight: 800; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; z-index: 2; }
+          .aam-scope .ba-label--after { left: auto; right: 12px; color: var(--gd); background: var(--y); }
           .aam-scope .flow-wrap { background: var(--gd); border-radius: var(--rl); overflow: hidden; margin-top: 24px; }
           .aam-scope .flow-wrap img { border-radius: 0; }
           .aam-scope .hgrid { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
@@ -277,22 +282,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
 																			   
           .aam-scope .hfind { background: var(--gp); border-radius: var(--r); padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--gm); font-family: var(--fh); margin-top: 10px; }
 		   
-          .aam-scope .ba-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 20px;
-            background: var(--cr);
-            border: 1.5px solid var(--cm);
-            border-radius: var(--rm);
-            padding: 20px;
-          }
-								
-																	  
-          .aam-scope .ba-label { font-family: var(--fh); font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--inkm); margin-bottom: 8px; }
-		   
-          .aam-scope .ba-label--after { color: var(--gd); }
-          .aam-scope .qtable { width: 100%; border-collapse: collapse; margin-top: 28px; }
+          .aam-scope .qtable { width: 100%; border-collapse: collapse; margin-top: 28px;background: #fff; border: 1.5px solid var(--cm); border-radius: var(--r); overflow: hidden; }
           .aam-scope .qtable th { font-family: var(--fh); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--inkm); padding: 10px 16px; text-align: left; border-bottom: 2px solid var(--cm); }
 																	  
 																				
@@ -718,72 +708,58 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div style={{ marginTop: 40 }}>
               <h3>1. Visibility of System Status: Persistent HUD streak counter</h3>
               <p>Streak counter was only visible in the Home Room. Added a persistent HUD element visible throughout the experience.</p>
-              <div className="ba-wrap">
-                <div>
-                  <div className="ba-label">Before (Iteration 2)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/vss1.webp" alt="Before: no HUD" fallback="Before (no persistent HUD)" className="ph--med" aspect="16/9" />
-                </div>
-                <div>
-                  <div className="ba-label ba-label--after">After (Iteration 3)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/vss2.webp" alt="After: persistent HUD" fallback="After (persistent HUD counter)" className="ph--med" aspect="16/9" />
-                </div>
-              </div>
+              <ImageCompare
+                beforeImage="/assets/projects/aam-vr/docs/Redesign/vss1.webp"
+                afterImage="/assets/projects/aam-vr/docs/Redesign/vss2.webp"
+                beforeLabel="Iteration 2"
+                afterLabel="Iteration 3"
+                aspect="aspect-video"
+              />
             </div>
 
             <div style={{ marginTop: 48 }}>
               <h3>2. Match Between System and Real World: Glide-to-basket animation</h3>
               <p>Gap between plucking action and result was unclear. Added animation showing mango visibly travelling to the basket after pluck. A moveable basket will be added in a future version.</p>
-              <div className="ba-wrap">
-                {/* <div>
-                  <div className="ba-label">Before (Iteration 2)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/msr.gif" alt="Before: no glide animation" fallback="Before (no basket animation)" className="ph--med" />
-                </div> */}
-                <div>
-                  <div className="ba-label ba-label--after">After (Iteration 3)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/msr.gif" alt="After: glide to basket" fallback="After (glide-to-basket animation)" className="ph--med" aspect="16/9" />
-                </div>
+              <div className="mt-8">
+                <SafeImage src="/assets/projects/aam-vr/docs/Redesign/msr.gif" alt="Glide to basket animation" fallback="After (glide-to-basket animation)" className="ph--med" aspect="16/9" />
               </div>
             </div>
 
             <div style={{ marginTop: 48 }}>
               <h3>3. User Control and Freedom: Persistent home button</h3>
               <p>No exit option anywhere was the most critical finding. Added a persistent home button accessible at all times.</p>
-              <div className="ba-wrap">
-                <div>
-                  <div className="ba-label">Before (Iteration 2)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/ucf1.webp" alt="Before: no home button" fallback="Before: no exit option" className="ph--med" aspect="16/9" />
-                </div>
-                <div>
-                  <div className="ba-label ba-label--after">After (Iteration 3)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/ucf2.webp" alt="After: home button" fallback="After: persistent home button" className="ph--med" aspect="16/9" />
-                </div>
-              </div>
+              <ImageCompare
+                beforeImage="/assets/projects/aam-vr/docs/Redesign/ucf1.webp"
+                afterImage="/assets/projects/aam-vr/docs/Redesign/ucf2.webp"
+                beforeLabel="Iteration 2"
+                afterLabel="Iteration 3"
+                aspect="aspect-video"
+              />
             </div>
 
             <div style={{ marginTop: 48 }}>
               <h3>4. Consistency and Standards: Non-diegetic instructions throughout</h3>
               <p>In-world diegetic signs at the start were inconsistent with instruction cards used elsewhere. Replaced with non-diegetic cards consistent with the rest of the system.</p>
-              <div className="ba-wrap">
-                <div>
-                  <div className="ba-label">Before (Iteration 2)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/cs1.webp" alt="Before: diegetic signs" fallback="Before: diegetic in-world signs" className="ph--med" aspect="16/9" />
-                </div>
-                <div>
-                  <div className="ba-label ba-label--after">After (Iteration 3)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/cs2.webp" alt="After: consistent instruction cards" fallback="After: consistent instruction cards" className="ph--med" aspect="16/9" />
-                </div>
-              </div>
+              <ImageCompare
+                beforeImage="/assets/projects/aam-vr/docs/Redesign/cs1.webp"
+                afterImage="/assets/projects/aam-vr/docs/Redesign/cs2.webp"
+                beforeLabel="Iteration 2"
+                afterLabel="Iteration 3"
+                aspect="aspect-video"
+              />
             </div>
 
             <div style={{ marginTop: 48 }}>
               <h3>5. Recognition Rather Than Recall: Plucking added to onboarding + contextual hints</h3>
               <p>Plucking gesture was missing from onboarding, causing confusion mid-experience. Added to the onboarding flow with contextual hints for available actions.</p>
               <div className="ba-wrap">
-                <div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr1.webp" alt="Before: incomplete onboarding" fallback="Before: plucking not in onboarding" className="ph--med" aspect="16/9" />
+                <div className="ba-item">
+                  <div className="ba-label">ITERATION 3 — DIEGETIC SIGNS</div>
+                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr1.webp" alt="Iteration 3 - Diegetic Signs" fallback="Iteration 3 - Diegetic Signs" aspect="16/9" />
                 </div>
-                <div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr2.webp" alt="After: plucking onboarding" fallback="After: plucking added to onboarding" className="ph--med" aspect="16/9" />
+                <div className="ba-item">
+                  <div className="ba-label ba-label--after">ITERATION 3 — ONBOARDING CARD</div>
+                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr2.webp" alt="Iteration 3 - Onboarding Card" fallback="Iteration 3 - Onboarding Card" aspect="16/9" />
                 </div>
               </div>
             </div>
@@ -791,16 +767,13 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div style={{ marginTop: 48 }}>
               <h3>6. Error Prevention: Ripeness indicator</h3>
               <p>Added a ripeness indicator label to colour to make it accessible to colour-blind users.</p>
-              <div className="ba-wrap">
-                <div>
-                  <div className="ba-label">Before (Iteration 2)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/ep1.webp" alt="Before: no ripeness indicator" fallback="Before (no ripeness indicator)" className="ph--med" aspect="16/9" />
-                </div>
-                <div>
-                  <div className="ba-label ba-label--after">After (Iteration 3)</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/ep2.webp" alt="After: ripeness indicator" fallback="After (ripeness label))" className="ph--med" aspect="16/9" />
-                </div>
-              </div>
+              <ImageCompare
+                beforeImage="/assets/projects/aam-vr/docs/Redesign/ep1.webp"
+                afterImage="/assets/projects/aam-vr/docs/Redesign/ep2.webp"
+                beforeLabel="Iteration 2"
+                afterLabel="Iteration 3"
+                aspect="aspect-video"
+              />
             </div>
           </div>
         </section>
@@ -810,7 +783,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Prototype Walkthrough</div>
             <h2>The final prototype, in motion.</h2>
-            <p>Full walkthrough of the Iteration 3 prototype — from Home Room entry through mango selection, harvest, and wrist-rotation undo. This is the version participants used in the usability questionnaire.</p>
+            <p>Full walkthrough of the Iteration 3 prototype: from Home Room entry through mango selection, harvest, and wrist-rotation undo. This is the version participants used in the usability questionnaire.</p>
             <MediaRenderer items={[{
               type: 'video',
               src: '/assets/projects/aam-vr/video/aam_Final.mp4',
