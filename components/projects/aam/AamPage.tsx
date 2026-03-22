@@ -243,11 +243,10 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
 		   
           .aam-scope .env-n p { font-size: 13.5px; color: var(--inks); margin: 0; font-style: italic; }
 							  
-          .aam-scope .gcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 14px; margin-top: 28px; }
-										
-		   
-						  
-          .aam-scope .gc { background: var(--wh); border: 1.5px solid var(--cm); border-radius: var(--rm); padding: 22px 18px; display: flex; flex-direction: column; gap: 10px; }
+          .aam-scope .gcards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 28px; }
+          @media(min-width: 640px) { .aam-scope .gcards { grid-template-columns: repeat(3, 1fr); } }
+          @media(min-width: 1024px) { .aam-scope .gcards { grid-template-columns: repeat(5, 1fr); } }
+          .aam-scope .gc { background: var(--wh); border: 1.5px solid var(--cm); border-radius: var(--rm); padding: 22px 18px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center; }
 																				 
 		   
 								
@@ -311,18 +310,12 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope .hbody p { font-size: 13.5px; color: var(--inks); margin-bottom: 10px; line-height: 1.65; }
 							 
 																			   
-          .aam-scope .hfind { background: var(--gp); border-radius: var(--r); padding: 10px 14px; font-size: 13px; font-weight: 600; color: var(--gm); font-family: var(--fh); margin-top: 10px; }
+          .aam-scope .hfind { background: var(--gd); border-radius: var(--r); padding: 12px 16px; font-size: 13px; font-weight: 600; color: var(--wh); font-family: var(--fh); margin-top: 10px; border: 1px solid rgba(255,255,255,0.1); }
 		   
-          .aam-scope .qtable { width: 100%; border-collapse: collapse; margin-top: 28px;background: #fff; border: 1.5px solid var(--cm); border-radius: var(--r); overflow: hidden; }
-          .aam-scope .qtable th { font-family: var(--fh); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--inkm); padding: 10px 16px; text-align: left; border-bottom: 2px solid var(--cm); }
-																	  
-																				
-																					 
-		   
-								 
-																	
-          .aam-scope .qtable td { padding: 18px 16px; font-size: 14px; color: var(--inks); border-bottom: 1px solid var(--cm); vertical-align: middle; }
-          .aam-scope .qtable tbody tr:nth-child(even) {
+          .aam-scope .qtable { width: 100%; border-collapse: collapse; margin-top: 28px; border: 1.5px solid var(--cm); border-radius: var(--r); overflow: hidden; background: transparent; }
+          .aam-scope .qtable th { font-family: var(--fh); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--inkm); padding: 10px 16px; text-align: left; border-bottom: 2px solid var(--cm); background: var(--wh); }
+          .aam-scope .qtable td { padding: 18px 16px; font-size: 14px; color: var(--inks); border-bottom: 1px solid var(--cm); vertical-align: middle; background: var(--wh); }
+          .aam-scope .qtable tbody tr:nth-child(even) td {
             background: var(--cr);
           }
 		   
@@ -446,7 +439,8 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                 <p>Empty space is not a failure to fill. It is the reason the tree reads as the focal point.</p>
                 <div className="pc__rule">Sparse scene. Wide dome. Silence as a design choice.</div>
               </div>
-             <div className="rc" style={{ marginTop: 20, cursor: 'pointer' }} onClick={() => setExpandedPhilosophy(!expandedPhilosophy)}>
+            </div>
+            <div className="rc" style={{ marginTop: 24, cursor: 'pointer' }} onClick={() => setExpandedPhilosophy(!expandedPhilosophy)}>
               <p><strong>Research backing {expandedPhilosophy ? '↑' : '↓'}</strong></p>
             </div>
             <Collapsible isOpen={expandedPhilosophy}>
@@ -457,8 +451,6 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                 <p>The Home Room follows the same logic. It is a threshold, not a lobby. Borrowing from liminal design theory, which treats transitional spaces as sites of emotional priming, it was designed so that arriving at the tree feels like a small event rather than a direct load. Attention Restoration Theory (Kaplan and Kaplan) identifies soft fascination, effortless bottom-up attention, as the mechanism by which natural environments reduce mental fatigue. VR nature research has confirmed this transfers: digital forest-bathing studies have found stress and fatigue reductions comparable to real forest exposure.</p>
               </div>
             </Collapsible>
-
-            </div>
           </div>
         </section>
 
@@ -671,7 +663,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                   <Collapsible isOpen={expandedHeuristic === 0}>
                     <p>Streak counter only visible in Home Room, not during the experience. Dialogue boxes not clear enough. A progress indicator would help orientate users.</p>
                   </Collapsible>
-                  <div className="hfind">Heuristic 1 Summary: Persistent indicators needed throughout.</div>
+                  <div className="hfind">Persistent indicators needed throughout.</div>
                 </div>
               </div>
               <div className="hi">
@@ -684,7 +676,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                   <Collapsible isOpen={expandedHeuristic === 1}>
                     <p>Terminology familiar but basket should be interactable. Text too small and low contrast to read comfortably in prototype.</p>
                   </Collapsible>
-                  <div className="hfind">Heuristic 2 Summary: Interaction metaphors need strengthening.</div>
+                  <div className="hfind">Interaction metaphors need strengthening.</div>
                 </div>
               </div>
               <div className="hi">
@@ -697,7 +689,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                   <Collapsible isOpen={expandedHeuristic === 2}>
                     <p>No exit, home, or undo option anywhere in the experience. All three evaluators flagged this at Severity 3. The most consistent finding across all evaluators.</p>
                   </Collapsible>
-                  <div className="hfind">Heuristic 3 Summary: Major gap. No escape from unwanted states.</div>
+                  <div className="hfind">Major gap. No escape from unwanted states.</div>
                 </div>
               </div>
               <div className="hi">
@@ -710,7 +702,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                   <Collapsible isOpen={expandedHeuristic === 3}>
                     <p>Diegetic in-world instruction signs at the start are inconsistent with the non-diegetic instruction style used elsewhere in the system.</p>
                   </Collapsible>
-                  <div className="hfind">Heuristic 4 Summary: One inconsistency, isolated to onboarding.</div>
+                  <div className="hfind">One inconsistency, isolated to onboarding.</div>
                 </div>
               </div>
               <div className="hi">
@@ -723,7 +715,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                   <Collapsible isOpen={expandedHeuristic === 4}>
                     <p>Onboarding screen present but incomplete. Plucking gesture not included. Deselect gesture not re-surfaced after onboarding.</p>
                   </Collapsible>
-                  <div className="hfind">Heuristic 5 Summary: Needs the plucking flow added.</div>
+                  <div className="hfind">Needs the plucking flow added.</div>
                 </div>
               </div>
               <div className="hi">
@@ -736,7 +728,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                   <Collapsible isOpen={expandedHeuristic === 5}>
                     <p>Minimalism mostly praised. One evaluator flagged information screens as slightly wordy, suggested hierarchy and fewer words.</p>
                   </Collapsible>
-                  <div className="hfind">Heuristic 6 Summary: Core minimalism holds.</div>
+                  <div className="hfind">Core minimalism holds.</div>
                 </div>
               </div>
               <div className="hi">
@@ -749,7 +741,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                   <Collapsible isOpen={expandedHeuristic === 6}>
                     <p>No constraint preventing a mango from rolling into the water. No corrective guidance if user plucks the wrong mango. Error messages present but inconsistent.</p>
                   </Collapsible>
-                  <div className="hfind">Heuristic 7 Summary: Errors need clearer prevention and recovery paths.</div>
+                  <div className="hfind">Errors need clearer prevention and recovery paths.</div>
                 </div>
               </div>
               <div className="hi">
@@ -762,7 +754,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                   <Collapsible isOpen={expandedHeuristic === 7}>
                     <p>Onboarding screen helpful. Visual documentation and confirmation boxes could strengthen the experience further.</p>
                   </Collapsible>
-                  <div className="hfind">Heuristic 8 Summary: Acceptable baseline.</div>
+                  <div className="hfind">Acceptable baseline.</div>
                 </div>
               </div>
             </div>
