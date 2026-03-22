@@ -714,9 +714,9 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <h2>Every critical finding addressed.</h2>
             <p>Each Severity 3 and Severity 2 finding from the heuristic evaluation was directly resolved.</p>
 
-            <div style={{ marginTop: 40 }}>
-              <h3>An unresolved tension</h3>
-              <p>The streak counter was added to drive return engagement. The problem: it uses extrinsic motivation mechanics inside an experience designed for intrinsic calm. Self-Determination Theory identifies this as a structural conflict. Extrinsic rewards, particularly loss-aversion mechanics like streak counters, are known to undermine intrinsic motivation over time. In real life you return to a tree because the mango is ripening and you will eventually eat it. In VR the fruit cannot be eaten. Whether the process alone is enough to sustain return engagement, and what a non-gamified retention mechanic might look like, remains an open problem.</p>
+            <div style={{ marginTop: 40, padding: '28px', border: '1.5px solid var(--cm)', borderRadius: 'var(--rm)', background: 'rgba(255, 255, 255, 0.4)' }}>
+              <div className="lbl" style={{ color: 'var(--ink)', marginBottom: 12 }}>An unresolved tension</div>
+              <p style={{ margin: 0, fontStyle: 'italic', color: 'var(--inkm)', lineHeight: 1.6 }}>The streak counter was added to drive return engagement. The problem: it uses extrinsic motivation mechanics inside an experience designed for intrinsic calm. Self-Determination Theory identifies this as a structural conflict. Extrinsic rewards, particularly loss-aversion mechanics like streak counters, are known to undermine intrinsic motivation over time. In real life you return to a tree because the mango is ripening and you will eventually eat it. In VR the fruit cannot be eaten. Whether the process alone is enough to sustain return engagement, and what a non-gamified retention mechanic might look like, remains an open problem.</p>
             </div>
 
             <div style={{ marginTop: 48 }}>

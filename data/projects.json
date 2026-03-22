@@ -150,54 +150,23 @@
       "id": "aam-vr",
       "title": "Aam – VR Experience",
       "description": "A hand-tracking VR experience that puts the harvest back in your hands. Built for the city person with no tree.",
-      "fullDescription": "A conceptual VR experience centered on fruit learning, where users virtually interact with 3D fruit models, pluck them, inspect cross-sections, and gradually internalize identity cues. The project emphasizes gesture‑based interactions, minimal UI distractions, and an exploratory learning flow. The design went through multiple iterations, tested with a pilot group, and incorporated heuristic feedback to refine onboarding, error prevention, and interface consistency.",
-      "category": "Usability / Interaction Design",
+      "fullDescription": "Aam is a VR experience about tending toward a harvest, not just simulating one. One island, one tree, no UI chrome. Hand-tracking gestures replace controllers. Three iterations: a pole mechanic that failed in pilot testing, a full rebuild with a liminal Home Room entry space, and a final redesign pass addressing every critical heuristic finding. Evaluated via screen-based Figma prototype, heuristic evaluation, and Likert questionnaire.",
+      "category": "Usability Engineering / Interaction Design",
       "year": "2025",
       "technologies": [
         "Figma",
-        "Unreal Engine 5",
-        "Photoshop"
+        "Unreal Engine 5"
       ],
       "coverImage": "/assets/projects/aam-vr/cover/aam_cover.webp",
       "images": [],
       "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
       "layout": "aam",
       "featured": false,
-      "challenges": "Designing intuitive VR fruit interactions: balancing realism with usability while maintaining high frame rates; guiding users without clutter; onboarding gesture controls in a calm, distraction‑free environment.",
-      "solution": "Adopted heuristic iteration and prototyping: created minimal onboarding overlays, added color‑based growth/decay cues for fruits, introduced confirmation prompts, and visibly constrained interaction affordances. Optimized models and interactions to reduce motion sickness and maintain smooth performance.",
-      "results": "Conducted a pilot study with a small group; questionnaire responses showed 100% found the interface simple and uncluttered, and majority found the app calming. Iterative feedback led to enhancements in user control, error recovery, and recognition over recall. The concept demonstrates feasibility and strong user acceptance.",
+      "challenges": "Reconstructing an embodied seasonal ritual in VR without its terminal reward. Designing hand-tracking gestures that feel instinctive without haptics. Balancing minimal environment with discoverable interactions and onboarding clarity.",
+      "solution": "Pole mechanic replaced with direct forefinger hold after pilot failure. Home Room added as a liminal threshold before the tree zone. Heuristic evaluation resolved all Severity 2 and 3 findings: persistent home button, instruction consistency, onboarding completeness, ripeness indicator, glide-to-basket animation.",
+      "results": "N=3 directional study. Gesture intuitiveness validated (majority Agree/Strongly Agree). Minimal design validated. Core calm intent partially landed (2 Agree, 1 Neutral). Onboarding completeness identified as the primary gap for the next iteration.",
       "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/aam-vr/docs/Aam - Section I.png",
-          "alt": "Aam documentation overview panel"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/aam-vr/docs/Aam - Section II.png",
-          "alt": "Aam documentation section II"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/aam-vr/docs/mango-animation.gif",
-          "alt": "Interaction loop"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/aam-vr/docs/Aam - Section III.png",
-          "alt": "Aam documentation section III"
-        },
-        {
-          "type": "video",
-          "src": "/assets/projects/aam-vr/video/aam_Final.mp4",
-          "poster": "/assets/projects/aam-vr/cover/cover.png",
-          "controls": true
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/aam-vr/docs/Aam - Section IV.png",
-          "alt": "Aam documentation section IV"
-        }
+        {}
       ]
     },
     {
