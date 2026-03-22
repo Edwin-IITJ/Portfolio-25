@@ -1,57 +1,26 @@
 {
   "majorProjects": [
     {
-      "id": "aam-vr",
-      "title": "Aam – VR Experience",
-      "description": "A hand-tracking VR experience that puts the harvest back in your hands. Built for the city person with no tree.",
-      "fullDescription": "A conceptual VR experience centered on fruit learning, where users virtually interact with 3D fruit models, pluck them, inspect cross-sections, and gradually internalize identity cues. The project emphasizes gesture‑based interactions, minimal UI distractions, and an exploratory learning flow. The design went through multiple iterations, tested with a pilot group, and incorporated heuristic feedback to refine onboarding, error prevention, and interface consistency.",
-      "category": "Usability / Interaction Design",
+      "id": "lucid-past",
+      "title": "LucidPast",
+      "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
+      "fullDescription": "",
+      "category": "XR Design",
       "year": "2025",
       "technologies": [
-        "Figma",
-        "Unreal Engine 5",
-        "Photoshop"
+        "Python",
+        "DepthAnything V2",
+        "Apple SHARP",
+        "Apple Depth Pro"
       ],
-      "coverImage": "/assets/projects/aam-vr/cover/aam_cover.webp",
+      "coverImage": "/assets/projects/lucid-past/cover/LucidPast Cover.webp",
       "images": [],
-      "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
-      "layout": "aam",
+      "projectUrl": "#",
+      "behanceUrl": "",
       "featured": true,
-      "challenges": "Designing intuitive VR fruit interactions: balancing realism with usability while maintaining high frame rates; guiding users without clutter; onboarding gesture controls in a calm, distraction‑free environment.",
-      "solution": "Adopted heuristic iteration and prototyping: created minimal onboarding overlays, added color‑based growth/decay cues for fruits, introduced confirmation prompts, and visibly constrained interaction affordances. Optimized models and interactions to reduce motion sickness and maintain smooth performance.",
-      "results": "Conducted a pilot study with a small group; questionnaire responses showed 100% found the interface simple and uncluttered, and majority found the app calming. Iterative feedback led to enhancements in user control, error recovery, and recognition over recall. The concept demonstrates feasibility and strong user acceptance.",
+      "layout": "lucidpast",
       "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/aam-vr/docs/Aam - Section I.png",
-          "alt": "Aam documentation overview panel"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/aam-vr/docs/Aam - Section II.png",
-          "alt": "Aam documentation section II"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/aam-vr/docs/mango-animation.gif",
-          "alt": "Interaction loop"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/aam-vr/docs/Aam - Section III.png",
-          "alt": "Aam documentation section III"
-        },
-        {
-          "type": "video",
-          "src": "/assets/projects/aam-vr/video/aam_Final.mp4",
-          "poster": "/assets/projects/aam-vr/cover/cover.png",
-          "controls": true
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/aam-vr/docs/Aam - Section IV.png",
-          "alt": "Aam documentation section IV"
-        }
+        {}
       ]
     },
     {
@@ -178,26 +147,57 @@
       ]
     },
     {
-      "id": "lucid-past",
-      "title": "LucidPast",
-      "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
-      "fullDescription": "",
-      "category": "XR Design",
+      "id": "aam-vr",
+      "title": "Aam – VR Experience",
+      "description": "A hand-tracking VR experience that puts the harvest back in your hands. Built for the city person with no tree.",
+      "fullDescription": "A conceptual VR experience centered on fruit learning, where users virtually interact with 3D fruit models, pluck them, inspect cross-sections, and gradually internalize identity cues. The project emphasizes gesture‑based interactions, minimal UI distractions, and an exploratory learning flow. The design went through multiple iterations, tested with a pilot group, and incorporated heuristic feedback to refine onboarding, error prevention, and interface consistency.",
+      "category": "Usability / Interaction Design",
       "year": "2025",
       "technologies": [
-        "Python",
-        "DepthAnything V2",
-        "Apple SHARP",
-        "Apple Depth Pro"
+        "Figma",
+        "Unreal Engine 5",
+        "Photoshop"
       ],
-      "coverImage": "/assets/projects/lucid-past/cover/LucidPast Cover.webp",
+      "coverImage": "/assets/projects/aam-vr/cover/aam_cover.webp",
       "images": [],
-      "projectUrl": "#",
-      "behanceUrl": "",
+      "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
+      "layout": "aam",
       "featured": false,
-      "layout": "lucidpast",
+      "challenges": "Designing intuitive VR fruit interactions: balancing realism with usability while maintaining high frame rates; guiding users without clutter; onboarding gesture controls in a calm, distraction‑free environment.",
+      "solution": "Adopted heuristic iteration and prototyping: created minimal onboarding overlays, added color‑based growth/decay cues for fruits, introduced confirmation prompts, and visibly constrained interaction affordances. Optimized models and interactions to reduce motion sickness and maintain smooth performance.",
+      "results": "Conducted a pilot study with a small group; questionnaire responses showed 100% found the interface simple and uncluttered, and majority found the app calming. Iterative feedback led to enhancements in user control, error recovery, and recognition over recall. The concept demonstrates feasibility and strong user acceptance.",
       "contentMedia": [
-        {}
+        {
+          "type": "image",
+          "src": "/assets/projects/aam-vr/docs/Aam - Section I.png",
+          "alt": "Aam documentation overview panel"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aam-vr/docs/Aam - Section II.png",
+          "alt": "Aam documentation section II"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/aam-vr/docs/mango-animation.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aam-vr/docs/Aam - Section III.png",
+          "alt": "Aam documentation section III"
+        },
+        {
+          "type": "video",
+          "src": "/assets/projects/aam-vr/video/aam_Final.mp4",
+          "poster": "/assets/projects/aam-vr/cover/cover.png",
+          "controls": true
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/aam-vr/docs/Aam - Section IV.png",
+          "alt": "Aam documentation section IV"
+        }
       ]
     },
     {
