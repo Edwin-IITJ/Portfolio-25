@@ -170,7 +170,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope .ncdef { border-left: 3px solid var(--gd); padding-left: 18px; }
 							
 																	  
-          .aam-scope .ncdl { font-family: var(--fh); font-weight: 800; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: var(--gm); margin-bottom: 4px; }
+          .aam-scope .ncdl { font-family: var(--fh); font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: var(--gm); margin-bottom: 4px; }
 		   
           .aam-scope .ncdt { font-size: 15px; color: var(--gd); line-height: 1.55; margin: 0; font-weight: 600; }
           .aam-scope .pcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
@@ -182,7 +182,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope .pc::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--y); }
 		   
           .aam-scope .pc__jp { font-family: var(--fh); font-weight: 900; font-size: 34px; color: var(--y); line-height: 1; margin-bottom: 8px; }
-          .aam-scope .pc__nm { font-family: var(--fh); font-weight: 800; font-size: 15px; color: var(--ink); margin-bottom: 2px; }
+          .aam-scope .pc__nm { font-family: var(--fh); font-weight: 700; font-size: 15px; color: var(--ink); margin-bottom: 2px; }
           .aam-scope .pc__en { font-size: 11px; font-weight: 700; color: var(--inkm); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; }
           .aam-scope .pc p { font-size: 13.5px; color: var(--inks); line-height: 1.65; margin-bottom: 12px; }
 								
@@ -366,23 +366,22 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
         <section className="problem">
           <div className="w">
             <div className="lbl lbl--lt">The Problem</div>
-            <h2>A seasonal ritual, made inaccessible.</h2>
+            <h2>Not about the fruit. About the feeling of waiting for it.</h2>
             <div className="prob-grid">
-              <p className="prob-stmt">Mango season in India is a ritual: picking, arguing over ripeness, the snap of a plucked stem. Most urban Indians carry that memory but have no access to the act.</p>
+              <p className="prob-stmt">For many who grew up near a fruit tree, mango season was a daily routine: check the tree, note the colour, decide it needs one more day. Anticipation building slowly until plucking felt earned. For most urban Indians, that relationship is gone. The mango arrives pre-sorted in a supermarket net bag. The ritual is not part of the transaction.</p>
               <div>
-                <p>Over 4,000 years of cultural history. Now arrives pre-sorted in a net bag from a supermarket shelf.</p>
-                <p>Aam asks: can VR reconstruct the gestural experience of harvesting, not just the visual presence of a tree, but the embodied memory of interacting with one?</p>
+                <p>Aam asks whether VR can reconstruct the feeling of tending toward a tree, not just the visual presence of one. The goal is not to simulate eating a mango. It is to simulate having a tree to return to.</p>
               </div>
             </div>
             <div className="name-card">
               <div className="ncw">aam</div>
               <div className="ncdefs">
                 <div className="ncdef">
-                  <div className="ncdl">Hindi — noun</div>
+                  <div className="ncdl">Hindi: noun</div>
                   <p className="ncdt">Mango. The most culturally embedded fruit in the Indian subcontinent, referenced in the Vedas and in Mughal court poetry alike.</p>
                 </div>
                 <div className="ncdef">
-                  <div className="ncdl">Hindi — adjective</div>
+                  <div className="ncdl">Hindi: adjective</div>
                   <p className="ncdt">Ordinary. Common. As in <em>aam aadmi</em>, the common person. This experience is built for the city person with no garden.</p>
                 </div>
               </div>
@@ -395,7 +394,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Design Philosophy</div>
             <h2>Three principles. Used as constraints, not decoration.</h2>
-            <p>Borrowed from Zen aesthetics, these were not mood board references. They were hard rules applied to every environment and interaction decision.</p>
+            <p>These three principles from Japanese aesthetics were applied as hard constraints on every environment and interaction decision. The logic is the same as Zen gardens and bonsai: the act of tending is the practice, not a means to an end.</p>
             <div className="pcards">
               <div className="pc">
                 <div className="pc__jp">簡素</div>
@@ -422,6 +421,10 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div className="rc">
               <p><strong>Research backing:</strong> Minimalist layouts grounded in Kanso reduce self-reported stress by 22–35% and improve cognitive focus through reduced visual distraction, directly aligned with Aam's goal of a calm, unhurried experience. (Transcultural Zen Design Frameworks, 2025)</p>
             </div>
+
+            <div className="rc" style={{ marginTop: 24 }}>
+              <p>The Home Room follows the same logic. It is a threshold, not a lobby. Borrowing from liminal design theory, which treats transitional spaces as sites of emotional priming, it was designed so that arriving at the tree feels like a small event rather than a direct load. Attention Restoration Theory (Kaplan and Kaplan) identifies soft fascination, effortless bottom-up attention, as the mechanism by which natural environments reduce mental fatigue. VR nature research has confirmed this transfers: digital forest-bathing studies have found stress and fatigue reductions comparable to real forest exposure.</p>
+            </div>
           </div>
         </section>
 
@@ -430,7 +433,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Building the World</div>
             <h2>Environment design in Unreal Engine 5</h2>
-            <p>The mango tree and fruit model were sourced from Sketchfab/Fab. The island, dome, water plane, and skybox were built from basic geometry with materials applied. The water material was applied from a preset after a tutorial-based approach did not produce the intended result. Aimed for golden hour lighting but a sun direction constraint in UE5 meant it landed closer to morning light.</p>
+            <p>The mango tree and fruit model were sourced from Sketchfab/Fab. The island, dome, water plane, and skybox were built from basic geometry in UE5 with materials applied. The water material used a preset after a tutorial approach did not produce the intended result. The target was golden-hour lighting; a sun direction constraint in UE5 landed it closer to morning light.</p>
             <div className="env-g--stack">
               <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_env1.webp" alt="Environment model plan" fallback="Environment model & plan" />
               <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_env2.webp" alt="UE5 environment screenshots" fallback="UE5 environment screenshots" aspect="16/9" />
@@ -446,7 +449,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Ideation</div>
             <h2>Sketches & early concepts</h2>
-            <p>Initial sketches explored the world configuration (cage, terrarium, open field, dome) and how the gesture vocabulary would map to physical actions. The environment and interaction were designed in parallel.</p>
+            <p>Initial sketches explored the world configuration (cage, terrarium, open field, dome) and how the gesture vocabulary would map to physical actions. Environment and interaction were designed in parallel.</p>
             <div className="env-g">
               <SafeImage src="/assets/projects/aam-vr/docs/ideation.webp" alt="Initial ideation sketches" fallback="Ideation sketches, world concepts" className="ph--med" />
               <SafeImage src="/assets/projects/aam-vr/docs/interactions.webp" alt="Interaction ideation sketches" fallback="Interaction and gesture sketches" className="ph--med" />
@@ -459,7 +462,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Interaction Design</div>
             <h2>No controllers. Gestures that feel like memory.</h2>
-            <p>Designed for hand tracking on Meta Quest 3. The goal was interactions that feel as instinctive as a mouse click: the click ergonomics of a desk mouse translated into low-effort hand gestures. All gestures function within a natural arm arc in front of the body. No raised arms, no overhead reach.</p>
+            <p>Designed for hand tracking on Meta Quest 3. The goal was interactions that feel instinctive: low-effort gestures within a natural arm arc, no raised arms, no overhead reach.</p>
             <div className="gcards">
               <div className="gc">
                 <div className="gc__icon">▶</div>
@@ -476,11 +479,6 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                 <div className="gc__action">Middle finger tap</div>
                 <p className="gc__desc">Cancel / deselect. Fast one-handed escape without navigating a menu</p>
               </div>
-              <div className="gc">
-                <div className="gc__icon">⇔</div>
-                <div className="gc__action">Two-finger swipe</div>
-                <p className="gc__desc">Scroll. Touchscreen-native, no new learning required</p>
-              </div>
               <div className="gc gc--hl">
                 <div className="gc__icon">↻</div>
                 <div className="gc__action">Wrist rotation</div>
@@ -488,7 +486,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
               </div>
             </div>
             <div className="rc">
-              <p><strong>Research backing:</strong> Hand tracking "mirrors natural motor schemas and activates sensorimotor pathways, creating more intuitive engagement" and is specifically advantageous for educational and immersive contexts over controller-based interaction. (Saran et al., 2025)</p>
+              <p><strong>Research backing:</strong> Hand tracking mirrors natural motor schemas and activates sensorimotor pathways, making it more intuitive than controller-based interaction for immersive contexts. (Saran et al., 2025)</p>
             </div>
           </div>
         </section>
@@ -500,7 +498,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div className="ibadge">Iteration 1</div>
             <div className="lbl">First Build</div>
             <h2>The pole mechanic, and why it failed.</h2>
-            <p>The first environment established the dome, island, and tree. The initial harvest mechanic used a physical pole, accurate to how mangoes are actually harvested in India (a long bamboo pole with a cloth bag at the end). It felt authentic on paper.</p>
+            <p>The first iteration established the dome, island, and tree. The harvest mechanic used a physical pole, accurate to how mangoes are harvested in India (a long bamboo pole with a cloth bag at the end). Authentic on paper.</p>
             <div className="env-g--stack">
               <Lightbox src="/assets/projects/aam-vr/docs/Iteration1/it1_userflow.webp" alt="Iteration 1 user flow">
                 <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_userflow.webp" alt="Iteration 1 user flow" fallback="Iter 1 user flow" />
@@ -540,9 +538,9 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Pilot Study</div>
             <h2>Authenticity and usability are not the same thing.</h2>
-            <p>The prototype was built as a <strong>screen-based Figma prototype using UE5 environment captures</strong>, a recognised approach for surfacing spatial usability issues early without requiring a native VR build. What came back from testing was a sharp lesson in how real-world logic breaks down in VR.</p>
+            <p>The prototype was a screen-based Figma build using UE5 environment captures, a recognised method for surfacing spatial usability issues early without a native VR build. Participants were given context about the app and tasked with plucking a mango and returning to the Home Room.</p>
             <div className="rc" style={{ marginBottom: 24 }}>
-              <p><strong>Research note:</strong> Real-world interactions do not transfer 1:1 to VR. Research in spatial cognition confirms that geometric reasoning and object-interaction expectations differ meaningfully between real and virtual environments. (Kimura et al., Nature 2017). The pole mechanic is a direct example: the weight, haptics, and spatial anchoring that make a bamboo pole intuitive in reality are absent in VR, leaving only a confusing visual metaphor.</p>
+              <p><strong>Research note:</strong> Real-world interactions do not transfer 1:1 to VR. Geometric reasoning and object-interaction expectations differ meaningfully between real and virtual environments. (Kimura et al., Nature 2017) The pole mechanic is a direct example: the weight, haptics, and spatial anchoring that make a bamboo pole intuitive in reality are absent in VR.</p>
             </div>
             <div className="pilot-list">
               <div className="pi"><div className="pi-dot"></div><p>Pole mechanic was immediately confusing, did not behave as expected from the gesture or visual feedback.</p></div>
@@ -561,7 +559,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div className="ibadge">Iteration 2</div>
             <div className="lbl">The Rebuild</div>
             <h2>Rebuilt from the pilot findings up.</h2>
-            <p>Pole mechanic removed. Interaction model redesigned around direct forefinger hold. A Home Room added as an orienting entry space before the tree dome. Teleportation anchors path-ordered. Selection and cancel flow rebuilt with explicit visual state cues at each step.</p>
+            <p>Pole mechanic removed. Interaction model rebuilt around direct forefinger hold.A Home Room added as a threshold space before the tree dome, designed to prime anticipation before the experience begins. Teleportation anchors path-ordered. Selection and cancel flow rebuilt with explicit visual state cues.</p>
             <div className="env-g--stack">
               <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_env.webp" alt="Iteration 2 environment model" fallback="Iter 2 environment model & plan" aspect="16/9" />
               <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_userflow.webp" alt="Iteration 2 user flow">
@@ -632,7 +630,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
               </figure>
             </div>
             <div className="rc" style={{ marginTop: 24 }}>
-              <p><strong>On the prototype method:</strong> Screen-based proxies built from environment captures are a validated method for surfacing core spatial usability issues early. The pilot study produced findings consistent with what full-fidelity VR testing would reveal, confirming the approach was appropriate for this stage. (University of Twente, Low-Fidelity Prototypes for AR Usability Testing)</p>
+              <p><strong>On the prototype method:</strong> Screen-based proxies built from environment captures are a validated method for surfacing core spatial usability issues early. (University of Twente, Low-Fidelity Prototypes for AR Usability Testing)</p>
             </div>
           </div>
         </section>
@@ -642,7 +640,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Heuristic Evaluation</div>
             <h2>Three evaluators. Six heuristics with findings.</h2>
-            <p>Three evaluators tested the Iteration 2 prototype independently against Nielsen's 10 Usability Heuristics. Of the 10, six surfaced meaningful findings. The other four had no issues raised. One finding stood out above all others.</p>
+            <p>Three evaluators tested the Iteration 2 prototype independently against Nielsen's 10 Usability Heuristics.</p>
             <div style={{ background: 'var(--or)', borderRadius: 'var(--rm)', padding: '20px 24px', margin: '24px 0' }}>
               <p style={{ color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15, margin: 0 }}>All three evaluators flagged the same issue independently: no exit, no home button, no escape from unwanted states. Severity 3 across the board.</p>
             </div>
@@ -651,56 +649,56 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                 <div className="hh"><span className="sev sev2">2</span><span className="htitle">1. Visibility of System Status</span></div>
                 <div className="hbody">
                   <p>Streak counter only visible in Home Room, not during the experience. Dialogue boxes not clear enough. A progress indicator would help orientate users.</p>
-                  <div className="hfind">Summary: Basic status communicated, but persistent indicators needed throughout the experience.</div>
+                  <div className="hfind">Heuristic 1 Summary: Persistent indicators needed throughout.</div>
                 </div>
               </div>
               <div className="hi">
                 <div className="hh"><span className="sev sev2">2</span><span className="htitle">2. Match Between System and Real World</span></div>
                 <div className="hbody">
                   <p>Terminology familiar but basket should be interactable. Text too small and low contrast to read comfortably in prototype.</p>
-                  <div className="hfind">Summary: Natural language, but interaction metaphors need strengthening.</div>
+                  <div className="hfind">Heuristic 2 Summary: Interaction metaphors need strengthening.</div>
                 </div>
               </div>
               <div className="hi">
                 <div className="hh"><span className="sev sev3">3</span><span className="htitle">3. User Control and Freedom (Critical)</span></div>
                 <div className="hbody">
                   <p>No exit, home, or undo option anywhere in the experience. All three evaluators flagged this at Severity 3. The most consistent finding across all evaluators.</p>
-                  <div className="hfind">Summary: Major gap. No escape from unwanted states.</div>
+                  <div className="hfind">Heuristic 3 Summary: Major gap. No escape from unwanted states.</div>
                 </div>
               </div>
               <div className="hi">
                 <div className="hh"><span className="sev sev1">1</span><span className="htitle">4. Consistency and Standards</span></div>
                 <div className="hbody">
                   <p>Diegetic in-world instruction signs at the start are inconsistent with the non-diegetic instruction style used elsewhere in the system.</p>
-                  <div className="hfind">Summary: One inconsistency flagged, isolated to onboarding.</div>
+                  <div className="hfind">Heuristic 4 Summary: One inconsistency, isolated to onboarding.</div>
                 </div>
               </div>
               <div className="hi">
                 <div className="hh"><span className="sev sev1">1</span><span className="htitle">5. Recognition Rather Than Recall</span></div>
                 <div className="hbody">
                   <p>Onboarding screen present but incomplete. Plucking gesture not included. Deselect gesture not re-surfaced after onboarding.</p>
-                  <div className="hfind">Summary: Instructions do the job but need the plucking flow added.</div>
+                  <div className="hfind">Heuristic 5 Summary: Needs the plucking flow added.</div>
                 </div>
               </div>
               <div className="hi">
                 <div className="hh"><span className="sev sev1">1</span><span className="htitle">6. Aesthetic and Minimalist Design</span></div>
                 <div className="hbody">
                   <p>Minimalism mostly praised. One evaluator flagged information screens as slightly wordy, suggested hierarchy and fewer words.</p>
-                  <div className="hfind">Summary: Core minimalism holds. Minor text hierarchy tweak needed.</div>
+                  <div className="hfind">Heuristic 6 Summary: Core minimalism holds.</div>
                 </div>
               </div>
               <div className="hi">
                 <div className="hh"><span className="sev sev2">2</span><span className="htitle">7. Error Prevention and Recovery</span></div>
                 <div className="hbody">
                   <p>No constraint preventing a mango from rolling into the water. No corrective guidance if user plucks the wrong mango. Error messages present but inconsistent.</p>
-                  <div className="hfind">Summary: Errors not catastrophic but need clearer prevention and recovery paths.</div>
+                  <div className="hfind">Heuristic 7 Summary: Errors need clearer prevention and recovery paths.</div>
                 </div>
               </div>
               <div className="hi">
                 <div className="hh"><span className="sev sev1">1</span><span className="htitle">8. Help and Documentation</span></div>
                 <div className="hbody">
                   <p>Onboarding screen helpful. Visual documentation and confirmation boxes could strengthen the experience further.</p>
-                  <div className="hfind">Summary: Acceptable baseline. Confirmation feedback for achievements would improve it.</div>
+                  <div className="hfind">Heuristic 8 Summary: Acceptable baseline.</div>
                 </div>
               </div>
             </div>
@@ -714,9 +712,14 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div className="ibadge">Iteration 3</div>
             <div className="lbl">Redesign</div>
             <h2>Every critical finding addressed.</h2>
-            <p>Each Severity 3 and Severity 2 finding from the heuristic evaluation was directly resolved. The before/after pairs below show the specific changes made.</p>
+            <p>Each Severity 3 and Severity 2 finding from the heuristic evaluation was directly resolved.</p>
 
             <div style={{ marginTop: 40 }}>
+              <h3>An unresolved tension</h3>
+              <p>The streak counter was added to drive return engagement. The problem: it uses extrinsic motivation mechanics inside an experience designed for intrinsic calm. Self-Determination Theory identifies this as a structural conflict. Extrinsic rewards, particularly loss-aversion mechanics like streak counters, are known to undermine intrinsic motivation over time. In real life you return to a tree because the mango is ripening and you will eventually eat it. In VR the fruit cannot be eaten. Whether the process alone is enough to sustain return engagement, and what a non-gamified retention mechanic might look like, remains an open problem.</p>
+            </div>
+
+            <div style={{ marginTop: 48 }}>
               <h3>1. Visibility of System Status: Persistent HUD streak counter</h3>
               <p>Streak counter was only visible in the Home Room. Added a persistent HUD element visible throughout the experience.</p>
               <ImageCompare
@@ -765,12 +768,12 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
               <p>Plucking gesture was missing from onboarding, causing confusion mid-experience. Added to the onboarding flow with contextual hints for available actions.</p>
               <div className="ba-wrap">
                 <div className="ba-item">
-                  <div className="ba-label">ITERATION 3 — ONBOARDING CARD</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr1.webp" alt="Iteration 3 - Diegetic Signs" fallback="Iteration 3 - Diegetic Signs" aspect="16/9" />
+                  <div className="ba-label ba-label--after">ITERATION 3: ONBOARDING CARD</div>
+                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr1.webp" alt="Iteration 3 - Onboarding Card" fallback="Iteration 3 - Onboarding Card" aspect="16/9" />
                 </div>
                 <div className="ba-item">
-                  <div className="ba-label ba-label--after">ITERATION 3 — CONTEXTUAL HINTS</div>
-                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr2.webp" alt="Iteration 3 - Onboarding Card" fallback="Iteration 3 - Onboarding Card" aspect="16/9" />
+                  <div className="ba-label ba-label--after">ITERATION 3: CONTEXTUAL HINTS</div>
+                  <SafeImage src="/assets/projects/aam-vr/docs/Redesign/rrr2.webp" alt="Iteration 3 - Contextual Hints" fallback="Iteration 3 - Contextual Hints" aspect="16/9" />
                 </div>
               </div>
             </div>
@@ -794,7 +797,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Prototype Walkthrough</div>
             <h2>The final prototype, in motion.</h2>
-            <p>Full walkthrough of the Iteration 3 prototype: from Home Room entry through mango selection, harvest, and wrist-rotation undo. This is the version participants used in the usability questionnaire.</p>
+            <p>Full walkthrough of the Iteration 3 prototype: Home Room entry through mango selection, harvest, and wrist-rotation undo. This is the version participants used in the usability questionnaire.</p>
             <MediaRenderer items={[{
               type: 'video',
               src: '/assets/projects/aam-vr/video/aam_Final.mp4',
@@ -809,7 +812,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Usability Questionnaire</div>
             <h2>Directional signal. N=3.</h2>
-            <p>5-statement Likert scale questionnaire administered after the final prototype. With three participants in an academic sprint context, this is treated as directional feedback, not statistical validation. The pattern, however, is clear.</p>
+            <p>5-statement Likert scale administered after the final prototype. N=3, academic sprint context. Treat as directional signal, not statistical validation.</p>
             <table className="qtable">
               <thead>
                 <tr>
@@ -847,7 +850,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
               </tbody>
             </table>
             <div className="rc" style={{ marginTop: 24 }}>
-              <p>The neutral ratings on ease-of-use and simplicity align directly with the heuristic findings. Discoverability and onboarding completeness are the primary gap going forward, not the core interaction model.</p>
+              <p>Neutral ratings on ease-of-use and simplicity align directly with the heuristic findings. Discoverability and onboarding completeness are the gap, not the core interaction model.</p>
             </div>
           </div>
         </section>
@@ -857,7 +860,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Future Scope</div>
             <h2>Where this goes next.</h2>
-            <p>Aam points toward a future where technology reconnects urban people to seasonal, embodied experiences they have lost access to. Not a dystopian machine future, but one where VR gives back something real.</p>
+            <p>Aam points toward a future where technology reconnects urban people to seasonal, embodied experiences they have lost access to.</p>
             <div className="future-grid">
               <div className="fcard">
                 <div className="fcard__num">01</div>
@@ -888,8 +891,10 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="refl">
               <h3>Reflection</h3>
-              <p>The course framing (Usability Engineering) pulled this project toward interaction mechanics and evaluation rigour. The original intention, a calm, culturally grounded experience, is still the foundation, but the deliverable became primarily a usability study. Whether the gestural richness serves the experience's unhurried feel or works against it is the open question for the next iteration.</p>
-              <p>The biggest lesson from this project was not a design insight. It was that what feels intuitive to design does not always feel intuitive to use. The pole mechanic made perfect sense until a real user touched it. That gap between designer logic and user experience is the thing you can't prototype your way out of. You have to test your way through it.</p>
+              <p>The course framing (Usability Engineering) pulled this project toward interaction mechanics and evaluation rigour. That was the right constraint. The gesture model tested well. The iterative redesign addressed every critical finding. As a usability study, it worked.</p>
+              <p>What it could not test was the thing it was actually trying to do: whether the ritual itself translates. The daily return, the slow accumulation of anticipation, the feeling of a harvest that was waited for. Those qualities require time and repetition that a three-week sprint with three participants cannot measure.</p>
+              <p>There is also a harder question the project did not resolve. VR can deliver the environment and the process. It can produce soft fascination, the effortless, low-demand attention that natural environments provide. What it cannot deliver is the terminal reward. The fruit cannot be tasted. Studies on multisensory VR food environments confirm this: even with olfactory cues added, physiological responses to food remain weaker than in real-life conditions. Aam offers the journey but not the arrival.</p>
+              <p>A Zen garden does not produce flowers. Bonsai cannot be eaten. The value is in the tending, the waiting, the daily return. Whether VR is a sufficient medium for that kind of experience, and whether the absence of the real fruit diminishes or simply transforms what the experience can offer, is the most interesting question this project leaves open.</p>
             </div>
           </div>
         </section>
