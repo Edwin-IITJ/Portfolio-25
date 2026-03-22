@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../../sections/Navbar';
 import Footer from '../../sections/Footer';
 import RelatedProjects from '../RelatedProjects';
@@ -43,7 +44,35 @@ const SafeImage = ({ src, alt, fallback, className = "", aspect = "auto" }: { sr
   );
 };
 
+const Collapsible = ({ isOpen, children, className = "" }: { isOpen: boolean, children: React.ReactNode, className?: string }) => (
+  <AnimatePresence initial={false}>
+    {isOpen && (
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: 'auto', opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+        style={{ overflow: 'hidden' }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
+
 const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel }) => {
+  const [expandedHeuristic, setExpandedHeuristic] = useState<number | null>(null);
+  const [expandedRedesign, setExpandedRedesign] = useState<Set<number>>(new Set<number>());
+  const [expandedPhilosophy, setExpandedPhilosophy] = useState(false);
+  const [expandedReflection, setExpandedReflection] = useState(false);
+
+  const toggleRedesign = (id: number) => {
+    const next = new Set(expandedRedesign);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    setExpandedRedesign(next);
+  };
   return (
     <>
       <Head>
@@ -417,13 +446,18 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                 <p>Empty space is not a failure to fill. It is the reason the tree reads as the focal point.</p>
                 <div className="pc__rule">Sparse scene. Wide dome. Silence as a design choice.</div>
               </div>
+             <div className="rc" style={{ marginTop: 20, cursor: 'pointer' }} onClick={() => setExpandedPhilosophy(!expandedPhilosophy)}>
+              <p><strong>Research backing {expandedPhilosophy ? '↑' : '↓'}</strong></p>
             </div>
-            <div className="rc">
-              <p><strong>Research backing:</strong> Minimalist layouts grounded in Kanso reduce self-reported stress by 22–35% and improve cognitive focus through reduced visual distraction, directly aligned with Aam's goal of a calm, unhurried experience. (Transcultural Zen Design Frameworks, 2025)</p>
-            </div>
+            <Collapsible isOpen={expandedPhilosophy}>
+              <div className="rc" style={{ marginTop: 8 }}>
+                <p>Minimalist layouts grounded in Kanso reduce self-reported stress by 22–35% and improve cognitive focus through reduced visual distraction, directly aligned with Aam's goal of a calm, unhurried experience. (Transcultural Zen Design Frameworks, 2025)</p>
+              </div>
+              <div className="rc" style={{ marginTop: 12 }}>
+                <p>The Home Room follows the same logic. It is a threshold, not a lobby. Borrowing from liminal design theory, which treats transitional spaces as sites of emotional priming, it was designed so that arriving at the tree feels like a small event rather than a direct load. Attention Restoration Theory (Kaplan and Kaplan) identifies soft fascination, effortless bottom-up attention, as the mechanism by which natural environments reduce mental fatigue. VR nature research has confirmed this transfers: digital forest-bathing studies have found stress and fatigue reductions comparable to real forest exposure.</p>
+              </div>
+            </Collapsible>
 
-            <div className="rc" style={{ marginTop: 24 }}>
-              <p>The Home Room follows the same logic. It is a threshold, not a lobby. Borrowing from liminal design theory, which treats transitional spaces as sites of emotional priming, it was designed so that arriving at the tree feels like a small event rather than a direct load. Attention Restoration Theory (Kaplan and Kaplan) identifies soft fascination, effortless bottom-up attention, as the mechanism by which natural environments reduce mental fatigue. VR nature research has confirmed this transfers: digital forest-bathing studies have found stress and fatigue reductions comparable to real forest exposure.</p>
             </div>
           </div>
         </section>
@@ -433,13 +467,9 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Building the World</div>
             <h2>Environment design in Unreal Engine 5</h2>
-            <p>The mango tree and fruit model were sourced from Sketchfab/Fab. The island, dome, water plane, and skybox were built from basic geometry in UE5 with materials applied. The water material used a preset after a tutorial approach did not produce the intended result. The target was golden-hour lighting; a sun direction constraint in UE5 landed it closer to morning light.</p>
-            <div className="env-g--stack">
+                        <div className="env-g--stack">
               <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_env1.webp" alt="Environment model plan" fallback="Environment model & plan" />
               <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_env2.webp" alt="UE5 environment screenshots" fallback="UE5 environment screenshots" aspect="16/9" />
-            </div>
-            <div className="env-n">
-              <p>The dome encloses a reflective water plane and a single islanded mango tree, practicing Kanso (one focal object), Shizen (organic placement), and Ma (the emptiness of water around the island as intentional breathing room).</p>
             </div>
           </div>
         </section>
@@ -449,7 +479,6 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Ideation</div>
             <h2>Sketches & early concepts</h2>
-            <p>Initial sketches explored the world configuration (cage, terrarium, open field, dome) and how the gesture vocabulary would map to physical actions. Environment and interaction were designed in parallel.</p>
             <div className="env-g">
               <SafeImage src="/assets/projects/aam-vr/docs/ideation.webp" alt="Initial ideation sketches" fallback="Ideation sketches, world concepts" className="ph--med" />
               <SafeImage src="/assets/projects/aam-vr/docs/interactions.webp" alt="Interaction ideation sketches" fallback="Interaction and gesture sketches" className="ph--med" />
@@ -462,7 +491,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           <div className="w">
             <div className="lbl">Interaction Design</div>
             <h2>No controllers. Gestures that feel like memory.</h2>
-            <p>Designed for hand tracking on Meta Quest 3. The goal was interactions that feel instinctive: low-effort gestures within a natural arm arc, no raised arms, no overhead reach.</p>
+            <p>Hand tracking on Meta Quest 3. All gestures within a natural arm arc, no raised arms, no overhead reach.</p>
             <div className="gcards">
               <div className="gc">
                 <div className="gc__icon">▶</div>
@@ -484,9 +513,6 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                 <div className="gc__action">Wrist rotation</div>
                 <p className="gc__desc">Reverse time / undo. Mime winding a watch dial and the world rewinds. Mangoes return to branches.</p>
               </div>
-            </div>
-            <div className="rc">
-              <p><strong>Research backing:</strong> Hand tracking mirrors natural motor schemas and activates sensorimotor pathways, making it more intuitive than controller-based interaction for immersive contexts. (Saran et al., 2025)</p>
             </div>
           </div>
         </section>
@@ -537,11 +563,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
         <section className="sec" style={{ paddingTop: 0 }}>
           <div className="w">
             <div className="lbl">Pilot Study</div>
-            <h2>Authenticity and usability are not the same thing.</h2>
-            <p>The prototype was a screen-based Figma build using UE5 environment captures, a recognised method for surfacing spatial usability issues early without a native VR build. Participants were given context about the app and tasked with plucking a mango and returning to the Home Room.</p>
-            <div className="rc" style={{ marginBottom: 24 }}>
-              <p><strong>Research note:</strong> Real-world interactions do not transfer 1:1 to VR. Geometric reasoning and object-interaction expectations differ meaningfully between real and virtual environments. (Kimura et al., Nature 2017) The pole mechanic is a direct example: the weight, haptics, and spatial anchoring that make a bamboo pole intuitive in reality are absent in VR.</p>
-            </div>
+            <p>Screen-based Figma prototype using UE5 captures, a recognised method for surfacing spatial usability issues without a native VR build. Participants were given context and tasked with plucking a mango and returning to the Home Room. Real-world interactions do not transfer 1:1 to VR: the pole's weight, haptics, and spatial anchoring that make it intuitive in reality are absent in virtual space.</p>
             <div className="pilot-list">
               <div className="pi"><div className="pi-dot"></div><p>Pole mechanic was immediately confusing, did not behave as expected from the gesture or visual feedback.</p></div>
               <div className="pi"><div className="pi-dot"></div><p>No exit, undo, or home option anywhere. Users felt locked in.</p></div>
@@ -629,9 +651,6 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
                 <figcaption>Undo time reverse</figcaption>
               </figure>
             </div>
-            <div className="rc" style={{ marginTop: 24 }}>
-              <p><strong>On the prototype method:</strong> Screen-based proxies built from environment captures are a validated method for surfacing core spatial usability issues early. (University of Twente, Low-Fidelity Prototypes for AR Usability Testing)</p>
-            </div>
           </div>
         </section>
 
@@ -641,63 +660,108 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div className="lbl">Heuristic Evaluation</div>
             <h2>Three evaluators. Six heuristics with findings.</h2>
             <p>Three evaluators tested the Iteration 2 prototype independently against Nielsen's 10 Usability Heuristics.</p>
-            <div style={{ background: 'var(--or)', borderRadius: 'var(--rm)', padding: '20px 24px', margin: '24px 0' }}>
-              <p style={{ color: '#fff', fontFamily: 'var(--fh)', fontWeight: 700, fontSize: 15, margin: 0 }}>All three evaluators flagged the same issue independently: no exit, no home button, no escape from unwanted states. Severity 3 across the board.</p>
-            </div>
             <div className="hgrid">
               <div className="hi">
-                <div className="hh"><span className="sev sev2">2</span><span className="htitle">1. Visibility of System Status</span></div>
+                <div className="hh" style={{ cursor: 'pointer' }} onClick={() => setExpandedHeuristic(expandedHeuristic === 0 ? null : 0)}>
+                  <span className="sev sev2">2</span>
+                  <span className="htitle">1. Visibility of System Status</span>
+                  <span style={{ marginLeft: 'auto', fontSize: '11px', fontWeight: 700, opacity: 0.6, textTransform: 'uppercase' }}>{expandedHeuristic === 0 ? 'Hide' : 'Details'}</span>
+                </div>
                 <div className="hbody">
-                  <p>Streak counter only visible in Home Room, not during the experience. Dialogue boxes not clear enough. A progress indicator would help orientate users.</p>
+                  <Collapsible isOpen={expandedHeuristic === 0}>
+                    <p>Streak counter only visible in Home Room, not during the experience. Dialogue boxes not clear enough. A progress indicator would help orientate users.</p>
+                  </Collapsible>
                   <div className="hfind">Heuristic 1 Summary: Persistent indicators needed throughout.</div>
                 </div>
               </div>
               <div className="hi">
-                <div className="hh"><span className="sev sev2">2</span><span className="htitle">2. Match Between System and Real World</span></div>
+                <div className="hh" style={{ cursor: 'pointer' }} onClick={() => setExpandedHeuristic(expandedHeuristic === 1 ? null : 1)}>
+                  <span className="sev sev2">2</span>
+                  <span className="htitle">2. Match Between System and Real World</span>
+                  <span style={{ marginLeft: 'auto', fontSize: '11px', fontWeight: 700, opacity: 0.6, textTransform: 'uppercase' }}>{expandedHeuristic === 1 ? 'Hide' : 'Details'}</span>
+                </div>
                 <div className="hbody">
-                  <p>Terminology familiar but basket should be interactable. Text too small and low contrast to read comfortably in prototype.</p>
+                  <Collapsible isOpen={expandedHeuristic === 1}>
+                    <p>Terminology familiar but basket should be interactable. Text too small and low contrast to read comfortably in prototype.</p>
+                  </Collapsible>
                   <div className="hfind">Heuristic 2 Summary: Interaction metaphors need strengthening.</div>
                 </div>
               </div>
               <div className="hi">
-                <div className="hh"><span className="sev sev3">3</span><span className="htitle">3. User Control and Freedom (Critical)</span></div>
+                <div className="hh" style={{ cursor: 'pointer' }} onClick={() => setExpandedHeuristic(expandedHeuristic === 2 ? null : 2)}>
+                  <span className="sev sev3">3</span>
+                  <span className="htitle">3. User Control and Freedom (Critical)</span>
+                  <span style={{ marginLeft: 'auto', fontSize: '11px', fontWeight: 700, opacity: 0.6, textTransform: 'uppercase' }}>{expandedHeuristic === 2 ? 'Hide' : 'Details'}</span>
+                </div>
                 <div className="hbody">
-                  <p>No exit, home, or undo option anywhere in the experience. All three evaluators flagged this at Severity 3. The most consistent finding across all evaluators.</p>
+                  <Collapsible isOpen={expandedHeuristic === 2}>
+                    <p>No exit, home, or undo option anywhere in the experience. All three evaluators flagged this at Severity 3. The most consistent finding across all evaluators.</p>
+                  </Collapsible>
                   <div className="hfind">Heuristic 3 Summary: Major gap. No escape from unwanted states.</div>
                 </div>
               </div>
               <div className="hi">
-                <div className="hh"><span className="sev sev1">1</span><span className="htitle">4. Consistency and Standards</span></div>
+                <div className="hh" style={{ cursor: 'pointer' }} onClick={() => setExpandedHeuristic(expandedHeuristic === 3 ? null : 3)}>
+                  <span className="sev sev1">1</span>
+                  <span className="htitle">4. Consistency and Standards</span>
+                  <span style={{ marginLeft: 'auto', fontSize: '11px', fontWeight: 700, opacity: 0.6, textTransform: 'uppercase' }}>{expandedHeuristic === 3 ? 'Hide' : 'Details'}</span>
+                </div>
                 <div className="hbody">
-                  <p>Diegetic in-world instruction signs at the start are inconsistent with the non-diegetic instruction style used elsewhere in the system.</p>
+                  <Collapsible isOpen={expandedHeuristic === 3}>
+                    <p>Diegetic in-world instruction signs at the start are inconsistent with the non-diegetic instruction style used elsewhere in the system.</p>
+                  </Collapsible>
                   <div className="hfind">Heuristic 4 Summary: One inconsistency, isolated to onboarding.</div>
                 </div>
               </div>
               <div className="hi">
-                <div className="hh"><span className="sev sev1">1</span><span className="htitle">5. Recognition Rather Than Recall</span></div>
+                <div className="hh" style={{ cursor: 'pointer' }} onClick={() => setExpandedHeuristic(expandedHeuristic === 4 ? null : 4)}>
+                  <span className="sev sev1">1</span>
+                  <span className="htitle">5. Recognition Rather Than Recall</span>
+                  <span style={{ marginLeft: 'auto', fontSize: '11px', fontWeight: 700, opacity: 0.6, textTransform: 'uppercase' }}>{expandedHeuristic === 4 ? 'Hide' : 'Details'}</span>
+                </div>
                 <div className="hbody">
-                  <p>Onboarding screen present but incomplete. Plucking gesture not included. Deselect gesture not re-surfaced after onboarding.</p>
+                  <Collapsible isOpen={expandedHeuristic === 4}>
+                    <p>Onboarding screen present but incomplete. Plucking gesture not included. Deselect gesture not re-surfaced after onboarding.</p>
+                  </Collapsible>
                   <div className="hfind">Heuristic 5 Summary: Needs the plucking flow added.</div>
                 </div>
               </div>
               <div className="hi">
-                <div className="hh"><span className="sev sev1">1</span><span className="htitle">6. Aesthetic and Minimalist Design</span></div>
+                <div className="hh" style={{ cursor: 'pointer' }} onClick={() => setExpandedHeuristic(expandedHeuristic === 5 ? null : 5)}>
+                  <span className="sev sev1">1</span>
+                  <span className="htitle">6. Aesthetic and Minimalist Design</span>
+                  <span style={{ marginLeft: 'auto', fontSize: '11px', fontWeight: 700, opacity: 0.6, textTransform: 'uppercase' }}>{expandedHeuristic === 5 ? 'Hide' : 'Details'}</span>
+                </div>
                 <div className="hbody">
-                  <p>Minimalism mostly praised. One evaluator flagged information screens as slightly wordy, suggested hierarchy and fewer words.</p>
+                  <Collapsible isOpen={expandedHeuristic === 5}>
+                    <p>Minimalism mostly praised. One evaluator flagged information screens as slightly wordy, suggested hierarchy and fewer words.</p>
+                  </Collapsible>
                   <div className="hfind">Heuristic 6 Summary: Core minimalism holds.</div>
                 </div>
               </div>
               <div className="hi">
-                <div className="hh"><span className="sev sev2">2</span><span className="htitle">7. Error Prevention and Recovery</span></div>
+                <div className="hh" style={{ cursor: 'pointer' }} onClick={() => setExpandedHeuristic(expandedHeuristic === 6 ? null : 6)}>
+                  <span className="sev sev2">2</span>
+                  <span className="htitle">7. Error Prevention and Recovery</span>
+                  <span style={{ marginLeft: 'auto', fontSize: '11px', fontWeight: 700, opacity: 0.6, textTransform: 'uppercase' }}>{expandedHeuristic === 6 ? 'Hide' : 'Details'}</span>
+                </div>
                 <div className="hbody">
-                  <p>No constraint preventing a mango from rolling into the water. No corrective guidance if user plucks the wrong mango. Error messages present but inconsistent.</p>
+                  <Collapsible isOpen={expandedHeuristic === 6}>
+                    <p>No constraint preventing a mango from rolling into the water. No corrective guidance if user plucks the wrong mango. Error messages present but inconsistent.</p>
+                  </Collapsible>
                   <div className="hfind">Heuristic 7 Summary: Errors need clearer prevention and recovery paths.</div>
                 </div>
               </div>
               <div className="hi">
-                <div className="hh"><span className="sev sev1">1</span><span className="htitle">8. Help and Documentation</span></div>
+                <div className="hh" style={{ cursor: 'pointer' }} onClick={() => setExpandedHeuristic(expandedHeuristic === 7 ? null : 7)}>
+                  <span className="sev sev1">1</span>
+                  <span className="htitle">8. Help and Documentation</span>
+                  <span style={{ marginLeft: 'auto', fontSize: '11px', fontWeight: 700, opacity: 0.6, textTransform: 'uppercase' }}>{expandedHeuristic === 7 ? 'Hide' : 'Details'}</span>
+                </div>
                 <div className="hbody">
-                  <p>Onboarding screen helpful. Visual documentation and confirmation boxes could strengthen the experience further.</p>
+                  <Collapsible isOpen={expandedHeuristic === 7}>
+                    <p>Onboarding screen helpful. Visual documentation and confirmation boxes could strengthen the experience further.</p>
+                  </Collapsible>
                   <div className="hfind">Heuristic 8 Summary: Acceptable baseline.</div>
                 </div>
               </div>
@@ -720,8 +784,13 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             </div>
 
             <div style={{ marginTop: 48 }}>
-              <h3>1. Visibility of System Status: Persistent HUD streak counter</h3>
-              <p>Streak counter was only visible in the Home Room. Added a persistent HUD element visible throughout the experience.</p>
+              <h3 style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }} onClick={() => toggleRedesign(0)}>
+                1. Visibility of System Status: Persistent HUD streak counter
+                {expandedRedesign.has(0) ? <ChevronUp className="w-4 h-4 opacity-40" /> : <ChevronDown className="w-4 h-4 opacity-40" />}
+              </h3>
+              <Collapsible isOpen={expandedRedesign.has(0)}>
+                <p>Streak counter was only visible in the Home Room. Added a persistent HUD element visible throughout the experience.</p>
+              </Collapsible>
               <ImageCompare
                 beforeImage="/assets/projects/aam-vr/docs/Redesign/vss1.webp"
                 afterImage="/assets/projects/aam-vr/docs/Redesign/vss2.webp"
@@ -732,16 +801,26 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             </div>
 
             <div style={{ marginTop: 48 }}>
-              <h3>2. Match Between System and Real World: Glide-to-basket animation</h3>
-              <p>Gap between plucking action and result was unclear. Added animation showing mango visibly travelling to the basket after pluck. A moveable basket will be added in a future version.</p>
+              <h3 style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }} onClick={() => toggleRedesign(1)}>
+                2. Match Between System and Real World: Glide-to-basket animation
+                {expandedRedesign.has(1) ? <ChevronUp className="w-4 h-4 opacity-40" /> : <ChevronDown className="w-4 h-4 opacity-40" />}
+              </h3>
+              <Collapsible isOpen={expandedRedesign.has(1)}>
+                <p>Gap between plucking action and result was unclear. Added animation showing mango visibly travelling to the basket after pluck. A moveable basket will be added in a future version.</p>
+              </Collapsible>
               <div className="mt-8">
                 <SafeImage src="/assets/projects/aam-vr/docs/Redesign/msr.gif" alt="Glide to basket animation" fallback="After (glide-to-basket animation)" className="ph--med" aspect="16/9" />
               </div>
             </div>
 
             <div style={{ marginTop: 48 }}>
-              <h3>3. User Control and Freedom: Persistent home button</h3>
-              <p>No exit option anywhere was the most critical finding. Added a persistent home button accessible at all times.</p>
+              <h3 style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }} onClick={() => toggleRedesign(2)}>
+                3. User Control and Freedom: Persistent home button
+                {expandedRedesign.has(2) ? <ChevronUp className="w-4 h-4 opacity-40" /> : <ChevronDown className="w-4 h-4 opacity-40" />}
+              </h3>
+              <Collapsible isOpen={expandedRedesign.has(2)}>
+                <p>No exit option anywhere was the most critical finding. Added a persistent home button accessible at all times.</p>
+              </Collapsible>
               <ImageCompare
                 beforeImage="/assets/projects/aam-vr/docs/Redesign/ucf1.webp"
                 afterImage="/assets/projects/aam-vr/docs/Redesign/ucf2.webp"
@@ -752,8 +831,13 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             </div>
 
             <div style={{ marginTop: 48 }}>
-              <h3>4. Consistency and Standards: Non-diegetic instructions throughout</h3>
-              <p>In-world diegetic signs at the start were inconsistent with instruction cards used elsewhere. Replaced with non-diegetic cards consistent with the rest of the system.</p>
+              <h3 style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }} onClick={() => toggleRedesign(3)}>
+                4. Consistency and Standards: Non-diegetic instructions throughout
+                {expandedRedesign.has(3) ? <ChevronUp className="w-4 h-4 opacity-40" /> : <ChevronDown className="w-4 h-4 opacity-40" />}
+              </h3>
+              <Collapsible isOpen={expandedRedesign.has(3)}>
+                <p>In-world diegetic signs at the start were inconsistent with instruction cards used elsewhere. Replaced with non-diegetic cards consistent with the rest of the system.</p>
+              </Collapsible>
               <ImageCompare
                 beforeImage="/assets/projects/aam-vr/docs/Redesign/cs1.webp"
                 afterImage="/assets/projects/aam-vr/docs/Redesign/cs2.webp"
@@ -764,8 +848,13 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             </div>
 
             <div style={{ marginTop: 48 }}>
-              <h3>5. Recognition Rather Than Recall: Plucking added to onboarding + contextual hints</h3>
-              <p>Plucking gesture was missing from onboarding, causing confusion mid-experience. Added to the onboarding flow with contextual hints for available actions.</p>
+              <h3 style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }} onClick={() => toggleRedesign(4)}>
+                5. Recognition Rather Than Recall: Plucking added to onboarding + contextual hints
+                {expandedRedesign.has(4) ? <ChevronUp className="w-4 h-4 opacity-40" /> : <ChevronDown className="w-4 h-4 opacity-40" />}
+              </h3>
+              <Collapsible isOpen={expandedRedesign.has(4)}>
+                <p>Plucking gesture was missing from onboarding, causing confusion mid-experience. Added to the onboarding flow with contextual hints for available actions.</p>
+              </Collapsible>
               <div className="ba-wrap">
                 <div className="ba-item">
                   <div className="ba-label ba-label--after">ITERATION 3: ONBOARDING CARD</div>
@@ -779,8 +868,13 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             </div>
 
             <div style={{ marginTop: 48 }}>
-              <h3>6. Error Prevention: Ripeness indicator</h3>
-              <p>Added a ripeness indicator label to colour to make it accessible to colour-blind users.</p>
+              <h3 style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }} onClick={() => toggleRedesign(5)}>
+                6. Error Prevention: Ripeness indicator
+                {expandedRedesign.has(5) ? <ChevronUp className="w-4 h-4 opacity-40" /> : <ChevronDown className="w-4 h-4 opacity-40" />}
+              </h3>
+              <Collapsible isOpen={expandedRedesign.has(5)}>
+                <p>Added a ripeness indicator label to colour to make it accessible to colour-blind users.</p>
+              </Collapsible>
               <ImageCompare
                 beforeImage="/assets/projects/aam-vr/docs/Redesign/ep1.webp"
                 afterImage="/assets/projects/aam-vr/docs/Redesign/ep2.webp"
@@ -893,8 +987,15 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
               <h3>Reflection</h3>
               <p>The course framing (Usability Engineering) pulled this project toward interaction mechanics and evaluation rigour. That was the right constraint. The gesture model tested well. The iterative redesign addressed every critical finding. As a usability study, it worked.</p>
               <p>What it could not test was the thing it was actually trying to do: whether the ritual itself translates. The daily return, the slow accumulation of anticipation, the feeling of a harvest that was waited for. Those qualities require time and repetition that a three-week sprint with three participants cannot measure.</p>
-              <p>There is also a harder question the project did not resolve. VR can deliver the environment and the process. It can produce soft fascination, the effortless, low-demand attention that natural environments provide. What it cannot deliver is the terminal reward. The fruit cannot be tasted. Studies on multisensory VR food environments confirm this: even with olfactory cues added, physiological responses to food remain weaker than in real-life conditions. Aam offers the journey but not the arrival.</p>
-              <p>A Zen garden does not produce flowers. Bonsai cannot be eaten. The value is in the tending, the waiting, the daily return. Whether VR is a sufficient medium for that kind of experience, and whether the absence of the real fruit diminishes or simply transforms what the experience can offer, is the most interesting question this project leaves open.</p>
+              <div style={{ marginTop: 24, cursor: 'pointer' }} onClick={() => setExpandedReflection(!expandedReflection)}>
+                <p><strong style={{ color: 'var(--y)' }}>The deeper question {expandedReflection ? '↑' : '↓'}</strong></p>
+              </div>
+              <Collapsible isOpen={expandedReflection}>
+                <div style={{ marginTop: 12 }}>
+                  <p>There is also a harder question the project did not resolve. VR can deliver the environment and the process. It can produce soft fascination, the effortless, low-demand attention that natural environments provide. What it cannot deliver is the terminal reward. The fruit cannot be tasted. Studies on multisensory VR food environments confirm this: even with olfactory cues added, physiological responses to food remain weaker than in real-life conditions. Aam offers the journey but not the arrival.</p>
+                  <p>A Zen garden does not produce flowers. Bonsai cannot be eaten. The value is in the tending, the waiting, the daily return. Whether VR is a sufficient medium for that kind of experience, and whether the absence of the real fruit diminishes or simply transforms what the experience can offer, is the most interesting question this project leaves open.</p>
+                </div>
+              </Collapsible>
             </div>
           </div>
         </section>
