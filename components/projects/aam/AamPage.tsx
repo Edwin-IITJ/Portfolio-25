@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Navbar from '../../sections/Navbar';
@@ -5,6 +6,7 @@ import Footer from '../../sections/Footer';
 import RelatedProjects from '../RelatedProjects';
 import { type Project } from '../../../data/projects';
 import MediaRenderer from '../MediaRenderer';
+import Lightbox from '../lucidpast/Lightbox';
 
 interface AamPageProps {
   project: Project;
@@ -202,6 +204,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope .ph--sh { min-height: 200px; }
           .aam-scope [class*="aspect-"] { min-height: 0 !important; }
           .aam-scope .env-g { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+          .aam-scope .env-g--stack { display: flex; flex-direction: column; gap: 32px; margin-top: 24px; }
 							 
 																   
           .aam-scope .env-n { background: var(--cm); border-left: 4px solid var(--y); border-radius: 0 var(--r) var(--r) 0; padding: 16px 20px; margin-top: 20px; }
@@ -245,8 +248,8 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
           .aam-scope .pi p { font-size: 14px; color: var(--inks); margin: 0; line-height: 1.65; }
 							 
           .aam-scope .strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 24px; }
-										
-		   
+          .aam-scope .strip figure { margin: 0; display: flex; flex-direction: column; }
+          .aam-scope .strip figcaption { font-family: var(--fh); font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--inkm); text-align: center; margin-top: 6px; }
           .aam-scope .strip img, .aam-scope .strip .ph { border-radius: var(--r); }
           .aam-scope .flow-wrap { background: var(--gd); border-radius: var(--rl); overflow: hidden; margin-top: 24px; }
           .aam-scope .flow-wrap img { border-radius: 0; }
@@ -427,9 +430,9 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div className="lbl">Building the World</div>
             <h2>Environment design in Unreal Engine 5</h2>
             <p>The mango tree and fruit model were sourced from Sketchfab/Fab. The island, dome, water plane, and skybox were built from basic geometry with materials applied. The water material was applied from a preset after a tutorial-based approach did not produce the intended result. Aimed for golden hour lighting but a sun direction constraint in UE5 meant it landed closer to morning light.</p>
-            <div className="env-g">
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_env1.webp" alt="Environment model plan" fallback="Environment model & plan" className="ph--med" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_env2.webp" alt="UE5 environment screenshots" fallback="UE5 environment screenshots" className="ph--med" aspect="16/9" />
+            <div className="env-g--stack">
+              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_env1.webp" alt="Environment model plan" fallback="Environment model & plan" />
+              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_env2.webp" alt="UE5 environment screenshots" fallback="UE5 environment screenshots" aspect="16/9" />
             </div>
             <div className="env-n">
               <p>The dome encloses a reflective water plane and a single islanded mango tree, practicing Kanso (one focal object), Shizen (organic placement), and Ma (the emptiness of water around the island as intentional breathing room).</p>
@@ -497,17 +500,36 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div className="lbl">First Build</div>
             <h2>The pole mechanic, and why it failed.</h2>
             <p>The first environment established the dome, island, and tree. The initial harvest mechanic used a physical pole, accurate to how mangoes are actually harvested in India (a long bamboo pole with a cloth bag at the end). It felt authentic on paper.</p>
-            <div className="env-g">
-              {/* <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/iter1-env-model.jpg" alt="Iteration 1 environment model" fallback="Iter 1, environment model and plan" className="ph--med" /> */}
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_userflow.webp" alt="Iteration 1 user flow" fallback="Iter 1 user flow" className="ph--med" />
+            <div className="env-g--stack">
+              <Lightbox src="/assets/projects/aam-vr/docs/Iteration1/it1_userflow.webp" alt="Iteration 1 user flow">
+                <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_userflow.webp" alt="Iteration 1 user flow" fallback="Iter 1 user flow" />
+              </Lightbox>
             </div>
             <div className="strip">
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss1.webp" alt="Iteration 1 screenshot" fallback="Screenshot" className="ph--sh" aspect="16/9" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss2.webp" alt="Iteration 1 screenshot" fallback="Screenshot" className="ph--sh" aspect="16/9" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss3.webp" alt="Iteration 1 screenshot" fallback="Screenshot" className="ph--sh" aspect="16/9" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss4.webp" alt="Iteration 1 screenshot" fallback="Screenshot" className="ph--sh" aspect="16/9" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss5.webp" alt="Iteration 1 screenshot" fallback="Screenshot" className="ph--sh" aspect="16/9" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss6.webp" alt="Iteration 1 screenshot" fallback="Screenshot" className="ph--sh" aspect="16/9" />
+              <figure>
+                <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss1.webp" alt="Initial Entry Door" fallback="Screenshot" className="ph--sh" aspect="16/9" />
+                <figcaption>Initial Entry Door</figcaption>
+              </figure>
+              <figure>
+                <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss2.webp" alt="Indoor Orientation" fallback="Screenshot" className="ph--sh" aspect="16/9" />
+                <figcaption>Indoor Orientation</figcaption>
+              </figure>
+              <figure>
+                <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss3.webp" alt="Mango Tree View" fallback="Screenshot" className="ph--sh" aspect="16/9" />
+                <figcaption>Mango Tree View</figcaption>
+              </figure>
+              <figure>
+                <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss4.webp" alt="Pole Harvesting Mechanic" fallback="Screenshot" className="ph--sh" aspect="16/9" />
+                <figcaption>Pole Harvesting Mechanic</figcaption>
+              </figure>
+              <figure>
+                <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss5.webp" alt="Raycast Selection" fallback="Screenshot" className="ph--sh" aspect="16/9" />
+                <figcaption>Raycast Selection</figcaption>
+              </figure>
+              <figure>
+                <SafeImage src="/assets/projects/aam-vr/docs/Iteration1/it1_ss6.webp" alt="Interaction Instructions" fallback="Screenshot" className="ph--sh" aspect="16/9" />
+                <figcaption>Interaction Instructions</figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -539,23 +561,74 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
             <div className="lbl">The Rebuild</div>
             <h2>Rebuilt from the pilot findings up.</h2>
             <p>Pole mechanic removed. Interaction model redesigned around direct forefinger hold. A Home Room added as an orienting entry space before the tree dome. Teleportation anchors path-ordered. Selection and cancel flow rebuilt with explicit visual state cues at each step.</p>
-            <div className="env-g">
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_env.webp" alt="Iteration 2 environment model" fallback="Iter 2 environment model & plan" className="ph--med" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_userflow.webp" alt="Iteration 2 user flow" fallback="Iter 2 user flow" className="ph--med" />
+            <div className="env-g--stack">
+              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_env.webp" alt="Iteration 2 environment model" fallback="Iter 2 environment model & plan" aspect="16/9" />
+              <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_userflow.webp" alt="Iteration 2 user flow">
+                <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_userflow.webp" alt="Iteration 2 user flow" fallback="Iter 2 user flow" />
+              </Lightbox>
             </div>
             <p style={{ marginTop: 24 }}>Figma prototype screens (23 screens), built from UE5 environment captures to simulate the spatial layout for usability testing:</p>
             <div className="strip" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))' }}>
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss3.webp" alt="Home Room" fallback="Home Room" className="ph--sh" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss7.webp" alt="Diagetic Instructions" fallback="Diagetic Instructions" className="ph--sh" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss7.webp" alt="Ray towards door" fallback="Ray towards door" className="ph--sh" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss8.webp" alt="Opening door" fallback="Opening door" className="ph--sh" />
-
-              <SafeImage src="/assets/projects/aam-vr/docs//Iteration2/it2_ss9.webp" alt="Teleportation anchors" fallback="Teleportation anchors" className="ph--sh" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss13.webp" alt="Snapping ray casts" fallback="Snapping ray casts" className="ph--sh" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss15.webp" alt="Examining ripeness" fallback="Examining ripeness" className="ph--sh" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss16.webp" alt="Plucking mango" fallback="Plucking mango" className="ph--sh" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss19.webp" alt="Mango falling into basket" fallback="Mango falling into basket" className="ph--sh" />
-              <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss21.webp" alt="Undo time reverse" fallback="Undo / time reverse" className="ph--sh" />
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss3.webp" alt="Home Room">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss3.webp" alt="Home Room" fallback="Home Room" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Home Room</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss7.webp" alt="Diagetic Instructions">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss7.webp" alt="Diagetic Instructions" fallback="Diagetic Instructions" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Diagetic Instructions</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss7.webp" alt="Ray towards door">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss7.webp" alt="Ray towards door" fallback="Ray towards door" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Ray towards door</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss8.webp" alt="Opening door">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss8.webp" alt="Opening door" fallback="Opening door" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Opening door</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss9.webp" alt="Teleportation anchors">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss9.webp" alt="Teleportation anchors" fallback="Teleportation anchors" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Teleportation anchors</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss13.webp" alt="Snapping ray casts">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss13.webp" alt="Snapping ray casts" fallback="Snapping ray casts" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Snapping ray casts</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss15.webp" alt="Examining ripeness">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss15.webp" alt="Examining ripeness" fallback="Examining ripeness" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Examining ripeness</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss16.webp" alt="Plucking mango">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss16.webp" alt="Plucking mango" fallback="Plucking mango" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Plucking mango</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss19.webp" alt="Mango falling into basket">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss19.webp" alt="Mango falling into basket" fallback="Mango falling into basket" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Mango falling into basket</figcaption>
+              </figure>
+              <figure>
+                <Lightbox src="/assets/projects/aam-vr/docs/Iteration2/it2_ss21.webp" alt="Undo time reverse">
+                  <SafeImage src="/assets/projects/aam-vr/docs/Iteration2/it2_ss21.webp" alt="Undo time reverse" fallback="Undo / time reverse" className="ph--sh" />
+                </Lightbox>
+                <figcaption>Undo time reverse</figcaption>
+              </figure>
             </div>
             <div className="rc" style={{ marginTop: 24 }}>
               <p><strong>On the prototype method:</strong> Screen-based proxies built from environment captures are a validated method for surfacing core spatial usability issues early. The pilot study produced findings consistent with what full-fidelity VR testing would reveal, confirming the approach was appropriate for this stage. (University of Twente, Low-Fidelity Prototypes for AR Usability Testing)</p>
