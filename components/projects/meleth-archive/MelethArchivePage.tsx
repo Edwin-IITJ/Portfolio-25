@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Playfair_Display, EB_Garamond, IBM_Plex_Mono } from 'next/font/google';
-
+import { ArrowLeft } from 'lucide-react';
 import Navbar from '../../sections/Navbar';
 import Footer from '../../sections/Footer';
 import RelatedProjects from '../RelatedProjects';
@@ -290,23 +290,41 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
           break-inside: avoid;
           margin-bottom: 1rem;
         }
+
+        .meleth-archive-scope .hero-text {
+          text-shadow: 
+            0 0 40px rgba(11,9,6,0.95),
+            0 0 80px rgba(11,9,6,0.8),
+            0 2px 6px rgba(11,9,6,1);
+        }
       `}</style>
 
       <motion.div className="progress-bar" style={{ scaleX }} />
 
       <Navbar />
 
+      <div className="fixed top-20 left-4 md:left-8 z-[100] pointer-events-auto">
+        <Link href="/projects">
+          <motion.div
+            className="inline-flex items-center gap-2 text-[#F5F0E8]/70 hover:text-[#F5F0E8] transition-colors cursor-pointer font-sans text-sm"
+            whileHover={{ x: -5 }}
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span className="hidden sm:inline">Back to Projects</span>
+          </motion.div>
+        </Link>
+      </div>
+
       <main className="pt-20">
         {/* SECTION 0 — Hero */}
         <section className="min-h-screen flex flex-col justify-end pb-24 relative overflow-hidden">
-          <div className="absolute inset-x-0 bottom-[15vh]">
+          <div className="absolute inset-0">
             <ArchivalImage
               src="/assets/projects/meleth-archive/docs/DinnerAtTopStation_hero.webp"
               alt="Tea party at Top Station, Munnar, 1955"
               label="Tea party at Top Station, Munnar, 1955"
-              height="480px"
               imgClassName="object-cover object-top"
-              className="w-full"
+              className="w-full h-full"
             />
             {/* Gradient Overlay for Readability */}
             <div
@@ -322,7 +340,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#b8976a] mb-6"
+              className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#b8976a] mb-6 hero-text"
             >
               Independent Archival Survey • Kerala, India
             </motion.div>
@@ -331,7 +349,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-playfair font-normal leading-[1.08] mb-8"
+              className="font-playfair font-normal leading-[1.08] mb-8 hero-text"
               style={{ fontSize: 'clamp(2.8rem, 8vw, 5rem)' }}
             >
               Recovering the<br />
@@ -342,7 +360,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="font-garamond italic text-[1.1rem] text-[#7a7060] mb-12"
+              className="font-garamond italic text-[1.1rem] text-[#7a7060] mb-12 hero-text"
             >
               An independent family photographic survey
             </motion.p>
@@ -351,7 +369,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap gap-x-12 gap-y-6"
+              className="flex flex-wrap gap-x-12 gap-y-6 hero-text"
             >
               {[
                 { val: "500+", label: "Photographs digitized" },
@@ -369,7 +387,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
         </section>
 
         {/* SECTION 1 — Origin */}
-        <section className="py-24 md:py-32">
+        <section className="py-16 md:py-10">
           <div className="content-container">
             <SectionLabel text="01. Origin" />
             <motion.div
@@ -386,7 +404,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
         </section>
 
         {/* SECTION 2 — Scope */}
-        <section className="py-24 md:py-32 bg-[#111009]/30">
+        <section className="py-16 md:py-10 bg-[#111009]/30">
           <div className="content-container">
             <SectionLabel text="02. Scope" />
 
@@ -477,7 +495,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
         </div>
 
         {/* SECTION 3 — Field Methodology */}
-        <section className="py-24 md:py-32">
+        <section className="py-16 md:py-10">
           <div className="content-container">
             <SectionLabel text="03. Field Methodology" />
             <motion.div
@@ -494,20 +512,32 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
                 </div>
               </div>
 
-              <Image
-                src="/assets/projects/meleth-archive/docs/IndoSwissNursery.webp"
-                alt="Indo-Swiss Nursery"
-                width={400}
-                height={400}
-                style={{ height: 'auto', width: '100%', maxWidth: '400px' }}
-                className="max-w-md"
-              />
+              <div className="columns-2 gap-3 mb-4 space-y-3">
+                <div className="masonry-item">
+                  <ArchivalImage
+                    src="/assets/projects/meleth-archive/docs/IndoSwissNursery.webp"
+                    alt="Indo-Swiss Nursery"
+                    label="Indo-Swiss Nursery"
+                    natural={true}
+                    objectPosition="top"
+                  />
+                </div>
+                <div className="masonry-item">
+                  <ArchivalImage
+                    src="/assets/projects/meleth-archive/docs/PeechiDam.webp"
+                    alt="Peechi Dam"
+                    label="Peechi Dam"
+                    natural={true}
+                    objectPosition="top"
+                  />
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
 
         {/* SECTION 4 — Oral History */}
-        <section className="py-24 md:py-32 bg-[#111009]/30">
+        <section className="py-16 md:py-10 bg-[#111009]/30">
           <div className="content-container">
             <SectionLabel text="04. Oral History" />
             <motion.div
@@ -524,7 +554,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
         </section>
 
         {/* SECTION 5 — Digitization Process */}
-        <section className="py-24 md:py-32">
+        <section className="py-16 md:py-10">
           <div className="content-container">
             <SectionLabel text="05. Digitization Process" />
 
@@ -567,7 +597,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
         </section>
 
         {/* SECTION 6 — Results */}
-        <section className="py-24 md:py-32 bg-[#111009]/30">
+        <section className="py-16 md:py-10 bg-[#111009]/30">
           <div className="content-container">
             <SectionLabel text="06. Results" />
 
@@ -577,7 +607,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <p>In most houses the photos were already gone. Termites when old houses were left empty. Discarded during moves. One whole album confirmed lost, including what may have been the only photograph of my grandfather as a child, and a photo of a great-uncle taken in Munnar that no one will ever see now.</p>
+              <p>In most houses the photos were already gone. Termites when old houses were left empty. Discarded during moves. One whole album confirmed and many hanged photos lost, including what may have been the only photograph of my great grandmother, and a photo of a great-uncle taken in Munnar that no one will ever see now.</p>
 
               <LostPhotoZone />
 
@@ -601,7 +631,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
         </section>
 
         {/* SECTION 7 — Honest Assessment */}
-        <section className="py-24 md:py-32">
+        <section className="py-16 md:py-10">
           <div className="content-container">
             <SectionLabel text="07. Honest Assessment" />
             <motion.h2
