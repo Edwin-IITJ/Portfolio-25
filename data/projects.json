@@ -653,7 +653,7 @@
       "title": "Pomodoro Tracker",
       "description": "A simple pomodoro tracker.",
       "fullDescription": "A simple pomodoro tracker.",
-      "category": "Interactive Web App",
+      "category": "Vibe Coding",
       "year": "2026",
       "technologies": [
         "Google Antigravity",
@@ -665,6 +665,33 @@
       "featured": false,
       "isLiveProject": true,
       "liveProjectPath": "/live/pomodoro"
+    },
+    {
+      "id": "meleth-archive",
+      "title": "Recovering the Meleth Archive",
+      "description": "An independent family photographic survey across ~25 households in Kerala, recovering photographs from 1949 to the 1990s before they were lost.",
+      "fullDescription": "An independent family photographic survey across ~25 households in Kerala, recovering photographs from 1949 to the 1990s before they were lost.",
+      "category": "Archival Practice",
+      "year": "2023 — Ongoing",
+      "technologies": [
+        "Field Archival Work",
+        "Oral History",
+        "Digitization",
+        "Preservation"
+      ],
+      "layout": "meleth-archive",
+      "coverImage": "/assets/projects/meleth-archive/cover/MelethArchive Cover.webp",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "",
+      "featured": false,
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/meleth-archive/docs/MelethArchive I.webp",
+          "alt": "MelethArchive I"
+        }
+      ]
     },
     {
       "id": "ghanta-ghar",

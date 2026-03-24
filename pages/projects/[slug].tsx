@@ -13,6 +13,7 @@ import RelatedProjects from '../../components/projects/RelatedProjects';
 import { projectsData, type Project } from '../../data/projects';
 import LucidPastPage from '../../components/projects/lucidpast/LucidPastPage';
 import AamPage from '../../components/projects/aam/AamPage';
+import MelethArchivePage from '../../components/projects/meleth-archive/MelethArchivePage';
 import { cn } from '../../lib/utils';
 import { fadeInUp, fadeIn, staggerContainer } from '../../lib/animations';
 
@@ -89,6 +90,10 @@ export default function ProjectPage({
         groupLabel={groupLabel} 
       />
     );
+  }
+
+  if (project.layout === 'meleth-archive') {
+    return <MelethArchivePage project={project} relatedProjects={relatedProjects} />;
   }
 
   return (

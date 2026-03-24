@@ -76,7 +76,7 @@ export type Project = {
   contentMedia?: ProjectMedia[];
 
   // Layout preference
-  layout?: 'standard' | 'minimal' | 'lucidpast' | 'aam';
+  layout?: 'standard' | 'minimal' | 'lucidpast' | 'aam' | 'meleth-archive';
 };
 
 export type ProjectsData = {
@@ -166,7 +166,7 @@ function ensureProject(p: any): Project {
       : undefined,
 
     // Layout
-    layout: (p.layout === 'standard' || p.layout === 'minimal' || p.layout === 'lucidpast' || p.layout === 'aam') ? p.layout : undefined,
+    layout: (p.layout === 'standard' || p.layout === 'minimal' || p.layout === 'lucidpast' || p.layout === 'aam' || p.layout === 'meleth-archive') ? p.layout : undefined,
   } as const;
 
   // Prune undefined keys so getStaticProps never sees undefined values.
