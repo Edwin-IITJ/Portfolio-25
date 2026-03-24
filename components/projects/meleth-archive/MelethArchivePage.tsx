@@ -321,8 +321,8 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
           <div className="absolute inset-0">
             <ArchivalImage
               src="/assets/projects/meleth-archive/docs/DinnerAtTopStation_hero.webp"
-              alt="Tea party at Top Station, Munnar, 1955"
-              label="Tea party at Top Station, Munnar, 1955"
+              alt="Dinner at Top Station, Munnar, 1955"
+              label="Dinner at Top Station, Munnar, 1955"
               imgClassName="object-cover object-top"
               className="w-full h-full"
             />
@@ -612,7 +612,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
               <LostPhotoZone />
 
               <p>The primary goal of this project, recovering photographs of my grandfather's mother and her parents, was not achieved. No such photographs appear to have survived. The survey confirmed their absence rather than their existence.</p>
-              <p>What was recovered: the best quality version found of a studio photograph of my great-great-grandparents, previously only known from faded copies; previously unseen photographs of several ancestors; wedding albums across two generations; framed portraits documented across more than a dozen households; and a 1955 photograph from a tea party at Top Station, Munnar, which sits at the edge between family document and historical record.</p>
+              <p>What was recovered: the best quality version found of a studio photograph of my great-great-grandparents, previously only known from faded copies; previously unseen photographs of several ancestors; wedding albums across two generations; framed portraits documented across more than a dozen households; and a 1955 photograph from a dinner at Top Station, Munnar, which sits at the edge between family document and historical record.</p>
 
               {/* <ArchivalImage
                 src="/assets/projects/meleth-archive/studio-photo-great-great-grandparents.jpg"
@@ -724,7 +724,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
                 { k: "Photographs", v: "500+ digitized" },
                 { k: "Period covered", v: "1949 to 1990s" },
                 { k: "Location", v: "Kerala, India" },
-                { k: "Role", v: "Solo — field work, digitization, oral history" },
+                { k: "Role", v: "Solo - field work, digitization, oral history" },
               ].map((item, i) => (
                 <div key={i}>
                   <div className="font-mono text-[9px] uppercase tracking-widest text-[#7a6045] mb-2">{item.k}</div>
