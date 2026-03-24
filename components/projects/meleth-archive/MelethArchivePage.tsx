@@ -8,6 +8,7 @@ import { Playfair_Display, EB_Garamond, IBM_Plex_Mono } from 'next/font/google';
 import Navbar from '../../sections/Navbar';
 import Footer from '../../sections/Footer';
 import RelatedProjects from '../RelatedProjects';
+import HorizontalScrollStrip from '../../shared/HorizontalScrollStrip';
 import { type Project } from '../../../data/projects';
 import { cn } from '../../../lib/utils';
 
@@ -52,12 +53,14 @@ const ArchivalImage = ({
   height,
   aspectRatio,
   objectPosition = 'center',
+  imgClassName,
   label,
   natural = false,
 }: {
   src: string;
   alt: string;
   className?: string;
+  imgClassName?: string;
   height?: string;
   aspectRatio?: string;
   objectPosition?: string;
@@ -67,11 +70,11 @@ const ArchivalImage = ({
   const [error, setError] = useState(false);
 
   return (
-    <div 
-      className={cn("relative overflow-hidden bg-[#0b0906] group", className)} 
-      style={{ 
+    <div
+      className={cn("relative overflow-hidden bg-[#0b0906] group", className)}
+      style={{
         height: natural ? 'auto' : (aspectRatio ? 'auto' : (height || '480px')),
-        aspectRatio: natural ? 'auto' : aspectRatio 
+        aspectRatio: natural ? 'auto' : aspectRatio
       }}
     >
       {!error && src && (
@@ -84,7 +87,7 @@ const ArchivalImage = ({
           style={!natural ? { objectPosition } : { width: '100%', height: 'auto', objectPosition }}
           className={cn(
             "transition-opacity duration-700 opacity-0",
-            !natural && "object-cover",
+            !natural && (imgClassName || "object-cover"),
             natural && "block"
           )}
           onLoadingComplete={(img) => img.classList.remove('opacity-0')}
@@ -302,15 +305,15 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
               alt="Tea party at Top Station, Munnar, 1955"
               label="Tea party at Top Station, Munnar, 1955"
               height="480px"
-              objectPosition="top"
+              imgClassName="object-cover object-top"
               className="w-full"
             />
             {/* Gradient Overlay for Readability */}
-            <div 
-              className="absolute inset-0 pointer-events-none z-[1]" 
-              style={{ 
-                background: 'linear-gradient(to top, rgba(11,9,6,0.92) 0%, rgba(11,9,6,0.5) 50%, rgba(11,9,6,0.2) 100%)' 
-              }} 
+            <div
+              className="absolute inset-0 pointer-events-none z-[1]"
+              style={{
+                background: 'linear-gradient(to top, rgba(11,9,6,0.92) 0%, rgba(11,9,6,0.5) 50%, rgba(11,9,6,0.2) 100%)'
+              }}
             />
           </div>
 
@@ -410,9 +413,9 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
             <div className="columns-2 gap-3 mb-4 space-y-3">
               <div className="masonry-item">
                 <ArchivalImage
-                  src="/assets/projects/meleth-archive/docs/Rangan.webp"
-                  alt="Elephant and mahout"
-                  label="Elephant and mahout"
+                  src="/assets/projects/meleth-archive/docs/AmbassadorCrash.webp"
+                  alt="Car Accident"
+                  label="Car Accident"
                   natural={true}
                   objectPosition="top"
                 />
@@ -451,6 +454,28 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
           </div>
         </section>
 
+        {/* ELEPHANT STRIP */}
+        <div className="pb-12 content-container">
+          <HorizontalScrollStrip
+            theme="dark"
+            imageWidth={320}
+            imageHeight={240}
+            caption="My grandfather owned elephants. Fourteen photographs of them survive in the collection — among the most consistently documented subjects across the archive."
+            images={[
+              { src: "/assets/projects/meleth-archive/docs/Rangan.webp", alt: "Elephant Rangan with mahout Ayyappan", label: "Elephant Rangan" },
+              { src: "/assets/projects/meleth-archive/docs/Arjunan.webp", alt: "Elephant Arjunan", label: "Elephant Arjunan" },
+              { src: "/assets/projects/meleth-archive/docs/Elephants.webp", alt: "Elephants", label: "Elephants" },
+              { src: "/assets/projects/meleth-archive/docs/elephant1.webp", alt: "Elephant", label: "Elephant" },
+              { src: "/assets/projects/meleth-archive/docs/Suma1.webp", alt: "Elephant Suma with mahout Janardanan Nair", label: "Elephant Suma with mahout Janardanan Nair" },
+              { src: "/assets/projects/meleth-archive/docs/Suma2.webp", alt: "Elephant", label: "" },
+              { src: "/assets/projects/meleth-archive/docs/Suma3.webp", alt: "Elephant Suma with mahout Janardanan Nair", label: "Elephant Suma with mahout Janardanan Nair" },
+              { src: "/assets/projects/meleth-archive/docs/Suma4.webp", alt: "Elephant Suma with mahout Janardanan Nair", label: "Elephant Suma with mahout Janardanan Nair" },
+              { src: "/assets/projects/meleth-archive/docs/Suma5.webp", alt: "Elephant Suma", label: "" },
+              { src: "/assets/projects/meleth-archive/docs/Suma6.webp", alt: "Elephant Suma", label: "" }
+            ]}
+          />
+        </div>
+
         {/* SECTION 3 — Field Methodology */}
         <section className="py-24 md:py-32">
           <div className="content-container">
@@ -469,12 +494,12 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
                 </div>
               </div>
 
-              <ArchivalImage
+              <Image
                 src="/assets/projects/meleth-archive/docs/IndoSwissNursery.webp"
                 alt="Indo-Swiss Nursery"
-                label="Indo-Swiss Nursery, 1970s"
-                aspectRatio="16/9"
-                objectPosition="top"
+                width={400}
+                height={400}
+                style={{ height: 'auto', width: '100%', maxWidth: '400px' }}
                 className="max-w-md"
               />
             </motion.div>
