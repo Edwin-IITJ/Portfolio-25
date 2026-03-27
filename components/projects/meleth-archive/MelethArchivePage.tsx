@@ -524,9 +524,9 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
                 </div>
                 <div className="masonry-item">
                   <ArchivalImage
-                    src="/assets/projects/meleth-archive/docs/PeechiDam.webp"
-                    alt="Peechi Dam"
-                    label="Peechi Dam"
+                    src="/assets/projects/meleth-archive/docs/PeechiGarden.webp"
+                    alt="Peechi Garden"
+                    label="Peechi Garden"
                     natural={true}
                     objectPosition="top"
                   />
