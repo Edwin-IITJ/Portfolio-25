@@ -14,6 +14,7 @@ import { projectsData, type Project } from '../../data/projects';
 import LucidPastPage from '../../components/projects/lucidpast/LucidPastPage';
 import AamPage from '../../components/projects/aam/AamPage';
 import MelethArchivePage from '../../components/projects/meleth-archive/MelethArchivePage';
+import LiquidReadPage from '../../components/projects/liquidread/LiquidReadPage';
 import { cn } from '../../lib/utils';
 import { fadeInUp, fadeIn, staggerContainer } from '../../lib/animations';
 
@@ -94,6 +95,16 @@ export default function ProjectPage({
 
   if (project.layout === 'meleth-archive') {
     return <MelethArchivePage project={project} relatedProjects={relatedProjects} />;
+  }
+
+  if (project.layout === 'liquidread') {
+    return (
+      <LiquidReadPage
+        project={project}
+        relatedProjects={relatedProjects}
+        groupLabel={groupLabel}
+      />
+    );
   }
 
   return (

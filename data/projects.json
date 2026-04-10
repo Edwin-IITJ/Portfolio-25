@@ -1,6 +1,28 @@
 {
   "majorProjects": [
     {
+      "id": "liquid-read",
+      "title": "LiquidRead",
+      "description": "Same paper. Different article. An AI reader that generates a completely different interface for the same research paper based on who is reading it; depth, language, section order, and visual components all adapt to the reader's knowledge state.",
+      "fullDescription": "LiquidRead is a Master's thesis project exploring Epistemic Personalization Through Adaptive Generative UI. A 7-layer algorithm routes each user to a depth-matched card generated live by Gemini 2.5 Flash. Validated through a 26-response survey proving depth-matched content is significantly preferred. The Research-to-Prompt methodology documents how user interview findings translate directly into prompt variables.",
+      "category": "AI Product Design",
+      "year": "2026",
+      "technologies": [
+        "Supabase",
+        "OpenAlex API",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Gemini 2.5 Flash"
+      ],
+      "coverImage": "/assets/projects/liquid-read/cover/LiquidRead_Cover.webp",
+      "featured": true,
+      "layout": "liquidread",
+      "contentMedia": [
+        {}
+      ]
+    },
+    {
       "id": "lucid-past",
       "title": "LucidPast",
       "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
