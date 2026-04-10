@@ -69,7 +69,7 @@ const participants = [
     background: 'Design student',
     relationship: 'Avoids research entirely',
     segment: 'Avoider',
-    segmentColor: 'bg-gray-100 text-gray-600',
+    segmentColor: 'bg-[var(--color-surface-offset)] text-[var(--color-text-muted)]',
   },
   {
     id: 'P2',
@@ -77,7 +77,7 @@ const participants = [
     background: 'Biotech scientist',
     relationship: 'Wants to stay current, constantly frustrated',
     segment: 'Professional Curator',
-    segmentColor: 'bg-primary-50 text-primary-700',
+    segmentColor: 'bg-[var(--color-primary-highlight)] text-[var(--color-primary)]',
   },
   {
     id: 'P3',
@@ -85,7 +85,7 @@ const participants = [
     background: 'AI student',
     relationship: 'Reads daily, 90% relevance threshold',
     segment: 'Professional Curator',
-    segmentColor: 'bg-primary-50 text-primary-700',
+    segmentColor: 'bg-[var(--color-primary-highlight)] text-[var(--color-primary)]',
   },
   {
     id: 'P4',
@@ -93,7 +93,7 @@ const participants = [
     background: 'Design student',
     relationship: "Active Feedly user, knows it's broken",
     segment: 'Professional Curator',
-    segmentColor: 'bg-primary-50 text-primary-700',
+    segmentColor: 'bg-[var(--color-primary-highlight)] text-[var(--color-primary)]',
   },
   {
     id: 'P5',
@@ -101,7 +101,7 @@ const participants = [
     background: 'PhD student',
     relationship: 'Daily reader, 3 newsletters, verifies with ChatGPT',
     segment: 'Professional Curator',
-    segmentColor: 'bg-primary-50 text-primary-700',
+    segmentColor: 'bg-[var(--color-primary-highlight)] text-[var(--color-primary)]',
   },
 ];
 
@@ -295,32 +295,62 @@ export default function LiquidReadPage({
       <Head>
         <title>{project.title} – Edwin Meleth</title>
         <meta name="description" content={project.description} />
-      </Head>
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+</Head>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .lr-page {
+            --color-bg:               #F4F0E8;
+            --color-surface:          #F8F5EE;
+            --color-surface-2:        #FDFAF5;
+            --color-surface-offset:   #EAE5DA;
+            --color-surface-dynamic:  #DED8CB;
+            --color-divider:          #D0C9BA;
+            --color-border:           #C4BCAA;
+            --color-text:             #1C1A16;
+            --color-text-muted:       #6A6258;
+            --color-text-faint:       #ADA69A;
+            --color-text-inverse:     #F4F0E8;
+            --color-primary:          #9E5E1E;
+            --color-primary-highlight:#F2E4D0;
+            --color-teal:             #1A7880;
+            --color-teal-faint:       #D0EBED;
+
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --font-body:    'Satoshi', 'Inter', sans-serif;
+            --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+          }
+          .lr-page {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+          }
+        `
+      }} />
+
 
       <Navbar />
 
+      <div className="lr-page">
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="bg-gray-950 text-white pt-32 pb-24 relative overflow-hidden">
-        {/* Subtle dot-grid texture */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
-          }}
+      <section className="bg-[var(--color-bg)] pt-32 pb-24 relative overflow-hidden">
+        {/* Subtle editorial glow: Amber emphasis + Teal hint */}
+        <div 
+          className="absolute inset-0 pointer-events-none" 
+          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 70%, oklch(from var(--color-primary) l c h / 0.10) 0%, transparent 65%), radial-gradient(ellipse 40% 30% at 50% 20%, oklch(from #1A7880 l c h / 0.07) 0%, transparent 55%)' }} 
         />
-        {/* Glow blob behind title */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary-600/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container-custom relative z-10">
           {/* Back link */}
           <motion.div variants={fadeIn} initial="hidden" animate="visible">
             <Link
               href="/projects"
-              className="inline-flex items-center text-gray-400 hover:text-white transition-colors mb-10 group"
+              className="inline-flex items-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors mb-10 group"
             >
-              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 group-hover:text-[var(--color-primary)] transition-transform" />
               Back to Projects
             </Link>
           </motion.div>
@@ -336,14 +366,14 @@ export default function LiquidReadPage({
               <motion.span
                 key={badge}
                 variants={fadeInUp}
-                className="px-3 py-1 text-xs font-medium bg-white/10 border border-white/15 rounded-full text-gray-300 tracking-wide"
+                className="font-[var(--font-mono)] text-xs font-medium uppercase tracking-widest px-3 py-1 bg-[var(--color-primary-highlight)] text-[var(--color-primary)] rounded-full"
               >
                 {badge}
               </motion.span>
             ))}
             <motion.span
               variants={fadeInUp}
-              className="px-3 py-1 text-xs font-medium bg-primary-600/25 border border-primary-500/35 rounded-full text-primary-300 tracking-wide"
+              className="font-[var(--font-mono)] text-xs font-medium uppercase tracking-widest px-3 py-1 bg-[var(--color-teal-faint)] text-[var(--color-teal)] border border-[var(--color-teal)]/30 rounded-full"
             >
               In Progress
             </motion.span>
@@ -354,10 +384,10 @@ export default function LiquidReadPage({
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6"
+            className="font-[var(--font-display)] text-5xl md:text-7xl font-normal text-[var(--color-text)] leading-[1.05] tracking-tight mb-6"
           >
-            Same paper.{' '}
-            <span className="gradient-text">Different article.</span>
+            Same paper.<br />
+            <em className="text-[var(--color-primary)] italic">Different article.</em>
           </motion.h1>
 
           {/* Sub */}
@@ -366,7 +396,7 @@ export default function LiquidReadPage({
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.15 }}
-            className="text-lg text-gray-400 max-w-2xl mb-14 leading-relaxed"
+            className="font-[var(--font-body)] text-lg text-[var(--color-text-muted)] max-w-2xl mb-14 leading-relaxed"
           >
             An AI reader that generates a completely different interface for the
             same research paper based on who is reading it; depth, language,
@@ -379,7 +409,7 @@ export default function LiquidReadPage({
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/10"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-[var(--color-divider)]"
           >
             {[
               { label: 'Role', value: 'AI Product Designer' },
@@ -388,18 +418,18 @@ export default function LiquidReadPage({
               { label: 'Status', value: 'Thesis – Apr 2026' },
             ].map(({ label, value }) => (
               <motion.div key={label} variants={fadeInUp}>
-                <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">
+                <p className="font-[var(--font-mono)] text-xs text-[var(--color-text-faint)] uppercase tracking-widest mb-1">
                   {label}
                 </p>
-                <p className="text-sm text-gray-200 font-medium">{value}</p>
+                <p className="font-[var(--font-body)] text-sm text-[var(--color-text)] font-medium">{value}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ── THE PROBLEM ───────────────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+{/* ── THE PROBLEM ───────────────────────────────────────────────────── */}
+      <section className="py-24 border-t border-[var(--color-divider)]">
         <div className="container-custom">
           <motion.div
             variants={fadeInUp}
@@ -408,7 +438,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <span className="text-xs font-semibold text-primary-600 uppercase tracking-widest">
+            <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
               01 / The Problem
             </span>
           </motion.div>
@@ -418,7 +448,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight"
+            className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-6 leading-tight"
           >
             The gap nobody is solving
           </motion.h2>
@@ -428,7 +458,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-gray-600 max-w-2xl mb-16 leading-relaxed text-lg"
+            className="text-[var(--color-text-muted)] max-w-2xl mb-16 leading-relaxed text-lg"
           >
             A PhD researcher and a first-year student can open the same paper
             right now. They'll see the exact same abstract. The exact same
@@ -449,15 +479,15 @@ export default function LiquidReadPage({
                 reader: 'PhD Researcher',
                 wants: 'Methodology, confidence intervals, limitations',
                 gets: 'The same standard abstract as everyone else',
-                bg: 'bg-gray-50',
-                border: 'border-gray-200',
+                bg: 'bg-[var(--color-surface-2)]',
+                border: 'border-[var(--color-border)]',
               },
               {
                 reader: 'First-year Student',
                 wants: 'Plain language, context, why this matters',
                 gets: 'The same standard abstract as everyone else',
-                bg: 'bg-gray-50',
-                border: 'border-gray-200',
+                bg: 'bg-[var(--color-surface-2)]',
+                border: 'border-[var(--color-border)]',
               },
             ].map(({ reader, wants, gets, bg, border }) => (
               <motion.div
@@ -465,17 +495,17 @@ export default function LiquidReadPage({
                 variants={fadeInUp}
                 className={`${bg} border ${border} rounded-2xl p-8`}
               >
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
+                <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">
                   {reader}
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">Needs</p>
-                    <p className="text-gray-700 font-medium">{wants}</p>
+                    <p className="text-xs text-[var(--color-text-faint)] mb-1">Needs</p>
+                    <p className="text-[var(--color-text-muted)] font-medium">{wants}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 mb-1">Gets</p>
-                    <p className="text-gray-500">{gets}</p>
+                    <p className="text-xs text-[var(--color-text-faint)] mb-1">Gets</p>
+                    <p className="text-[var(--color-text-muted)]">{gets}</p>
                   </div>
                 </div>
               </motion.div>
@@ -488,9 +518,9 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-10"
+            className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-8 md:p-10"
           >
-            <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">
+            <p className="font-[var(--font-mono)] text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-widest mb-6">
               What already exists
             </p>
             <div className="grid md:grid-cols-3 gap-6">
@@ -512,9 +542,9 @@ export default function LiquidReadPage({
                 },
               ].map(({ tool, does, gap }) => (
                 <div key={tool} className="space-y-2">
-                  <p className="font-semibold text-gray-900">{tool}</p>
-                  <p className="text-sm text-gray-500">{does}</p>
-                  <p className="text-sm text-primary-600 font-medium">{gap}</p>
+                  <p className="font-semibold text-[var(--color-text)]">{tool}</p>
+                  <p className="text-sm text-[var(--color-text-muted)]">{does}</p>
+                  <p className="text-sm text-[var(--color-primary)] font-medium">{gap}</p>
                 </div>
               ))}
             </div>
@@ -523,7 +553,7 @@ export default function LiquidReadPage({
       </section>
 
       {/* ── USER RESEARCH ─────────────────────────────────────────────────── */}
-      <section className="bg-gray-50 py-24">
+      <section className="py-24 border-t border-[var(--color-divider)]">
         <div className="container-custom">
           <motion.div
             variants={fadeInUp}
@@ -532,7 +562,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <span className="text-xs font-semibold text-primary-600 uppercase tracking-widest">
+            <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
               02 / User Research
             </span>
           </motion.div>
@@ -542,7 +572,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"
+            className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-4 leading-tight"
           >
             5 interviews. Real readers.
           </motion.h2>
@@ -552,7 +582,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-gray-500 max-w-xl mb-12 leading-relaxed"
+            className="text-[var(--color-text-muted)] max-w-xl mb-12 leading-relaxed"
           >
             Jan – Feb 2026. 30 to 45 minutes each. The goal was not to validate
             ideas, it was to find out what was actually broken.
@@ -570,21 +600,21 @@ export default function LiquidReadPage({
               <motion.div
                 key={p.id}
                 variants={fadeInUp}
-                className="bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-3"
+                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-5 flex flex-col gap-3"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-gray-400 tracking-widest">
+                  <span className="font-[var(--font-mono)] text-xs font-bold text-[var(--color-text-muted)] tracking-widest">
                     {p.id}
                   </span>
                   <span
-                    className={`text-xs px-2 py-0.5 rounded-full font-medium ${p.segmentColor}`}
+                    className={`font-[var(--font-mono)] text-xs px-2 py-0.5 rounded-full border border-[var(--color-primary)]/20 font-medium bg-[var(--color-primary-highlight)] text-[var(--color-primary)]`}
                   >
                     {p.segment}
                   </span>
                 </div>
-                <p className="font-semibold text-gray-900">{p.name}</p>
-                <p className="text-xs text-gray-500">{p.background}</p>
-                <p className="text-xs text-gray-400 leading-relaxed">
+                <p className="font-semibold text-[var(--color-text)]">{p.name}</p>
+                <p className="text-xs text-[var(--color-text-muted)]">{p.background}</p>
+                <p className="text-xs text-[var(--color-text-faint)] leading-relaxed">
                   {p.relationship}
                 </p>
               </motion.div>
@@ -597,13 +627,13 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="bg-primary-600 text-white rounded-2xl p-8 md:p-10 mb-16"
+            className="bg-[var(--color-primary)] text-[var(--color-text-inverse)] rounded-2xl p-8 md:p-10 mb-16"
           >
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary-200 mb-3">
+            <p className="font-[var(--font-mono)] text-xs font-semibold uppercase tracking-widest text-[var(--color-primary)] mb-3">
               Target Segment
             </p>
-            <h3 className="text-2xl font-bold mb-3">Professional Curators</h3>
-            <p className="text-primary-100 max-w-2xl leading-relaxed">
+            <h3 className="font-[var(--font-display)] italic font-normal text-2xl text-[var(--color-text)] mb-3">Professional Curators</h3>
+            <p className="text-[var(--color-primary)] max-w-2xl leading-relaxed">
               Already have a reading system. Already frustrated by its limits.
               High enough domain knowledge to recognize when something is wrong.
               High enough motivation to switch if something better exists. P2
@@ -620,7 +650,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <p className="text-sm font-semibold text-gray-400 uppercase tracking-widest">
+            <p className="font-[var(--font-mono)] text-sm font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">
               Key findings
             </p>
           </motion.div>
@@ -635,7 +665,7 @@ export default function LiquidReadPage({
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: '-60px' }}
-                  className="bg-white border border-gray-200 rounded-2xl overflow-hidden"
+                  className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden"
                 >
                   <button
                     className="w-full text-left px-8 py-6 flex items-start gap-6 group"
@@ -643,20 +673,20 @@ export default function LiquidReadPage({
                       setExpandedFinding(isOpen ? null : f.num)
                     }
                   >
-                    <span className="text-2xl font-bold text-gray-200 group-hover:text-primary-200 transition-colors shrink-0 mt-0.5">
+                    <span className="font-[var(--font-mono)] text-2xl font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors shrink-0 mt-0.5">
                       {f.num}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-gray-900 group-hover:text-primary-700 transition-colors">
+                      <p className="font-semibold text-[var(--color-text)] group-hover:text-primary-700 transition-colors">
                         {f.heading}
                       </p>
                       {!isOpen && (
-                        <p className="text-sm text-gray-400 mt-1 truncate">
+                        <p className="text-sm text-[var(--color-text-faint)] mt-1 truncate">
                           {f.participant} — {f.quote.slice(1, 60)}...
                         </p>
                       )}
                     </div>
-                    <span className="text-gray-400 shrink-0 mt-0.5">
+                    <span className="text-[var(--color-text-faint)] shrink-0 mt-0.5">
                       {isOpen ? (
                         <ChevronUp className="w-4 h-4" />
                       ) : (
@@ -675,10 +705,10 @@ export default function LiquidReadPage({
                         className="overflow-hidden"
                       >
                         <div className="px-8 pb-8 pl-20 space-y-4">
-                          <p className="text-gray-600 leading-relaxed">{f.body}</p>
-                          <blockquote className="border-l-2 border-primary-200 pl-4">
-                            <p className="text-gray-500 italic text-sm">{f.quote}</p>
-                            <p className="text-xs text-gray-400 mt-1">{f.participant}</p>
+                          <p className="text-[var(--color-text-muted)] leading-relaxed">{f.body}</p>
+                          <blockquote className="border-l-2 border-[var(--color-primary)] pl-4">
+                            <p className="text-[var(--color-text-muted)] italic text-sm">{f.quote}</p>
+                            <p className="text-xs text-[var(--color-text-faint)] mt-1">{f.participant}</p>
                           </blockquote>
                         </div>
                       </motion.div>
@@ -692,7 +722,7 @@ export default function LiquidReadPage({
       </section>
 
       {/* ── THE PIVOT ─────────────────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="py-24 border-t border-[var(--color-divider)]">
         <div className="container-custom">
           <motion.div
             variants={fadeInUp}
@@ -701,7 +731,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <span className="text-xs font-semibold text-primary-600 uppercase tracking-widest">
+            <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
               03 / The Pivot
             </span>
           </motion.div>
@@ -711,7 +741,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-16 leading-tight"
+            className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-16 leading-tight"
           >
             "This is a normal app. What's the design innovation?"
           </motion.h2>
@@ -724,32 +754,32 @@ export default function LiquidReadPage({
               viewport={{ once: true, margin: '-80px' }}
               className="space-y-6"
             >
-              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
+              <div className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-8">
+                <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">
                   The guide's challenge
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-[var(--color-text-muted)] leading-relaxed mb-4">
                   When I brought my research to my thesis guide, he was direct.
                   What I had was a better Feedly, a normal app with AI
                   summarization as the USP. Not a contribution to design
                   knowledge.
                 </p>
-                <p className="text-gray-600 italic border-l-2 border-gray-300 pl-4">
+                <p className="text-[var(--color-text-muted)] italic border-l-2 border-[var(--color-border)] pl-4">
                   "Think like a startup. What keeps this relevant in 5 to 10
                   years?"
                 </p>
               </div>
 
-              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
+              <div className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-8">
+                <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">
                   The insight
                 </p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-[var(--color-text-muted)] leading-relaxed">
                   Every existing tool personalizes{' '}
-                  <span className="font-semibold text-gray-900">what</span> you
+                  <span className="font-semibold text-[var(--color-text)]">what</span> you
                   see. AI summarization will be commoditized, everyone will have
                   it. But personalizing{' '}
-                  <span className="font-semibold text-gray-900">how</span> it's
+                  <span className="font-semibold text-[var(--color-text)]">how</span> it's
                   shown to you based on your actual knowledge state is a much
                   harder, much less explored problem. That's defensible long term.
                 </p>
@@ -765,7 +795,7 @@ export default function LiquidReadPage({
             >
               {/* Before / After reframe */}
               <div>
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
+                <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">
                   The reframe
                 </p>
                 <div className="space-y-3">
@@ -784,18 +814,18 @@ export default function LiquidReadPage({
                     <div
                       key={label}
                       className={`flex gap-4 p-5 rounded-xl border ${muted
-                        ? 'bg-gray-50 border-gray-200 opacity-60'
-                        : 'bg-primary-600 border-primary-600'
+                        ? 'bg-[var(--color-surface-2)] border-[var(--color-border)] opacity-60'
+                        : 'bg-[var(--color-primary)] border-[var(--color-primary)]'
                         }`}
                     >
                       <span
-                        className={`text-xs font-bold uppercase tracking-widest shrink-0 mt-0.5 ${muted ? 'text-gray-400' : 'text-primary-200'
+                        className={`text-xs font-bold uppercase tracking-widest shrink-0 mt-0.5 ${muted ? 'text-[var(--color-text-faint)]' : 'text-[var(--color-primary)]'
                           }`}
                       >
                         {label}
                       </span>
                       <p
-                        className={`font-medium leading-snug ${muted ? 'text-gray-600' : 'text-white'
+                        className={`font-medium leading-snug ${muted ? 'text-[var(--color-text-muted)]' : 'text-[var(--color-text)]'
                           }`}
                       >
                         {text}
@@ -805,8 +835,8 @@ export default function LiquidReadPage({
                 </div>
               </div>
 
-              <div className="bg-gray-950 text-white rounded-2xl p-8">
-                <p className="text-xs font-semibold text-primary-400 uppercase tracking-widest mb-3">
+              <div className="bg-[var(--color-primary)] text-[var(--color-text-inverse)] rounded-2xl p-8">
+                <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-3">
                   The core thesis
                 </p>
                 <p className="text-lg font-semibold leading-snug">
@@ -820,7 +850,7 @@ export default function LiquidReadPage({
       </section>
 
       {/* ── THE FRAMEWORK ─────────────────────────────────────────────────── */}
-      <section className="bg-gray-950 text-white py-24">
+      <section className="py-24 border-t border-[var(--color-divider)]">
         <div className="container-custom">
           <motion.div
             variants={fadeInUp}
@@ -829,7 +859,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <span className="text-xs font-semibold text-primary-400 uppercase tracking-widest">
+            <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
               04 / The Framework
             </span>
           </motion.div>
@@ -839,7 +869,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
+            className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-4 leading-tight"
           >
             A 7-layer algorithm
           </motion.h2>
@@ -849,7 +879,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-gray-400 max-w-xl mb-12 leading-relaxed"
+            className="text-[var(--color-text-faint)] max-w-xl mb-12 leading-relaxed"
           >
             Every layer connects back to something a user told me. None of this
             was designed in a vacuum.
@@ -883,8 +913,8 @@ export default function LiquidReadPage({
                   whileInView="visible"
                   viewport={{ once: true, margin: '-60px' }}
                   className={`rounded-2xl border overflow-hidden transition-colors ${layer.highlight
-                    ? 'border-primary-500 bg-primary-900/30'
-                    : 'border-white/10 bg-white/5 hover:bg-white/8'
+                    ? 'border-[var(--color-primary)] bg-[var(--color-primary-highlight)]'
+                    : 'border-[var(--color-border)] bg-[var(--color-surface)]/5 hover:bg-[var(--color-surface)]/8'
                     }`}
                 >
                   <button
@@ -894,7 +924,7 @@ export default function LiquidReadPage({
                     }
                   >
                     <span
-                      className={`text-2xl font-bold shrink-0 mt-0.5 ${layer.highlight ? 'text-primary-400' : 'text-white/20'
+                      className={`text-2xl font-bold shrink-0 mt-0.5 ${layer.highlight ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-faint)]'
                         }`}
                     >
                       {layer.num}
@@ -902,20 +932,20 @@ export default function LiquidReadPage({
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-1">
                         <p
-                          className={`font-semibold ${layer.highlight ? 'text-primary-200' : 'text-white'
+                          className={`font-semibold ${layer.highlight ? 'text-[var(--color-primary)]' : 'text-[var(--color-text)]'
                             }`}
                         >
                           {layer.title}
                         </p>
                         {layer.highlight && (
-                          <span className="text-xs px-2 py-0.5 bg-primary-500/30 border border-primary-500/50 rounded-full text-primary-300 font-medium">
+                          <span className="text-xs px-2 py-0.5 bg-[var(--color-primary)]/30 border border-[var(--color-primary)] rounded-full text-[var(--color-primary)] font-medium">
                             Core contribution
                           </span>
                         )}
                       </div>
-                      <p className="text-sm text-gray-400">{layer.short}</p>
+                      <p className="text-sm text-[var(--color-text-faint)]">{layer.short}</p>
                     </div>
-                    <span className="text-gray-500 shrink-0 mt-0.5">
+                    <span className="text-[var(--color-text-muted)] shrink-0 mt-0.5">
                       {isOpen ? (
                         <ChevronUp className="w-4 h-4" />
                       ) : (
@@ -934,7 +964,7 @@ export default function LiquidReadPage({
                         className="overflow-hidden"
                       >
                         <div className="px-8 pb-8 pl-20">
-                          <p className="text-gray-300 leading-relaxed">
+                          <p className="text-[var(--color-text)] leading-relaxed">
                             {layer.detail}
                           </p>
                         </div>
@@ -949,7 +979,7 @@ export default function LiquidReadPage({
       </section>
 
       {/* ── RESEARCH TO PROMPT ───────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="py-24 border-t border-[var(--color-divider)]">
         <div className="container-custom">
           <motion.div
             variants={fadeInUp}
@@ -958,7 +988,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <span className="text-xs font-semibold text-primary-600 uppercase tracking-widest">
+            <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
               05 / Research to Prompt
             </span>
           </motion.div>
@@ -968,7 +998,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"
+            className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-4 leading-tight"
           >
             Every variable traces to a user.
           </motion.h2>
@@ -978,7 +1008,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-gray-500 max-w-2xl mb-12 leading-relaxed"
+            className="text-[var(--color-text-muted)] max-w-2xl mb-12 leading-relaxed"
           >
             This is not prompt engineering. It is a systematic methodology for
             translating qualitative user research into generative AI instructions.
@@ -991,7 +1021,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="mb-12 rounded-2xl overflow-hidden border border-gray-100"
+            className="mb-12 rounded-2xl overflow-hidden border border-[var(--color-border)]"
           >
             <SafeImage
               src="/assets/projects/liquid-read/docs/Information_Personalisation.webp"
@@ -1012,17 +1042,17 @@ export default function LiquidReadPage({
           >
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left pb-4 pr-6 text-xs font-semibold text-gray-400 uppercase tracking-widest w-2/5">
+                <tr className="border-b border-[var(--color-border)]">
+                  <th className="font-[var(--font-mono)] text-left pb-4 pr-6 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-2/5">
                     User quote
                   </th>
-                  <th className="text-left pb-4 pr-6 text-xs font-semibold text-gray-400 uppercase tracking-widest w-1/12">
+                  <th className="font-[var(--font-mono)] text-left pb-4 pr-6 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-1/12">
                     From
                   </th>
-                  <th className="text-left pb-4 pr-6 text-xs font-semibold text-gray-400 uppercase tracking-widest w-1/6">
+                  <th className="font-[var(--font-mono)] text-left pb-4 pr-6 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-1/6">
                     Prompt variable
                   </th>
-                  <th className="text-left pb-4 text-xs font-semibold text-gray-400 uppercase tracking-widest">
+                  <th className="font-[var(--font-mono)] text-left pb-4 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">
                     What it controls
                   </th>
                 </tr>
@@ -1035,24 +1065,24 @@ export default function LiquidReadPage({
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-40px' }}
-                    className="group hover:bg-gray-50 transition-colors"
+                    className="group hover:bg-[var(--color-surface-2)] transition-colors"
                   >
                     <td className="py-5 pr-6">
-                      <p className="text-gray-600 italic leading-relaxed">
+                      <p className="text-[var(--color-text-muted)] italic leading-relaxed">
                         {row.quote}
                       </p>
                     </td>
                     <td className="py-5 pr-6">
-                      <span className="text-xs font-semibold text-primary-600 bg-primary-50 px-2 py-1 rounded-full">
+                      <span className="text-xs font-semibold text-[var(--color-primary)] bg-[var(--color-primary-highlight)] px-2 py-1 rounded-full">
                         {row.participant}
                       </span>
                     </td>
                     <td className="py-5 pr-6">
-                      <code className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono">
+                      <code className="text-xs bg-[var(--color-surface-offset)] text-[var(--color-text-muted)] px-2 py-1 rounded font-[var(--font-mono)]">
                         {row.variable}
                       </code>
                     </td>
-                    <td className="py-5 text-gray-600 leading-relaxed">
+                    <td className="py-5 text-[var(--color-text-muted)] leading-relaxed">
                       {row.effect}
                     </td>
                   </motion.tr>
@@ -1064,7 +1094,7 @@ export default function LiquidReadPage({
       </section>
 
       {/* ── VALIDATION ────────────────────────────────────────────────────── */}
-      <section className="bg-gray-50 py-24">
+      <section className="py-24 border-t border-[var(--color-divider)]">
         <div className="container-custom">
           <motion.div
             variants={fadeInUp}
@@ -1073,7 +1103,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <span className="text-xs font-semibold text-primary-600 uppercase tracking-widest">
+            <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
               06 / Validation
             </span>
           </motion.div>
@@ -1083,7 +1113,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"
+            className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-4 leading-tight"
           >
             26 responses. One clear finding.
           </motion.h2>
@@ -1093,7 +1123,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-gray-500 max-w-xl mb-14 leading-relaxed"
+            className="text-[var(--color-text-muted)] max-w-xl mb-14 leading-relaxed"
           >
             Before building the full generative pipeline, I validated the core
             mechanism: does routing users to depth-matched content actually
@@ -1117,13 +1147,13 @@ export default function LiquidReadPage({
               <motion.div
                 key={label}
                 variants={fadeInUp}
-                className="bg-white border border-gray-200 rounded-2xl p-6"
+                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-6"
               >
-                <p className="text-4xl font-bold text-gray-900 mb-1 gradient-text">
+                <p className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-1 gradient-text">
                   {stat}
                 </p>
-                <p className="text-sm font-semibold text-gray-700 mb-1">{label}</p>
-                <p className="text-xs text-gray-400 leading-relaxed">{sub}</p>
+                <p className="text-sm font-semibold text-[var(--color-text-muted)] mb-1">{label}</p>
+                <p className="text-xs text-[var(--color-text-faint)] leading-relaxed">{sub}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -1134,15 +1164,15 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 mb-8"
+            className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8 md:p-10 mb-8"
           >
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-6">
+            <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-6">
               The finding that changed the recalibration prompt
             </p>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <h3 className="font-[var(--font-display)] italic font-normal text-xl text-[var(--color-text)] mb-2">
               "Too basic" is a worse experience than "Too advanced."
             </h3>
-            <p className="text-gray-500 mb-10 max-w-lg">
+            <p className="text-[var(--color-text-muted)] mb-10 max-w-lg">
               People would rather be slightly challenged than slightly talked
               down to. This shifted how the Gemini recalibration instruction was
               written.
@@ -1155,24 +1185,24 @@ export default function LiquidReadPage({
                   score: 2.5,
                   max: 5,
                   color: 'bg-gray-300',
-                  textColor: 'text-gray-500',
+                  textColor: 'text-[var(--color-text-muted)]',
                 },
                 {
                   label: 'Calibrated as "Too advanced"',
                   score: 3.71,
                   max: 5,
-                  color: 'bg-primary-500',
-                  textColor: 'text-primary-600',
+                  color: 'bg-[var(--color-primary)]',
+                  textColor: 'text-[var(--color-primary)]',
                 },
               ].map(({ label, score, max, color, textColor }) => (
                 <div key={label}>
                   <div className="flex justify-between items-center mb-2">
-                    <p className="text-sm text-gray-600">{label}</p>
+                    <p className="text-sm text-[var(--color-text-muted)]">{label}</p>
                     <p className={`text-sm font-bold ${textColor}`}>
                       {score} / {max}
                     </p>
                   </div>
-                  <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-3 bg-[var(--color-surface-offset)] rounded-full overflow-hidden">
                     <motion.div
                       className={`h-full ${color} rounded-full`}
                       initial={{ width: 0 }}
@@ -1185,7 +1215,7 @@ export default function LiquidReadPage({
               ))}
             </div>
 
-            <p className="text-xs text-gray-400 mt-6">
+            <p className="text-xs text-[var(--color-text-faint)] mt-6">
               Average perceived suitability rating (1–5) when users were
               miscalibrated in each direction.
             </p>
@@ -1197,22 +1227,22 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="bg-white border border-gray-200 rounded-2xl p-8"
+            className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8"
           >
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
+            <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">
               The outlier that fixed the trust layer
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-[var(--color-text-muted)] leading-relaxed mb-4">
               P3 (Adam) rated "About right" on calibration but gave the card
               2/5 overall. The follow-up conversation revealed the issue wasn't
               depth, the statistics looked suspicious because there was no
               source attribution. He was right.
             </p>
-            <p className="text-gray-600 leading-relaxed border-l-2 border-primary-200 pl-4 italic">
+            <p className="text-[var(--color-text-muted)] leading-relaxed border-l-2 border-[var(--color-primary)] pl-4 italic">
               "How do I know these numbers are from the actual paper and not
               hallucinated?"
             </p>
-            <p className="text-sm text-gray-400 mt-4">
+            <p className="text-sm text-[var(--color-text-faint)] mt-4">
               Fixed by adding a credibility note to every statistics block in
               the generated card.
             </p>
@@ -1221,7 +1251,7 @@ export default function LiquidReadPage({
       </section>
 
       {/* ── THE BUILD ─────────────────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="py-24 border-t border-[var(--color-divider)]">
         <div className="container-custom">
           <motion.div
             variants={fadeInUp}
@@ -1230,7 +1260,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <span className="text-xs font-semibold text-primary-600 uppercase tracking-widest">
+            <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
               07 / The Build
             </span>
           </motion.div>
@@ -1240,7 +1270,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"
+            className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-4 leading-tight"
           >
             The live generative pipeline
           </motion.h2>
@@ -1250,7 +1280,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-gray-500 max-w-xl mb-12 leading-relaxed"
+            className="text-[var(--color-text-muted)] max-w-xl mb-12 leading-relaxed"
           >
             Phase 2 moved from a pre-written quiz to a fully live generative
             system. Real papers. Real users. Real-time generation.
@@ -1268,7 +1298,7 @@ export default function LiquidReadPage({
               <motion.span
                 key={t}
                 variants={fadeInUp}
-                className="px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700"
+                className="px-4 py-2 bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-full text-sm font-medium text-[var(--color-text-muted)]"
               >
                 {t}
               </motion.span>
@@ -1281,7 +1311,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="mb-14 rounded-2xl overflow-hidden border border-gray-100"
+            className="mb-14 rounded-2xl overflow-hidden border border-[var(--color-border)]"
           >
             <SafeImage
               src="/assets/projects/liquid-read/docs/OpenAlex_paper_fetch_logic.webp"
@@ -1304,13 +1334,13 @@ export default function LiquidReadPage({
               <motion.div
                 key={c.name}
                 variants={fadeInUp}
-                className="border border-gray-200 rounded-2xl p-6 hover:border-primary-200 hover:shadow-md transition-all duration-300"
+                className="border border-[var(--color-border)] rounded-2xl p-6 hover:border-[var(--color-primary)] hover:shadow-md transition-all duration-300"
               >
-                <code className="text-xs bg-primary-50 text-primary-700 px-2 py-1 rounded font-mono mb-4 inline-block">
+                <code className="text-xs bg-[var(--color-primary-highlight)] text-primary-700 px-2 py-1 rounded font-[var(--font-mono)] mb-4 inline-block">
                   {c.name}
                 </code>
-                <p className="text-xs text-gray-400 mb-2">{c.use}</p>
-                <p className="font-semibold text-gray-900">{c.description}</p>
+                <p className="text-xs text-[var(--color-text-faint)] mb-2">{c.use}</p>
+                <p className="font-semibold text-[var(--color-text)]">{c.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -1325,18 +1355,18 @@ export default function LiquidReadPage({
           >
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-50 border border-gray-200 rounded-2xl p-8"
+              className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-8"
             >
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
+              <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">
                 ExpandedView
               </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-[var(--color-text-muted)] leading-relaxed mb-4">
                 Tapping a card opens a full reading experience (Google News
                 pattern, slides up from below). A second Gemini call generates
                 section ordering based on the user's trust anchor, time
                 available, confusion response, and expertise level.
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-[var(--color-text-muted)]">
                 7 custom visual components: StatCallout, ProportionStrip,
                 DumbbellStrip, ComparisonTable, SlopeStrip, StepDiagram,
                 RankStrip. Gemini specifies which to use via JSON. React renders
@@ -1346,17 +1376,17 @@ export default function LiquidReadPage({
 
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-50 border border-gray-200 rounded-2xl p-8"
+              className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-8"
             >
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
+              <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">
                 Event logging
               </p>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-[var(--color-text-muted)] leading-relaxed mb-4">
                 Every interaction logs to Supabase: which layers were read, time
                 spent, whether the expanded view was opened, comprehension quiz
                 scores.
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-[var(--color-text-muted)]">
                 Three identity modes built in: anonymous UUID (current testing),
                 session code (controlled study), real accounts (future product).
                 Zero infrastructure changes needed to move between them.
@@ -1367,7 +1397,7 @@ export default function LiquidReadPage({
       </section>
 
       {/* ── WHAT'S NEXT ───────────────────────────────────────────────────── */}
-      <section className="bg-gray-950 text-white py-24">
+      <section className="py-24 border-t border-[var(--color-divider)]">
         <div className="container-custom">
           <motion.div
             variants={fadeInUp}
@@ -1376,7 +1406,7 @@ export default function LiquidReadPage({
             viewport={{ once: true, margin: '-80px' }}
             className="mb-4"
           >
-            <span className="text-xs font-semibold text-primary-400 uppercase tracking-widest">
+            <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
               08 / What's Next
             </span>
           </motion.div>
@@ -1386,7 +1416,7 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="text-3xl md:text-4xl font-bold mb-12 leading-tight"
+            className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-12 leading-tight"
           >
             The project is still running.
           </motion.h2>
@@ -1400,10 +1430,10 @@ export default function LiquidReadPage({
                 whileInView="visible"
                 viewport={{ once: true, margin: '-60px' }}
                 className={`flex gap-5 p-6 rounded-2xl border ${item.status === 'done'
-                  ? 'border-white/10 bg-white/5'
+                  ? 'border-[var(--color-border)] bg-[var(--color-surface)]/5'
                   : item.status === 'in-progress'
-                    ? 'border-primary-500/30 bg-primary-900/20'
-                    : 'border-white/5 bg-white/[0.02]'
+                    ? 'border-[var(--color-primary)] bg-[var(--color-primary-highlight)]'
+                    : 'border-[var(--color-border)] bg-[var(--color-surface)]/[0.02]'
                   }`}
               >
                 <div className="shrink-0 mt-0.5">
@@ -1411,29 +1441,29 @@ export default function LiquidReadPage({
                     <CheckCircle2 className="w-5 h-5 text-green-400" />
                   )}
                   {item.status === 'in-progress' && (
-                    <Clock className="w-5 h-5 text-primary-400" />
+                    <Clock className="w-5 h-5 text-[var(--color-primary)]" />
                   )}
                   {item.status === 'planned' && (
-                    <Circle className="w-5 h-5 text-gray-600" />
+                    <Circle className="w-5 h-5 text-[var(--color-text-muted)]" />
                   )}
                 </div>
                 <div>
                   <p
                     className={`font-semibold mb-1 ${item.status === 'done'
-                      ? 'text-white'
+                      ? 'text-[var(--color-text)]'
                       : item.status === 'in-progress'
-                        ? 'text-primary-200'
-                        : 'text-gray-500'
+                        ? 'text-[var(--color-primary)]'
+                        : 'text-[var(--color-text-muted)]'
                       }`}
                   >
                     {item.label}
                   </p>
                   <p
                     className={`text-sm leading-relaxed ${item.status === 'done'
-                      ? 'text-gray-400'
+                      ? 'text-[var(--color-text-faint)]'
                       : item.status === 'in-progress'
-                        ? 'text-gray-400'
-                        : 'text-gray-600'
+                        ? 'text-[var(--color-text-faint)]'
+                        : 'text-[var(--color-text-muted)]'
                       }`}
                   >
                     {item.detail}
@@ -1449,12 +1479,12 @@ export default function LiquidReadPage({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="border border-primary-500/30 bg-primary-900/20 rounded-2xl p-10"
+            className="border border-[var(--color-primary)] bg-[var(--color-primary-highlight)] rounded-2xl p-10"
           >
-            <p className="text-xs font-semibold text-primary-400 uppercase tracking-widest mb-4">
+            <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-4">
               The contribution that outlasts the product
             </p>
-            <p className="text-xl font-semibold text-white leading-relaxed max-w-3xl">
+            <p className="text-xl font-semibold text-[var(--color-text)] leading-relaxed max-w-3xl">
               The Research-to-Prompt methodology is documented and reproducible.
               Any designer building an AI product can use it to translate their
               user research into prompt variables systematically, not just for
@@ -1463,6 +1493,8 @@ export default function LiquidReadPage({
           </motion.div>
         </div>
       </section>
+
+      </div>
 
       {/* ── RELATED ───────────────────────────────────────────────────────── */}
       {relatedProjects.length > 0 && (
