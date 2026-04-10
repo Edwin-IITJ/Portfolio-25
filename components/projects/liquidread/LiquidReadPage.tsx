@@ -864,7 +864,7 @@ export default function LiquidReadPage({
             className="mb-12 rounded-2xl overflow-hidden"
           >
             <SafeImage
-              src="/assets/projects/liquid-read/docs/Level_Of_Personalisation.webp"
+              src="/assets/projects/liquid-read/docs/Levels_Of_Personalisation.webp"
               alt="Levels of Personalisation framework"
               width={1200}
               height={600}
