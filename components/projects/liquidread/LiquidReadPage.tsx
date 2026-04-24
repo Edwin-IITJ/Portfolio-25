@@ -546,7 +546,7 @@ export default function LiquidReadPage({
             >
               <motion.div variants={fadeInUp} className="rounded-2xl overflow-hidden border border-[var(--color-border)]">
                 <SafeImage
-                  src="/public/images/liquidread/desktop-card.png"
+                  src="/public/images/liquid-read/desktop-card.webp"
                   alt="LiquidRead desktop card view"
                   width={960}
                   height={600}
@@ -555,7 +555,7 @@ export default function LiquidReadPage({
               </motion.div>
               <motion.div variants={fadeInUp} className="rounded-2xl overflow-hidden border border-[var(--color-border)]">
                 <SafeImage
-                  src="/public/images/liquidread/mobile-card.png"
+                  src="/public/images/liquid-read/mobile-card.webp"
                   alt="LiquidRead mobile card view"
                   width={480}
                   height={600}
@@ -1455,7 +1455,7 @@ export default function LiquidReadPage({
               >
                 <div className="rounded-2xl overflow-hidden border border-[var(--color-border)]">
                   <SafeImage
-                    src="/public/images/liquidread/openalex-fetch-logic.png"
+                    src="/public/images/liquid-read/OpenAlex_paper_fetch_logic.webp"
                     alt="OpenAlex paper fetch logic diagram"
                     width={960}
                     height={600}
@@ -1464,7 +1464,7 @@ export default function LiquidReadPage({
                 </div>
                 <div className="rounded-2xl overflow-hidden border border-[var(--color-border)]">
                   <SafeImage
-                    src="/public/images/liquidread/expanded-view-desktop.png"
+                    src="/public/images/liquid-read/expanded-view-desktop.webp"
                     alt="LiquidRead expanded view on desktop"
                     width={960}
                     height={600}
@@ -1780,7 +1780,7 @@ export default function LiquidReadPage({
               className="rounded-2xl overflow-hidden border border-[var(--color-border)]"
             >
               <SafeImage
-                src="/public/images/liquidread/survey-user-flow.png"
+                src="/public/images/liquid-read/Survey_userflow_logic.webp"
                 alt="Survey user flow diagram"
                 width={1200}
                 height={600}
