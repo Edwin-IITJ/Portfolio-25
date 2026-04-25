@@ -31,12 +31,14 @@ const SafeImage = ({
   className = '',
   width = 800,
   height = 500,
+  style,
 }: {
   src: string;
   alt: string;
   className?: string;
   width?: number;
   height?: number;
+  style?: React.CSSProperties;
 }) => {
   const [err, setErr] = useState(false);
   if (err)
@@ -55,6 +57,7 @@ const SafeImage = ({
       width={width}
       height={height}
       className={className}
+      style={style}
       onError={() => setErr(true)}
     />
   );
@@ -391,6 +394,13 @@ export default function LiquidReadPage({
   groupLabel,
 }: LiquidReadPageProps) {
   const [expandedFinding, setExpandedFinding] = useState<string | null>(null);
+  const [auditOpen, setAuditOpen] = useState(false);
+  const [promptArchOpen, setPromptArchOpen] = useState(false);
+  const [visualCompOpen, setVisualCompOpen] = useState(false);
+  const [sectionOrderOpen, setSectionOrderOpen] = useState(false);
+  const [expandedThinkAloud, setExpandedThinkAloud] = useState<number | null>(null);
+  const [supabaseLogsOpen, setSupabaseLogsOpen] = useState(false);
+  const [iterationOpen, setIterationOpen] = useState(false);
 
   return (
     <>
@@ -542,24 +552,24 @@ export default function LiquidReadPage({
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="grid md:grid-cols-2 gap-6"
+              className="flex flex-col md:flex-row items-center justify-center gap-6"
             >
-              <motion.div variants={fadeInUp} className="rounded-2xl overflow-hidden border border-[var(--color-border)]">
+              <motion.div variants={fadeInUp} className="rounded-2xl overflow-hidden border border-[var(--color-border)] shrink-0">
                 <SafeImage
-                  src="/public/images/liquid-read/desktop-card.webp"
+                  src="/assets/projects/liquid-read/docs/desktop-card.webp"
                   alt="LiquidRead desktop card view"
-                  width={960}
-                  height={600}
-                  className="w-full object-cover"
+                  width={300}
+                  height={530}
+                  className="object-contain"
                 />
               </motion.div>
-              <motion.div variants={fadeInUp} className="rounded-2xl overflow-hidden border border-[var(--color-border)]">
+              <motion.div variants={fadeInUp} className="rounded-2xl overflow-hidden border border-[var(--color-border)] shrink-0">
                 <SafeImage
-                  src="/public/images/liquid-read/mobile-card.webp"
+                  src="/assets/projects/liquid-read/docs/mobile-card.webp"
                   alt="LiquidRead mobile card view"
-                  width={480}
-                  height={600}
-                  className="w-full object-cover"
+                  width={220}
+                  height={470}
+                  className="object-contain"
                 />
               </motion.div>
             </motion.div>
@@ -745,61 +755,64 @@ export default function LiquidReadPage({
             </motion.p>
 
             <motion.div
-              variants={fadeIn}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              className="overflow-x-auto mb-8"
-            >
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-[var(--color-border)]">
-                    <th className="font-[var(--font-mono)] text-left pb-4 pr-6 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-1/6">
-                      Tool
-                    </th>
-                    <th className="font-[var(--font-mono)] text-left pb-4 pr-6 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-2/5">
-                      What it does
-                    </th>
-                    <th className="font-[var(--font-mono)] text-left pb-4 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">
-                      The gap
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[var(--color-divider)]">
-                  {auditRows.map((row) => (
-                    <motion.tr
-                      key={row.tool}
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: '-40px' }}
-                      className="group hover:bg-[var(--color-surface-2)] transition-colors"
-                    >
-                      <td className="py-5 pr-6">
-                        <p className="font-semibold text-[var(--color-text)]">{row.tool}</p>
-                      </td>
-                      <td className="py-5 pr-6">
-                        <p className="text-[var(--color-text-muted)] leading-relaxed">{row.does}</p>
-                      </td>
-                      <td className="py-5">
-                        <p className="text-[var(--color-primary)] font-medium leading-relaxed">{row.gap}</p>
-                      </td>
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
-            </motion.div>
-
-            <motion.p
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
-              className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed"
+              className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden"
             >
-              Some filter by topic. Some summarise on request. None generate differently
-              for different readers.
-            </motion.p>
+              <button
+                className="w-full text-left px-8 py-5 flex items-center justify-between group"
+                onClick={() => setAuditOpen(!auditOpen)}
+              >
+                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                  One question tested against each: does this tool adapt depth or framing based on who is reading? None of them do.
+                </p>
+                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                  {auditOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </span>
+              </button>
+              <AnimatePresence>
+                {auditOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-8 pb-8">
+                      <div className="overflow-x-auto mb-6">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="border-b border-[var(--color-border)]">
+                              <th className="font-[var(--font-mono)] text-left pb-4 pr-6 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-1/6">Tool</th>
+                              <th className="font-[var(--font-mono)] text-left pb-4 pr-6 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-2/5">What it does</th>
+                              <th className="font-[var(--font-mono)] text-left pb-4 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">The gap</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-[var(--color-divider)]">
+                            {auditRows.map((row) => (
+                              <tr key={row.tool} className="hover:bg-[var(--color-surface-2)] transition-colors">
+                                <td className="py-4 pr-6"><p className="font-semibold text-[var(--color-text)]">{row.tool}</p></td>
+                                <td className="py-4 pr-6"><p className="text-[var(--color-text-muted)] leading-relaxed">{row.does}</p></td>
+                                <td className="py-4"><p className="text-[var(--color-primary)] font-medium leading-relaxed">{row.gap}</p></td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="text-[var(--color-text-muted)] leading-relaxed">
+                        Some filter by topic. Some summarise on request. None generate differently for different readers.
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+
+
+
           </div>
         </section>
 
@@ -918,11 +931,7 @@ export default function LiquidReadPage({
                         <p className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
                           {f.heading}
                         </p>
-                        {!isOpen && f.body && (
-                          <p className="text-sm text-[var(--color-text-faint)] mt-1 line-clamp-1">
-                            {f.body}
-                          </p>
-                        )}
+
                       </div>
                       <span className="text-[var(--color-text-faint)] shrink-0 mt-0.5">
                         {isOpen ? (
@@ -1069,6 +1078,23 @@ export default function LiquidReadPage({
                 not hardcoded.
               </p>
             </motion.div>
+
+            <motion.div
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+              className="mt-10 rounded-2xl overflow-hidden border border-[var(--color-border)]"
+            >
+              <SafeImage
+                src="/assets/projects/liquid-read/docs/Information_Personalisation.webp"
+                alt="Information personalisation framework"
+                width={1200}
+                height={400}
+                className="w-full object-contain"
+                style={{ maxHeight: 400 }}
+              />
+            </motion.div>
           </div>
         </section>
 
@@ -1182,53 +1208,83 @@ export default function LiquidReadPage({
             </motion.div>
 
             <motion.div
-              variants={staggerContainer}
+              variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
-              className="grid md:grid-cols-2 gap-6"
+              className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden"
             >
-              <motion.div
-                variants={fadeInUp}
-                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8"
+              <button
+                className="w-full text-left px-8 py-5 flex items-center justify-between group"
+                onClick={() => setPromptArchOpen(!promptArchOpen)}
               >
-                <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">Prompt architecture</p>
-                <p className="text-[var(--color-text-muted)] leading-relaxed mb-4">
-                  The prompt has five blocks. PHILOSOPHY and RULES are stable across every call.
-                  USER PROFILE, PERSONALISATION INSTRUCTIONS, PAPER, and TASK AND SCHEMA change
-                  with every user.
+                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                  The prompt has five blocks. PHILOSOPHY and RULES are stable. The other three change with every user.
                 </p>
-                <p className="text-[var(--color-text-muted)] leading-relaxed mb-4">
-                  The PHILOSOPHY block is not a technical instruction. It is a statement of values
-                  the model is asked to hold during generation. One line from it:
-                </p>
-                <blockquote className="border-l-2 border-[var(--color-primary)] pl-4 mb-4">
-                  <p className="text-[var(--color-text)] italic font-medium">
-                    &ldquo;Card A readers are not less intelligent. They are differently equipped.&rdquo;
-                  </p>
-                </blockquote>
-                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
-                  That is Schema Theory encoded as a prompt instruction. Accessible writing and
-                  patronising writing are not the same thing. The difference is in how the author
-                  frames the reader. The prompt has to know the difference.
-                </p>
-              </motion.div>
-
-              <motion.div
-                variants={fadeInUp}
-                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8"
-              >
-                <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">The RULES block</p>
-                <p className="text-[var(--color-text-muted)] leading-relaxed">
-                  The RULES block encodes writing constraints that apply regardless of card type.
-                  This includes a prohibition on em dashes, a requirement that every statistic be
-                  followed immediately by a plain-English explanation of what it means in real life,
-                  and an instruction to write like a sharp science journalist rather than an AI
-                  assistant. The primary failure mode of generative writing is not inaccuracy.
-                  It is a recognisable AI register: hedged, padded, tonally flat. The RULES block
-                  is the primary design defence against that.
-                </p>
-              </motion.div>
+                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                  {promptArchOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </span>
+              </button>
+              <AnimatePresence>
+                {promptArchOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-8 pb-8 space-y-6">
+                      <div className="rounded-xl overflow-hidden border border-[var(--color-border)]">
+                        <SafeImage
+                          src="/assets/projects/liquid-read/docs/Prompt_Structure.webp"
+                          alt="Prompt structure diagram"
+                          width={1200}
+                          height={600}
+                          className="w-full object-contain"
+                          style={{ maxHeight: 600 }}
+                        />
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-xl p-6">
+                          <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-3">Prompt architecture</p>
+                          <p className="text-[var(--color-text-muted)] leading-relaxed mb-3">
+                            The prompt has five blocks. PHILOSOPHY and RULES are stable across every call.
+                            USER PROFILE, PERSONALISATION INSTRUCTIONS, PAPER, and TASK AND SCHEMA change
+                            with every user.
+                          </p>
+                          <p className="text-[var(--color-text-muted)] leading-relaxed mb-3">
+                            The PHILOSOPHY block is not a technical instruction. It is a statement of values
+                            the model is asked to hold during generation. One line from it:
+                          </p>
+                          <blockquote className="border-l-2 border-[var(--color-primary)] pl-4 mb-3">
+                            <p className="text-[var(--color-text)] italic font-medium">
+                              &ldquo;Card A readers are not less intelligent. They are differently equipped.&rdquo;
+                            </p>
+                          </blockquote>
+                          <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                            That is Schema Theory encoded as a prompt instruction. Accessible writing and
+                            patronising writing are not the same thing. The difference is in how the author
+                            frames the reader. The prompt has to know the difference.
+                          </p>
+                        </div>
+                        <div className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-xl p-6">
+                          <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-3">The RULES block</p>
+                          <p className="text-[var(--color-text-muted)] leading-relaxed">
+                            The RULES block encodes writing constraints that apply regardless of card type.
+                            This includes a prohibition on em dashes, a requirement that every statistic be
+                            followed immediately by a plain-English explanation of what it means in real life,
+                            and an instruction to write like a sharp science journalist rather than an AI
+                            assistant. The primary failure mode of generative writing is not inaccuracy.
+                            It is a recognisable AI register: hedged, padded, tonally flat. The RULES block
+                            is the primary design defence against that.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
         </section>
@@ -1253,10 +1309,27 @@ export default function LiquidReadPage({
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
-              className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-16 leading-tight"
+              className="font-[var(--font-display)] italic font-normal text-3xl md:text-4xl text-[var(--color-text)] mb-8 leading-tight"
             >
               Three levels of personalisation
             </motion.h2>
+
+            <motion.div
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+              className="mb-12 rounded-2xl overflow-hidden border border-[var(--color-border)]"
+            >
+              <SafeImage
+                src="/assets/projects/liquid-read/docs/Levels_Of_Personalisation.webp"
+                alt="Three levels of personalisation diagram"
+                width={1200}
+                height={500}
+                className="w-full object-contain"
+                style={{ maxHeight: 500 }}
+              />
+            </motion.div>
 
             {/* Level 1: Text depth */}
             <motion.div
@@ -1340,33 +1413,53 @@ export default function LiquidReadPage({
               <h3 className="font-[var(--font-display)] italic font-normal text-2xl text-[var(--color-text)] mb-6 leading-tight">
                 The type of visual adapts to the paper&apos;s data structure
               </h3>
-              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed mb-8">
-                Seven components, each matched to a specific type of statistical claim. The AI
-                selects which one based on what the data actually is. Not decoration. Structure.
+              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed mb-4">
+                Seven components, each matched to a specific data form. The AI selects based on what the data actually is.
               </p>
-
-              <div className="grid md:grid-cols-2 gap-4 mb-6">
-                {visualComponents.map((v) => (
-                  <motion.div
-                    key={v.name}
-                    variants={fadeInUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: '-40px' }}
-                    className="flex gap-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-5 hover:border-[var(--color-primary)] transition-colors"
-                  >
-                    <code className="text-xs bg-[var(--color-primary-highlight)] text-[var(--color-primary)] px-2 py-1 rounded font-[var(--font-mono)] shrink-0 self-start">
-                      {v.name}
-                    </code>
-                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{v.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
-                One visual per expanded view. One visual anchors the reading experience.
-                Two compete with each other and dilute both.
-              </p>
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden"
+              >
+                <button
+                  className="w-full text-left px-8 py-5 flex items-center justify-between group"
+                  onClick={() => setVisualCompOpen(!visualCompOpen)}
+                >
+                  <p className="text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                    Seven components, each matched to a specific data form. The AI selects based on what the data actually is.
+                  </p>
+                  <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                    {visualCompOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  </span>
+                </button>
+                <AnimatePresence>
+                  {visualCompOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-8 pb-8">
+                        <div className="grid md:grid-cols-2 gap-3 mb-4">
+                          {visualComponents.map((v) => (
+                            <div key={v.name} className="flex gap-3 bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-xl p-4">
+                              <code className="text-xs bg-[var(--color-primary-highlight)] text-[var(--color-primary)] px-2 py-1 rounded font-[var(--font-mono)] shrink-0 self-start">{v.name}</code>
+                              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{v.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                          One visual per expanded view. One visual anchors the reading experience. Two compete with each other and dilute both.
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             </motion.div>
 
             {/* Level 3: Section order */}
@@ -1383,34 +1476,59 @@ export default function LiquidReadPage({
               <h3 className="font-[var(--font-display)] italic font-normal text-2xl text-[var(--color-text)] mb-6 leading-tight">
                 The order of sections adapts to your profile too
               </h3>
-              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed mb-6">
-                Once you open a card, the section order is not preset. It is determined at
-                generation time by your profile variables.
+              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed mb-4 font-medium">
+                Depth and order both adapt. Two layers of personalisation per card, generated in a single API call.
               </p>
-
-              <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8 mb-6">
-                <div className="space-y-4">
-                  {[
-                    { cond: 'trustAnchor is "data"', result: 'The visual component appears first.' },
-                    { cond: 'normalisedScore is at or above 7', result: 'The methodology section comes before the finding. Expert readers want to evaluate the method before accepting the result.' },
-                    { cond: 'timeAvailable is 5 minutes or less', result: 'The card caps at three sections regardless of card type.' },
-                    { cond: 'trustAnchor is "where"', result: 'Card B and Card C open with the journal and authors rather than the finding.' },
-                  ].map(({ cond, result }) => (
-                    <div key={cond} className="flex gap-4 items-start">
-                      <div className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] mt-2" />
-                      <p className="text-[var(--color-text-muted)] leading-relaxed">
-                        <span className="font-medium text-[var(--color-text)]">If your {cond}:&nbsp;</span>
-                        {result}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed font-medium">
-                Depth and order both adapt. That is two layers of personalisation per card,
-                generated in a single API call.
-              </p>
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden"
+              >
+                <button
+                  className="w-full text-left px-8 py-5 flex items-center justify-between group"
+                  onClick={() => setSectionOrderOpen(!sectionOrderOpen)}
+                >
+                  <p className="text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                    Depth and order both adapt. Two layers of personalisation per card, generated in a single API call.
+                  </p>
+                  <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                    {sectionOrderOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  </span>
+                </button>
+                <AnimatePresence>
+                  {sectionOrderOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-8 pb-8 space-y-3">
+                        <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4">
+                          Once you open a card, the section order is not preset. It is determined at generation time by your profile variables.
+                        </p>
+                        {[
+                          { cond: 'trustAnchor is "data"', result: 'The visual component appears first.' },
+                          { cond: 'normalisedScore is at or above 7', result: 'The methodology section comes before the finding. Expert readers want to evaluate the method before accepting the result.' },
+                          { cond: 'timeAvailable is 5 minutes or less', result: 'The card caps at three sections regardless of card type.' },
+                          { cond: 'trustAnchor is "where"', result: 'Card B and Card C open with the journal and authors rather than the finding.' },
+                        ].map(({ cond, result }) => (
+                          <div key={cond} className="flex gap-3 items-start">
+                            <div className="shrink-0 w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] mt-2" />
+                            <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                              <span className="font-medium text-[var(--color-text)]">If your {cond}:&nbsp;</span>
+                              {result}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             </motion.div>
 
             {/* Paper retrieval */}
@@ -1427,51 +1545,40 @@ export default function LiquidReadPage({
                 Constrained serendipity, not curated safety
               </h3>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <p className="text-[var(--color-text-muted)] leading-relaxed">
-                  Papers come from the OpenAlex API. Real open-access research, post-2021, with
-                  an abstract, a DOI, and no conference proceedings in the title. Your
-                  researchInterest answer drives a secondary Gemini 2.5 Flash-lite call that
-                  returns a single OpenAlex subfield ID. One paper is then selected at random
-                  within that filtered pool. No weighting by citation count. The serendipity is
-                  a direct consequence of the random draw inside a quality floor.
-                </p>
-                <p className="text-[var(--color-text-muted)] leading-relaxed">
-                  If PubMed Central or Europe PMC can return full-text sections, they are retrieved
-                  before generation. If neither source returns usable content, the generation
-                  proceeds on the abstract alone. If retrieval fails entirely, a fallback paper
-                  runs: Shen et al., &ldquo;Nonlinear dynamics of multi-omics profiles during human
-                  aging&rdquo;, Nature Aging, 2024. Every session produces a generated card, not an
-                  error screen.
-                </p>
-              </div>
+              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed mb-6">
+                Papers come from the OpenAlex API. Real open-access research, post-2021, with
+                an abstract, a DOI, and no conference proceedings in the title. Your
+                researchInterest answer drives a secondary Gemini 2.5 Flash-lite call that
+                returns a single OpenAlex subfield ID. One paper is then selected at random
+                within that filtered pool. No weighting by citation count. The serendipity is
+                a direct consequence of the random draw inside a quality floor.
+              </p>
 
               <motion.div
                 variants={fadeIn}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-80px' }}
-                className="grid md:grid-cols-2 gap-6"
+                className="mb-6 rounded-2xl overflow-hidden border border-[var(--color-border)]"
               >
-                <div className="rounded-2xl overflow-hidden border border-[var(--color-border)]">
-                  <SafeImage
-                    src="/public/images/liquid-read/OpenAlex_paper_fetch_logic.webp"
-                    alt="OpenAlex paper fetch logic diagram"
-                    width={960}
-                    height={600}
-                    className="w-full object-contain"
-                  />
-                </div>
-                <div className="rounded-2xl overflow-hidden border border-[var(--color-border)]">
-                  <SafeImage
-                    src="/public/images/liquid-read/expanded-view-desktop.webp"
-                    alt="LiquidRead expanded view on desktop"
-                    width={960}
-                    height={600}
-                    className="w-full object-cover"
-                  />
-                </div>
+                <SafeImage
+                  src="/assets/projects/liquid-read/docs/OpenAlex_paper_fetch_logic.webp"
+                  alt="OpenAlex paper fetch logic diagram"
+                  width={1200}
+                  height={450}
+                  className="w-full object-contain"
+                  style={{ maxHeight: 450 }}
+                />
               </motion.div>
+
+              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+                If PubMed Central or Europe PMC can return full-text sections, they are retrieved
+                before generation. If neither source returns usable content, the generation
+                proceeds on the abstract alone. If retrieval fails entirely, a fallback paper
+                runs: Shen et al., &ldquo;Nonlinear dynamics of multi-omics profiles during human
+                aging&rdquo;, Nature Aging, 2024. Every session produces a generated card, not an
+                error screen.
+              </p>
             </motion.div>
           </div>
         </section>
@@ -1517,12 +1624,29 @@ export default function LiquidReadPage({
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
-              className="text-[var(--color-text-muted)] max-w-2xl mb-10 leading-relaxed"
+              className="text-[var(--color-text-muted)] max-w-2xl mb-6 leading-relaxed"
             >
               Before building the live system, a survey validated the core premise. 26
               participants were routed to manually-created A/B/C cards for field-relevant
               papers. Card type was determined by quiz score. The survey ran in March 2026.
             </motion.p>
+
+            <motion.div
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+              className="flex justify-center mb-8"
+            >
+              <SafeImage
+                src="/assets/projects/liquid-read/docs/Survey_userflow_logic.webp"
+                alt="Survey user flow logic"
+                width={320}
+                height={560}
+                className="object-contain rounded-xl border border-[var(--color-border)]"
+                style={{ maxWidth: 320 }}
+              />
+            </motion.div>
 
             <motion.div
               variants={staggerContainer}
@@ -1679,40 +1803,59 @@ export default function LiquidReadPage({
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
-              className="overflow-x-auto mb-16"
+              className="mb-8 rounded-2xl overflow-hidden border border-[var(--color-border)]"
             >
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-[var(--color-border)]">
-                    <th className="font-[var(--font-mono)] text-left pb-4 pr-4 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-8">#</th>
-                    <th className="font-[var(--font-mono)] text-left pb-4 pr-6 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest w-2/5">Finding</th>
-                    <th className="font-[var(--font-mono)] text-left pb-4 text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">Design implication</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[var(--color-divider)]">
-                  {thinkAloudFindings.map((row) => (
-                    <motion.tr
-                      key={row.num}
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: '-40px' }}
-                      className="hover:bg-[var(--color-surface-2)] transition-colors"
-                    >
-                      <td className="py-5 pr-4">
-                        <span className="font-[var(--font-mono)] text-xs font-bold text-[var(--color-text-faint)]">{row.num}</span>
-                      </td>
-                      <td className="py-5 pr-6">
-                        <p className="text-[var(--color-text)] font-medium leading-relaxed">{row.finding}</p>
-                      </td>
-                      <td className="py-5">
-                        <p className="text-[var(--color-text-muted)] leading-relaxed">{row.implication}</p>
-                      </td>
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
+              <SafeImage
+                src="/assets/projects/liquid-read/docs/expanded-view-desktop.webp"
+                alt="LiquidRead expanded view on desktop"
+                width={1200}
+                height={500}
+                className="w-full object-contain"
+                style={{ maxHeight: 500 }}
+              />
             </motion.div>
+
+            <div className="space-y-3 mb-16">
+              {thinkAloudFindings.map((f) => {
+                const isThinkOpen = expandedThinkAloud === f.num;
+                return (
+                  <motion.div
+                    key={f.num}
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-40px' }}
+                    className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden"
+                  >
+                    <button
+                      className="w-full text-left px-8 py-5 flex items-start gap-4 group"
+                      onClick={() => setExpandedThinkAloud(isThinkOpen ? null : f.num)}
+                    >
+                      <span className="font-[var(--font-mono)] text-xs font-bold text-[var(--color-text-faint)] shrink-0 mt-1 w-5">{f.num}</span>
+                      <p className="flex-1 font-medium text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors leading-snug">{f.finding}</p>
+                      <span className="text-[var(--color-text-faint)] shrink-0 mt-0.5">
+                        {isThinkOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </span>
+                    </button>
+                    <AnimatePresence>
+                      {isThinkOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-8 pb-6 pl-[4.5rem]">
+                            <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{f.implication}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
 
             {/* Supabase logs */}
             <motion.div
@@ -1720,72 +1863,62 @@ export default function LiquidReadPage({
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
-              className="mb-6"
+              className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden"
             >
-              <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest mb-4">
-                What the logs saw that the sessions did not
-              </p>
-              <p className="text-[var(--color-text-muted)] max-w-2xl leading-relaxed mb-8">
-                The event logs added a layer under the verbal observations. Three moments stood out.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              className="space-y-4 mb-12"
-            >
-              {[
-                {
-                  name: 'Maximus',
-                  score: '3.75',
-                  card: 'Card A',
-                  body: 'Comprehension quiz: 2 out of 2. Suitability rating: 4 out of 5, marked "just right". His written feedback: "Lacking visual. Central idea is not presented. Language could be better. Need hook or curiosity." A 4 out of 5 with correct calibration. The depth worked. The content quality did not. Two different problems.',
-                },
-                {
-                  name: 'Renoir',
-                  score: '6.25',
-                  card: 'Card B',
-                  body: 'Opened the expanded view within 10 seconds of card generation without reading the FeedCard at all. No card rating submitted. His "too basic" selection in the recalibration flow was a paper relevance complaint expressed through the only available signal channel.',
-                },
-                {
-                  name: 'Claire',
-                  score: '6.88',
-                  card: 'Card C',
-                  body: 'Opened the expanded view, took the comprehension quiz, scored 0 out of 2. Reopened the expanded view. Took the quiz again. Scored 0 out of 2 again. Submitted "too advanced" with a suitability rating of 1 out of 5. The double-open, double-fail sequence is behaviourally distinctive. She tried to understand the paper twice before giving up. Her paper was AI-adjacent (LLMs in clinical medicine) but domain-wrong for her specific interest in AI evaluation methods.',
-                },
-              ].map(({ name, score, card, body }) => (
-                <motion.div
-                  key={name}
-                  variants={fadeInUp}
-                  className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8"
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <p className="font-semibold text-[var(--color-text)]">{name}</p>
-                    <span className="font-[var(--font-mono)] text-xs text-[var(--color-text-faint)]">normalisedScore {score}</span>
-                    <span className="font-[var(--font-mono)] text-xs px-2 py-0.5 bg-[var(--color-primary-highlight)] text-[var(--color-primary)] rounded-full">{card}</span>
-                  </div>
-                  <p className="text-[var(--color-text-muted)] leading-relaxed">{body}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              variants={fadeIn}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              className="rounded-2xl overflow-hidden border border-[var(--color-border)]"
-            >
-              <SafeImage
-                src="/public/images/liquid-read/Survey_userflow_logic.webp"
-                alt="Survey user flow diagram"
-                width={1200}
-                height={600}
-                className="w-full object-contain"
-              />
+              <button
+                className="w-full text-left px-8 py-5 flex items-center justify-between group"
+                onClick={() => setSupabaseLogsOpen(!supabaseLogsOpen)}
+              >
+                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                  The event logs added a layer under the verbal observations. Three moments stood out.
+                </p>
+                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                  {supabaseLogsOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </span>
+              </button>
+              <AnimatePresence>
+                {supabaseLogsOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-8 pb-8 space-y-4">
+                      {[
+                        {
+                          name: 'Maximus',
+                          score: '3.75',
+                          card: 'Card A',
+                          body: 'Comprehension quiz: 2 out of 2. Suitability rating: 4 out of 5, marked "just right". His written feedback: "Lacking visual. Central idea is not presented. Language could be better. Need hook or curiosity." A 4 out of 5 with correct calibration. The depth worked. The content quality did not. Two different problems.',
+                        },
+                        {
+                          name: 'Renoir',
+                          score: '6.25',
+                          card: 'Card B',
+                          body: 'Opened the expanded view within 10 seconds of card generation without reading the FeedCard at all. No card rating submitted. His "too basic" selection in the recalibration flow was a paper relevance complaint expressed through the only available signal channel.',
+                        },
+                        {
+                          name: 'Claire',
+                          score: '6.88',
+                          card: 'Card C',
+                          body: 'Opened the expanded view, took the comprehension quiz, scored 0 out of 2. Reopened the expanded view. Took the quiz again. Scored 0 out of 2 again. Submitted "too advanced" with a suitability rating of 1 out of 5. The double-open, double-fail sequence is behaviourally distinctive. She tried to understand the paper twice before giving up. Her paper was AI-adjacent (LLMs in clinical medicine) but domain-wrong for her specific interest in AI evaluation methods.',
+                        },
+                      ].map(({ name, score, card, body }) => (
+                        <div key={name} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-xl p-6">
+                          <div className="flex items-center gap-4 mb-3">
+                            <p className="font-semibold text-[var(--color-text)]">{name}</p>
+                            <span className="font-[var(--font-mono)] text-xs text-[var(--color-text-faint)]">normalisedScore {score}</span>
+                            <span className="font-[var(--font-mono)] text-xs px-2 py-0.5 bg-[var(--color-primary-highlight)] text-[var(--color-primary)] rounded-full">{card}</span>
+                          </div>
+                          <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{body}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
         </section>
@@ -1820,68 +1953,78 @@ export default function LiquidReadPage({
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
-              className="text-[var(--color-text-muted)] max-w-2xl mb-12 leading-relaxed"
+              className="text-[var(--color-text-muted)] max-w-2xl mb-6 leading-relaxed"
             >
-              The nine think-aloud findings map directly to nine open design problems.
-              This is the current work.
+              The nine think-aloud findings map directly to nine open design problems. This is the current work.
             </motion.p>
 
-            <div className="space-y-4">
-              <motion.div
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
-                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8"
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+              className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden"
+            >
+              <button
+                className="w-full text-left px-8 py-5 flex items-center justify-between group"
+                onClick={() => setIterationOpen(!iterationOpen)}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                  <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">Done</p>
-                </div>
-                {iterationDone.map((item) => (
-                  <p key={item} className="text-[var(--color-text-muted)] leading-relaxed">{item}</p>
-                ))}
-              </motion.div>
+                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                  The nine think-aloud findings map directly to nine open design problems. This is the current work.
+                </p>
+                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                  {iterationOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </span>
+              </button>
+              <AnimatePresence>
+                {iterationOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-8 pb-8 space-y-4">
+                      <div className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-xl p-6">
+                        <div className="flex items-center gap-3 mb-3">
+                          <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
+                          <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">Done</p>
+                        </div>
+                        {iterationDone.map((item) => (
+                          <p key={item} className="text-sm text-[var(--color-text-muted)] leading-relaxed">{item}</p>
+                        ))}
+                      </div>
+                      <div className="bg-[var(--color-primary-highlight)] border border-[var(--color-primary)]/30 rounded-xl p-6">
+                        <div className="flex items-center gap-3 mb-3">
+                          <Clock className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
+                          <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">In progress</p>
+                        </div>
+                        <ul className="space-y-2">
+                          {iterationInProgress.map((item) => (
+                            <li key={item} className="flex gap-2 text-sm text-[var(--color-text-muted)] leading-relaxed">
+                              <span className="shrink-0 text-[var(--color-primary)] mt-0.5">+</span>{item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-xl p-6">
+                        <div className="flex items-center gap-3 mb-3">
+                          <Circle className="w-4 h-4 text-[var(--color-text-muted)] shrink-0" />
+                          <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">Structural next</p>
+                        </div>
+                        <ul className="space-y-3">
+                          {iterationNext.map((item) => (
+                            <li key={item} className="text-sm text-[var(--color-text-muted)] leading-relaxed">{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
 
-              <motion.div
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
-                className="bg-[var(--color-primary-highlight)] border border-[var(--color-primary)]/30 rounded-2xl p-8"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <Clock className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                  <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">In progress</p>
-                </div>
-                <ul className="space-y-2">
-                  {iterationInProgress.map((item) => (
-                    <li key={item} className="flex gap-3 text-[var(--color-text-muted)] leading-relaxed">
-                      <span className="shrink-0 text-[var(--color-primary)] mt-0.5">+</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              <motion.div
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
-                className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <Circle className="w-5 h-5 text-[var(--color-text-muted)] shrink-0" />
-                  <p className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-text-faint)] uppercase tracking-widest">Structural next</p>
-                </div>
-                <ul className="space-y-4">
-                  {iterationNext.map((item) => (
-                    <li key={item} className="text-[var(--color-text-muted)] leading-relaxed">{item}</li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
           </div>
         </section>
 
