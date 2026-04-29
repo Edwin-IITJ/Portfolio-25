@@ -651,8 +651,7 @@ export default function LiquidReadPage({
               viewport={{ once: true, margin: '-80px' }}
               className="text-[var(--color-text-muted)] max-w-2xl mb-8 leading-relaxed"
             >
-              The tools built to fix this — Google Scholar, Feedly, Explainpaper, ChatGPT —
-              all make the same assumption: every reader is the same reader. They filter what
+              The tools built to fix this like Google Scholar, Feedly, Explainpaper, ChatGPT, all make the same assumption: every reader is the same reader. They filter what
               you see. None of them change how content is presented based on who is reading it.
             </motion.p>
 
