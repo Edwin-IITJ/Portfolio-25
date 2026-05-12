@@ -8,12 +8,12 @@
       "category": "AI Product Design",
       "year": "2026",
       "technologies": [
-        "Supabase",
-        "OpenAlex API",
+        "User Interview",
+        "User Survey",
+        "Gemini API",
         "Next.js",
         "TypeScript",
-        "Tailwind CSS",
-        "Gemini 2.5 Flash"
+        "Tailwind CSS"
       ],
       "coverImage": "/assets/projects/liquid-read/cover/LiquidRead_Cover.webp",
       "featured": true,
@@ -30,14 +30,15 @@
       "category": "UX Research / Usability Engineering",
       "year": "2025",
       "technologies": [
-        "Figma",
-        "Photoshop"
+        "Usability Testing",
+        "Think aloud protocol",
+        "Figma"
       ],
       "coverImage": "/projects/aruler-redesign/cover.jpg",
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/234129723/Usability-Engineering-Case-Study-Redesigning-ARuler",
-      "featured": false,
+      "featured": true,
       "challenges": "Identifying and addressing usability issues in an existing AR app that caused user confusion and reduced task efficiency.",
       "solution": "Conducted user testing to identify pain points, then redesigned the interface with clearer iconography, better labeling, and intuitive controls.",
       "results": "The redesigned interface significantly improved user comprehension and task completion rates, with positive feedback on ease of use.",
@@ -217,14 +218,14 @@
       "technologies": [
         "Unity",
         "Figma",
-        "Procreate",
+        "User Testing",
         "Photoshop"
       ],
       "coverImage": "/assets/projects/digimal/cover/Digimal Cover.webp",
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/219805115/Digimal-XR-Project",
-      "featured": true,
+      "featured": false,
       "challenges": "Designing an engaging and emotionally resonant virtual pet experience that seamlessly integrates into the user's real-world environment, while ensuring intuitive interaction and maintaining user interest over time.",
       "solution": "Developed a dynamic pet evolution system where the pet's growth and behavior are influenced by user interactions, including health and affection levels. Implemented AR technology to place the pet in the user's environment, enhancing immersion and fostering a sense of companionship.",
       "results": "Successfully created a prototype that demonstrates the potential of AR in providing virtual companionship. The app's design encourages regular interaction, promoting emotional connection and stress relief for users with limited time or space for real pets.",
@@ -338,8 +339,9 @@
       "category": "Usability Engineering / Interaction Design",
       "year": "2025",
       "technologies": [
-        "Figma",
-        "Unreal Engine 5"
+        "Heuristic Evaluation",
+        "Usability Testing",
+        "Figma"
       ],
       "coverImage": "/assets/projects/aam-vr/cover/aam_cover.webp",
       "images": [],
@@ -363,9 +365,9 @@
       "category": "Immersive Media / VR Film",
       "year": "2025",
       "technologies": [
-        "Photoshop",
-        "Insta360 Studio",
-        "Premiere Pro"
+        "Filmmaking",
+        "Spatial Storytelling",
+        "Immersive Media Design"
       ],
       "coverImage": "/projects/who-vr/cover.jpg",
       "images": [],
@@ -417,8 +419,8 @@
       "category": "Animation / Visual Storytelling",
       "year": "2025",
       "technologies": [
-        "Figma",
-        "Adobe Premiere Pro",
+        "Animation",
+        "Storyboarding",
         "Photoshop"
       ],
       "coverImage": "/projects/mehndi/cover.png",
@@ -478,7 +480,9 @@
       "category": "Educational Game Design/Low-Resource Design",
       "year": "2025",
       "technologies": [
-        "Figma"
+        "Game Design",
+        "User Testing",
+        "Frugal Design"
       ],
       "coverImage": "/assets/projects/shape-chase/cover/ShapeChase Cover.webp",
       "images": [],
@@ -505,8 +509,9 @@
       "category": "Board Game Design",
       "year": "2025",
       "technologies": [
-        "Figma",
-        "Photoshop"
+        "Game Design",
+        "Boardgame Design",
+        "Playtesting"
       ],
       "coverImage": "/assets/projects/rasta-la-vista/cover/RastaLaVista Cover.webp",
       "images": [],
@@ -528,7 +533,7 @@
       "category": "Photography",
       "year": "2025",
       "technologies": [
-        "Lightroom"
+        "Fashion Photography"
       ],
       "coverImage": "/assets/projects/fashion-in-motion/cover/FashionInMotion Cover.webp",
       "images": [],
@@ -550,6 +555,8 @@
       "category": "Graphic Design / Illustration",
       "year": "2022–25",
       "technologies": [
+        "Graphic Design",
+        "Illustration",
         "Photoshop",
         "Procreate"
       ],
@@ -577,8 +584,9 @@
       "category": "Vibe Coding",
       "year": "2026",
       "technologies": [
-        "Google Antigravity",
-        "React"
+        "Vibe Coding",
+        "Interaction Design",
+        "Google Antigravity"
       ],
       "coverImage": "/assets/projects/pomodoro-tracker/cover.png",
       "images": [],
@@ -697,7 +705,7 @@
       "category": "Photography / Documentary",
       "year": "2024–25",
       "technologies": [
-        "Lightroom",
+        "Visual Storytelling",
         "Photoshop"
       ],
       "layout": "minimal",
