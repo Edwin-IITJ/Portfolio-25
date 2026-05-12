@@ -23,175 +23,6 @@
       ]
     },
     {
-      "id": "lucid-past",
-      "title": "LucidPast",
-      "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
-      "fullDescription": "",
-      "category": "XR Design",
-      "year": "2025",
-      "technologies": [
-        "Python",
-        "DepthAnything V2",
-        "Apple SHARP",
-        "Apple Depth Pro"
-      ],
-      "coverImage": "/assets/projects/lucid-past/cover/LucidPast Cover.webp",
-      "images": [],
-      "projectUrl": "#",
-      "behanceUrl": "",
-      "featured": true,
-      "layout": "lucidpast",
-      "contentMedia": [
-        {}
-      ]
-    },
-    {
-      "id": "digimal",
-      "title": "Digimal – XR Virtual Pet Experience",
-      "description": "An augmented reality (AR) virtual pet application designed to provide companionship and stress relief for users with lifestyle constraints.",
-      "fullDescription": "Digimal is an AR-based virtual pet application that allows users to adopt, nurture, and interact with lifelike virtual pets in their real-world environment. The app aims to foster emotional connection and responsibility without the challenges of real pet ownership. Users can experience companionship through engaging animations and interactive care mechanics, all within an immersive AR setting.",
-      "category": "XR Design",
-      "year": "2025",
-      "technologies": [
-        "Unity",
-        "Figma",
-        "Procreate",
-        "Photoshop"
-      ],
-      "coverImage": "/assets/projects/digimal/cover/Digimal Cover.webp",
-      "images": [],
-      "projectUrl": "#",
-      "behanceUrl": "https://www.behance.net/gallery/219805115/Digimal-XR-Project",
-      "featured": true,
-      "challenges": "Designing an engaging and emotionally resonant virtual pet experience that seamlessly integrates into the user's real-world environment, while ensuring intuitive interaction and maintaining user interest over time.",
-      "solution": "Developed a dynamic pet evolution system where the pet's growth and behavior are influenced by user interactions, including health and affection levels. Implemented AR technology to place the pet in the user's environment, enhancing immersion and fostering a sense of companionship.",
-      "results": "Successfully created a prototype that demonstrates the potential of AR in providing virtual companionship. The app's design encourages regular interaction, promoting emotional connection and stress relief for users with limited time or space for real pets.",
-      "contentMedia": [
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal I.webp",
-          "alt": "Digimal I"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal II.webp",
-          "alt": "Digimal II"
-        },
-        {
-          "type": "gif",
-          "src": "/assets/projects/digimal/docs/Interaction.gif",
-          "alt": "Interaction loop"
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal III.webp",
-          "alt": "Digimal III"
-        },
-        {
-          "type": "collage",
-          "items": [
-            {
-              "src": "/assets/projects/digimal/docs/Clap.gif",
-              "alt": "Interaction 1",
-              "mediaType": "gif"
-            },
-            {
-              "src": "/assets/projects/digimal/docs/Idle.gif",
-              "alt": "Interaction 2",
-              "mediaType": "gif"
-            }
-          ],
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal IV.webp",
-          "alt": "Digimal IV"
-        },
-        {
-          "type": "collage",
-          "items": [
-            {
-              "src": "/assets/projects/digimal/docs/Roll.gif",
-              "alt": "Interaction 3",
-              "mediaType": "gif"
-            },
-            {
-              "src": "/assets/projects/digimal/docs/Sit.gif",
-              "alt": "Interaction 4",
-              "mediaType": "gif"
-            }
-          ],
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal V.webp",
-          "alt": "Digimal V"
-        },
-        {
-          "type": "collage",
-          "items": [
-            {
-              "src": "/assets/projects/digimal/docs/Test_Sr1.gif",
-              "alt": "Test 1",
-              "mediaType": "gif"
-            },
-            {
-              "src": "/assets/projects/digimal/docs/Test_Sr2.gif",
-              "alt": "Test 2",
-              "mediaType": "gif"
-            }
-          ],
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/assets/projects/digimal/docs/Digimal VI.webp",
-          "alt": "Digimal VI"
-        },
-        {
-          "type": "collage",
-          "items": [
-            {
-              "src": "/assets/projects/digimal/docs/Greet.gif",
-              "alt": "Greet",
-              "mediaType": "gif"
-            },
-            {
-              "src": "/assets/projects/digimal/docs/Digimal VII.webp",
-              "alt": "Digimal VII",
-              "mediaType": "image"
-            }
-          ],
-          "caption": ""
-        }
-      ]
-    },
-    {
-      "id": "aam-vr",
-      "title": "Aam – VR Experience",
-      "description": "A hand-tracking VR experience that puts the harvest back in your hands. Built for the city person with no tree.",
-      "fullDescription": "Aam is a VR experience about tending toward a harvest, not just simulating one. One island, one tree, no UI chrome. Hand-tracking gestures replace controllers. Three iterations: a pole mechanic that failed in pilot testing, a full rebuild with a liminal Home Room entry space, and a final redesign pass addressing every critical heuristic finding. Evaluated via screen-based Figma prototype, heuristic evaluation, and Likert questionnaire.",
-      "category": "Usability Engineering / Interaction Design",
-      "year": "2025",
-      "technologies": [
-        "Figma",
-        "Unreal Engine 5"
-      ],
-      "coverImage": "/assets/projects/aam-vr/cover/aam_cover.webp",
-      "images": [],
-      "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
-      "layout": "aam",
-      "featured": false,
-      "challenges": "Reconstructing an embodied seasonal ritual in VR without its terminal reward. Designing hand-tracking gestures that feel instinctive without haptics. Balancing minimal environment with discoverable interactions and onboarding clarity.",
-      "solution": "Pole mechanic replaced with direct forefinger hold after pilot failure. Home Room added as a liminal threshold before the tree zone. Heuristic evaluation resolved all Severity 2 and 3 findings: persistent home button, instruction consistency, onboarding completeness, ripeness indicator, glide-to-basket animation.",
-      "results": "N=3 directional study. Gesture intuitiveness validated (majority Agree/Strongly Agree). Minimal design validated. Core calm intent partially landed (2 Agree, 1 Neutral). Onboarding completeness identified as the primary gap for the next iteration.",
-      "contentMedia": [
-        {}
-      ]
-    },
-    {
       "id": "aruler-redesign",
       "title": "ARuler - Usability Engineering Study",
       "description": "A usability engineering project analyzing and redesigning an ARuler Android app to improve user experience and interface clarity.",
@@ -351,6 +182,175 @@
           "src": "/assets/projects/aruler-redesign/docs/Frame-27.png",
           "alt": "ARuler Frame 27"
         }
+      ]
+    },
+    {
+      "id": "lucid-past",
+      "title": "LucidPast",
+      "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
+      "fullDescription": "",
+      "category": "XR Design",
+      "year": "2025",
+      "technologies": [
+        "Python",
+        "DepthAnything V2",
+        "Apple SHARP",
+        "Apple Depth Pro"
+      ],
+      "coverImage": "/assets/projects/lucid-past/cover/LucidPast Cover.webp",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "",
+      "featured": false,
+      "layout": "lucidpast",
+      "contentMedia": [
+        {}
+      ]
+    },
+    {
+      "id": "digimal",
+      "title": "Digimal – XR Virtual Pet Experience",
+      "description": "An augmented reality (AR) virtual pet application designed to provide companionship and stress relief for users with lifestyle constraints.",
+      "fullDescription": "Digimal is an AR-based virtual pet application that allows users to adopt, nurture, and interact with lifelike virtual pets in their real-world environment. The app aims to foster emotional connection and responsibility without the challenges of real pet ownership. Users can experience companionship through engaging animations and interactive care mechanics, all within an immersive AR setting.",
+      "category": "XR Design",
+      "year": "2025",
+      "technologies": [
+        "Unity",
+        "Figma",
+        "Procreate",
+        "Photoshop"
+      ],
+      "coverImage": "/assets/projects/digimal/cover/Digimal Cover.webp",
+      "images": [],
+      "projectUrl": "#",
+      "behanceUrl": "https://www.behance.net/gallery/219805115/Digimal-XR-Project",
+      "featured": true,
+      "challenges": "Designing an engaging and emotionally resonant virtual pet experience that seamlessly integrates into the user's real-world environment, while ensuring intuitive interaction and maintaining user interest over time.",
+      "solution": "Developed a dynamic pet evolution system where the pet's growth and behavior are influenced by user interactions, including health and affection levels. Implemented AR technology to place the pet in the user's environment, enhancing immersion and fostering a sense of companionship.",
+      "results": "Successfully created a prototype that demonstrates the potential of AR in providing virtual companionship. The app's design encourages regular interaction, promoting emotional connection and stress relief for users with limited time or space for real pets.",
+      "contentMedia": [
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal I.webp",
+          "alt": "Digimal I"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal II.webp",
+          "alt": "Digimal II"
+        },
+        {
+          "type": "gif",
+          "src": "/assets/projects/digimal/docs/Interaction.gif",
+          "alt": "Interaction loop"
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal III.webp",
+          "alt": "Digimal III"
+        },
+        {
+          "type": "collage",
+          "items": [
+            {
+              "src": "/assets/projects/digimal/docs/Clap.gif",
+              "alt": "Interaction 1",
+              "mediaType": "gif"
+            },
+            {
+              "src": "/assets/projects/digimal/docs/Idle.gif",
+              "alt": "Interaction 2",
+              "mediaType": "gif"
+            }
+          ],
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal IV.webp",
+          "alt": "Digimal IV"
+        },
+        {
+          "type": "collage",
+          "items": [
+            {
+              "src": "/assets/projects/digimal/docs/Roll.gif",
+              "alt": "Interaction 3",
+              "mediaType": "gif"
+            },
+            {
+              "src": "/assets/projects/digimal/docs/Sit.gif",
+              "alt": "Interaction 4",
+              "mediaType": "gif"
+            }
+          ],
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal V.webp",
+          "alt": "Digimal V"
+        },
+        {
+          "type": "collage",
+          "items": [
+            {
+              "src": "/assets/projects/digimal/docs/Test_Sr1.gif",
+              "alt": "Test 1",
+              "mediaType": "gif"
+            },
+            {
+              "src": "/assets/projects/digimal/docs/Test_Sr2.gif",
+              "alt": "Test 2",
+              "mediaType": "gif"
+            }
+          ],
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "/assets/projects/digimal/docs/Digimal VI.webp",
+          "alt": "Digimal VI"
+        },
+        {
+          "type": "collage",
+          "items": [
+            {
+              "src": "/assets/projects/digimal/docs/Greet.gif",
+              "alt": "Greet",
+              "mediaType": "gif"
+            },
+            {
+              "src": "/assets/projects/digimal/docs/Digimal VII.webp",
+              "alt": "Digimal VII",
+              "mediaType": "image"
+            }
+          ],
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "aam-vr",
+      "title": "Aam – VR Experience",
+      "description": "A hand-tracking VR experience that puts the harvest back in your hands. Built for the city person with no tree.",
+      "fullDescription": "Aam is a VR experience about tending toward a harvest, not just simulating one. One island, one tree, no UI chrome. Hand-tracking gestures replace controllers. Three iterations: a pole mechanic that failed in pilot testing, a full rebuild with a liminal Home Room entry space, and a final redesign pass addressing every critical heuristic finding. Evaluated via screen-based Figma prototype, heuristic evaluation, and Likert questionnaire.",
+      "category": "Usability Engineering / Interaction Design",
+      "year": "2025",
+      "technologies": [
+        "Figma",
+        "Unreal Engine 5"
+      ],
+      "coverImage": "/assets/projects/aam-vr/cover/aam_cover.webp",
+      "images": [],
+      "behanceUrl": "https://www.behance.net/gallery/234349375/Aam-Usability-Engineering-Project",
+      "layout": "aam",
+      "featured": false,
+      "challenges": "Reconstructing an embodied seasonal ritual in VR without its terminal reward. Designing hand-tracking gestures that feel instinctive without haptics. Balancing minimal environment with discoverable interactions and onboarding clarity.",
+      "solution": "Pole mechanic replaced with direct forefinger hold after pilot failure. Home Room added as a liminal threshold before the tree zone. Heuristic evaluation resolved all Severity 2 and 3 findings: persistent home button, instruction consistency, onboarding completeness, ripeness indicator, glide-to-basket animation.",
+      "results": "N=3 directional study. Gesture intuitiveness validated (majority Agree/Strongly Agree). Minimal design validated. Core calm intent partially landed (2 Agree, 1 Neutral). Onboarding completeness identified as the primary gap for the next iteration.",
+      "contentMedia": [
+        {}
       ]
     }
   ],
