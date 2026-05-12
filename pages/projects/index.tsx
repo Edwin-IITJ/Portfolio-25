@@ -10,9 +10,9 @@ export default function ProjectsPage() {
     <>
       <Head>
         <title>Projects - Edwin Meleth</title>
-        <meta 
-          name="description" 
-          content="Browse through my portfolio of UI/UX design, VR experiences, and web development projects." 
+        <meta
+          name="description"
+          content="Browse through my portfolio of UI/UX design, VR experiences, and web development projects."
         />
         <link rel="canonical" href="https://edwinm.vercel.app/projects" />
       </Head>
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
                   My Projects
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-600">
-                  A showcase of my design work, VR experiences, and creative development projects 
+                  A showcase of my design work, VR experiences, and creative development projects
                   that blend innovation with user-centered design principles.
                 </p>
               </motion.div>

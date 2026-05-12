@@ -8,7 +8,7 @@ const StructuredData = () => {
     "name": "Edwin Meleth",
     "url": "https://edwinm.vercel.app",
     "image": "https://edwinm.vercel.app/profile-photo.jpg",
-    "jobTitle": "Designer | UI/UX/XR",
+    "jobTitle": "Designer | UX/AI/XR",
     "description": "UI/UX Designer specializing in immersive experiences and user-centered design",
     "email": "edwinmeleth@gmail.com",
     "sameAs": [

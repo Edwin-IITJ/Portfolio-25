@@ -9,16 +9,16 @@ export default function AboutPage() {
     <>
       <Head>
         <title>About - Edwin Meleth</title>
-        <meta 
-          name="description" 
-          content="Learn more about Edwin Meleth - UI/UX Designer and Creative Developer with expertise in VR/AR experiences and user-centered design." 
+        <meta
+          name="description"
+          content="Learn more about Edwin Meleth - UI/UX Designer and Creative Developer with expertise in VR/AR experiences and user-centered design."
         />
         <link rel="canonical" href="https://edwinm.vercel.app/about" />
       </Head>
-      
+
       <div className="relative min-h-screen bg-white">
         <Navbar />
-        
+
         <main className="pt-20">
           {/* Page Header */}
           <motion.section
@@ -38,7 +38,7 @@ export default function AboutPage() {
           </motion.section>
 
           <About />
-          
+
           {/* Additional Sections can go here */}
           <section className="py-20 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,7 +65,7 @@ export default function AboutPage() {
             </div>
           </section>
         </main>
-        
+
         <Footer />
       </div>
     </>

@@ -76,7 +76,7 @@ export default function Home() {
     <>
       {/* SEO Meta Tags */}
       <Head>
-        <title>Edwin Meleth | Designer | UI/UX/XR</title>
+        <title>Edwin Meleth | Designer | UX/AI/XR</title>
         {/* Remove viewport - Next.js handles this automatically */}
       </Head>
 
