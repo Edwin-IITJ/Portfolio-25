@@ -69,7 +69,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Jodhpur, Rajasthan, India',
+      value: 'Kochi, Kerala, India',
       href: null,
     },
   ]
@@ -110,7 +110,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <Input
                 label="Your Name"
-                placeholder="John Doe"
+                placeholder="Darth Vader"
                 {...register('name', { required: 'Name is required' })}
                 error={errors.name?.message}
                 required
@@ -119,7 +119,7 @@ const Contact = () => {
               <Input
                 label="Email Address"
                 type="email"
-                placeholder="john@example.com"
+                placeholder="d.vader@deathstar.com"
                 {...register('email', {
                   required: 'Email is required',
                   pattern: {
@@ -133,7 +133,7 @@ const Contact = () => {
 
               <Input
                 label="Subject"
-                placeholder="Project Inquiry"
+                placeholder="AI for the Dark Side"
                 {...register('subject', { required: 'Subject is required' })}
                 error={errors.subject?.message}
                 required
@@ -141,7 +141,7 @@ const Contact = () => {
 
               <Textarea
                 label="Message"
-                placeholder="Tell me about your project..."
+                placeholder="Looking for AI solutions to help the dark side..."
                 rows={6}
                 {...register('message', { required: 'Message is required' })}
                 error={errors.message?.message}

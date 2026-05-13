@@ -9,7 +9,7 @@ const About = () => {
     {
       category: 'UX Skills',
       icon: Users,
-      items: ['User Research', 'Usability Testing', 'Heuristic Evaluation', 'Interaction Design', 'Wireframing', 'User Flows', 'High-Fidelity Prototyping', 'Design Systems', 'Personas', 'Accessibility']
+      items: ['User Research', 'Usability Testing', 'Heuristic Evaluation', 'Interaction Design', 'Wireframing', 'User Flows', 'Prototyping', 'Design Systems', 'Personas', 'Accessibility']
     },
     {
       category: 'Design & Prototyping',
@@ -100,7 +100,7 @@ const About = () => {
               <p>
                 I'm a <span className="font-semibold text-gray-900">Product Designer</span> and{' '}
                 <span className="font-semibold text-gray-900">Design Engineer</span> pursuing my Master's in Design
-                at <span className="font-semibold text-primary-600">IIT Jodhpur</span>. I design intelligent interfaces and build them, moving fluidly between usability research, high-fidelity prototyping, and production-ready front-end code.
+                at <span className="font-semibold text-primary-600">IIT Jodhpur</span>. I design intelligent interfaces and build them, moving fluidly between usability research, prototyping, and production-ready front-end code.
               </p>
 
               <p>
