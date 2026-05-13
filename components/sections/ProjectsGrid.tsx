@@ -54,8 +54,7 @@ const ProjectsGrid = () => {
           Featured Work
         </h2>
         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-          A collection of projects showcasing expertise in UI/UX design,
-          VR development, and creative problem-solving.
+          A selection of AI product design, UX research, and XR interaction projects.
         </p>
       </motion.div>
 

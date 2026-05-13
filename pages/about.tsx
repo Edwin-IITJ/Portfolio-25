@@ -11,7 +11,7 @@ export default function AboutPage() {
         <title>About - Edwin Meleth</title>
         <meta
           name="description"
-          content="Learn more about Edwin Meleth - UI/UX Designer and Creative Developer with expertise in VR/AR experiences and user-centered design."
+          content="Edwin Meleth is a Product Designer and Design Engineer specializing in AI-powered products, UX research, and XR interaction design. M.Des candidate at IIT Jodhpur."
         />
         <link rel="canonical" href="https://edwinm.vercel.app/about" />
       </Head>
@@ -32,7 +32,7 @@ export default function AboutPage() {
                 About Me
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Passionate designer and developer crafting meaningful digital experiences
+                Product Designer & Design Engineer · I design and build AI-powered products, conduct UX research, and create XR interaction experiences.
               </p>
             </div>
           </motion.section>

@@ -58,7 +58,7 @@ const Footer = () => {
               </h3>
             </Link>
             <p className="text-gray-400 mb-6">
-              UI/UX Designer & Creative Developer crafting meaningful digital experiences.
+              Product Designer & Design Engineer building AI-powered products and adaptive interfaces.
             </p>
             {/* <div className="flex space-x-4">
               {socialLinks.map((social) => (

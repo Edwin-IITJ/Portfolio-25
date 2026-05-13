@@ -8,8 +8,8 @@ const StructuredData = () => {
     "name": "Edwin Meleth",
     "url": "https://edwinm.vercel.app",
     "image": "https://edwinm.vercel.app/profile-photo.jpg",
-    "jobTitle": "Designer | UX/AI/XR",
-    "description": "UI/UX Designer specializing in immersive experiences and user-centered design",
+    "jobTitle": "Product Designer & Design Engineer",
+    "description": "Product Designer and Design Engineer specializing in AI-powered products, adaptive interfaces, and UX research. M.Des candidate at IIT Jodhpur.",
     "email": "edwinmeleth@gmail.com",
     "sameAs": [
       "https://www.linkedin.com/in/edwinmeleth",
@@ -18,24 +18,25 @@ const StructuredData = () => {
       // Add your actual social media URLs
     ],
     "knowsAbout": [
+      "AI Product Design",
+      "Product Design",
+      "Design Engineering",
       "UX Design",
       "UI Design",
-      "XR Design",
-      "Game Design",
       "Interaction Design",
-      "Unreal Engine",
-      "Unity",
+      "Usability Engineering",
+      "XR Design",
+      "Prompt Engineering",
+      "Generative UI",
+      "Adaptive UI",
+      "User Research",
       "Figma",
-      "Full Stack Development",
-      "Web Development",
-      "JavaScript",
+      "Next.js",
       "TypeScript",
       "Python",
-      "HTML",
-      "CSS",
+      "JavaScript",
       "SQL",
-      "Angular",
-      "C#"
+      "Angular"
     ],
     "alumniOf": [
       {
@@ -70,16 +71,16 @@ const StructuredData = () => {
     "hasOccupation": [
       {
         "@type": "Occupation",
-        "name": "XR Design Student",
+        "name": "Product Designer & Design Engineer",
         "occupationLocation": {
           "@type": "Place",
           "name": "IIT Jodhpur"
         },
-        "description": "Master of Design in XR (Extended Reality) Design"
+        "description": "Master of Design candidate, specializing in AI product design and adaptive interfaces"
       },
       {
         "@type": "Occupation",
-        "name": "Full-Stack Developer",
+        "name": "Associate Software Developer",
         "occupationLocation": {
           "@type": "Organization",
           "name": "IQVIA",
@@ -89,7 +90,7 @@ const StructuredData = () => {
             "https://www.linkedin.com/company/iqvia"
           ]
         },
-        "description": "2+ years experience in full-stack development"
+        "description": "2.5 years experience in enterprise UX and full-stack development on pharma platforms"
       }
     ]
   }
