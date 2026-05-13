@@ -34,6 +34,21 @@ const nextConfig = {
           },
         ],
       },
+      // Site-wide: language signal + hint to AI crawlers where llms.txt lives
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Language',
+            value: 'en',
+          },
+          {
+            // Emerging convention: tell AI crawlers the llms.txt location
+            key: 'X-Robots-Tag',
+            value: 'index, follow',
+          },
+        ],
+      },
     ];
   },
 };

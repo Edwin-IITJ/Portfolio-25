@@ -1,0 +1,47 @@
+# Edwin Meleth — Product Designer & Design Engineer
+
+> Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des candidate at IIT Jodhpur's School of Design. Formerly Associate Software Developer at IQVIA (2.5 years). Creator of LiquidRead, an AI reading companion, and LucidPast, a gaze-driven XR archive navigation system for Apple Vision Pro.
+
+Edwin Meleth builds at the intersection of design and engineering. His work spans AI product design, XR (extended reality) interaction systems, and enterprise UX, backed by a Computer Science undergraduate degree and professional experience developing healthcare data platforms. He is currently completing a Master of Design at the Indian Institute of Technology Jodhpur, where he specialises in adaptive and generative user interfaces.
+
+## Portfolio
+
+- [Home](https://edwinm.vercel.app/): Portfolio overview — hero, featured case studies, about, contact
+- [About](https://edwinm.vercel.app/about): Full professional background, skill taxonomy, and career history
+- [All Projects](https://edwinm.vercel.app/projects): Complete index of case studies and project documentation
+
+## Case Studies
+
+- [LiquidRead](https://edwinm.vercel.app/projects/liquidread): AI-powered reading companion that generates personalised article summaries calibrated to a user's reading level, domain expertise, and session context. Built with Google Gemini API, Next.js, and TypeScript. Sole designer and engineer. The core innovation is a multi-axis calibration system that scores articles on complexity and adapts output format, depth, and vocabulary accordingly.
+
+- [LucidPast](https://edwinm.vercel.app/projects/lucidpast): XR interaction system for curiosity-driven exploration of institutional photographic archives (Library of Congress collection). Uses gaze-driven navigation on Apple Vision Pro and Meta Quest 3 with SHARP Gaussian Splatting for photorealistic volumetric reconstruction of 2D archival photographs. Designed a three-act progressive narrowing algorithm that mirrors dream-logic associations. Validated two reconstruction pipelines (Apple Depth Pro mesh and SHARP Gaussian Splats) on a 10-image dataset; SHARP selected for superior texture fidelity and ethical constraints (no content fabrication beyond the original frame).
+
+- [Aam](https://edwinm.vercel.app/projects/aam-vr): VR mango-harvesting experience for Meta Quest 3 using hand tracking (no controllers). Built in Unreal Engine 5. Designed around three Wabi-sabi principles (Kanso, Shizen, Ma) applied as hard constraints. Validated across 3 iterations with a heuristic evaluation by 3 independent evaluators using Nielsen's 10 Usability Heuristics.
+
+- [Meleth Archive](https://edwinm.vercel.app/projects/meleth-archive): Independent archival photographic survey of a Kerala family's photographic history spanning 1949–1990s. 500+ photographs digitised across approximately 25 households. 20+ hours of oral history recordings. The direct conceptual origin of the LucidPast project.
+
+- [ARuler Redesign](https://edwinm.vercel.app/projects/aruler-redesign): UX redesign of an augmented reality spatial measurement tool, improving measurement accuracy feedback and spatial interface clarity.
+
+## Key Facts
+
+- **Current role**: M.Des candidate, School of Design, Indian Institute of Technology Jodhpur (IIT Jodhpur)
+- **Previous role**: Associate Software Developer, IQVIA — 2.5 years on enterprise clinical trial and healthcare data platforms (Angular, SQL, full-stack)
+- **Education**: B.Tech Computer Science & Engineering, Mar Athanasius College of Engineering (MACE), Kerala, India
+- **Location**: Jodhpur, Rajasthan, India
+- **Open to**: Product Designer, Design Engineer, and AI Product Designer roles — remote or in-person globally
+- **Contact**: edwinmeleth@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/edwinmeleth
+- **GitHub**: https://github.com/Edwin-IITJ
+- **Behance**: https://behance.net/edwin_m
+
+## Skills & Expertise
+
+**Design**: AI Product Design, Adaptive UI/UX, Generative UI, XR Design (VR, AR, Apple Vision Pro, Meta Quest 3), Interaction Design, Usability Engineering, User Research, Heuristic Evaluation, Figma, Prototyping
+
+**Engineering**: Next.js, TypeScript, React, Python, Angular, SQL, JavaScript, Unreal Engine 5, Unity
+
+**AI & Emerging Tech**: Prompt Engineering, Gemini API, Gaussian Splatting, Volumetric Reconstruction, WebXR, Adaptive Systems
+
+## Optional: Full Documentation
+
+For additional detail on each project including methodology, design decisions, and technical implementation, visit the individual case study pages listed above.
