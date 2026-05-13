@@ -2,25 +2,25 @@
 import { useEffect, useRef } from 'react'
 
 // ─── Grid ─────────────────────────────────────────────────────────────────────
-const SPACING       = 32     // px between grid points
-const DOT_R         = 1.3    // px base dot radius
-const BASE_ALPHA    = 0.13   // resting opacity
-const MAX_DISP      = 26     // px — clamp total displacement
+const SPACING = 32     // px between grid points
+const DOT_R = 1.3    // px base dot radius
+const BASE_ALPHA = 0.13   // resting opacity
+const MAX_DISP = 26     // px — clamp total displacement
 
 // ─── Gravity ──────────────────────────────────────────────────────────────────
-const SOFTENING     = 52     // prevents infinity at mass center
-const MASS_K        = 55_000 // gravitational constant for drifting masses
-const MOUSE_K       = 90_000 // cursor pulls harder than drifting masses
+const SOFTENING = 52     // prevents infinity at mass center
+const MASS_K = 55_000 // gravitational constant for drifting masses
+const MOUSE_K = 90_000 // cursor pulls harder than drifting masses
 
 // ─── Drifting masses (Lissajous paths, project-coloured) ─────────────────────
 // ampX/ampY are fractions of W/H. Frequencies chosen to avoid simple repeats.
 const MASS_DEFS = [
   // indigo — LiquidRead / AI
-  { aX: 0.30, aY: 0.25, fX: 0.19, fY: 0.23, ph: 0.00, rgb: [99,  102, 241] as const },
+  { aX: 0.30, aY: 0.25, fX: 0.19, fY: 0.23, ph: 0.00, rgb: [99, 102, 241] as const },
   // amber  — Meleth Archive / Photography
-  { aX: 0.26, aY: 0.32, fX: 0.29, fY: 0.17, ph: 2.10, rgb: [245, 158,  11] as const },
+  { aX: 0.26, aY: 0.32, fX: 0.29, fY: 0.17, ph: 2.10, rgb: [245, 158, 11] as const },
   // teal   — LucidPast / XR memory
-  { aX: 0.20, aY: 0.28, fX: 0.13, fY: 0.31, ph: 4.30, rgb: [20,  184, 166] as const },
+  { aX: 0.20, aY: 0.28, fX: 0.13, fY: 0.31, ph: 4.30, rgb: [20, 184, 166] as const },
 ]
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -38,7 +38,7 @@ const BackgroundCanvas = ({ onLoaded }: { onLoaded?: () => void }) => {
     const mouse = { x: -99999, y: -99999 }
 
     const init = () => {
-      W = canvas.width  = window.innerWidth
+      W = canvas.width = window.innerWidth
       H = canvas.height = window.innerHeight
       onLoaded?.()
     }
@@ -49,9 +49,9 @@ const BackgroundCanvas = ({ onLoaded }: { onLoaded?: () => void }) => {
 
       // ── Compute current mass positions ──────────────────────────────────────
       const masses = MASS_DEFS.map(m => ({
-        x:   W * 0.5 + W * m.aX * Math.sin(t * m.fX + m.ph),
-        y:   H * 0.5 + H * m.aY * Math.cos(t * m.fY + m.ph),
-        k:   MASS_K,
+        x: W * 0.5 + W * m.aX * Math.sin(t * m.fX + m.ph),
+        y: H * 0.5 + H * m.aY * Math.cos(t * m.fY + m.ph),
+        k: MASS_K,
         rgb: m.rgb,
       }))
 
@@ -75,18 +75,18 @@ const BackgroundCanvas = ({ onLoaded }: { onLoaded?: () => void }) => {
           let rAcc = 0, gAcc = 0, bAcc = 0, wAcc = 0
 
           for (const m of masses) {
-            const dx   = gx - m.x
-            const dy   = gy - m.y
-            const d2   = dx * dx + dy * dy + SOFTENING * SOFTENING
-            const d    = Math.sqrt(d2)
+            const dx = gx - m.x
+            const dy = gy - m.y
+            const d2 = dx * dx + dy * dy + SOFTENING * SOFTENING
+            const d = Math.sqrt(d2)
 
             // Inverse-cube force (k/r² in magnitude, divided by r again for direction)
-            const f    = m.k / (d * d2)
+            const f = m.k / (d * d2)
             fdx -= dx * f
             fdy -= dy * f
 
             // Colour: weight by 1/d2 (IDW, no extra sqrt)
-            const cw   = 1 / d2
+            const cw = 1 / d2
             rAcc += m.rgb[0] * cw
             gAcc += m.rgb[1] * cw
             bAcc += m.rgb[2] * cw
@@ -107,7 +107,7 @@ const BackgroundCanvas = ({ onLoaded }: { onLoaded?: () => void }) => {
           const g = Math.round(gAcc / wAcc)
           const b = Math.round(bAcc / wAcc)
 
-          const alpha  = BASE_ALPHA + disp * 0.28
+          const alpha = BASE_ALPHA + disp * 0.28
           const radius = DOT_R + disp * 1.1
 
           // Soft glow for strongly displaced dots (near lens centres)
@@ -129,21 +129,21 @@ const BackgroundCanvas = ({ onLoaded }: { onLoaded?: () => void }) => {
     }
 
     const onResize = () => {
-      W = canvas.width  = window.innerWidth
+      W = canvas.width = window.innerWidth
       H = canvas.height = window.innerHeight
     }
-    const onMove  = (e: MouseEvent) => { mouse.x = e.clientX; mouse.y = e.clientY }
+    const onMove = (e: MouseEvent) => { mouse.x = e.clientX; mouse.y = e.clientY }
     const onLeave = () => { mouse.x = mouse.y = -99999 }
 
     init(); tick()
-    window.addEventListener('resize',       onResize)
-    window.addEventListener('mousemove',    onMove)
+    window.addEventListener('resize', onResize)
+    window.addEventListener('mousemove', onMove)
     document.addEventListener('mouseleave', onLeave)
 
     return () => {
       cancelAnimationFrame(animId)
-      window.removeEventListener('resize',       onResize)
-      window.removeEventListener('mousemove',    onMove)
+      window.removeEventListener('resize', onResize)
+      window.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseleave', onLeave)
     }
   }, [onLoaded])
