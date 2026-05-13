@@ -51,11 +51,11 @@ const structuredData = {
       // ── Location ─────────────────────────────────────────────────────────────
       "homeLocation": {
         "@type": "Place",
-        "name": "Jodhpur, Rajasthan, India",
+        "name": "Kochi, Kerala, India",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Jodhpur",
-          "addressRegion": "Rajasthan",
+          "addressLocality": "Kochi",
+          "addressRegion": "Kerala",
           "addressCountry": "IN"
         }
       },
