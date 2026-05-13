@@ -14,12 +14,12 @@ const About = () => {
     {
       category: 'Design & Prototyping',
       icon: Hammer,
-      items: ['Figma', 'Adobe Photoshop', 'Vibe Coding', 'Procreate', 'DaVinci Resolve', 'Unreal Engine 5', 'Unity', 'Blender (basic)']
+      items: ['Figma', 'Adobe Photoshop', 'Vibe Coding', 'Procreate', 'DaVinci Resolve', 'Unreal Engine 5', 'Unity', 'Blender']
     },
     {
       category: 'AI-Assisted Design',
       icon: Sparkles,
-      items: ['Figma Make', 'Cursor', 'ChatGPT', 'Perplexity', 'Google Antigravity/AI', 'AI Image Generation', 'Prompt Engineering']
+      items: ['Figma Make', 'Cursor', 'Claude', 'ChatGPT', 'Perplexity', 'Google Antigravity', 'AI Image Generation', 'Prompt Engineering']
     },
     {
       category: 'Development & Tools',
