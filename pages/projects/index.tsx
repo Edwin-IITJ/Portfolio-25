@@ -12,9 +12,22 @@ export default function ProjectsPage() {
         <title>Projects - Edwin Meleth</title>
         <meta
           name="description"
-          content="Browse through my portfolio of UI/UX design, VR experiences, and web development projects."
+          content="Case studies and projects by Edwin Meleth — AI-powered product design, XR interaction systems, enterprise UX, and archival research. Product Designer & Design Engineer at IIT Jodhpur."
         />
         <link rel="canonical" href="https://edwinm.vercel.app/projects" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://edwinm.vercel.app/projects" />
+        <meta property="og:title" content="Projects – Edwin Meleth | Product Designer & Design Engineer" />
+        <meta property="og:description" content="AI-powered product design, XR interaction systems, enterprise UX, and archival research projects by Edwin Meleth." />
+        <meta property="og:image" content="https://edwinm.vercel.app/og-image.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Projects – Edwin Meleth | Product Designer & Design Engineer" />
+        <meta name="twitter:description" content="AI-powered product design, XR interaction systems, enterprise UX, and archival research projects by Edwin Meleth." />
+        <meta name="twitter:image" content="https://edwinm.vercel.app/og-image.png" />
       </Head>
 
       <div className="min-h-screen bg-white">

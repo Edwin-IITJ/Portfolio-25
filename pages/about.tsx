@@ -14,6 +14,19 @@ export default function AboutPage() {
           content="Edwin Meleth is a Product Designer and Design Engineer specializing in AI-powered products, UX research, and XR interaction design. M.Des candidate at IIT Jodhpur."
         />
         <link rel="canonical" href="https://edwinm.vercel.app/about" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://edwinm.vercel.app/about" />
+        <meta property="og:title" content="About Edwin Meleth | Product Designer & Design Engineer" />
+        <meta property="og:description" content="Product Designer and Design Engineer specialising in AI-powered products, XR interaction design, and UX research. M.Des at IIT Jodhpur, formerly at IQVIA." />
+        <meta property="og:image" content="https://edwinm.vercel.app/og-image.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Edwin Meleth | Product Designer & Design Engineer" />
+        <meta name="twitter:description" content="Product Designer and Design Engineer specialising in AI-powered products, XR interaction design, and UX research." />
+        <meta name="twitter:image" content="https://edwinm.vercel.app/og-image.png" />
       </Head>
 
       <div className="relative min-h-screen bg-white">

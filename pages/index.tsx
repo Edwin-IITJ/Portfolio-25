@@ -76,8 +76,29 @@ export default function Home() {
     <>
       {/* SEO Meta Tags */}
       <Head>
-        <title>Edwin Meleth | Product Designer & Design Engineer</title>
-        {/* Remove viewport - Next.js handles this automatically */}
+        <title>Edwin Meleth | Product Designer &amp; Design Engineer</title>
+        <meta name="description" content="Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des candidate at IIT Jodhpur, formerly at IQVIA." />
+        <meta name="keywords" content="Product Designer, Design Engineer, AI Product Designer, UX Designer, XR Design, Edwin Meleth, IIT Jodhpur, LiquidRead, AI-powered products, adaptive UI" />
+        <meta name="author" content="Edwin Meleth" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://edwinm.vercel.app/" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://edwinm.vercel.app/" />
+        <meta property="og:title" content="Edwin Meleth | Product Designer & Design Engineer" />
+        <meta property="og:description" content="Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des at IIT Jodhpur." />
+        <meta property="og:image" content="https://edwinm.vercel.app/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Edwin Meleth Portfolio" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Edwin Meleth | Product Designer & Design Engineer" />
+        <meta name="twitter:description" content="Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design." />
+        <meta name="twitter:image" content="https://edwinm.vercel.app/og-image.png" />
       </Head>
 
       {/* Structured Data for Google */}

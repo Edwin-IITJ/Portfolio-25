@@ -68,6 +68,21 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
       <Head>
         <title>{project.title}  -  Edwin Meleth</title>
         <meta name="description" content={project.description} />
+        <link rel="canonical" href={`https://edwinm.vercel.app/projects/${project.id}`} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://edwinm.vercel.app/projects/${project.id}`} />
+        <meta property="og:title" content={`${project.title} - Edwin Meleth`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
+        <meta property="og:site_name" content="Edwin Meleth Portfolio" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} - Edwin Meleth`} />
+        <meta name="twitter:description" content={project.description} />
+        <meta name="twitter:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
       </Head>
 
       <FilmGrain />

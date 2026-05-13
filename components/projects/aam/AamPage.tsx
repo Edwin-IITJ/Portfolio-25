@@ -76,7 +76,23 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
   return (
     <>
       <Head>
-        <title>Aam Case Study</title>
+        <title>{project.title} – Edwin Meleth</title>
+        <meta name="description" content={project.description} />
+        <link rel="canonical" href={`https://edwinm.vercel.app/projects/${project.id}`} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://edwinm.vercel.app/projects/${project.id}`} />
+        <meta property="og:title" content={`${project.title} – Edwin Meleth`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
+        <meta property="og:site_name" content="Edwin Meleth Portfolio" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} – Edwin Meleth`} />
+        <meta name="twitter:description" content={project.description} />
+        <meta name="twitter:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
