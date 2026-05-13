@@ -1,35 +1,30 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Download, Award, Briefcase, GraduationCap, Code, LayoutTemplate, Hammer, Library, Table } from 'lucide-react'
+import { Code, Hammer, Sparkles, Users } from 'lucide-react'
 import Button from '../ui/Button'
 
 const About = () => {
   const skills = [
     {
-      category: 'Design & HCI Tools: ',
+      category: 'UX Skills',
+      icon: Users,
+      items: ['User Research', 'Usability Testing', 'Heuristic Evaluation', 'Interaction Design', 'Wireframing', 'User Flows', 'High-Fidelity Prototyping', 'Design Systems', 'Personas', 'Accessibility']
+    },
+    {
+      category: 'Design & Prototyping',
       icon: Hammer,
-      items: ['Figma', 'Photoshop', 'Unity', 'Unreal Engine 5', 'Procreate', 'DaVinci Resolve']
+      items: ['Figma', 'Adobe Photoshop', 'Vibe Coding', 'Procreate', 'DaVinci Resolve', 'Unreal Engine 5', 'Unity', 'Blender (basic)']
     },
     {
-      category: 'Frameworks & Libraries',
-      icon: Library,
-      items: ['Angular', 'ASP.NET', 'Pandas']
+      category: 'AI-Assisted Design',
+      icon: Sparkles,
+      items: ['Figma Make', 'Cursor', 'ChatGPT', 'Perplexity', 'Google Antigravity/AI', 'AI Image Generation', 'Prompt Engineering']
     },
     {
-      category: 'Programming',
+      category: 'Development & Tools',
       icon: Code,
-      items: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'C#']
-    },
-    {
-      category: 'Web Skills',
-      icon: LayoutTemplate,
-      items: ['HTML', 'CSS', 'Bootstrap']
-    },
-    {
-      category: 'Other',
-      icon: Table,
-      items: ['Microsoft SQL Server', 'Microsoft Excel']
+      items: ['JavaScript', 'TypeScript', 'HTML/CSS', 'Bootstrap', 'Angular', 'ASP.NET (C#)', 'SQL', 'Python', 'Supabase', 'GitHub']
     },
   ]
 
@@ -103,23 +98,19 @@ const About = () => {
 
             <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed mb-8">
               <p>
-                I'm a <span className="font-semibold text-gray-900">UI/UX Designer</span> and{' '}
-                <span className="font-semibold text-gray-900">Creative Developer</span> currently pursuing my Master's in Design
-                at <span className="font-semibold text-primary-600">IIT Jodhpur</span>, exploring interaction design, usability engineering, storytelling, and
-                spatial experience design through projects in  <span className="font-semibold text-gray-900">VR/AR/MR</span> and
-                creative web technologies.
+                I'm a <span className="font-semibold text-gray-900">Product Designer</span> and{' '}
+                <span className="font-semibold text-gray-900">Design Engineer</span> pursuing my Master's in Design
+                at <span className="font-semibold text-primary-600">IIT Jodhpur</span>. I design intelligent interfaces and build them, moving fluidly between usability research, high-fidelity prototyping, and production-ready front-end code.
               </p>
 
               <p>
-                Before design, I worked as a <span className="font-semibold text-gray-900">Full-Stack Developer at IQVIA</span>, contributing to the
-                Supply Integrity Management System (SiMS) using Angular, ASP.NET, SQL, and handling front-end deployment in IIS web/API front ends
-                and SQL jobs/SPs, on Azure VMs across environments - experience that now helps me think systematically, prototype fast, and understand how design
-                decisions translate into code and product behavior.
-              </p>
+                Before design, I worked as a <span className="font-semibold text-gray-900">Full-Stack Developer at IQVIA</span>, building
+                the Supply Integrity Management System using Angular, ASP.NET, and SQL. Thus I understand how design decisions translate into system constraints, data behavior, and deployment realities.  My work spans AI product design (LiquidRead), enterprise UX
+                (<span className="font-semibold text-gray-900">Immersive.IO</span> and{' '}
+                <span className="font-semibold text-gray-900">IQVIA</span>, pharma-scale platforms), and XR interaction design
+                (Aam, Digimal, ARuler).</p>
 
-              <p>
-                Beyond design, I’m fascinated by narrative structure and the power of storytelling.
-              </p>
+              <p>Beyond design, I’m fascinated by narrative structure and the power of storytelling.</p>
             </div>
 
             {/* Skills Section */}
