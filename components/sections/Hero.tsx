@@ -81,10 +81,11 @@ const Hero = () => {
           className="mb-8"
         >
           <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-semibold mb-4">
-            UI/UX Designer & Creative Developer
+            Product Designer &amp; Design Engineer
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Blending design, technology, and storytelling to craft immersive digital experiences.
+            I design and build, moving from user research to production-ready interfaces.
+            Specializing in AI-powered products and adaptive experiences blending design, technology, and storytelling.
           </p>
         </motion.div>
 
