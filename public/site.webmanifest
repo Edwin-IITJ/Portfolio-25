@@ -1,17 +1,18 @@
 {
-  "name": "Edwin Meleth Portfolio",
-  "short_name": "Edwin Portfolio",
-  "description": "Edwin Meleth is a UI/UX/XR Designer and Creative Developer specializing in immersive experiences, interaction design, and usable interfaces.",
+  "name": "Edwin Meleth — Product Designer & Design Engineer",
+  "short_name": "Edwin Meleth",
+  "description": "Portfolio of Edwin Meleth — Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "theme_color": "#6366f1",
   "lang": "en",
+  "dir": "ltr",
   "orientation": "portrait-primary",
   "categories": [
     "design",
     "developer",
-    "productivity"
+    "portfolio"
   ],
   "icons": [
     {
@@ -21,29 +22,23 @@
       "purpose": "any"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    },
-    {
-      "src": "/favicon.ico",
-      "sizes": "any",
-      "type": "image/x-icon",
-      "purpose": "maskable"
     }
   ],
   "shortcuts": [
     {
-      "name": "View Projects",
+      "name": "Case Studies",
       "short_name": "Projects",
-      "description": "Explore XR, VR, and UI/UX projects",
+      "description": "View AI product design, XR interaction, and enterprise UX case studies",
       "url": "/projects",
       "icons": [
         {
@@ -53,9 +48,9 @@
       ]
     },
     {
-      "name": "About Me",
+      "name": "About Edwin",
       "short_name": "About",
-      "description": "Learn about Edwin's background in XR Design",
+      "description": "Background, skills, and career history of Edwin Meleth",
       "url": "/about",
       "icons": [
         {
@@ -65,10 +60,10 @@
       ]
     },
     {
-      "name": "Contact",
+      "name": "Get in Touch",
       "short_name": "Contact",
-      "description": "Get in touch for collaborations",
-      "url": "/contact",
+      "description": "Contact Edwin for design engineering and product design opportunities",
+      "url": "/#contact",
       "icons": [
         {
           "src": "/apple-touch-icon.png",
