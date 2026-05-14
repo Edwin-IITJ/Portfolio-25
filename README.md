@@ -18,7 +18,7 @@ A modern, production-ready portfolio website built with Next.js 14, TypeScript, 
 - **Framework**: Next.js 14 (React 18)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Fonts**: League Spartan + Space Grotesk (Google Fonts)
+- **Fonts**: DM Sans + Space Grotesk (Google Fonts)
 - **Animations**: Framer Motion + GSAP
 - **3D Graphics**: Three.js / React Three Fiber
 - **Icons**: Lucide React
@@ -109,7 +109,7 @@ primary: { ... },
 accent: { ... }
 },
 fontFamily: {
-sans: ['var(--font-sans)', 'sans-serif'], // League Spartan
+sans: ['var(--font-sans)', 'sans-serif'], // DM Sans
 display: ['var(--font-display)', 'serif'] // Space Grotesk
 }
 }
@@ -117,12 +117,13 @@ display: ['var(--font-display)', 'serif'] // Space Grotesk
 
 ### Update Fonts
 Fonts are configured in `pages/_app.tsx`:
-import { League_Spartan, Space_Grotesk } from 'next/font/google'
+import { DM_Sans, Space_Grotesk } from 'next/font/google'
 
-const spartan = League_Spartan({
-subsets: ['latin'],
-variable: '--font-sans',
-display: 'swap',
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-sans',
+  display: 'swap',
 })
 
 const spaceGrotesk = Space_Grotesk({
