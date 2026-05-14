@@ -2,7 +2,7 @@
 
 > Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des candidate at IIT Jodhpur's School of Design. Formerly Associate Software Developer at IQVIA (2.5 years). Creator of LiquidRead, an AI reading companion, and LucidPast, a gaze-driven XR archive navigation system for Apple Vision Pro.
 
-Edwin Meleth builds at the intersection of design and engineering. His work spans AI product design, XR (extended reality) interaction systems, and enterprise UX, backed by a Computer Science undergraduate degree and professional experience developing healthcare data platforms. He is currently completing a Master of Design at the Indian Institute of Technology Jodhpur, where he specialises in adaptive and generative user interfaces.
+Edwin Meleth builds at the intersection of design and engineering. His work spans AI product design, XR (extended reality) interaction systems, and enterprise UX, backed by a Computer Science undergraduate degree and professional experience developing healthcare supply chain solutions. He is currently completing a Master of Design at the Indian Institute of Technology Jodhpur, where he specialises in adaptive and generative user interfaces.
 
 ## Portfolio
 

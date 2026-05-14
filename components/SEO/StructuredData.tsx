@@ -180,7 +180,7 @@ const structuredData = {
               "https://www.linkedin.com/company/iqvia"
             ]
           },
-          "description": "2.5 years experience in enterprise UX and full-stack development on clinical trial and pharma data platforms"
+          "description": "2.5 years experience in enterprise UX and full-stack development on pharma supply chain solutions"
         }
       ],
 

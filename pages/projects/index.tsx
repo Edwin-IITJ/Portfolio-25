@@ -12,7 +12,7 @@ export default function ProjectsPage() {
         <title>Projects - Edwin Meleth</title>
         <meta
           name="description"
-          content="Case studies and projects by Edwin Meleth — AI-powered product design, XR interaction systems, enterprise UX, and archival research. Product Designer & Design Engineer at IIT Jodhpur."
+          content="Case studies and projects by Edwin Meleth — AI-powered product design, XR interaction systems, UX design, and archival research. Product Designer & Design Engineer at IIT Jodhpur."
         />
         <link rel="canonical" href="https://edwinm.vercel.app/projects" />
 
