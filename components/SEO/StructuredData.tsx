@@ -31,10 +31,11 @@ const structuredData = {
       "url": BASE,
       "name": "Edwin Meleth | Product Designer & Design Engineer",
       "isPartOf": { "@id": `${BASE}/#website` },
+      "mainEntity": { "@id": `${BASE}/#person` },
       "about": { "@id": `${BASE}/#person` },
       "description": "Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des candidate at IIT Jodhpur.",
       "inLanguage": "en",
-      "dateModified": "2025-05-01"
+      "dateModified": "2026-05-15T00:00:00+05:30"
     },
 
     // ── Person (core entity) ───────────────────────────────────────────────────
