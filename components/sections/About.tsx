@@ -16,7 +16,6 @@ const CREDLY_BADGE_IDS = [
 ]
 
 const certifications = [
-  // --- AI & Design (highest relevance for AI product designer role) ---
   { name: 'Introduction to Prompt Engineering for Generative AI', issuer: 'LinkedIn', year: '2023', group: 'ai' },
   { name: 'What Is Generative AI?', issuer: 'LinkedIn', year: '2023', group: 'ai' },
   { name: 'Introduction to Artificial Intelligence', issuer: 'LinkedIn', year: '2023', group: 'ai' },

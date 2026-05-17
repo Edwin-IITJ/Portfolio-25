@@ -35,14 +35,14 @@ export default function AboutPage() {
         <main className="pt-20">
           {/* Page Header */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="py-20 bg-gradient-to-br from-primary-50 to-white"
+            transition={{ duration: 0.5 }}
+            className="py-10 bg-white border-b border-gray-100"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">
-                About Me
+                About
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Product Designer & Design Engineer · I design and build AI-powered products, conduct UX research, and create XR interaction experiences.
