@@ -63,6 +63,19 @@ const About = () => {
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-accent-100 rounded-full blur-2xl opacity-70" />
             </div>
 
+            {/* Photo Credit */}
+            <p className="mt-2 text-xs text-gray-400 italic text-center tracking-wide">
+              Photo by{' '}
+              <a
+                href="https://anshulsdoc.framer.website/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-primary-500 transition-colors duration-200"
+              >
+                Anshul Sharma
+              </a>
+            </p>
+
             {/* Stats Grid */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
