@@ -1,184 +1,128 @@
-# Edwin Meleth - Portfolio Website
+# Edwin Meleth Portfolio
 
-A modern, production-ready portfolio website built with Next.js 14, TypeScript, Tailwind CSS, Framer Motion, and GSAP.
+A production-ready portfolio built with Next.js 14, TypeScript, and Tailwind CSS. The architecture focuses on performance, modular design systems, and advanced SEO optimization for both traditional crawlers and generative AI knowledge graphs.
 
-## Features
+## Core Features
 
-- **Modern Design**: Clean, professional UI inspired by top portfolio sites
-- **Performance Optimized**: Fast loading with Next.js 14 and image optimization
-- **Smooth Animations**: GSAP and Framer Motion powered interactions
-- **Responsive**: Fully responsive design for all devices
-- **SEO Ready**: Proper meta tags and structured data
-- **3D Elements**: Three.js integration for immersive experiences
-- **Mobile First**: Optimized mobile experience
-- **Accessible**: WCAG 2.1 compliant
+*   **Generative AI SEO Architecture**: Implements a comprehensive schema.org nested graph (WebSite, ProfilePage, Person, CreativeWork) specifically structured for Generative Engine Optimisation (GEO). Provides clear entity relationships, credentials, and job-seeking signals for AI agents.
+*   **Editorial UI Layouts**: Features a desktop-first, three-zone modular layout for content parsing, utilizing progressive disclosure for dense information like certifications and credentials.
+*   **Design System Application**: Enforces strict design tokens across components. Includes specific theming implementations like the warm parchment aesthetic applied to the LiquidRead case study.
+*   **Performance Optimization**: Utilizes Next.js image optimization, dynamic imports for WebGL and 3D components, and efficient routing.
+*   **Interactive Components**: Implements Framer Motion and GSAP for micro-animations, scroll-triggered reveals, and fluid page transitions.
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (React 18)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Fonts**: DM Sans + Space Grotesk (Google Fonts)
-- **Animations**: Framer Motion + GSAP
-- **3D Graphics**: Three.js / React Three Fiber
-- **Icons**: Lucide React
-- **Forms**: React Hook Form
-- **Deployment**: Vercel
+*   **Framework**: Next.js 14 (React 18)
+*   **Language**: TypeScript
+*   **Styling**: Tailwind CSS
+*   **Typography**: DM Sans and Space Grotesk via next/font
+*   **Animations**: Framer Motion, GSAP
+*   **Data Validation**: React Hook Form
+*   **Deployment**: Vercel
 
-## Installation
+## Local Development
 
-1. **Clone the repository**
-git clone https://github.com/Edwin-IITJ/portfolio.git
-cd edwin-portfolio
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/Edwin-IITJ/portfolio.git
+    cd edwin-portfolio
+    ```
 
-2. **Install dependencies**
-npm install
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
 
-3. **Run development server**
-npm run dev
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-4. **Open** [http://localhost:3000](http://localhost:3000) in your browser
-
-## Build & Deploy
-
-### Local Build
-npm run build
-npm start
-
-### Deploy to Vercel
-Install Vercel CLI
-npm i -g vercel
-
-Deploy
-vercel --prod
-
-Or use the [Vercel GitHub integration](https://vercel.com/docs/git) for automatic deployments.
+4.  Navigate to `http://localhost:3000` in your browser.
 
 ## Project Structure
 
-edwin-portfolio/
-├── components/ # React components
-│ ├── ui/ # Reusable UI components
-│ ├── sections/ # Page sections
-│ ├── projects/ # Project-specific components
-│ └── 3d/ # Three.js components
-├── pages/ # Next.js pages
-│ ├── _app.tsx # App wrapper with font config
-│ ├── _document.tsx # HTML document with SEO
-│ ├── index.tsx # Homepage
-│ ├── about.tsx # About page
-│ ├── api/ # API routes
-│ │ └── contact.ts # Contact form endpoint
-│ └── projects/ # Project pages
-│ ├── index.tsx # Projects list
-│ └── [slug].tsx # Individual project detail
-├── styles/ # Global styles
-│ └── globals.css # Tailwind + custom CSS
-├── lib/ # Utility functions
-│ ├── utils.ts # Helper functions
-│ └── animations.ts # GSAP animations
-├── data/ # Project data
-│ ├── projects.json # Project metadata
-│ └── projects.ts # TypeScript types
-├── public/ # Static assets
-│ ├── images/ # Images
-│ ├── assets/ # Project assets
-│ └── resume.pdf # Resume file
-└── ...config files
+*   `components/`: React functional components.
+    *   `sections/`: Major page sections (Hero, About, Contact).
+    *   `ui/`: Reusable, atomic design elements (Buttons, Inputs).
+    *   `SEO/`: Contains the StructuredData component for schema graphs.
+*   `pages/`: Next.js file-based routing.
+    *   `projects/[slug].tsx`: Dynamic routing for project case studies.
+*   `styles/`: Global stylesheets and Tailwind directives.
+*   `data/`: JSON data stores for project metadata.
+*   `public/`: Static assets, images, robots.txt, and XML sitemaps.
 
 ## Customization
 
 ### Update Projects
-Edit `data/projects.json` with your Behance projects:
+Edit `data/projects.json` with your project metadata:
+```json
 {
-"majorProjects": [...],
-"otherWorks": [...]
+  "majorProjects": [...],
+  "otherWorks": [...]
 }
+```
 
 ### Replace Images
-- Add your profile photo to `public/images/profile.jpg`
-- Add project images to `public/assets/projects/{project-id}/`
-- Update image paths in `projects.json`
+*   Add your profile photo to `public/images/profile.webp`
+*   Add project images to `public/assets/projects/{project-id}/`
+*   Update image paths in `projects.json`
 
 ### Modify Theme
-Edit colors and fonts in `tailwind.config.js`:
+Edit colors and fonts in `tailwind.config.ts` (or `tailwind.config.js`):
+```javascript
 theme: {
-extend: {
-colors: {
-primary: { ... },
-accent: { ... }
-},
-fontFamily: {
-sans: ['var(--font-sans)', 'sans-serif'], // DM Sans
-display: ['var(--font-display)', 'serif'] // Space Grotesk
+  extend: {
+    colors: {
+      primary: { ... },
+      accent: { ... }
+    }
+  }
 }
-}
-}
-
-### Update Fonts
-Fonts are configured in `pages/_app.tsx`:
-import { DM_Sans, Space_Grotesk } from 'next/font/google'
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-sans',
-  display: 'swap',
-})
-
-const spaceGrotesk = Space_Grotesk({
-subsets: ['latin'],
-variable: '--font-display',
-display: 'swap',
-})
-
-### Update Content
-- **Hero Section**: `components/sections/Hero.tsx`
-- **About Section**: `components/sections/About.tsx`
-- **Contact Section**: `components/sections/Contact.tsx`
-- **Footer**: `components/sections/Footer.tsx`
+```
 
 ## Environment Variables
 
-Create a `.env.local` file (see `.env.example`):
+Create a `.env.local` file in the root directory (refer to `.env.example` if available):
+```env
 NEXT_PUBLIC_CONTACT_EMAIL=your-email@example.com
+```
+
+## Available Scripts
+
+*   `npm run dev`: Starts the development server.
+*   `npm run build`: Builds the application for production.
+*   `npm start`: Starts the production server.
+*   `npm run lint`: Runs ESLint to check for code quality issues.
+*   `npm run type-check`: Validates TypeScript typings across the project.
 
 ## Troubleshooting
 
-### Images not loading
-- Ensure images exist in the `public/` folder
-- Check image paths in `projects.json`
-- Verify Next.js image domains in `next.config.js`
+*   **Images not loading**: Verify the images exist in the `public/` directory and check the exact file paths in `projects.json`. Verify Next.js image domains in `next.config.js`.
+*   **Build errors**: Clear the Next.js cache and rebuild using `rm -rf .next && npm run build`.
+*   **Fonts not displaying**: Restart the development server and hard refresh your browser (Ctrl + Shift + R or Cmd + Shift + R).
+*   **Type errors**: Run `npm run type-check` to identify TypeScript issues.
 
-### Build errors
-Clear cache and rebuild
-rm -rf .next
-npm run build
+## Recent Architectural Updates
 
-### Fonts not displaying
-Restart dev server
-npm run dev
+*   Restructured the LiquidRead case study to prioritize core UI screenshots and isolate technical diagrams within accordions for improved scannability.
+*   Modernized the About section with a three-zone editorial layout and integrated live Credly verification badges.
+*   Resolved Search Console structured data warnings by enforcing mainEntity fields and ISO 8601 timestamps.
+*   Refactored the LiquidRead onboarding flow into a sequenced state machine.
 
-Hard refresh browser
-Windows/Linux: Ctrl + Shift + R
-Mac: Cmd + Shift + R
+## Deployment
 
-### Type errors
-Run type check
-npm run type-check
+This project is configured for deployment on Vercel. 
 
-## Scripts
-
-npm run dev # Start development server
-npm run build # Build for production
-npm start # Start production server
-npm run lint # Run ESLint
-npm run type-check # Check TypeScript types
+```bash
+npm i -g vercel
+vercel --prod
+```
 
 ## Author
 
 **Edwin Meleth**
-- Portfolio: [https://edwinm.vercel.app/](https://edwinm.vercel.app/)
-- Behance: [@edwin_m](https://www.behance.net/edwin_m)
-- GitHub: [@Edwin-IITJ](https://github.com/Edwin-IITJ)
-- LinkedIn: [Edwin Meleth](https://www.linkedin.com/in/edwin-meleth/)
+Product Designer and Design Engineer
+*   Portfolio: https://edwinm.vercel.app/
+*   GitHub: https://github.com/Edwin-IITJ
+*   LinkedIn: https://www.linkedin.com/in/edwin-meleth/
