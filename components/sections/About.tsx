@@ -42,14 +42,11 @@ const certifications = [
 // ─── Component ────────────────────────────────────────────────────────────────
 // Priority chips shown by default (indices 0–7 match the certifications array order)
 const DEFAULT_CERT_NAMES = new Set([
-  'Introduction to Prompt Engineering for Generative AI',
-  'What Is Generative AI?',
-  'Introduction to Artificial Intelligence',
-  'Building ChatGPT Plugins',
   'UX Foundations: Interaction Design',
   'Figma Essential Training: The Basics',
-  'PCEP – Certified Entry-Level Python Programmer',
-  'Microsoft Certified: Azure Fundamentals',
+  'Introduction to Game Design',
+  'Story and Narrative Development for Video Games',
+  'Introduction to Prompt Engineering for Generative AI',
 ])
 
 const About = () => {
