@@ -263,7 +263,7 @@ const About = () => {
                   <div className="min-w-0">
                     <p className="font-semibold text-gray-900 text-sm leading-tight">Master of Design (M.Des.)</p>
                     <p className="text-xs text-gray-500">IIT Jodhpur · 2024 – Present</p>
-                    <p className="text-xs text-gray-400">CGPA: 8.02</p>
+                    {/* <p className="text-xs text-gray-400">CGPA: 8.02</p> */}
                   </div>
                 </a>
 
@@ -280,7 +280,7 @@ const About = () => {
                   <div className="min-w-0">
                     <p className="font-semibold text-gray-900 text-sm leading-tight">B.Tech, CSE</p>
                     <p className="text-xs text-gray-500">Mar Athanasius College of Engineering · 2017 – 2021</p>
-                    <p className="text-xs text-gray-400">CGPA: 8.14</p>
+                    {/* <p className="text-xs text-gray-400">CGPA: 8.14</p> */}
                   </div>
                 </a>
 
