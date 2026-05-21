@@ -166,7 +166,7 @@ export default function LiquidReadPage({
                 Back to Projects
               </Link>
             </motion.div>
-            <motion.h1 variants={fadeInUp} initial="hidden" animate="visible" className="font-[var(--font-display)] text-5xl md:text-7xl font-normal text-[var(--color-text)] leading-[1.05] tracking-tight mb-4">
+            <motion.h1 variants={fadeInUp} initial="hidden" animate="visible" className="text-5xl md:text-7xl font-normal text-[var(--color-text)] leading-[1.05] tracking-tight mb-4" style={{ fontFamily: "'Lora', Georgia, serif" }}>
               LiquidRead
             </motion.h1>
             <motion.p variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.1 }} className="font-[var(--font-body)] text-xl md:text-2xl text-[var(--color-text-muted)] mb-8">
@@ -480,74 +480,95 @@ export default function LiquidReadPage({
           </div>
         </section>
 
-        {/* ── SECTION 6: WHAT I BUILT ─────────────────────────────────────────── */}
+        {/* ── SECTION 6: WHAT I BUILT ─────────────────────────────────────────────── */}
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="lr-section-heading">
-                05 / What I built
-              </span>
-            </motion.div>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
-              LiquidRead is a web app that fetches real open-access papers and generates a reading experience based on a short calibration quiz.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
-              The same paper can be presented at different depths, with different framing and visual support, depending on the reader.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
-              The prototype combined paper retrieval, generative content, adaptive visual structure, and feedback capture in one flow.
-            </motion.p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }} className="lr-two-col">
+              {/* Left column: heading + copy + flow pills + accordion */}
+              <div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
+                  <span className="lr-section-heading">
+                    05 / What I built
+                  </span>
+                </motion.div>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
+                  LiquidRead is a web app that fetches real open-access papers and generates a reading experience based on a short calibration quiz.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
+                  The same paper can be presented at different depths, with different framing and visual support, depending on the reader.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
+                  The prototype combined paper retrieval, generative content, adaptive visual structure, and feedback capture in one flow.
+                </motion.p>
 
-            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="flex flex-col md:flex-row items-center gap-4 mb-12">
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 w-full text-center text-sm font-semibold text-[var(--color-text)] tracking-wide">
-                Quiz and profile
-              </motion.div>
-              <motion.div variants={fadeInUp} className="text-[var(--color-border)] rotate-90 md:rotate-0">
-                →
-              </motion.div>
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 w-full text-center text-sm font-semibold text-[var(--color-text)] tracking-wide">
-                Generate card and expanded view
-              </motion.div>
-              <motion.div variants={fadeInUp} className="text-[var(--color-border)] rotate-90 md:rotate-0">
-                →
-              </motion.div>
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 w-full text-center text-sm font-semibold text-[var(--color-text)] tracking-wide">
-                Capture feedback and behaviour
-              </motion.div>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-12 rounded-2xl overflow-hidden border border-[var(--color-border)]">
-              <SafeImage
-                src="/assets/projects/liquid-read/docs/Levels_Of_Personalisation.webp"
-                alt="Three levels of personalisation diagram"
-                width={1200}
-                height={500}
-                className="w-full object-contain"
-              />
-            </motion.div>
-
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
-              <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setBuiltOpen(!builtOpen)}>
-                <p className="text-sm font-semibold text-[var(--color-text)]">System details</p>
-                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
-                  {builtOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </span>
-              </button>
-              <AnimatePresence>
-                {builtOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                    <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
-                      <ul className="space-y-3 list-disc list-inside">
-                        <li>OpenAlex for paper retrieval.</li>
-                        <li>Gemini for card generation and expanded view generation.</li>
-                        <li>Supabase for event logging.</li>
-                        <li>Progressive disclosure and generated visual components in expanded view.</li>
-                      </ul>
-                    </div>
+                <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="flex flex-col md:flex-row items-center gap-4 mb-12">
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 w-full text-center text-sm font-semibold text-[var(--color-text)] tracking-wide">
+                    Quiz and profile
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                  <motion.div variants={fadeInUp} className="text-[var(--color-border)] rotate-90 md:rotate-0">
+                    →
+                  </motion.div>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 w-full text-center text-sm font-semibold text-[var(--color-text)] tracking-wide">
+                    Generate card and expanded view
+                  </motion.div>
+                  <motion.div variants={fadeInUp} className="text-[var(--color-border)] rotate-90 md:rotate-0">
+                    →
+                  </motion.div>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 w-full text-center text-sm font-semibold text-[var(--color-text)] tracking-wide">
+                    Capture feedback and behaviour
+                  </motion.div>
+                </motion.div>
+
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                  <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setBuiltOpen(!builtOpen)}>
+                    <p className="text-sm font-semibold text-[var(--color-text)]">System details</p>
+                    <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                      {builtOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {builtOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                        <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
+                          <ul className="space-y-3 list-disc list-inside">
+                            <li>OpenAlex for paper retrieval.</li>
+                            <li>Gemini for card generation and expanded view generation.</li>
+                            <li>Supabase for event logging.</li>
+                            <li>Progressive disclosure and generated visual components in expanded view.</li>
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </div>
+
+              {/* Right column: levels of personalisation diagram */}
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+                style={{ position: 'sticky', top: '6rem' }}
+              >
+                <div style={{
+                  borderRadius: '1.25rem',
+                  overflow: 'hidden',
+                  border: '1px solid var(--color-border)',
+                  background: 'var(--color-surface)',
+                  boxShadow: '0 4px 32px 0 rgba(28,26,22,0.07)',
+                }}>
+                  <SafeImage
+                    src="/assets/projects/liquid-read/docs/Levels_Of_Personalisation.webp"
+                    alt="Three levels of personalisation diagram"
+                    width={1200}
+                    height={500}
+                    className="w-full"
+                    style={{ display: 'block', objectFit: 'contain', width: '100%', height: 'auto' }}
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
@@ -738,60 +759,94 @@ export default function LiquidReadPage({
           </div>
         </section>
 
-        {/* ── SECTION 11: USABILITY TESTING ───────────────────────────────── */}
+        {/* ── SECTION 11: USABILITY TESTING ─────────────────────────────────── */}
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="lr-section-heading">
-                10 / Usability Testing
-              </span>
-            </motion.div>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
-              Think-aloud testing with three participants showed that paper relevance had to work before depth personalisation could be judged properly.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
-              In practice, the system was sometimes personalising the wrong paper well, which made user feedback hard to interpret.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
-              This changed the next design priority from better calibration to better relevance matching.
-            </motion.p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }} className="lr-two-col">
+              {/* Left column: heading + copy + finding cards + accordion */}
+              <div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
+                  <span className="lr-section-heading">
+                    10 / Usability Testing
+                  </span>
+                </motion.div>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
+                  Think-aloud testing with three participants showed that paper relevance had to work before depth personalisation could be judged properly.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
+                  In practice, the system was sometimes personalising the wrong paper well, which made user feedback hard to interpret.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
+                  This changed the next design priority from better calibration to better relevance matching.
+                </motion.p>
 
-            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
-                <p className="text-[var(--color-text-muted)] font-semibold text-sm">Paper matching was broken.</p>
-              </motion.div>
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
-                <p className="text-[var(--color-text-muted)] font-semibold text-sm">The quiz felt like a form, not a product.</p>
-              </motion.div>
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
-                <p className="text-[var(--color-text-muted)] font-semibold text-sm">Source and authors were not visible enough to build trust.</p>
-              </motion.div>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
-              <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setThinkAloudOpen(!thinkAloudOpen)}>
-                <p className="text-sm font-semibold text-[var(--color-text)]">Full think-aloud findings</p>
-                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
-                  {thinkAloudOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </span>
-              </button>
-              <AnimatePresence>
-                {thinkAloudOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                    <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
-                      <ul className="space-y-3 list-disc list-inside">
-                        <li>Missing significance explanation</li>
-                        <li>Typeface skim issue</li>
-                        <li>Persona panel confusion</li>
-                        <li>Recalibration signal ambiguity</li>
-                        <li>Comprehension quiz lacked visible purpose</li>
-                        <li>Transparency about generated text was weak</li>
-                      </ul>
-                    </div>
+                <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
+                    <p className="text-[var(--color-text-muted)] font-semibold text-sm">Paper matching was broken.</p>
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
+                    <p className="text-[var(--color-text-muted)] font-semibold text-sm">The quiz felt like a form, not a product.</p>
+                  </motion.div>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
+                    <p className="text-[var(--color-text-muted)] font-semibold text-sm">Source and authors were not visible enough to build trust.</p>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                  <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setThinkAloudOpen(!thinkAloudOpen)}>
+                    <p className="text-sm font-semibold text-[var(--color-text)]">Full think-aloud findings</p>
+                    <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                      {thinkAloudOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {thinkAloudOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                        <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
+                          <ul className="space-y-3 list-disc list-inside">
+                            <li>Missing significance explanation</li>
+                            <li>Typeface skim issue</li>
+                            <li>Persona panel confusion</li>
+                            <li>Recalibration signal ambiguity</li>
+                            <li>Comprehension quiz lacked visible purpose</li>
+                            <li>Transparency about generated text was weak</li>
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </div>
+
+              {/* Right column: ThinkAloud image */}
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+                style={{ position: 'sticky', top: '6rem' }}
+              >
+                <div style={{
+                  borderRadius: '1.25rem',
+                  overflow: 'hidden',
+                  border: '1px solid var(--color-border)',
+                  background: 'var(--color-surface)',
+                  boxShadow: '0 4px 32px 0 rgba(28,26,22,0.07)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                  <SafeImage
+                    src="/assets/projects/liquid-read/docs/ThinkAloud.webp"
+                    alt="Think-aloud usability testing session"
+                    width={720}
+                    height={540}
+                    className="w-full"
+                    style={{ display: 'block', objectFit: 'contain', width: '100%', height: 'auto' }}
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
