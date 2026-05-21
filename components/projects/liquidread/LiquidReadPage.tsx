@@ -135,6 +135,20 @@ export default function LiquidReadPage({
               gap: 2.5rem !important;
             }
           }
+          .lr-section-heading {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            color: var(--color-text);
+            display: block;
+          }
+          @media (min-width: 768px) {
+            .lr-section-heading {
+              font-size: 2.25rem;
+            }
+          }
         `
       }} />
 
@@ -200,7 +214,7 @@ export default function LiquidReadPage({
               {/* Left column: label + text + accordion */}
               <div>
                 <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+                  <span className="lr-section-heading">
                     01 / The problem
                   </span>
                 </motion.div>
@@ -286,7 +300,7 @@ export default function LiquidReadPage({
               {/* Left column: label + text + accordion */}
               <div>
                 <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+                  <span className="lr-section-heading">
                     02 / Exploratory interviews
                   </span>
                 </motion.div>
@@ -364,7 +378,7 @@ export default function LiquidReadPage({
               {/* Left column: label + text + accordion */}
               <div>
                 <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+                  <span className="lr-section-heading">
                     03 / What research changed
                   </span>
                 </motion.div>
@@ -428,7 +442,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 04 / The reframe
               </span>
             </motion.div>
@@ -470,7 +484,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 05 / What I built
               </span>
             </motion.div>
@@ -541,7 +555,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 06 / How the adaptive system worked
               </span>
             </motion.div>
@@ -587,7 +601,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 07 / Why survey next
               </span>
             </motion.div>
@@ -654,7 +668,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 08 / What the survey showed
               </span>
             </motion.div>
@@ -695,7 +709,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 09 / First Prototype
               </span>
             </motion.div>
@@ -728,7 +742,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 10 / Usability Testing
               </span>
             </motion.div>
@@ -785,7 +799,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 11 / What I learned
               </span>
             </motion.div>
@@ -827,7 +841,7 @@ export default function LiquidReadPage({
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+              <span className="lr-section-heading">
                 12 / Next steps
               </span>
             </motion.div>
