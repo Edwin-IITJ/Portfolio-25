@@ -621,67 +621,88 @@ export default function LiquidReadPage({
         {/* ── SECTION 8: WHY SURVEY NEXT ──────────────────────────────────────── */}
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="lr-section-heading">
-                07 / Why survey next
-              </span>
-            </motion.div>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
-              Before building the full live system, I used a survey to test whether the routing idea worked at all.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
-              This was the fastest way to validate whether people preferred a depth-matched explanation before investing in a fully dynamic prototype.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
-              26 participants completed the survey.
-            </motion.p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }} className="lr-two-col">
+              {/* Left column: heading + copy + stat cards + accordion */}
+              <div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
+                  <span className="lr-section-heading">
+                    07 / Why survey next
+                  </span>
+                </motion.div>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
+                  Before building the full live system, I used a survey to test whether the routing idea worked at all.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
+                  This was the fastest way to validate whether people preferred a depth-matched explanation before investing in a fully dynamic prototype.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
+                  26 participants completed the survey.
+                </motion.p>
 
-            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
-                <p className="font-[var(--font-display)] text-5xl text-[var(--color-primary)] mb-3">65%</p>
-                <p className="text-[var(--color-text-muted)] font-medium text-sm">correctly routed on first assignment.</p>
-              </motion.div>
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
-                <p className="font-[var(--font-display)] text-5xl text-[var(--color-primary)] mb-3">100%</p>
-                <p className="text-[var(--color-text-muted)] font-medium text-sm">preferred the corrected alternate when misrouted.</p>
-              </motion.div>
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 flex items-center justify-center text-center">
-                <p className="text-[var(--color-text-muted)] font-medium text-sm">Too-basic was worse than too-advanced.</p>
-              </motion.div>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
-              <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setSurveyDesignOpen(!surveyDesignOpen)}>
-                <p className="text-sm font-semibold text-[var(--color-text)]">Survey design and limitations</p>
-                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
-                  {surveyDesignOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </span>
-              </button>
-              <AnimatePresence>
-                {surveyDesignOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                    <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
-                      <ul className="space-y-3 list-disc list-inside mb-6">
-                        <li>Field-relevant papers were manually assigned.</li>
-                        <li>Card A/B/C versions were manually prepared for the survey.</li>
-                        <li>Card C was not reached because the scoring formula incorrectly used 18 instead of 16 as the max raw score.</li>
-                        <li>The deployed system later recalibrated the Card C threshold to 6.5.</li>
-                      </ul>
-                      <div className="rounded-xl overflow-hidden border border-[var(--color-border)] bg-white max-w-2xl">
-                        <SafeImage
-                          src="/assets/projects/liquid-read/docs/Survey_userflow_logic.webp"
-                          alt="Survey logic flowchart"
-                          width={800}
-                          height={400}
-                          className="w-full object-contain"
-                          style={{ maxHeight: '400px' }}
-                        />
-                      </div>
-                    </div>
+                <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
+                    <p className="font-[var(--font-display)] text-5xl text-[var(--color-primary)] mb-3">65%</p>
+                    <p className="text-[var(--color-text-muted)] font-medium text-sm">correctly routed on first assignment.</p>
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
+                    <p className="font-[var(--font-display)] text-5xl text-[var(--color-primary)] mb-3">100%</p>
+                    <p className="text-[var(--color-text-muted)] font-medium text-sm">preferred the corrected alternate when misrouted.</p>
+                  </motion.div>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 flex items-center justify-center text-center">
+                    <p className="text-[var(--color-text-muted)] font-medium text-sm">Too-basic was worse than too-advanced.</p>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                  <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setSurveyDesignOpen(!surveyDesignOpen)}>
+                    <p className="text-sm font-semibold text-[var(--color-text)]">Survey design and limitations</p>
+                    <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                      {surveyDesignOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {surveyDesignOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                        <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
+                          <ul className="space-y-3 list-disc list-inside mb-6">
+                            <li>Field-relevant papers were manually assigned.</li>
+                            <li>Card A/B/C versions were manually prepared for the survey.</li>
+                            <li>Card C was not reached because the scoring formula incorrectly used 18 instead of 16 as the max raw score.</li>
+                            <li>The deployed system later recalibrated the Card C threshold to 6.5.</li>
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </div>
+
+              {/* Right column: survey userflow logic visual */}
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+                style={{ position: 'sticky', top: '6rem' }}
+              >
+                <div style={{
+                  borderRadius: '1.25rem',
+                  overflow: 'hidden',
+                  border: '1px solid var(--color-border)',
+                  background: 'var(--color-surface)',
+                  boxShadow: '0 4px 32px 0 rgba(28,26,22,0.07)',
+                }}>
+                  <SafeImage
+                    src="/assets/projects/liquid-read/docs/Survey_userflow_logic.webp"
+                    alt="Survey logic flowchart"
+                    width={800}
+                    height={400}
+                    className="w-full"
+                    style={{ display: 'block', objectFit: 'contain', width: '100%', height: 'auto' }}
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
