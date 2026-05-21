@@ -98,8 +98,7 @@ export default function LiquidReadPage({
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
       </Head>
 
       <style dangerouslySetInnerHTML={{
@@ -121,14 +120,20 @@ export default function LiquidReadPage({
             --color-teal:             #1A7880;
             --color-teal-faint:       #D0EBED;
 
-            --font-display: 'Instrument Serif', Georgia, serif;
-            --font-body:    'Satoshi', 'Inter', sans-serif;
+            --font-display: 'Lora', Georgia, serif;
+            --font-body:    'Inter', system-ui, sans-serif;
             --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
           }
           .lr-page {
             font-family: var(--font-body);
             background-color: var(--color-bg);
             color: var(--color-text);
+          }
+          @media (max-width: 768px) {
+            .lr-two-col {
+              grid-template-columns: 1fr !important;
+              gap: 2.5rem !important;
+            }
           }
         `
       }} />
@@ -190,150 +195,232 @@ export default function LiquidReadPage({
         {/* ── SECTION 2: THE PROBLEM ──────────────────────────────────────────── */}
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
-                01 / The problem
-              </span>
-            </motion.div>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
-              Academic papers are written for specialists, but most tools still assume every reader needs the same kind of explanation.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
-              Existing tools help people search, summarize, or categorize research, but they do not adapt the reading experience to the reader's knowledge state.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
-              That leaves beginners excluded and advanced readers underserved.
-            </motion.p>
+            {/* Two-column editorial layout */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }} className="lr-two-col">
+              {/* Left column: label + text + accordion */}
+              <div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
+                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+                    01 / The problem
+                  </span>
+                </motion.div>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl mb-4 leading-relaxed font-medium">
+                  Academic papers are written for specialists, but most tools still assume every reader needs the same kind of explanation.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg mb-4 leading-relaxed">
+                  Existing tools help people search, summarize, or categorize research, but they do not adapt the reading experience to the reader's knowledge state.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg mb-12 leading-relaxed">
+                  That leaves beginners excluded and advanced readers underserved.
+                </motion.p>
 
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
-              <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setProblemOpen(!problemOpen)}>
-                <p className="text-sm font-semibold text-[var(--color-text)]">Evidence from current tools</p>
-                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
-                  {problemOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </span>
-              </button>
-              <AnimatePresence>
-                {problemOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                    <div className="px-8 pb-8 space-y-6 text-[var(--color-text-muted)]">
-                      <div>
-                        <p className="font-semibold text-[var(--color-text)] mb-1">Claire's example (Design student)</p>
-                        <p className="text-sm">Categorization is too broad. She receives irrelevant articles under general labels, and the binary feedback mechanisms cannot distinguish between different reasons for disengaging.</p>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[var(--color-text)] mb-1">Carlos's example (PhD student)</p>
-                        <p className="text-sm">Tools do not adapt as expertise grows. After three years of reading daily, he still receives the same entry-level summaries as year one.</p>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[var(--color-text)] mb-2 mt-4">Competitor Gap Analysis</p>
-                        <ul className="space-y-3 list-disc list-inside text-sm">
-                          <li><strong>Google Scholar:</strong> No depth adaptation. Same result for a first-year student and a domain expert.</li>
-                          <li><strong>Feedly:</strong> Categorization is too coarse to distinguish specific interests.</li>
-                          <li><strong>Explainpaper:</strong> Reactive, not proactive. Requires the reader to know what they do not understand.</li>
-                          <li><strong>ChatGPT:</strong> No persistent model of the reader. Every session starts from zero.</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                  <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setProblemOpen(!problemOpen)}>
+                    <p className="text-sm font-semibold text-[var(--color-text)]">Evidence from current tools</p>
+                    <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                      {problemOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {problemOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                        <div className="px-8 pb-8 space-y-6 text-[var(--color-text-muted)]">
+                          <div>
+                            <p className="font-semibold text-[var(--color-text)] mb-1">Claire's example (Design student)</p>
+                            <p className="text-sm">Categorization is too broad. She receives irrelevant articles under general labels, and the binary feedback mechanisms cannot distinguish between different reasons for disengaging.</p>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-[var(--color-text)] mb-1">Carlos's example (PhD student)</p>
+                            <p className="text-sm">Tools do not adapt as expertise grows. After three years of reading daily, he still receives the same entry-level summaries as year one.</p>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-[var(--color-text)] mb-2 mt-4">Competitor Gap Analysis</p>
+                            <ul className="space-y-3 list-disc list-inside text-sm">
+                              <li><strong>Google Scholar:</strong> No depth adaptation. Same result for a first-year student and a domain expert.</li>
+                              <li><strong>Feedly:</strong> Categorization is too coarse to distinguish specific interests.</li>
+                              <li><strong>Explainpaper:</strong> Reactive, not proactive. Requires the reader to know what they do not understand.</li>
+                              <li><strong>ChatGPT:</strong> No persistent model of the reader. Every session starts from zero.</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </div>
+
+              {/* Right column: atmospheric image panel */}
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+                style={{ position: 'sticky', top: '6rem' }}
+              >
+                <div style={{
+                  borderRadius: '1.25rem',
+                  overflow: 'hidden',
+                  border: '1px solid var(--color-border)',
+                  background: 'var(--color-surface)',
+                  boxShadow: '0 4px 32px 0 rgba(28,26,22,0.07)',
+                }}>
+                  <SafeImage
+                    src="/assets/projects/liquid-read/docs/andre-william-paper.webp"
+                    alt="Stacks of academic papers — the problem space"
+                    width={720}
+                    height={960}
+                    className="w-full object-cover"
+                    style={{ display: 'block', maxHeight: '540px', objectFit: 'cover', objectPosition: 'center' }}
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
         {/* ── SECTION 3: WHY INTERVIEWS FIRST ─────────────────────────────────── */}
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
-                02 / Why interviews first
-              </span>
-            </motion.div>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
-              I began with exploratory interviews to check whether this was a real user problem and not just a personal frustration.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
-              At this stage, the goal was not to test an interface, but to understand how people currently discover, read, and judge research.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
-              This helped establish where the real gap was before committing to a solution direction.
-            </motion.p>
+            {/* Two-column editorial layout */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }} className="lr-two-col">
+              {/* Left column: label + text + accordion */}
+              <div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
+                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+                    02 / Exploratory interviews
+                  </span>
+                </motion.div>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl mb-4 leading-relaxed font-medium">
+                  I began with exploratory interviews to check whether this was a real user problem and not just a personal frustration.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg mb-4 leading-relaxed">
+                  At this stage, the goal was not to test an interface, but to understand how people currently discover, read, and judge research.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg mb-12 leading-relaxed">
+                  This helped establish where the real gap was before committing to a solution direction.
+                </motion.p>
 
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
-              <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setInterviewOpen(!interviewOpen)}>
-                <p className="text-sm font-semibold text-[var(--color-text)]">Interview setup</p>
-                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
-                  {interviewOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </span>
-              </button>
-              <AnimatePresence>
-                {interviewOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                    <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
-                      <ul className="space-y-3 list-disc list-inside">
-                        <li>5 semi-structured interviews.</li>
-                        <li>45 to 60 minutes each.</li>
-                        <li>Themes: current habits, frustrations, ideal experience.</li>
-                        <li>One non-target user included deliberately.</li>
-                      </ul>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                  <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setInterviewOpen(!interviewOpen)}>
+                    <p className="text-sm font-semibold text-[var(--color-text)]">Interview setup</p>
+                    <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                      {interviewOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {interviewOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                        <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
+                          <ul className="space-y-3 list-disc list-inside">
+                            <li>5 semi-structured interviews.</li>
+                            <li>45 to 60 minutes each.</li>
+                            <li>Themes: current habits, frustrations, ideal experience.</li>
+                            <li>One non-target user included deliberately.</li>
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </div>
+
+              {/* Right column: interviewees visual panel */}
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+                style={{ position: 'sticky', top: '6rem' }}
+              >
+                <div style={{
+                  borderRadius: '1.25rem',
+                  overflow: 'hidden',
+                  border: '1px solid var(--color-border)',
+                  background: 'var(--color-surface)',
+                  boxShadow: '0 4px 32px 0 rgba(28,26,22,0.07)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                  <SafeImage
+                    src="/assets/projects/liquid-read/docs/Interviewees.webp"
+                    alt="Interview participants collage"
+                    width={720}
+                    height={960}
+                    className="w-full"
+                    style={{ display: 'block', objectFit: 'contain', width: '100%', height: 'auto' }}
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
         {/* ── SECTION 4: WHAT RESEARCH CHANGED ────────────────────────────────── */}
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
-              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
-                03 / What research changed
-              </span>
-            </motion.div>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
-              The interviews showed that the biggest gap was not access to research, but lack of personalisation in how it was presented.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
-              Visual explanation also came up repeatedly, with participants asking for diagrams and visual aids as part of the reading experience.
-            </motion.p>
-            <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
-              This shifted the concept from a better summary feed to a system that adapts depth, framing, and format to the reader.
-            </motion.p>
+            {/* Two-column editorial layout */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }} className="lr-two-col">
+              {/* Left column: label + text + accordion */}
+              <div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
+                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+                    03 / What research changed
+                  </span>
+                </motion.div>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl mb-4 leading-relaxed font-medium">
+                  The interviews showed that the biggest gap was not access to research, but lack of personalisation in how it was presented.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg mb-4 leading-relaxed">
+                  Visual explanation also came up repeatedly, with participants asking for diagrams and visual aids as part of the reading experience.
+                </motion.p>
+                <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg mb-12 leading-relaxed">
+                  This shifted the concept from a better summary feed to a system that adapts depth, framing, and format to the reader.
+                </motion.p>
 
-            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
-                <p className="text-[var(--color-text)] font-semibold text-sm uppercase tracking-wider">Personalisation was too shallow</p>
-              </motion.div>
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
-                <p className="text-[var(--color-text)] font-semibold text-sm uppercase tracking-wider">Visual explanation was missing</p>
-              </motion.div>
-              <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6 text-center">
-                <p className="text-[var(--color-text)] font-semibold text-sm uppercase tracking-wider">Different users needed different depths</p>
-              </motion.div>
-            </motion.div>
+                <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                  <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setResearchOpen(!researchOpen)}>
+                    <p className="text-sm font-semibold text-[var(--color-text)]">Supporting interview findings</p>
+                    <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
+                      {researchOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {researchOpen && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                        <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
+                          <ul className="space-y-3 list-disc list-inside">
+                            <li>Visuals were raised unprompted by 4 of 5 participants.</li>
+                            <li>Three user patterns emerged: regular readers, triage readers, and people who avoid research because it feels inaccessible.</li>
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </div>
 
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
-              <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setResearchOpen(!researchOpen)}>
-                <p className="text-sm font-semibold text-[var(--color-text)]">Supporting interview findings</p>
-                <span className="text-[var(--color-text-faint)] shrink-0 ml-6">
-                  {researchOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </span>
-              </button>
-              <AnimatePresence>
-                {researchOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                    <div className="px-8 pb-8 text-[var(--color-text-muted)] text-sm">
-                      <ul className="space-y-3 list-disc list-inside">
-                        <li>Visuals were raised unprompted by 4 of 5 participants.</li>
-                        <li>Three user patterns emerged: regular readers, triage readers, and people who avoid research because it feels inaccessible.</li>
-                      </ul>
-                    </div>
+              {/* Right column: finding cards repositioned as grouped evidence surface */}
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+                style={{ position: 'sticky', top: '6rem' }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6">
+                    <p className="text-[var(--color-text)] font-semibold text-sm uppercase tracking-wider">Personalisation was too shallow</p>
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6">
+                    <p className="text-[var(--color-text)] font-semibold text-sm uppercase tracking-wider">Visual explanation was missing</p>
+                  </motion.div>
+                  <motion.div variants={fadeInUp} className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-2xl p-6">
+                    <p className="text-[var(--color-text)] font-semibold text-sm uppercase tracking-wider">Different users needed different depths</p>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
