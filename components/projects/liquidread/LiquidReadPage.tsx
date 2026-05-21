@@ -154,12 +154,12 @@ export default function LiquidReadPage({
               Adaptive generative reading for academic research.
             </motion.p>
             <motion.p variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.15 }} className="font-[var(--font-body)] text-lg text-[var(--color-text)] max-w-2xl mb-4 leading-relaxed font-medium">
-              I wanted a way to keep up with fast-moving research without having to decode full papers every time.
+              I wanted a way to keep up with fast-moving research without having to decode full papers every time. (JTBD)
             </motion.p>
             <motion.p variants={fadeInUp} initial="hidden" animate="visible" transition={{ delay: 0.2 }} className="font-[var(--font-body)] text-lg text-[var(--color-text-muted)] max-w-2xl mb-16 leading-relaxed">
               LiquidRead explores whether the same paper can be presented differently depending on who is reading it.
             </motion.p>
-            
+
             <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-[var(--color-divider)] mb-16">
               {[
                 { stat: '5', label: 'exploratory interviews' },
@@ -415,27 +415,14 @@ export default function LiquidReadPage({
               </motion.div>
             </motion.div>
 
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-12 flex flex-col md:flex-row gap-6 items-start max-w-6xl mx-auto">
-              <div className="flex-grow rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] flex justify-center w-full md:w-3/4">
-                <SafeImage
-                  src="/assets/projects/liquid-read/docs/expanded-view-desktop.webp"
-                  alt="LiquidRead expanded reading view"
-                  width={1000}
-                  height={700}
-                  className="object-contain w-full"
-                  style={{ maxHeight: '700px' }}
-                />
-              </div>
-              <div className="shrink-0 rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] flex justify-center mx-auto w-[280px]">
-                <SafeImage
-                  src="/assets/projects/liquid-read/docs/mobile-card.webp"
-                  alt="LiquidRead mobile responsive view"
-                  width={280}
-                  height={550}
-                  className="object-contain w-full"
-                  style={{ maxHeight: '600px' }}
-                />
-              </div>
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-12 rounded-2xl overflow-hidden border border-[var(--color-border)]">
+              <SafeImage
+                src="/assets/projects/liquid-read/docs/Levels_Of_Personalisation.webp"
+                alt="Three levels of personalisation diagram"
+                width={1200}
+                height={500}
+                className="w-full object-contain"
+              />
             </motion.div>
 
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
@@ -481,15 +468,7 @@ export default function LiquidReadPage({
               The system recommended a depth rather than enforcing it, so users could still override the result.
             </motion.p>
 
-            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-12 rounded-2xl overflow-hidden border border-[var(--color-border)]">
-              <SafeImage
-                src="/assets/projects/liquid-read/docs/Levels_Of_Personalisation.webp"
-                alt="Three levels of personalisation diagram"
-                width={1200}
-                height={500}
-                className="w-full object-contain"
-              />
-            </motion.div>
+
 
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
               <button className="w-full text-left px-8 py-5 flex items-center justify-between group" onClick={() => setAdaptiveOpen(!adaptiveOpen)}>
@@ -596,7 +575,7 @@ export default function LiquidReadPage({
               The survey gave directional evidence that readers preferred explanations closer to their actual level.
             </motion.p>
             <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-4 leading-relaxed">
-              It also revealed an important asymmetry: showing something too basic created a worse experience than showing something slightly too advanced.
+              It also revealed an important asymmetry: showing something too basic created a worse experience than showing something slightly too advanced. (Zone of Proximal Development)
             </motion.p>
             <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text-muted)] text-lg max-w-3xl mb-12 leading-relaxed">
               That suggested the system should bias upward when calibration is uncertain.
@@ -625,12 +604,45 @@ export default function LiquidReadPage({
           </div>
         </section>
 
-        {/* ── SECTION 10: WHAT BROKE IN TESTING ───────────────────────────────── */}
+        {/* ── SECTION 10: FIRST PROTOTYPE ───────────────────────────────── */}
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
               <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
-                09 / What broke in testing
+                09 / First Prototype
+              </span>
+            </motion.div>
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-12 flex flex-col md:flex-row gap-6 items-start max-w-6xl mx-auto">
+              <div className="flex-grow rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] flex justify-center w-full md:w-3/4">
+                <SafeImage
+                  src="/assets/projects/liquid-read/docs/expanded-view-desktop.webp"
+                  alt="LiquidRead expanded reading view"
+                  width={1000}
+                  height={700}
+                  className="object-contain w-full"
+                  style={{ maxHeight: '700px' }}
+                />
+              </div>
+              <div className="shrink-0 rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] flex justify-center mx-auto w-[280px]">
+                <SafeImage
+                  src="/assets/projects/liquid-read/docs/mobile-card.webp"
+                  alt="LiquidRead mobile responsive view"
+                  width={280}
+                  height={550}
+                  className="object-contain w-full"
+                  style={{ maxHeight: '600px' }}
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── SECTION 11: USABILITY TESTING ───────────────────────────────── */}
+        <section className="py-24 border-t border-[var(--color-divider)]">
+          <div className="container-custom">
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
+              <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
+                10 / Usability Testing
               </span>
             </motion.div>
             <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
@@ -682,12 +694,12 @@ export default function LiquidReadPage({
           </div>
         </section>
 
-        {/* ── SECTION 11: WHAT I LEARNED ──────────────────────────────────────── */}
+        {/* ── SECTION 12: WHAT I LEARNED ──────────────────────────────────────── */}
         <section className="py-24 border-t border-[var(--color-divider)]">
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
               <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
-                10 / What I learned
+                11 / What I learned
               </span>
             </motion.div>
             <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
@@ -729,7 +741,7 @@ export default function LiquidReadPage({
           <div className="container-custom">
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="mb-8">
               <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-primary)] uppercase tracking-widest">
-                11 / Next steps
+                12 / Next steps
               </span>
             </motion.div>
             <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="text-[var(--color-text)] text-xl max-w-3xl mb-4 leading-relaxed font-medium">
