@@ -601,14 +601,14 @@
     {
       "id": "pomodoro-tracker",
       "title": "Pomodoro Tracker",
-      "description": "A simple pomodoro tracker.",
-      "fullDescription": "A simple pomodoro tracker.",
+      "description": "A minimalist web app built to test if the continuous ticking sound of a timer can improve focus.",
+      "fullDescription": "A personal time management tool built as a quick vibe-coding experiment using Google Antigravity. I created this web app to test a specific hypothesis from the creator of the Pomodoro technique: 'ticking externalizes the desire to complete the task.' I noticed most online Pomodoro timers lack a continuous ticking sound, so I built this to see if replicating that auditory feedback digitally actually improves productivity and focus. It features a simple Braun/Bauhaus aesthetic and is available as a live tool for anyone to bookmark and use.",
       "category": "Vibe Coding",
       "year": "2026",
       "technologies": [
-        "Vibe Coding",
+        "Google Antigravity",
         "Interaction Design",
-        "Google Antigravity"
+        "Vibe Coding"
       ],
       "coverImage": "/assets/projects/pomodoro-tracker/cover.png",
       "images": [],

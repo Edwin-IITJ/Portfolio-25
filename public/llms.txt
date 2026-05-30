@@ -28,6 +28,8 @@ Edwin Meleth builds at the intersection of design and engineering. His work span
 
 - [Posters & Art Direction](https://edwinm.vercel.app/projects/poster-art): A collection showcasing foundational skills in Graphic Design, Visual Design, Typography, and Illustration. Includes event posters, abstract art explorations, and upcoming apparel/merchandise designs (T-shirts). Demonstrates a strong grasp of visual hierarchy, composition, and digital illustration tools, complementing my technical XR and product design work with robust 2D aesthetic capabilities.
 
+- [Pomodoro Tracker](https://edwinm.vercel.app/projects/pomodoro-tracker): A live web app built for personal time management. Created as a quick "vibe coding" experiment using Google Antigravity. The primary goal was to test a specific productivity hypothesis: whether the physical sensation of a mechanical timer—specifically the continuous ticking sound—can be replicated digitally to improve focus and motivation, a feature often missing in other digital Pomodoro apps. Features a Braun/Bauhaus minimalist aesthetic.
+
 - [ARuler Redesign](https://edwinm.vercel.app/projects/aruler-redesign): UX redesign of an augmented reality spatial measurement tool, improving measurement accuracy feedback and spatial interface clarity.
 
 ## Key Facts
