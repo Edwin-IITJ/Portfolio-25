@@ -230,9 +230,9 @@
     },
     {
       "id": "digimal",
-      "title": "Digimal – XR Virtual Pet Experience",
-      "description": "An augmented reality (AR) virtual pet application designed to provide companionship and stress relief for users with lifestyle constraints.",
-      "fullDescription": "Digimal is an AR-based virtual pet application that allows users to adopt, nurture, and interact with lifelike virtual pets in their real-world environment. The app aims to foster emotional connection and responsibility without the challenges of real pet ownership. Users can experience companionship through engaging animations and interactive care mechanics, all within an immersive AR setting.",
+      "title": "Digimal – Emotional Presence in XR",
+      "description": "An XR Product Design case study exploring emotional attachment and companionship through spatial presence, minimal interaction, and augmented reality.",
+      "fullDescription": "Digimal is an XR exploration of emotional companionship through spatial presence. Built in Unity for Meta Quest, it explores how emotional attachment can emerge from spatial presence alone—without full interactivity—offering a sense of companionship to users who cannot own real pets due to urban lifestyle constraints. The project demonstrates that life-sized scale and proximity in XR can trigger visceral empathy, reframing virtual pet design from gamification to emotional presence.",
       "category": "XR Design",
       "year": "2025",
       "technologies": [
