@@ -15,6 +15,7 @@ import LucidPastPage from '../../components/projects/lucidpast/LucidPastPage';
 import AamPage from '../../components/projects/aam/AamPage';
 import MelethArchivePage from '../../components/projects/meleth-archive/MelethArchivePage';
 import LiquidReadPage from '../../components/projects/liquidread/LiquidReadPage';
+import FairSplitPage from '../../components/projects/fairsplit/FairSplitPage';
 import { cn } from '../../lib/utils';
 import { fadeInUp, fadeIn, staggerContainer } from '../../lib/animations';
 
@@ -100,6 +101,16 @@ export default function ProjectPage({
   if (project.layout === 'liquidread') {
     return (
       <LiquidReadPage
+        project={project}
+        relatedProjects={relatedProjects}
+        groupLabel={groupLabel}
+      />
+    );
+  }
+
+  if (project.layout === 'fairsplit') {
+    return (
+      <FairSplitPage
         project={project}
         relatedProjects={relatedProjects}
         groupLabel={groupLabel}

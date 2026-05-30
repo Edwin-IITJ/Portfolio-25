@@ -186,6 +186,26 @@
       ]
     },
     {
+      "id": "fair-split",
+      "title": "Fair Split",
+      "description": "A one-day, AI-assisted design engineering sprint that turned a receipt photo and a plain-English description into a fair, fully reconciled per-person split.",
+      "fullDescription": "Fair Split extracts line items from a receipt photo via Gemini 2.5 Flash, parses a natural-language description of who had what, and runs all tax and discount arithmetic deterministically in Python. Every assumption is surfaced, every flag is shown, and the output is structured for easy sharing. Built in one day as an AI-assisted design engineering assignment.",
+      "category": "Product Design + Design Engineering",
+      "year": "2025",
+      "technologies": [
+        "AI-assisted Worflow",
+        "1 Day Sprint",
+        "Claude",
+        "Gemini API"
+      ],
+      "coverImage": "/assets/projects/fair-split/cover/screen1.webp",
+      "featured": true,
+      "layout": "fairsplit",
+      "contentMedia": [
+        {}
+      ]
+    },
+    {
       "id": "lucid-past",
       "title": "LucidPast",
       "description": "What if exploring history felt like dreaming? Where your curiosity guides the journey, themes emerge organically, and the same starting point leads different people to completely different insights.",
