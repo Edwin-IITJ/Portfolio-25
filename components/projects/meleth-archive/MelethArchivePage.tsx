@@ -193,22 +193,44 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
     )}>
       <Head>
         <title>{project.title} — Edwin Meleth</title>
-        <meta name="description" content={project.description} />
+        <meta name="description" content="An independent photographic archive and field survey preserving vernacular family photography and mid-century social history in Kerala, India (1949-1990s)." />
         <link rel="canonical" href={`https://edwinm.vercel.app/projects/${project.id}`} />
 
         {/* Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://edwinm.vercel.app/projects/${project.id}`} />
         <meta property="og:title" content={`${project.title} — Edwin Meleth`} />
-        <meta property="og:description" content={project.description} />
+        <meta property="og:description" content="An independent photographic archive and field survey preserving vernacular family photography and mid-century social history in Kerala, India (1949-1990s)." />
         <meta property="og:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
         <meta property="og:site_name" content="Edwin Meleth Portfolio" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${project.title} — Edwin Meleth`} />
-        <meta name="twitter:description" content={project.description} />
+        <meta name="twitter:description" content="An independent photographic archive and field survey preserving vernacular family photography and mid-century social history in Kerala, India (1949-1990s)." />
         <meta name="twitter:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "name": project.title,
+              "description": "An independent photographic archive and field survey preserving vernacular family photography and mid-century social history in Kerala, India (1949-1990s).",
+              "url": `https://edwinm.vercel.app/projects/${project.id}`,
+              "about": {
+                "@type": "Thing",
+                "name": "Vernacular Photography and Mid-century Social History of Kerala, India"
+              },
+              "creator": {
+                "@type": "Person",
+                "name": "Edwin Meleth"
+              }
+            })
+          }}
+        />
       </Head>
 
       {/* Fonts & Global Scoped Styles */}
@@ -611,10 +633,106 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
           </div>
         </section>
 
-        {/* SECTION 6 — Results */}
+        {/* SECTION 6 — Provenance */}
+        <section className="py-16 md:py-10">
+          <div className="content-container">
+            <SectionLabel text="06. Provenance" />
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8 mb-16"
+            >
+              <p>Photographers were identified from album owners recalling who had taken the photos. Studio names were read off stamps and annotations on the reverse of the prints. Not all photographs have known photographers or studios.</p>
+            </motion.div>
+
+            {/* Known Photographers */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#7a6045] mb-6 flex items-center gap-4">
+                <span>Known Photographers</span>
+                <span className="flex-1 h-[1px] bg-[#b8976a]/15" />
+              </div>
+              <ul className="space-y-0">
+                {[
+                  "K. C. George",
+                  "M. J. Babu",
+                  "M. P. John",
+                  "M. O. Ithappiry",
+                  "M. V. Abraham",
+                ].map((name, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06 }}
+                    className="flex items-baseline gap-4 py-4 border-b border-[#b8976a]/10 group"
+                  >
+                    <span className="font-mono text-[10px] text-[#4a4035] w-5 shrink-0 group-hover:text-[#7a6045] transition-colors">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="font-garamond text-[1.05rem] text-[#d9d0c0] tracking-wide">{name}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Studios Register */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#7a6045] mb-6 flex items-center gap-4">
+                <span>Studios — from scanned photographs</span>
+                <span className="flex-1 h-[1px] bg-[#b8976a]/15" />
+              </div>
+              <div className="border border-[#b8976a]/20 rounded-sm overflow-hidden">
+                {[
+                  { name: "Bombay Studio", location: "Muvattupuzha" },
+                  { name: "Baboos Studio", location: "Alwaye (Aluva)" },
+                  { name: "Ponniah Photo Studio", location: null },
+                  { name: "The Little Flower Studio", location: "Kothamangalam" },
+                  { name: "Prakash Studio", location: "Perumbavoor" },
+                  { name: "Krishnan Nair And Bros", location: "Trichur (Thrissur)" },
+                ].map((studio, i, arr) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.07 }}
+                    className="flex items-center justify-between px-5 py-4 hover:bg-[#b8976a]/[0.03] transition-colors"
+                    style={{ borderBottom: i !== arr.length - 1 ? '1px solid rgba(184, 151, 106, 0.10)' : 'none' }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="font-mono text-[10px] text-[#4a4035] w-5 shrink-0">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="font-garamond text-[1rem] text-[#d9d0c0]">{studio.name}</span>
+                    </div>
+                    {studio.location && (
+                      <span className="font-mono text-[10px] text-[#7a6045] uppercase tracking-widest">
+                        {studio.location}
+                      </span>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 7 — Results */}
         <section className="py-16 md:py-10 bg-[#111009]/30">
           <div className="content-container">
-            <SectionLabel text="06. Results" />
+            <SectionLabel text="07. Results" />
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -645,10 +763,10 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
           </div>
         </section>
 
-        {/* SECTION 7 — Honest Assessment */}
+        {/* SECTION 8 — Honest Assessment */}
         <section className="py-16 md:py-10">
           <div className="content-container">
-            <SectionLabel text="07. Honest Assessment" />
+            <SectionLabel text="08. Honest Assessment" />
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -672,10 +790,10 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
           </div>
         </section>
 
-        {/* SECTION 8 — Retrospective */}
+        {/* SECTION 9 — Retrospective */}
         <section className="py-24 md:py-32 bg-[#111009]/30">
           <div className="content-container">
-            <SectionLabel text="08. Retrospective" />
+            <SectionLabel text="09. Retrospective" />
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -707,10 +825,10 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
           </div>
         </section>
 
-        {/* SECTION 9 — Status */}
+        {/* SECTION 10 — Status */}
         <section className="py-24 md:py-32">
           <div className="content-container">
-            <SectionLabel text="09. Status" />
+            <SectionLabel text="10. Status" />
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
