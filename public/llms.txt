@@ -26,6 +26,8 @@ Edwin Meleth builds at the intersection of design and engineering. His work span
 
 - [Mehndi](https://edwinm.vercel.app/projects/mehndi): Collaborative hand-crafted sand animation project directed by Prof. Delwyn Jude Remedios. Visualizes a traditional Rajasthani folk song recorded firsthand from a local singer at Mehrangarh Fort. Highlights the cultural and artistic process of matching the medium (sand) to the regional theme. My role included storyboarding and animating specific sequences within a strict 2.5-week production timeline, emphasizing analogue processes, patience, and teamwork.
 
+- [Posters & Art Direction](https://edwinm.vercel.app/projects/poster-art): A collection showcasing foundational skills in Graphic Design, Visual Design, Typography, and Illustration. Includes event posters, abstract art explorations, and upcoming apparel/merchandise designs (T-shirts). Demonstrates a strong grasp of visual hierarchy, composition, and digital illustration tools, complementing my technical XR and product design work with robust 2D aesthetic capabilities.
+
 - [ARuler Redesign](https://edwinm.vercel.app/projects/aruler-redesign): UX redesign of an augmented reality spatial measurement tool, improving measurement accuracy feedback and spatial interface clarity.
 
 ## Key Facts
