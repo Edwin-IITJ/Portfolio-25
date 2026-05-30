@@ -66,23 +66,41 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
   return (
     <div className="bg-[#F5F0E8] text-[#1A1410] font-display font-light selection:bg-[#8B6F47] selection:text-[#F5F0E8] relative">
       <Head>
-        <title>{project.title}  -  Edwin Meleth</title>
-        <meta name="description" content={project.description} />
+        <title>{project.title} - Edwin Meleth | XR Design & Creative Technology</title>
+        <meta name="description" content="An XR Design and Creative Technology case study detailing a conceptual interaction framework for exploring institutional archives using gaze-driven navigation and Gaussian Splatting." />
         <link rel="canonical" href={`https://edwinm.vercel.app/projects/${project.id}`} />
 
         {/* Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://edwinm.vercel.app/projects/${project.id}`} />
-        <meta property="og:title" content={`${project.title} - Edwin Meleth`} />
-        <meta property="og:description" content={project.description} />
+        <meta property="og:title" content={`${project.title} - XR Design Case Study`} />
+        <meta property="og:description" content="An XR Design and Creative Technology case study detailing a conceptual interaction framework for exploring institutional archives using gaze-driven navigation and Gaussian Splatting." />
         <meta property="og:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
         <meta property="og:site_name" content="Edwin Meleth Portfolio" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${project.title} - Edwin Meleth`} />
-        <meta name="twitter:description" content={project.description} />
+        <meta name="twitter:title" content={`${project.title} - XR Design Case Study`} />
+        <meta name="twitter:description" content="An XR Design and Creative Technology case study detailing a conceptual interaction framework for exploring institutional archives using gaze-driven navigation and Gaussian Splatting." />
         <meta name="twitter:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "name": project.title,
+              "description": "An XR Design and Creative Technology case study detailing a conceptual interaction framework for exploring institutional archives using gaze-driven navigation and Gaussian Splatting.",
+              "url": `https://edwinm.vercel.app/projects/${project.id}`,
+              "author": {
+                "@type": "Person",
+                "name": "Edwin Meleth"
+              }
+            })
+          }}
+        />
       </Head>
 
       <FilmGrain />
