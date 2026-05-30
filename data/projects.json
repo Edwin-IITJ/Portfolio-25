@@ -379,9 +379,9 @@
   "otherWorks": [
     {
       "id": "who-vr",
-      "title": "Who VR - VR Film",
-      "description": "A location-shot 360° coming-of-age VR short film exploring the theme of solitude through spatial storytelling and sound.",
-      "fullDescription": "End‑to‑end production covering concept, script, character development, shot planning, on‑location filming on various locations, and post that included stitching, editing, color, and a spatial audio mix; delivered as an immersive VR viewing experience with poster and deliverables documented.",
+      "title": "Who VR – Experimental Spatial Storytelling",
+      "description": "An experimental 360° VR short film exploring the psychological impact of spatial montage, VFX, and viewer comfort within immersive environments.",
+      "fullDescription": "Who VR is an experimental 360° short film exploring the language of spatial montage. Challenging the assumption that VR requires minimal editing, the project incorporates rapid match cuts, split frames, time distortion, and spatial UI integration. Produced in a rapid 12-day sprint by a 4-person team, the project involved rigorous pre-visualization, spatial audio mixing, and viewer comfort optimization (managing curiosity and peripheral zones to prevent motion sickness). It serves as a proof of concept for expressive, highly edited storytelling within immersive media.",
       "category": "Immersive Media / VR Film",
       "year": "2025",
       "technologies": [
