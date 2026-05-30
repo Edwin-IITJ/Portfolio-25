@@ -740,7 +740,7 @@ export default function FairSplitPage({ project, relatedProjects, groupLabel }: 
               <span className="fs-given__tag">Given constraints</span>
               <div className="fs-given__heading">The assignment brief</div>
               <p className="fs-given__sub">
-                These were not design choices — they were the rules of the challenge. The brief defined the problem. Design defined the solution.
+                Rules of the challenge defining the problem.
               </p>
             </div>
             <div className="fs-given__grid">
