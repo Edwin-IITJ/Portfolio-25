@@ -25,6 +25,24 @@ const nextConfig = {
   // NEW: Headers for PWA manifest MIME type (ensures proper serving)
   async headers() {
     return [
+      // Headers for .splat files to prevent Vercel streaming/MIME issues
+      {
+        source: '/(.*\\.splat)',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/octet-stream',
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          }
+        ],
+      },
       {
         source: '/site.webmanifest',
         headers: [
