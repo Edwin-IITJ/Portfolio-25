@@ -24,7 +24,7 @@ A production-ready portfolio built with Next.js 14, TypeScript, and Tailwind CSS
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/Edwin-IITJ/portfolio.git
+    git clone https://github.com/Edwin-IITJ/Portfolio-25.git
     cd edwin-portfolio
     ```
 
