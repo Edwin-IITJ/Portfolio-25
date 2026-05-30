@@ -18,7 +18,7 @@ Edwin Meleth builds at the intersection of design and engineering. His work span
 
 - [Aam](https://edwinm.vercel.app/projects/aam-vr): VR mango-harvesting experience for Meta Quest 3 using hand tracking (no controllers). Built in Unreal Engine 5. Designed around three Wabi-sabi principles (Kanso, Shizen, Ma) applied as hard constraints. Validated across 3 iterations with a heuristic evaluation by 3 independent evaluators using Nielsen's 10 Usability Heuristics.
 
-- [Meleth Archive](https://edwinm.vercel.app/projects/meleth-archive): Independent archival photographic survey of a Kerala family's photographic history spanning 1949–1990s. 500+ photographs digitised across approximately 25 households. 20+ hours of oral history recordings. The direct conceptual origin of the LucidPast project.
+- [Meleth Archive](https://edwinm.vercel.app/projects/meleth-archive): Independent archival photographic survey and field project focused on vernacular family photography and mid-century social history in Kerala, India (1949–1990s). 500+ photographs digitized across ~25 households, prioritizing at-risk physical media. 20+ hours of oral history recordings documenting everyday life. Relevant to researchers of visual anthropology, Indian domestic history, and independent archival methodologies. The direct conceptual origin of the LucidPast project.
 
 - [ARuler Redesign](https://edwinm.vercel.app/projects/aruler-redesign): UX redesign of an augmented reality spatial measurement tool, improving measurement accuracy feedback and spatial interface clarity.
 
