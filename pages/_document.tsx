@@ -28,7 +28,7 @@ export default function Document() {
         {/* ── Google Search Console verification ───────────────────────────── */}
         <meta
           name="google-site-verification"
-          content="cLOLJFWh4q8ds2XP2dt-gBwKDEybnqdnYIGPPp01P1g"
+          content="GG_3ayWPVQ8uJ_Aupl7nx_Qqau2J0vf1Z4MT9qR_KNk"
         />
 
         {/* ── Font preconnect (used by project-specific pages) ─────────────── */}
