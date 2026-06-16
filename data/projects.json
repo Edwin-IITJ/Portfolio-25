@@ -190,10 +190,10 @@
       "title": "Fair Split",
       "description": "A one-day, AI-assisted design engineering sprint that turned a receipt photo and a plain-English description into a fair, fully reconciled per-person split.",
       "fullDescription": "Fair Split extracts line items from a receipt photo via Gemini 2.5 Flash, parses a natural-language description of who had what, and runs all tax and discount arithmetic deterministically in Python. Every assumption is surfaced, every flag is shown, and the output is structured for easy sharing. Built in one day as an AI-assisted design engineering assignment.",
-      "category": "Product Design + Design Engineering",
+      "category": "AI-Assisted Product Design + Engineering",
       "year": "2025",
       "technologies": [
-        "AI-assisted Worflow",
+        "AI-Assisted Design Workflow",
         "1 Day Sprint",
         "Claude",
         "Gemini API"
@@ -603,12 +603,12 @@
       "title": "Pomodoro Tracker",
       "description": "A minimalist web app built to test if the continuous ticking sound of a timer can improve focus.",
       "fullDescription": "A personal time management tool built as a quick vibe-coding experiment using Google Antigravity. I created this web app to test a specific hypothesis from the creator of the Pomodoro technique: 'ticking externalizes the desire to complete the task.' I noticed most online Pomodoro timers lack a continuous ticking sound, so I built this to see if replicating that auditory feedback digitally actually improves productivity and focus. It features a simple Braun/Bauhaus aesthetic and is available as a live tool for anyone to bookmark and use.",
-      "category": "Vibe Coding",
+      "category": "Rapid Prototyping",
       "year": "2026",
       "technologies": [
-        "Google Antigravity",
+        "AI-Assisted Development",
         "Interaction Design",
-        "Vibe Coding"
+        "Rapid Prototyping"
       ],
       "coverImage": "/assets/projects/pomodoro-tracker/cover.png",
       "images": [],
@@ -749,7 +749,7 @@
       "title": "Personal Portfolio Website",
       "description": "This very website - a modern portfolio built with Next.js and advanced animations.",
       "fullDescription": "Designed and developed a personal portfolio website showcasing creative and technical projects.",
-      "category": "Vibe Coding",
+      "category": "Rapid Prototyping",
       "year": "2025",
       "technologies": [
         "Next.js",
