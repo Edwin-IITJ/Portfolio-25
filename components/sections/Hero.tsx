@@ -6,12 +6,10 @@ import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
 import Button from '../ui/Button'
 
 const Hero = () => {
-  const heroRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
 
   useEffect(() => {
     if (titleRef.current) {
-      // Split text animation
       const chars = titleRef.current.textContent?.split('') || []
       titleRef.current.innerHTML = chars
         .map((char) => `<span class="inline-block">${char === ' ' ? '&nbsp;' : char}</span>`)
@@ -33,8 +31,8 @@ const Hero = () => {
   }, [])
 
   const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects')
-    projectsSection?.scrollIntoView({ behavior: 'smooth' })
+    const el = document.getElementById('projects')
+    el?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const socialLinks = [
@@ -45,107 +43,108 @@ const Hero = () => {
 
   return (
     <section
-      ref={heroRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-50"
+      className="relative min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-primary-50 overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-200 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-200 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+      {/* ── Ambient background blobs ── */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <div className="absolute top-[20%] left-[15%] w-[28rem] h-[28rem] bg-primary-200/40 rounded-full blur-3xl animate-float" />
+        <div
+          className="absolute bottom-[18%] right-[12%] w-[24rem] h-[24rem] bg-accent-200/30 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: '1.5s' }}
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-6"
-        >
-          <span className="inline-block text-primary-600 font-medium text-base md:text-lg bg-primary-50 px-4 py-2 rounded-full">
-            👋 Hello, I'm
-          </span>
-        </motion.div>
+      {/* ── Top spacer (accounts for navbar) ── */}
+      <div className="h-20" />
 
-        <h1
-          ref={titleRef}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-6 overflow-hidden"
-        >
-          Edwin Meleth
-        </h1>
+      {/* ── Main content — vertically centered via flex-grow ── */}
+      <div className="flex-grow flex items-center justify-center relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Role badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mb-5"
+          >
+            <span className="inline-block text-primary-600 font-medium text-sm md:text-base bg-primary-50/80 backdrop-blur-sm px-5 py-2 rounded-full border border-primary-100/60">
+              Product Designer & Design Engineer
+            </span>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-8"
-        >
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-semibold mb-4">
-            Product Designer &amp; Design Engineer
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          {/* Name */}
+          <h1
+            ref={titleRef}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-5 overflow-hidden leading-[1.05]"
+          >
+            Edwin Meleth
+          </h1>
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-base sm:text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-10"
+          >
             I design and build, moving from user research to production-ready interfaces.
             Specializing in AI-powered products and adaptive experiences blending design, technology, and storytelling.
-          </p>
-        </motion.div>
+          </motion.p>
 
-        {/* Social Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex justify-center space-x-4 mb-8"
-        >
-          {socialLinks.map((social, index) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-primary-50 group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={social.label}
-            >
-              <social.icon className="w-5 h-5 text-gray-600 group-hover:text-primary-600 transition-colors" />
-            </motion.a>
-          ))}
-        </motion.div>
+          {/* CTA row */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.55 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center mb-8"
+          >
+            <Button onClick={scrollToProjects} size="lg">
+              View My Work
+            </Button>
+            <Button variant="outline" size="lg" href="#contact">
+              Get In Touch
+            </Button>
+          </motion.div>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          {/* <Button onClick={scrollToProjects} size="lg">
-            View My Work
-          </Button>
-          <Button variant="outline" size="lg" href="#contact">
-            Get In Touch
-          </Button> */}
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-          onClick={scrollToProjects}
-        >
-          <div className="flex flex-col items-center space-y-2">
-            <span className="text-sm text-gray-500">Scroll to explore</span>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <ArrowDown className="w-6 h-6 text-gray-400" />
-            </motion.div>
-          </div>
-        </motion.div>
+          {/* Social row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="flex justify-center gap-3"
+          >
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-full text-gray-400 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                aria-label={social.label}
+              >
+                <social.icon className="w-[18px] h-[18px]" />
+              </a>
+            ))}
+          </motion.div>
+        </div>
       </div>
+
+      {/* ── Scroll indicator — in normal flow, guaranteed spacing ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+        className="relative z-10 flex flex-col items-center pb-8 pt-6 cursor-pointer"
+        onClick={scrollToProjects}
+      >
+        <span className="text-xs tracking-widest uppercase text-gray-400 mb-2">
+          Scroll
+        </span>
+        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+          <ArrowDown className="w-4 h-4 text-gray-300" />
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
