@@ -93,7 +93,7 @@ const About = () => {
 
   // ── Stats (unchanged — commented entries preserved) ───────────────────────
   const stats = [
-    { number: '2+', label: 'Years Experience' },
+    { number: '2.5+', label: 'Years Experience' },
     // { number: '20+', label: 'Projects Completed' },
     { number: '15+', label: 'Licenses & Certifications' },
     // { number: '5+',  label: 'Awards Won' },
@@ -181,8 +181,12 @@ const About = () => {
               <div className="space-y-4 text-gray-600 text-base leading-relaxed">
                 <p>
                   I'm a <span className="font-semibold text-gray-900">Product Designer</span> and{' '}
-                  <span className="font-semibold text-gray-900">Design Engineer</span> pursuing my Master's in Design
-                  at <span className="font-semibold text-primary-600">IIT Jodhpur</span>. I design intelligent interfaces and build them, moving fluidly between usability research, prototyping, and production-ready front-end code.
+                  <span className="font-semibold text-gray-900">Design Engineer</span> with a Master's in Design
+                  from <span className="font-semibold text-primary-600">IIT Jodhpur</span>. I design intelligent interfaces and build them, moving fluidly between user research, prototyping, and production-ready front-end code.
+                </p>
+                <p>
+                  Before design, I worked as a <span className="font-semibold text-gray-900">Full-Stack Developer at IQVIA</span> for 2.5 years, building
+                  the Supply Integrity Management System using Angular, ASP.NET, and SQL. That experience grounds my design decisions in system constraints, data behaviour, and deployment realities.
                 </p>
                 <p>
                   Before design, I worked as a <span className="font-semibold text-gray-900">Full-Stack Developer at IQVIA</span>, building
@@ -195,10 +199,43 @@ const About = () => {
               </div>
             </div>
 
-            {/* 2 — Where I've Worked */}
             <div>
               <h3 className="text-xl font-semibold mb-4">Where I've Worked</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                {/* Swiggy Instamart */}
+                <a
+                  href="https://www.swiggy.com/instamart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 bg-white border border-gray-100 shadow-sm rounded-xl hover:shadow-md hover:border-primary-200 transition-all duration-200 group"
+                >
+                  <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center flex-shrink-0">
+                    <Image src="/images/Logo_Instamart.webp" alt="Instamart logo" width={28} height={28} className="object-contain" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-gray-900 text-sm leading-tight">Human-Centered Design Intern</p>
+                    <p className="text-xs text-gray-500">Jun 2026 – Present</p>
+                    <p className="text-xs text-gray-400 truncate">Behavioural Science Lab · Instamart</p>
+                  </div>
+                </a>
+
+                {/* Imersive.IO */}
+                <a
+                  href="https://imersive.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 bg-white border border-gray-100 shadow-sm rounded-xl hover:shadow-md hover:border-primary-200 transition-all duration-200 group"
+                >
+                  <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center flex-shrink-0">
+                    <Image src="/images/Logo_Imersive1.webp" alt="Imersive.IO logo" width={28} height={28} className="object-contain" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-semibold text-gray-900 text-sm leading-tight">Product Development Intern</p>
+                    <p className="text-xs text-gray-500">Jun 2025 – Aug 2025</p>
+                    <p className="text-xs text-gray-400 truncate">AI sizing tool</p>
+                  </div>
+                </a>
 
                 {/* IQVIA */}
                 <a
@@ -214,23 +251,6 @@ const About = () => {
                     <p className="font-semibold text-gray-900 text-sm leading-tight">Associate Software Developer</p>
                     <p className="text-xs text-gray-500">Oct 2021 – Jan 2024</p>
                     <p className="text-xs text-gray-400 truncate">SiMS · Amgen, Takeda, BI, Sandoz</p>
-                  </div>
-                </a>
-
-                {/* Imersive.IO */}
-                <a
-                  href="https://imersive.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-white border border-gray-100 shadow-sm rounded-xl hover:shadow-md hover:border-primary-200 transition-all duration-200 group"
-                >
-                  <div className="w-10 h-10 rounded-lg overflow-hidden bg-gray-900 flex items-center justify-center flex-shrink-0">
-                    <Image src="/images/Logo_Imersive.png" alt="Imersive.IO logo" width={28} height={28} className="object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-gray-900 text-sm leading-tight">Product Development Intern</p>
-                    <p className="text-xs text-gray-500">Jun 2025 – Aug 2025</p>
-                    <p className="text-xs text-gray-400 truncate">AI sizing tool</p>
                   </div>
                 </a>
 
@@ -259,7 +279,7 @@ const About = () => {
                   </div>
                   <div className="min-w-0">
                     <p className="font-semibold text-gray-900 text-sm leading-tight">Master of Design (M.Des.)</p>
-                    <p className="text-xs text-gray-500">IIT Jodhpur · 2024 – Present</p>
+                    <p className="text-xs text-gray-500">IIT Jodhpur · 2024 – 2026</p>
                     {/* <p className="text-xs text-gray-400">CGPA: 8.02</p> */}
                   </div>
                 </a>
