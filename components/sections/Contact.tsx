@@ -165,7 +165,11 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-red-50 text-red-700 rounded-lg"
                 >
-                  ✗ Something went wrong. Please try again or email me directly.
+                  ✗ Something went wrong. Please{' '}
+                  <a href="mailto:edwinmeleth@gmail.com" className="underline font-medium hover:text-red-900">
+                    email me directly
+                  </a>{' '}
+                  instead.
                 </motion.div>
               )}
 
