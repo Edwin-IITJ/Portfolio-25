@@ -1,8 +1,8 @@
 # Edwin Meleth — Product Designer & Design Engineer
 
-> Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des candidate at IIT Jodhpur's School of Design. Formerly Associate Software Developer at IQVIA (2.5 years). Creator of LiquidRead, an AI reading companion, and LucidPast, a gaze-driven XR archive navigation system for Apple Vision Pro.
+> Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des from IIT Jodhpur's School of Design (2024–2026). Currently Human-Centered Design Intern at Swiggy Instamart (Behavioural Science Lab). Formerly Associate Software Developer at IQVIA (2.5 years). Creator of LiquidRead, an AI reading companion, and FairSplit, an AI-powered receipt splitting tool.
 
-Edwin Meleth builds at the intersection of design and engineering. His work spans AI product design, XR (extended reality) interaction systems, and enterprise UX, backed by a Computer Science undergraduate degree and professional experience developing healthcare supply chain solutions. He is currently completing a Master of Design at the Indian Institute of Technology Jodhpur, where he specialises in adaptive and generative user interfaces.
+Edwin Meleth builds at the intersection of design and engineering. His work spans AI product design, XR (extended reality) interaction systems, and enterprise UX, backed by a Computer Science undergraduate degree and 2.5 years of professional experience developing healthcare supply chain solutions at IQVIA. He completed a Master of Design at the Indian Institute of Technology Jodhpur in June 2026, where he specialised in adaptive and generative user interfaces.
 
 ## Portfolio
 
@@ -12,9 +12,11 @@ Edwin Meleth builds at the intersection of design and engineering. His work span
 
 ## Case Studies
 
-- [LiquidRead](https://edwinm.vercel.app/projects/liquidread): End-to-end AI Product Design and Design Engineering case study. An adaptive reading companion that dynamically generates personalized interfaces and summaries calibrated to a user's domain expertise. Built autonomously as a solo Design Engineer utilizing Vibe Coding workflows alongside the Google Gemini API, Next.js, Tailwind, and TypeScript. The core innovation is a multi-axis calibration system that scores articles on complexity and adapts generative UI output (format, depth, vocabulary). Demonstrates rapid AI-assisted development and applied prompt engineering.
+- [LiquidRead](https://edwinm.vercel.app/projects/liquid-read): End-to-end AI Product Design and Design Engineering case study. An adaptive reading companion that dynamically generates personalized interfaces and summaries calibrated to a user's domain expertise. Built autonomously as a solo Design Engineer utilizing AI-assisted development workflows alongside the Google Gemini API, Next.js, Tailwind, and TypeScript. The core innovation is a multi-axis calibration system that scores articles on complexity and adapts generative UI output (format, depth, vocabulary). Validated through 5 exploratory interviews, a 26-participant survey (65% correctly routed on first assignment), and 3 think-aloud usability sessions. Demonstrates the Research-to-Prompt methodology — translating user research findings directly into prompt variables.
 
-- [LucidPast](https://edwinm.vercel.app/projects/lucidpast): Creative Technology and XR Design case study. A conceptual interaction framework for curiosity-driven exploration of institutional photographic archives (Library of Congress). Designed around gaze-driven navigation, leveraging SHARP Gaussian Splatting for photorealistic volumetric reconstruction of 2D archival photographs. Features a three-act progressive narrowing algorithm that mirrors dream-logic associations. The volumetric pipeline was validated by comparing Apple Depth Pro mesh and SHARP Gaussian Splats on a 10-image dataset; SHARP was selected for superior texture fidelity and enforcing ethical constraints (no content fabrication beyond the original frame).
+- [Fair Split](https://edwinm.vercel.app/projects/fair-split): AI-Assisted Product Design and Engineering case study. A one-day design engineering sprint that turns a receipt photo and a plain-English description into a fair, fully reconciled per-person split. Built using Gemini 2.5 Flash for receipt OCR, with deterministic Python arithmetic for tax allocation. Every assumption is surfaced, every flag is shown. Validated through archetype-based usability testing (4 user archetypes). Demonstrates rapid AI-assisted development, research-grounded decision-making, and honest constraint acknowledgement.
+
+- [LucidPast](https://edwinm.vercel.app/projects/lucid-past): Creative Technology and XR Design case study. A conceptual interaction framework for curiosity-driven exploration of institutional photographic archives (Library of Congress). Designed around gaze-driven navigation, leveraging SHARP Gaussian Splatting for photorealistic volumetric reconstruction of 2D archival photographs. Features a three-act progressive narrowing algorithm that mirrors dream-logic associations. The volumetric pipeline was validated by comparing Apple Depth Pro mesh and SHARP Gaussian Splats on a 10-image dataset; SHARP was selected for superior texture fidelity and enforcing ethical constraints (no content fabrication beyond the original frame).
 
 - [Digimal](https://edwinm.vercel.app/projects/digimal): Product Design and XR Design case study. An exploration of emotional companionship and behavioral psychology through spatial computing. Built in Unity for Meta Quest passthrough. The project investigates how life-sized scale and physical proximity in augmented reality can trigger visceral empathy and emotional attachment with minimal interaction. Validated through user testing, demonstrating that spatial presence can precede interactivity in evoking emotional responses.
 
@@ -22,23 +24,26 @@ Edwin Meleth builds at the intersection of design and engineering. His work span
 
 - [Aam](https://edwinm.vercel.app/projects/aam-vr): VR mango-harvesting experience for Meta Quest 3 using hand tracking (no controllers). Built in Unreal Engine 5. Designed around three Wabi-sabi principles (Kanso, Shizen, Ma) applied as hard constraints. Validated across 3 iterations with a heuristic evaluation by 3 independent evaluators using Nielsen's 10 Usability Heuristics.
 
+- [ARuler Redesign](https://edwinm.vercel.app/projects/aruler-redesign): UX Research and Usability Engineering case study. Redesign of an augmented reality spatial measurement tool, improving measurement accuracy feedback and spatial interface clarity through user testing and think-aloud protocol.
+
 - [Meleth Archive](https://edwinm.vercel.app/projects/meleth-archive): Independent archival photographic survey and field project focused on vernacular family photography and mid-century social history in Kerala, India (1949–1990s). 500+ photographs digitized across ~25 households, prioritizing at-risk physical media. 20+ hours of oral history recordings documenting everyday life. Relevant to researchers of visual anthropology, Indian domestic history, and independent archival methodologies. The direct conceptual origin of the LucidPast project.
 
 - [Mehndi](https://edwinm.vercel.app/projects/mehndi): Collaborative hand-crafted sand animation project directed by Prof. Delwyn Jude Remedios. Visualizes a traditional Rajasthani folk song recorded firsthand from a local singer at Mehrangarh Fort. Highlights the cultural and artistic process of matching the medium (sand) to the regional theme. My role included storyboarding and animating specific sequences within a strict 2.5-week production timeline, emphasizing analogue processes, patience, and teamwork.
 
 - [Posters & Art Direction](https://edwinm.vercel.app/projects/poster-art): A collection showcasing foundational skills in Graphic Design, Visual Design, Typography, and Illustration. Includes event posters, abstract art explorations, and upcoming apparel/merchandise designs (T-shirts). Demonstrates a strong grasp of visual hierarchy, composition, and digital illustration tools, complementing my technical XR and product design work with robust 2D aesthetic capabilities.
 
-- [Pomodoro Tracker](https://edwinm.vercel.app/projects/pomodoro-tracker): A live web app built for personal time management. Created as a quick "vibe coding" experiment using Google Antigravity. The primary goal was to test a specific productivity hypothesis: whether the physical sensation of a mechanical timer—specifically the continuous ticking sound—can be replicated digitally to improve focus and motivation, a feature often missing in other digital Pomodoro apps. Features a Braun/Bauhaus minimalist aesthetic.
+- [Pomodoro Tracker](https://edwinm.vercel.app/projects/pomodoro-tracker): A live web app built for personal time management. Created as a quick AI-assisted rapid prototyping experiment using Google Antigravity. The primary goal was to test a specific productivity hypothesis: whether the physical sensation of a mechanical timer—specifically the continuous ticking sound—can be replicated digitally to improve focus and motivation, a feature often missing in other digital Pomodoro apps. Features a Braun/Bauhaus minimalist aesthetic.
 
 - [ARuler Redesign](https://edwinm.vercel.app/projects/aruler-redesign): UX redesign of an augmented reality spatial measurement tool, improving measurement accuracy feedback and spatial interface clarity.
 
 ## Key Facts
 
-- **Current role**: M.Des candidate, School of Design, Indian Institute of Technology Jodhpur (IIT Jodhpur)
-- **Previous role**: Associate Software Developer, IQVIA — 2.5 years on enterprise clinical trial and healthcare data platforms (Angular, SQL, full-stack)
+- **Current role**: Human-Centered Design Intern, Behavioural Science Lab, Swiggy Instamart (Jun 2026 – Present)
+- **Education**: M.Des, School of Design, Indian Institute of Technology Jodhpur (IIT Jodhpur) — Completed June 2026
+- **Previous roles**: Product Development Intern, Immersive.IO (Jun–Aug 2025) · Associate Software Developer, IQVIA — 2.5 years on enterprise clinical trial and healthcare data platforms (Angular, SQL, full-stack)
 - **Education**: B.Tech Computer Science & Engineering, Mar Athanasius College of Engineering (MACE), Kerala, India
-- **Location**: Jodhpur, Rajasthan, India
-- **Open to**: Product Designer, Design Engineer, and AI Product Designer roles — remote or in-person globally
+- **Location**: Bengaluru, India
+- **Open to**: Product Designer, Design Engineer, AI Product Designer, XR Designer, and Creative Technologist roles
 - **Contact**: edwinmeleth@gmail.com
 - **LinkedIn**: https://www.linkedin.com/in/edwinmeleth
 - **GitHub**: https://github.com/Edwin-IITJ
