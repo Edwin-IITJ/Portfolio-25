@@ -333,8 +333,8 @@ const ProjectsGrid = () => {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-300 text-sm ${activeTab === tab
-                  ? 'bg-primary-600 text-white shadow-md'
-                  : 'text-gray-500 hover:text-primary-600'
+                ? 'bg-primary-600 text-white shadow-md'
+                : 'text-gray-500 hover:text-primary-600'
                 }`}
             >
               {tab === 'major' ? 'Major Projects' : tab === 'other' ? 'Other Works' : 'Lab'}
