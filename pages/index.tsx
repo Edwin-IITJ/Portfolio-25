@@ -77,7 +77,7 @@ export default function Home() {
       {/* SEO Meta Tags */}
       <Head>
         <title>Edwin Meleth | Product Designer & Design Engineer</title>
-        <meta name="description" content="Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des from IIT Jodhpur. Currently at Swiggy Instamart. Creator of LiquidRead and FairSplit." />
+        <meta name="description" content="Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des from IIT Jodhpur. Currently at Swiggy Instamart. Creator of LiquidRead and FairSplit. Formerly at IQVIA." />
         <meta name="keywords" content="Product Designer, Design Engineer, AI Product Design, UX Designer, XR Design, Edwin Meleth, IIT Jodhpur, LiquidRead, FairSplit, AI-powered products, adaptive UI, Swiggy" />
         <meta name="author" content="Edwin Meleth" />
         <meta name="robots" content="index, follow" />
