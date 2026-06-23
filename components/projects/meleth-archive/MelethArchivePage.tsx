@@ -701,6 +701,9 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
                   { name: "The Little Flower Studio", location: "Kothamangalam" },
                   { name: "Prakash Studio", location: "Perumbavoor" },
                   { name: "Krishnan Nair And Bros", location: "Trichur (Thrissur)" },
+                  { name: "Paul Arts Studio", location: "Perumbavoor" },
+                  { name: "India Photo House", location: "Trichur (Thrissur)" },
+                  { name: "Bombay Studio", location: "Perumbavoor" },
                 ].map((studio, i, arr) => (
                   <motion.div
                     key={i}
