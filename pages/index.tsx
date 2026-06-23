@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
 import Navbar from '@/components/sections/Navbar'
 import Hero from '@/components/sections/Hero'
 import ProjectsGrid from '@/components/sections/ProjectsGrid'
@@ -9,15 +8,6 @@ import Contact from '@/components/sections/Contact'
 import Footer from '@/components/sections/Footer'
 import LoadingScreen from '@/components/ui/LoadingScreen'
 import StructuredData from '@/components/SEO/StructuredData'
-
-// Dynamically import 3D components to avoid SSR issues
-const BackgroundCanvas = dynamic(
-  () => import('@/components/3d/BackgroundCanvas'),
-  {
-    ssr: false,
-    loading: () => null
-  }
-)
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -44,7 +34,7 @@ export default function Home() {
       setMinTimeElapsed(true)
     }, 2000)
 
-    // 2. Maximum safety timeout (3s) - prevents infinite loading if WebGL fails
+    // 2. Maximum safety timeout (3s)
     const maxTimer = setTimeout(() => {
       setAssetsLoaded(true)
     }, 3000)
@@ -103,9 +93,6 @@ export default function Home() {
 
       {/* Structured Data for Google */}
       <StructuredData />
-
-      {/* Background Canvas */}
-      <BackgroundCanvas onLoaded={() => setAssetsLoaded(true)} />
 
       {/* Main Content */}
       <div className="relative z-10">

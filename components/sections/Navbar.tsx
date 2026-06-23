@@ -102,19 +102,27 @@ const Navbar = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-white/80 backdrop-blur-md shadow-md'
-          : 'bg-transparent'
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all`}
+        style={{
+          transitionDuration: 'var(--motion-default)',
+          backgroundColor: isScrolled ? 'rgba(26, 24, 21, 0.85)' : 'transparent',
+          backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
+          borderBottom: isScrolled ? '1px solid var(--color-border)' : '1px solid transparent',
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link
               href="/"
-              className="text-xl md:text-2xl font-display font-bold hover:text-primary-600 transition-colors duration-200"
+              className="text-xl md:text-2xl font-display font-light transition-colors"
+              style={{
+                color: 'var(--color-accent)',
+                transitionDuration: 'var(--motion-fast)',
+              }}
             >
-              <span className="gradient-text">Edwin Meleth</span>
+              Edwin Meleth
             </Link>
 
             {/* Desktop Navigation */}
@@ -128,12 +136,27 @@ const Navbar = () => {
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`transition-colors duration-200 font-medium relative group ${isActive ? 'text-primary-600' : 'text-gray-600 hover:text-primary-600'
-                      }`}
+                    className="transition-colors font-medium relative group text-sm tracking-wide"
+                    style={{
+                      color: isActive ? 'var(--color-accent)' : 'var(--color-text-secondary)',
+                      transitionDuration: 'var(--motion-fast)',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) e.currentTarget.style.color = 'var(--color-text-primary)'
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) e.currentTarget.style.color = 'var(--color-text-secondary)'
+                    }}
                   >
                     {item.name}
-                    <span className={`absolute bottom-0 left-0 h-0.5 bg-primary-600 transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                      }`} />
+                    <span
+                      className="absolute bottom-0 left-0 h-[1px] transition-all"
+                      style={{
+                        backgroundColor: 'var(--color-accent)',
+                        width: isActive ? '100%' : '0',
+                        transitionDuration: 'var(--motion-default)',
+                      }}
+                    />
                   </Link>
                 )
               })}
@@ -141,7 +164,21 @@ const Navbar = () => {
                 href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200"
+                className="px-4 py-2 rounded-lg font-medium text-sm transition-all border"
+                style={{
+                  color: 'var(--color-accent)',
+                  borderColor: 'var(--color-accent)',
+                  backgroundColor: 'transparent',
+                  transitionDuration: 'var(--motion-fast)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--color-accent)'
+                  e.currentTarget.style.color = 'var(--color-bg)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent'
+                  e.currentTarget.style.color = 'var(--color-accent)'
+                }}
               >
                 Resume
               </a>
@@ -149,14 +186,18 @@ const Navbar = () => {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="md:hidden p-2 rounded-lg transition-colors"
+              style={{
+                color: 'var(--color-text-secondary)',
+                transitionDuration: 'var(--motion-fast)',
+              }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-gray-700" />
+                <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-700" />
+                <Menu className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -170,7 +211,8 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            className="fixed inset-0 z-40 md:hidden"
+            style={{ backgroundColor: 'rgba(14, 13, 11, 0.7)' }}
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
@@ -180,7 +222,11 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed top-16 right-0 bottom-0 w-64 bg-white shadow-2xl z-50 md:hidden overflow-y-auto"
+            className="fixed top-16 right-0 bottom-0 w-64 z-50 md:hidden overflow-y-auto border-l"
+            style={{
+              backgroundColor: 'var(--color-surface)',
+              borderColor: 'var(--color-border)',
+            }}
           >
             <div className="flex flex-col p-6">
               {navItems.map((item, index) => {
@@ -197,8 +243,13 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                      className={`text-lg transition-colors duration-200 py-2 border-b border-gray-100 block ${isActive ? 'text-primary-600 font-semibold' : 'text-gray-700 hover:text-primary-600'
-                        }`}
+                      className="text-lg transition-colors py-2 border-b block"
+                      style={{
+                        color: isActive ? 'var(--color-accent)' : 'var(--color-text-secondary)',
+                        fontWeight: isActive ? '600' : '400',
+                        borderColor: 'var(--color-border)',
+                        transitionDuration: 'var(--motion-fast)',
+                      }}
                     >
                       {item.name}
                     </Link>
@@ -209,7 +260,12 @@ const Navbar = () => {
                 href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 text-center"
+                className="mt-4 px-4 py-2 rounded-lg transition-colors text-center font-medium border"
+                style={{
+                  color: 'var(--color-accent)',
+                  borderColor: 'var(--color-accent)',
+                  transitionDuration: 'var(--motion-fast)',
+                }}
               >
                 Download Resume
               </a>

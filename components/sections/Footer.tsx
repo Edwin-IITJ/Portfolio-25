@@ -37,27 +37,32 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="relative bg-gray-900 text-white">
+    <footer className="relative" style={{ backgroundColor: 'var(--color-surface)' }}>
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-primary-600 hover:bg-primary-700 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+        className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all group"
+        style={{
+          backgroundColor: 'var(--color-accent)',
+          color: 'var(--color-bg)',
+          transitionDuration: 'var(--motion-fast)',
+        }}
         aria-label="Back to top"
       >
-        <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+        <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" strokeWidth={1.5} />
       </button>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
-              <h3 className="text-2xl font-display font-bold gradient-text">
+              <h3 className="text-2xl font-display font-light" style={{ color: 'var(--color-accent)' }}>
                 Edwin Meleth
               </h3>
             </Link>
-            <p className="text-gray-400 mb-6">
+            <p style={{ color: 'var(--color-text-secondary)' }}>
               Product Designer & Design Engineer building AI-powered products and adaptive interfaces.
             </p>
             {/* <div className="flex space-x-4">
@@ -81,13 +86,19 @@ const Footer = () => {
           {/* Footer Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-lg font-semibold mb-4">{title}</h4>
+              <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--color-text-primary)' }}>{title}</h4>
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                      className="transition-colors"
+                      style={{
+                        color: 'var(--color-text-secondary)',
+                        transitionDuration: 'var(--motion-fast)',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-accent)' }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-text-secondary)' }}
                     >
                       {link.name}
                     </a>
@@ -99,13 +110,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t pt-8" style={{ borderColor: 'var(--color-border)' }}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm text-center md:text-left">
+            <p className="text-sm text-center md:text-left" style={{ color: 'var(--color-text-muted)' }}>
               © {new Date().getFullYear()} Edwin Meleth. All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm flex items-center">
-              Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> using Next.js & Tailwind CSS
+            <p className="text-sm flex items-center" style={{ color: 'var(--color-text-muted)' }}>
+              Made with <Heart className="w-4 h-4 mx-1" style={{ color: 'var(--color-destructive)' }} /> using Next.js & Tailwind CSS
             </p>
           </div>
         </div>

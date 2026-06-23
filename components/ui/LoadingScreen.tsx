@@ -32,12 +32,13 @@ const LoadingScreen = () => {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white"
+        className="fixed inset-0 z-50 flex flex-col items-center justify-center grain-overlay"
+        style={{ backgroundColor: 'var(--color-bg)' }}
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="text-center max-w-md w-full px-4">
+        <div className="text-center max-w-md w-full px-4 relative z-10">
           {/* Logo/Name Animation */}
           <motion.div
             className="mb-12"
@@ -45,10 +46,10 @@ const LoadingScreen = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-display font-bold gradient-text">
+            <h1 className="text-5xl md:text-6xl font-display font-light gradient-text">
               EM
             </h1>
-            <p className="text-lg text-gray-600 mt-2">Edwin Meleth</p>
+            <p className="text-lg mt-2" style={{ color: 'var(--color-text-secondary)' }}>Edwin Meleth</p>
           </motion.div>
 
           {/* Progress Bar */}
@@ -58,9 +59,12 @@ const LoadingScreen = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.4 }}
             >
-              <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div className="w-full h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: 'var(--color-border)' }}>
                 <motion.div
-                  className="h-full bg-gradient-to-r from-primary-500 via-primary-600 to-accent-500"
+                  className="h-full"
+                  style={{
+                    background: 'linear-gradient(90deg, #C9A96E, #E8D5A8, #C9A96E)',
+                  }}
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.1, ease: 'linear' }}
@@ -75,8 +79,8 @@ const LoadingScreen = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <p className="text-sm text-gray-500">{loadingText}</p>
-              <p className="text-sm font-semibold text-primary-600">{progress}%</p>
+              <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>{loadingText}</p>
+              <p className="text-sm font-medium" style={{ color: 'var(--color-accent)' }}>{progress}%</p>
             </motion.div>
           </div>
 
@@ -90,10 +94,11 @@ const LoadingScreen = () => {
             {[0, 1, 2].map((index) => (
               <motion.div
                 key={index}
-                className="w-2 h-2 bg-primary-500 rounded-full"
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: 'var(--color-accent)' }}
                 animate={{
                   scale: [1, 1.2, 1],
-                  opacity: [0.5, 1, 0.5],
+                  opacity: [0.3, 0.8, 0.3],
                 }}
                 transition={{
                   duration: 1.5,

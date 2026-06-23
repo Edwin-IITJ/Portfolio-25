@@ -8,7 +8,7 @@ import NProgress from 'nprogress'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
-import { DM_Sans, Space_Grotesk } from 'next/font/google'
+import { DM_Sans, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 
 // ─── Fonts ───────────────────────────────────────────────────────────────────
@@ -21,7 +21,15 @@ const dmSans = DM_Sans({
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-display',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -62,15 +70,14 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <div className={`${dmSans.variable} ${spaceGrotesk.variable} font-sans`}>
+    <div className={`${dmSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans`}>
       {/*
-        NProgress bar styles — scoped here so globals.css stays clean.
-        Colour matches primary-600 (#2563eb) from the design system.
+        NProgress bar styles — gold accent (#C9A96E) from the design system.
       */}
       <style>{`
         #nprogress { pointer-events: none; }
         #nprogress .bar {
-          background: #2563eb;
+          background: #C9A96E;
           position: fixed;
           z-index: 9999;
           top: 0; left: 0;
@@ -81,7 +88,7 @@ export default function App({ Component, pageProps }: AppProps) {
           position: absolute;
           right: 0; top: 0;
           width: 100px; height: 100%;
-          box-shadow: 0 0 10px #2563eb, 0 0 5px #2563eb;
+          box-shadow: 0 0 10px #C9A96E, 0 0 5px #C9A96E;
           opacity: 1;
           transform: rotate(3deg) translate(0px, -4px);
         }

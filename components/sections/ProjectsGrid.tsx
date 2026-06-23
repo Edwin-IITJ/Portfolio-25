@@ -25,10 +25,16 @@ function projectHref(p: Project): string {
 
 function LiveBadge() {
   return (
-    <div className="absolute top-4 left-4 z-10 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg flex items-center gap-1.5">
+    <div
+      className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-semibold shadow-lg flex items-center gap-1.5"
+      style={{
+        backgroundColor: 'var(--color-success)',
+        color: 'var(--color-bg)',
+      }}
+    >
       <span className="relative flex h-2 w-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: 'var(--color-bg)' }} />
+        <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: 'var(--color-bg)' }} />
       </span>
       LIVE
     </div>
@@ -37,10 +43,12 @@ function LiveBadge() {
 
 function ViewOverlay({ label = 'View Case Study' }: { label?: string }) {
   return (
-    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 z-10">
-      <span className="text-white font-medium text-sm flex items-center gap-2 tracking-wide">
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6 z-10"
+      style={{ transitionDuration: 'var(--motion-default)' }}
+    >
+      <span className="font-medium text-sm flex items-center gap-2 tracking-wide" style={{ color: 'var(--color-text-primary)' }}>
         {label}
-        <ArrowRight className="w-4 h-4" />
+        <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
       </span>
     </div>
   )
@@ -52,13 +60,17 @@ function TechPills({ techs, max = 3 }: { techs: string[]; max?: number }) {
       {techs.slice(0, max).map(t => (
         <span
           key={t}
-          className="bg-gray-100 text-gray-500 text-xs px-2.5 py-1 rounded-full font-medium"
+          className="text-xs px-2.5 py-1 rounded-full font-mono"
+          style={{
+            backgroundColor: 'var(--color-surface-2)',
+            color: 'var(--color-text-muted)',
+          }}
         >
           {t}
         </span>
       ))}
       {techs.length > max && (
-        <span className="text-xs px-2 py-1 text-gray-400">
+        <span className="text-xs px-2 py-1" style={{ color: 'var(--color-text-muted)' }}>
           +{techs.length - max}
         </span>
       )}
@@ -71,18 +83,22 @@ function TechPills({ techs, max = 3 }: { techs: string[]; max?: number }) {
 function HeroCard({ project }: { project: Project }) {
   return (
     <Link href={projectHref(project)}>
-      <motion.div
-        className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-shadow duration-500"
-        whileHover={{ y: -5 }}
-        transition={{ duration: 0.35, ease: 'easeOut' }}
+      <div
+        className="group cursor-pointer rounded-card overflow-hidden border card-hover"
+        style={{
+          backgroundColor: 'var(--color-surface)',
+          borderColor: 'var(--color-border)',
+        }}
       >
         {/* Image */}
-        <div className="relative w-full overflow-hidden bg-gray-50 h-[400px] md:h-[460px]">
+        <div className="relative w-full overflow-hidden h-[400px] md:h-[460px] img-grain"
+          style={{ backgroundColor: 'var(--color-surface-2)' }}
+        >
           <Image
             src={project.coverImage}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+            className="object-cover"
             priority
             onError={e => {
               (e.target as HTMLImageElement).src = '/images/placeholder-project.jpg'
@@ -91,7 +107,15 @@ function HeroCard({ project }: { project: Project }) {
           {project.isLiveProject && <LiveBadge />}
           <ViewOverlay label="View Case Study" />
           {/* Contextual label */}
-          <div className="absolute top-5 right-5 z-10 bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-semibold px-3.5 py-1.5 rounded-full border border-gray-200 tracking-wide shadow-sm">
+          <div
+            className="absolute top-5 right-5 z-10 text-xs font-semibold px-3.5 py-1.5 rounded-full border tracking-wide font-mono"
+            style={{
+              backgroundColor: 'rgba(26, 24, 21, 0.85)',
+              borderColor: 'var(--color-border)',
+              color: 'var(--color-accent)',
+              backdropFilter: 'blur(8px)',
+            }}
+          >
             New
           </div>
         </div>
@@ -99,25 +123,43 @@ function HeroCard({ project }: { project: Project }) {
         {/* Content */}
         <div className="p-8 md:p-10">
           <div className="flex items-start justify-between gap-4 mb-3">
-            <span className="text-xs font-bold text-primary-600 tracking-widest uppercase">
+            <span
+              className="text-xs font-bold tracking-widest uppercase font-mono"
+              style={{ color: 'var(--color-accent)' }}
+            >
               {project.category}
             </span>
           </div>
-          <h3 className="text-3xl md:text-4xl font-bold font-display mb-4 group-hover:text-primary-600 transition-colors duration-200 leading-tight">
+          <h3
+            className="text-3xl md:text-4xl font-display font-medium mb-4 leading-tight transition-colors"
+            style={{
+              color: 'var(--color-text-primary)',
+              transitionDuration: 'var(--motion-fast)',
+            }}
+          >
             {project.title}
           </h3>
-          <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-7 max-w-4xl">
+          <p
+            className="text-base md:text-lg leading-relaxed mb-7 max-w-4xl"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
             {project.description}
           </p>
           <div className="flex items-center justify-between flex-wrap gap-4">
             <TechPills techs={project.technologies} max={5} />
-            <span className="text-sm font-semibold text-primary-600 flex items-center gap-1.5 group-hover:gap-3 transition-all duration-200 shrink-0">
+            <span
+              className="text-sm font-medium flex items-center gap-1.5 group-hover:gap-3 transition-all shrink-0"
+              style={{
+                color: 'var(--color-accent)',
+                transitionDuration: 'var(--motion-fast)',
+              }}
+            >
               Case Study
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
             </span>
           </div>
         </div>
-      </motion.div>
+      </div>
     </Link>
   )
 }
@@ -127,17 +169,21 @@ function HeroCard({ project }: { project: Project }) {
 function MediumCard({ project }: { project: Project }) {
   return (
     <Link href={projectHref(project)} className="h-full block">
-      <motion.div
-        className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-400 h-full flex flex-col"
-        whileHover={{ y: -5 }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
+      <div
+        className="group cursor-pointer rounded-card overflow-hidden border card-hover h-full flex flex-col"
+        style={{
+          backgroundColor: 'var(--color-surface)',
+          borderColor: 'var(--color-border)',
+        }}
       >
-        <div className="relative w-full overflow-hidden bg-gray-50 h-[260px] md:h-[300px] shrink-0">
+        <div className="relative w-full overflow-hidden h-[260px] md:h-[300px] shrink-0 img-grain"
+          style={{ backgroundColor: 'var(--color-surface-2)' }}
+        >
           <Image
             src={project.coverImage}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+            className="object-cover"
             loading="lazy"
             onError={e => {
               (e.target as HTMLImageElement).src = '/images/placeholder-project.jpg'
@@ -148,20 +194,32 @@ function MediumCard({ project }: { project: Project }) {
         </div>
         <div className="p-6 md:p-7 flex flex-col flex-1">
           <div className="flex items-center justify-between mb-2.5">
-            <span className="text-xs font-bold text-primary-600 tracking-widest uppercase">
+            <span
+              className="text-xs font-bold tracking-widest uppercase font-mono"
+              style={{ color: 'var(--color-accent)' }}
+            >
               {project.category}
             </span>
-            <span className="text-xs text-gray-400 font-medium">{project.year}</span>
+            <span className="text-xs font-mono" style={{ color: 'var(--color-text-muted)' }}>{project.year}</span>
           </div>
-          <h3 className="text-xl md:text-2xl font-bold font-display mb-3 group-hover:text-primary-600 transition-colors duration-200 leading-snug">
+          <h3
+            className="text-xl md:text-2xl font-display font-medium mb-3 leading-snug transition-colors"
+            style={{
+              color: 'var(--color-text-primary)',
+              transitionDuration: 'var(--motion-fast)',
+            }}
+          >
             {project.title}
           </h3>
-          <p className="text-gray-500 text-sm leading-relaxed mb-5 flex-1">
+          <p
+            className="text-sm leading-relaxed mb-5 flex-1"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
             {project.description}
           </p>
           <TechPills techs={project.technologies} max={3} />
         </div>
-      </motion.div>
+      </div>
     </Link>
   )
 }
@@ -171,17 +229,21 @@ function MediumCard({ project }: { project: Project }) {
 function SmallCard({ project }: { project: Project }) {
   return (
     <Link href={projectHref(project)} className="h-full block">
-      <motion.div
-        className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col"
-        whileHover={{ y: -3 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
+      <div
+        className="group cursor-pointer rounded-card overflow-hidden border card-hover h-full flex flex-col"
+        style={{
+          backgroundColor: 'var(--color-surface)',
+          borderColor: 'var(--color-border)',
+        }}
       >
-        <div className="relative w-full overflow-hidden bg-gray-50 h-[192px] shrink-0">
+        <div className="relative w-full overflow-hidden h-[192px] shrink-0 img-grain"
+          style={{ backgroundColor: 'var(--color-surface-2)' }}
+        >
           <Image
             src={project.coverImage}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+            className="object-cover"
             loading="lazy"
             onError={e => {
               (e.target as HTMLImageElement).src = '/images/placeholder-project.jpg'
@@ -192,20 +254,32 @@ function SmallCard({ project }: { project: Project }) {
         </div>
         <div className="p-5 flex flex-col flex-1">
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs font-bold text-primary-600 tracking-widest uppercase">
+            <span
+              className="text-xs font-bold tracking-widest uppercase font-mono"
+              style={{ color: 'var(--color-accent)' }}
+            >
               {project.category}
             </span>
-            <span className="text-xs text-gray-400 font-medium">{project.year}</span>
+            <span className="text-xs font-mono" style={{ color: 'var(--color-text-muted)' }}>{project.year}</span>
           </div>
-          <h3 className="text-base font-bold font-display mb-2 group-hover:text-primary-600 transition-colors duration-200 leading-snug">
+          <h3
+            className="text-base font-display font-medium mb-2 leading-snug transition-colors"
+            style={{
+              color: 'var(--color-text-primary)',
+              transitionDuration: 'var(--motion-fast)',
+            }}
+          >
             {project.title}
           </h3>
-          <p className="text-gray-500 text-xs leading-relaxed mb-3 flex-1 line-clamp-3">
+          <p
+            className="text-xs leading-relaxed mb-3 flex-1 line-clamp-3"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
             {project.description}
           </p>
           <TechPills techs={project.technologies} max={2} />
         </div>
-      </motion.div>
+      </div>
     </Link>
   )
 }
@@ -214,17 +288,21 @@ function SmallCard({ project }: { project: Project }) {
 function UniformCard({ project, priority }: { project: Project; priority: boolean }) {
   return (
     <Link href={projectHref(project)} className="h-full block">
-      <motion.div
-        className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col"
-        whileHover={{ y: -3 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
+      <div
+        className="group cursor-pointer rounded-card overflow-hidden border card-hover h-full flex flex-col"
+        style={{
+          backgroundColor: 'var(--color-surface)',
+          borderColor: 'var(--color-border)',
+        }}
       >
-        <div className="relative w-full overflow-hidden bg-gray-50 h-[192px] shrink-0">
+        <div className="relative w-full overflow-hidden h-[192px] shrink-0 img-grain"
+          style={{ backgroundColor: 'var(--color-surface-2)' }}
+        >
           <Image
             src={project.coverImage}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+            className="object-cover"
             priority={priority}
             loading={priority ? undefined : 'lazy'}
             onError={e => {
@@ -234,29 +312,47 @@ function UniformCard({ project, priority }: { project: Project; priority: boolea
           {project.isLiveProject && <LiveBadge />}
           <ViewOverlay />
           {project.featured && (
-            <div className="absolute top-3 right-3 z-10 bg-accent-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">
+            <div
+              className="absolute top-3 right-3 z-10 text-xs font-semibold px-2.5 py-1 rounded-full font-mono"
+              style={{
+                backgroundColor: 'var(--color-accent)',
+                color: 'var(--color-bg)',
+              }}
+            >
               Featured
             </div>
           )}
         </div>
         <div className="p-5 flex flex-col flex-1">
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs font-bold text-primary-600 tracking-widest uppercase">
+            <span
+              className="text-xs font-bold tracking-widest uppercase font-mono"
+              style={{ color: 'var(--color-accent)' }}
+            >
               {project.category}
             </span>
-            <span className="text-xs text-gray-400 font-medium">{project.year}</span>
+            <span className="text-xs font-mono" style={{ color: 'var(--color-text-muted)' }}>{project.year}</span>
           </div>
-          <h3 className="text-base font-bold font-display mb-2 group-hover:text-primary-600 transition-colors duration-200 leading-snug">
+          <h3
+            className="text-base font-display font-medium mb-2 leading-snug transition-colors"
+            style={{
+              color: 'var(--color-text-primary)',
+              transitionDuration: 'var(--motion-fast)',
+            }}
+          >
             {project.title}
           </h3>
           {project.description && (
-            <p className="text-gray-500 text-xs leading-relaxed mb-3 flex-1 line-clamp-3">
+            <p
+              className="text-xs leading-relaxed mb-3 flex-1 line-clamp-3"
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
               {project.description}
             </p>
           )}
           <TechPills techs={project.technologies} max={2} />
         </div>
-      </motion.div>
+      </div>
     </Link>
   )
 }
@@ -308,7 +404,7 @@ const ProjectsGrid = () => {
   const overflow = allMajor.filter(p => !coveredIds.has(p.id))
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-content mx-auto">
 
       {/* Section Header */}
       <motion.div
@@ -317,25 +413,39 @@ const ProjectsGrid = () => {
         transition={{ duration: 0.5 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
+        <h2
+          className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-4"
+          style={{ color: 'var(--color-text-primary)' }}
+        >
           Featured Work
         </h2>
-        <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
+        <p
+          className="text-lg md:text-xl max-w-2xl mx-auto"
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
           A selection of AI product design, UX research, and XR interaction projects.
         </p>
       </motion.div>
 
       {/* Tab Navigation */}
       <div className="flex justify-center mb-12">
-        <div className="inline-flex bg-white rounded-xl p-1.5 shadow-lg border border-gray-100">
+        <div
+          className="inline-flex rounded-xl p-1.5 border"
+          style={{
+            backgroundColor: 'var(--color-surface)',
+            borderColor: 'var(--color-border)',
+          }}
+        >
           {(['major', 'other', 'lab'] as const).map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 md:px-8 py-3 rounded-lg font-medium transition-all duration-300 text-sm ${activeTab === tab
-                ? 'bg-primary-600 text-white shadow-md'
-                : 'text-gray-500 hover:text-primary-600'
-                }`}
+              className="px-6 md:px-8 py-3 rounded-lg font-medium transition-all text-sm"
+              style={{
+                backgroundColor: activeTab === tab ? 'var(--color-accent)' : 'transparent',
+                color: activeTab === tab ? 'var(--color-bg)' : 'var(--color-text-muted)',
+                transitionDuration: 'var(--motion-fast)',
+              }}
             >
               {tab === 'major' ? 'Major Projects' : tab === 'other' ? 'Other Works' : 'Lab'}
             </button>
@@ -419,7 +529,8 @@ const ProjectsGrid = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center py-20 text-gray-400"
+          className="text-center py-20"
+          style={{ color: 'var(--color-text-muted)' }}
         >
           {activeTab === 'lab'
             ? 'Experimental projects and prototypes. Check back for new work!'

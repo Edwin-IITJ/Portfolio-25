@@ -81,8 +81,8 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 md:py-32" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,10 +91,10 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-4" style={{ color: 'var(--color-text-primary)' }}>
             Let's Work Together
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
             Have a project in mind? Let's discuss how we can bring your ideas to life.
           </p>
         </motion.div>
@@ -153,7 +153,11 @@ const Contact = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-50 text-green-700 rounded-lg"
+                  className="p-4 rounded-lg"
+                  style={{
+                    backgroundColor: 'rgba(110, 158, 122, 0.15)',
+                    color: 'var(--color-success)',
+                  }}
                 >
                   ✓ Message sent successfully! I'll get back to you soon.
                 </motion.div>
@@ -163,10 +167,20 @@ const Contact = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-red-50 text-red-700 rounded-lg"
+                  className="p-4 rounded-lg"
+                  style={{
+                    backgroundColor: 'rgba(158, 110, 110, 0.15)',
+                    color: 'var(--color-destructive)',
+                  }}
                 >
                   ✗ Something went wrong. Please{' '}
-                  <a href="mailto:edwinmeleth@gmail.com" className="underline font-medium hover:text-red-900">
+                  <a
+                    href="mailto:edwinmeleth@gmail.com"
+                    className="underline font-medium"
+                    style={{ color: 'var(--color-destructive)' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-accent)' }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-destructive)' }}
+                  >
                     email me directly
                   </a>{' '}
                   instead.
@@ -181,12 +195,12 @@ const Contact = () => {
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                    <div className="w-5 h-5 border-2 rounded-full animate-spin mr-2" style={{ borderColor: 'var(--color-bg)', borderTopColor: 'transparent' }} />
                     Sending...
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5 mr-2" />
+                    <Send className="w-5 h-5 mr-2" strokeWidth={1.5} />
                     Send Message
                   </>
                 )}
@@ -203,8 +217,8 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
-              <p className="text-gray-600 mb-8">
+              <h3 className="text-2xl font-semibold mb-6" style={{ color: 'var(--color-text-primary)' }}>Get in Touch</h3>
+              <p className="mb-8" style={{ color: 'var(--color-text-secondary)' }}>
                 Feel free to reach out for collaborations, freelance opportunities,
                 or just a friendly chat about design and technology.
               </p>
@@ -219,20 +233,29 @@ const Contact = () => {
                     viewport={{ once: true }}
                     className="flex items-start space-x-4"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <info.icon className="w-6 h-6 text-primary-600" />
+                    <div
+                      className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
+                      style={{ backgroundColor: 'var(--color-accent-soft)' }}
+                    >
+                      <info.icon className="w-6 h-6" style={{ color: 'var(--color-accent)' }} strokeWidth={1.5} />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 mb-1">{info.label}</p>
+                      <p className="text-sm mb-1" style={{ color: 'var(--color-text-muted)' }}>{info.label}</p>
                       {info.href ? (
                         <a
                           href={info.href}
-                          className="text-gray-900 font-medium hover:text-primary-600 transition-colors"
+                          className="font-medium transition-colors"
+                          style={{
+                            color: 'var(--color-text-primary)',
+                            transitionDuration: 'var(--motion-fast)',
+                          }}
+                          onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-accent)' }}
+                          onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-text-primary)' }}
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-900 font-medium">{info.value}</p>
+                        <p className="font-medium" style={{ color: 'var(--color-text-primary)' }}>{info.value}</p>
                       )}
                     </div>
                   </motion.div>
@@ -242,32 +265,49 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">Connect With Me</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--color-text-primary)' }}>Connect With Me</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
-                  <motion.a
+                  <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center group hover:bg-primary-50"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="w-12 h-12 rounded-lg flex items-center justify-center transition-all group border"
+                    style={{
+                      backgroundColor: 'var(--color-surface)',
+                      borderColor: 'var(--color-border)',
+                      transitionDuration: 'var(--motion-fast)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--color-accent)'
+                      e.currentTarget.style.backgroundColor = 'var(--color-accent-soft)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--color-border)'
+                      e.currentTarget.style.backgroundColor = 'var(--color-surface)'
+                    }}
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5 text-gray-600 group-hover:text-primary-600 transition-colors" />
-                  </motion.a>
+                    <social.icon className="w-5 h-5 transition-colors" style={{ color: 'var(--color-text-secondary)', transitionDuration: 'var(--motion-fast)' }} strokeWidth={1.5} />
+                  </a>
                 ))}
               </div>
             </div>
 
             {/* Availability Badge */}
-            <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
+            <div
+              className="p-6 rounded-card border"
+              style={{
+                backgroundColor: 'rgba(110, 158, 122, 0.08)',
+                borderColor: 'rgba(110, 158, 122, 0.25)',
+              }}
+            >
               <div className="flex items-center space-x-2 mb-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="font-semibold text-green-900">Available for Work</span>
+                <div className="w-3 h-3 rounded-full animate-pulse" style={{ backgroundColor: 'var(--color-success)' }} />
+                <span className="font-semibold" style={{ color: 'var(--color-success)' }}>Available for Work</span>
               </div>
-              <p className="text-sm text-green-800">
+              <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
                 Currently accepting new projects and collaborations.
               </p>
             </div>

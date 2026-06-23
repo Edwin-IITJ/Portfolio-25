@@ -29,7 +29,7 @@ export default function AboutPage() {
         <meta name="twitter:image" content="https://edwinm.vercel.app/og-image.png" />
       </Head>
 
-      <div className="relative min-h-screen bg-white">
+      <div className="relative min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
         <Navbar />
 
         <main className="pt-20">
@@ -38,13 +38,20 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="py-10 bg-white border-b border-gray-100"
+            className="py-10 border-b"
+            style={{
+              backgroundColor: 'var(--color-bg)',
+              borderColor: 'var(--color-border)',
+            }}
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">
+            <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
+              <h1
+                className="text-5xl md:text-6xl font-display font-light mb-6"
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 About
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
                 Product Designer & Design Engineer · I design and build AI-powered products, conduct UX research, and create XR interaction experiences.
               </p>
             </div>
@@ -53,8 +60,8 @@ export default function AboutPage() {
           <About />
 
           {/* Additional Sections can go here */}
-          <section className="py-20 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="py-20" style={{ backgroundColor: 'var(--color-surface)' }}>
+            <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -62,15 +69,23 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+                <h2
+                  className="text-3xl md:text-4xl font-display font-light mb-6"
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   Let's Work Together
                 </h2>
-                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl mb-8 max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
                   I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
                 </p>
                 <a
                   href="/#contact"
-                  className="inline-block bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="inline-block px-8 py-4 rounded-lg font-medium transition-all"
+                  style={{
+                    backgroundColor: 'var(--color-accent)',
+                    color: 'var(--color-bg)',
+                    transitionDuration: 'var(--motion-fast)',
+                  }}
                 >
                   Get In Touch
                 </a>

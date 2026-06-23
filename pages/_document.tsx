@@ -19,7 +19,7 @@ export default function Document() {
             Matches the brand indigo used in the blob background (#6366f1).
             Controls browser chrome colour on Android / PWA.
         */}
-        <meta name="theme-color" content="#6366f1" />
+        <meta name="theme-color" content="#0E0D0B" />
 
         {/* ── Encoding / compat ────────────────────────────────────────────── */}
         <meta charSet="utf-8" />

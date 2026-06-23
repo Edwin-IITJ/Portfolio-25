@@ -44,17 +44,9 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-primary-50 overflow-hidden"
+      className="relative min-h-screen flex flex-col overflow-hidden grain-overlay"
+      style={{ backgroundColor: 'var(--color-bg)' }}
     >
-      {/* ── Ambient background blobs ── */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        <div className="absolute top-[20%] left-[15%] w-[28rem] h-[28rem] bg-primary-200/40 rounded-full blur-3xl animate-float" />
-        <div
-          className="absolute bottom-[18%] right-[12%] w-[24rem] h-[24rem] bg-accent-200/30 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: '1.5s' }}
-        />
-      </div>
-
       {/* ── Top spacer (accounts for navbar) ── */}
       <div className="h-20" />
 
@@ -68,7 +60,14 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mb-5"
           >
-            <span className="inline-block text-primary-600 font-medium text-sm md:text-base bg-primary-50/80 backdrop-blur-sm px-5 py-2 rounded-full border border-primary-100/60">
+            <span
+              className="inline-block font-medium text-sm md:text-base px-5 py-2 rounded-full border font-mono tracking-wide"
+              style={{
+                color: 'var(--color-text-secondary)',
+                backgroundColor: 'var(--color-surface)',
+                borderColor: 'var(--color-border)',
+              }}
+            >
               Product Designer & Design Engineer
             </span>
           </motion.div>
@@ -76,7 +75,8 @@ const Hero = () => {
           {/* Name */}
           <h1
             ref={titleRef}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-5 overflow-hidden leading-[1.05]"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-light mb-5 overflow-hidden leading-[1.05]"
+            style={{ color: 'var(--color-text-primary)' }}
           >
             Edwin Meleth
           </h1>
@@ -86,7 +86,8 @@ const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-10"
+            className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10"
+            style={{ color: 'var(--color-text-secondary)' }}
           >
             I design and build, moving from user research to production-ready interfaces.
             Specializing in AI-powered products and adaptive experiences blending design, technology, and storytelling.
@@ -100,7 +101,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-3 justify-center mb-8"
           >
             <Button onClick={scrollToProjects} size="lg">
-              View My Work
+              See My Work
             </Button>
             <Button variant="outline" size="lg" href="#contact">
               Get In Touch
@@ -120,10 +121,22 @@ const Hero = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full text-gray-400 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                className="p-2.5 rounded-full transition-all"
+                style={{
+                  color: 'var(--color-text-muted)',
+                  transitionDuration: 'var(--motion-fast)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--color-accent)'
+                  e.currentTarget.style.backgroundColor = 'var(--color-accent-soft)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--color-text-muted)'
+                  e.currentTarget.style.backgroundColor = 'transparent'
+                }}
                 aria-label={social.label}
               >
-                <social.icon className="w-[18px] h-[18px]" />
+                <social.icon className="w-[18px] h-[18px]" strokeWidth={1.5} />
               </a>
             ))}
           </motion.div>
@@ -138,11 +151,14 @@ const Hero = () => {
         className="relative z-10 flex flex-col items-center pb-8 pt-6 cursor-pointer"
         onClick={scrollToProjects}
       >
-        <span className="text-xs tracking-widest uppercase text-gray-400 mb-2">
+        <span
+          className="text-xs tracking-widest uppercase mb-2 font-mono"
+          style={{ color: 'var(--color-text-muted)' }}
+        >
           Scroll
         </span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-          <ArrowDown className="w-4 h-4 text-gray-300" />
+          <ArrowDown className="w-4 h-4" style={{ color: 'var(--color-text-muted)' }} />
         </motion.div>
       </motion.div>
     </section>

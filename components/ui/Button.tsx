@@ -24,55 +24,105 @@ const Button = ({
   disabled = false,
   type = 'button'
 }: ButtonProps) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 smooth-transition'
+  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg smooth-transition'
   
-  const variants = {
-    primary: 'bg-primary-600 hover:bg-primary-700 text-white shadow-lg hover:shadow-xl',
-    secondary: 'bg-gray-800 hover:bg-gray-900 text-white shadow-lg hover:shadow-xl',
-    outline: 'border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white',
-    ghost: 'text-gray-600 hover:text-primary-600 hover:bg-gray-100'
+  const variants: Record<string, string> = {
+    primary: '',
+    secondary: '',
+    outline: '',
+    ghost: '',
   }
   
-  const sizes = {
+  const variantStyles: Record<string, React.CSSProperties> = {
+    primary: {
+      backgroundColor: 'var(--color-accent)',
+      color: 'var(--color-bg)',
+    },
+    secondary: {
+      backgroundColor: 'var(--color-surface-2)',
+      color: 'var(--color-text-primary)',
+    },
+    outline: {
+      backgroundColor: 'transparent',
+      color: 'var(--color-accent)',
+      border: '1px solid var(--color-accent)',
+    },
+    ghost: {
+      backgroundColor: 'transparent',
+      color: 'var(--color-text-secondary)',
+    },
+  }
+
+  const hoverStyles: Record<string, React.CSSProperties> = {
+    primary: {
+      backgroundColor: '#B8953D',
+      color: 'var(--color-bg)',
+    },
+    secondary: {
+      backgroundColor: 'var(--color-border)',
+      color: 'var(--color-text-primary)',
+    },
+    outline: {
+      backgroundColor: 'var(--color-accent)',
+      color: 'var(--color-bg)',
+      border: '1px solid var(--color-accent)',
+    },
+    ghost: {
+      backgroundColor: 'var(--color-surface)',
+      color: 'var(--color-text-primary)',
+    },
+  }
+  
+  const sizes: Record<string, string> = {
     sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg'
+    lg: 'px-8 py-4 text-lg',
   }
   
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className} ${
     disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
   }`
 
-  const MotionElement = motion.button
+  const handleMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
+    if (disabled) return
+    const style = hoverStyles[variant]
+    Object.assign(e.currentTarget.style, style)
+  }
 
-  const content = (
-    <MotionElement
-      whileHover={disabled ? {} : { scale: 1.02 }}
-      whileTap={disabled ? {} : { scale: 0.98 }}
-      className={classes}
-      onClick={disabled ? undefined : onClick}
-      disabled={disabled}
-      type={type}
-    >
-      {children}
-    </MotionElement>
-  )
+  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+    if (disabled) return
+    const style = variantStyles[variant]
+    Object.assign(e.currentTarget.style, style)
+  }
 
   if (href && !disabled) {
     return (
       <a href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} className="inline-block">
-        <motion.span
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+        <span
           className={classes}
+          style={variantStyles[variant]}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           {children}
-        </motion.span>
+        </span>
       </a>
     )
   }
 
-  return content
+  return (
+    <button
+      className={classes}
+      style={variantStyles[variant]}
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
+      type={type}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {children}
+    </button>
+  )
 }
 
 export default Button

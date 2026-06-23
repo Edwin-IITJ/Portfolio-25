@@ -30,23 +30,26 @@ export default function ProjectsPage() {
         <meta name="twitter:image" content="https://edwinm.vercel.app/og-image.png" />
       </Head>
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
         <Navbar />
 
         <main className="pt-20">
           {/* Page Header */}
-          <section className="py-20 bg-gradient-to-br from-primary-50 to-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="py-20" style={{ backgroundColor: 'var(--color-bg)' }}>
+            <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 className="text-center max-w-4xl mx-auto"
               >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6">
+                <h1
+                  className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6"
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   My Projects
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-600">
+                <p className="text-xl md:text-2xl" style={{ color: 'var(--color-text-secondary)' }}>
                   A showcase of my design work, VR experiences, and creative development projects
                   that blend innovation with user-centered design principles.
                 </p>
@@ -58,7 +61,7 @@ export default function ProjectsPage() {
           <ProjectsGrid />
 
           {/* Additional Info Section */}
-          <section className="py-20 bg-gray-50">
+          <section className="py-20" style={{ backgroundColor: 'var(--color-surface)' }}>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -66,16 +69,24 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+                <h2
+                  className="text-3xl md:text-4xl font-display font-light mb-6"
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   Let's Create Something Together
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-lg mb-8" style={{ color: 'var(--color-text-secondary)' }}>
                   I'm always excited to take on new challenges and collaborate on innovative projects.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
                     href="/#contact"
-                    className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-medium transition-all"
+                    style={{
+                      backgroundColor: 'var(--color-accent)',
+                      color: 'var(--color-bg)',
+                      transitionDuration: 'var(--motion-fast)',
+                    }}
                   >
                     Start a Project
                   </a>
@@ -83,7 +94,20 @@ export default function ProjectsPage() {
                     href="https://www.behance.net/edwin_m"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-8 py-4 rounded-lg font-medium transition-all duration-300"
+                    className="inline-flex items-center justify-center border px-8 py-4 rounded-lg font-medium transition-all"
+                    style={{
+                      borderColor: 'var(--color-accent)',
+                      color: 'var(--color-accent)',
+                      transitionDuration: 'var(--motion-fast)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = 'var(--color-accent)'
+                      e.currentTarget.style.color = 'var(--color-bg)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent'
+                      e.currentTarget.style.color = 'var(--color-accent)'
+                    }}
                   >
                     View Full Portfolio
                   </a>

@@ -143,21 +143,25 @@ export default function ProjectPage({
         <meta name="twitter:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
       </Head>
 
-      {/* Header section (without cover image) */}
+      {/* Header section */}
       <motion.header
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 pb-8"
+        className="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8 pt-10 pb-8"
+        style={{ backgroundColor: 'var(--color-bg)' }}
       >
         {/* Back to Projects */}
-        <div className="max-w-7xl mx-auto py-8">
+        <div className="max-w-content mx-auto py-8">
           <Link href="/projects">
             <motion.div
-              className="inline-flex items-center text-gray-600 hover:text-primary-600 transition-colors cursor-pointer"
+              className="inline-flex items-center transition-colors cursor-pointer"
+              style={{ color: 'var(--color-text-secondary)' }}
               whileHover={{ x: -5 }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'var(--color-accent)' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'var(--color-text-secondary)' }}
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
+              <ArrowLeft className="w-5 h-5 mr-2" strokeWidth={1.5} />
               Back to Projects
             </motion.div>
           </Link>
@@ -166,7 +170,8 @@ export default function ProjectPage({
         {/* Title */}
         <motion.h1
           variants={fadeInUp}
-          className={cn('text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6')}
+          className={cn('text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6')}
+          style={{ color: 'var(--color-text-primary)' }}
         >
           {project.title}
         </motion.h1>
@@ -187,7 +192,7 @@ export default function ProjectPage({
         </motion.div> */}
 
         {/* Description */}
-        <motion.p variants={fadeIn} className="text-xl text-gray-600 mb-8 max-w-7xl">
+        <motion.p variants={fadeIn} className="text-xl mb-8 max-w-content" style={{ color: 'var(--color-text-secondary)' }}>
           {project.description}
         </motion.p>
 
@@ -199,9 +204,14 @@ export default function ProjectPage({
                 href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-colors font-medium"
+                style={{
+                  backgroundColor: 'var(--color-accent)',
+                  color: 'var(--color-bg)',
+                  transitionDuration: 'var(--motion-fast)',
+                }}
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
                 Live Project
               </a>
             )}
@@ -220,9 +230,22 @@ export default function ProjectPage({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg transition-colors font-medium"
+                style={{
+                  borderColor: 'var(--color-border)',
+                  color: 'var(--color-text-secondary)',
+                  transitionDuration: 'var(--motion-fast)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--color-accent)'
+                  e.currentTarget.style.color = 'var(--color-accent)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--color-border)'
+                  e.currentTarget.style.color = 'var(--color-text-secondary)'
+                }}
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-4 h-4" strokeWidth={1.5} />
                 GitHub
               </a>
             )}
@@ -230,15 +253,15 @@ export default function ProjectPage({
         )}
       </motion.header>
 
-      {/* Cover Image Showcase - Old Style (Dramatic, Cinematic) */}
+      {/* Cover Image Showcase */}
       {project.layout !== 'minimal' && (
         <motion.section
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+          className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 mb-16"
         >
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative aspect-video rounded-card overflow-hidden border img-grain" style={{ borderColor: 'var(--color-border)' }}>
             <Image
               src={project.coverImage}
               alt={project.title}
@@ -250,8 +273,8 @@ export default function ProjectPage({
         </motion.section>
       )}
 
-      {/* Detailed meta grid (wide container) */}
-      <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Detailed meta grid */}
+      <section className="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8">
         {project.layout !== 'minimal' && (
           <motion.div
             variants={staggerContainer}
@@ -261,18 +284,25 @@ export default function ProjectPage({
             className="mt-8 grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto mb-6"
           >
             <motion.div variants={fadeInUp}>
-              <h3 className="text-lg font-semibold mb-4">Category</h3>
-              <p className="text-gray-600">{project.category}</p>
+              <h3 className="text-lg font-semibold mb-4 font-mono text-sm tracking-wide uppercase" style={{ color: 'var(--color-text-muted)' }}>Category</h3>
+              <p style={{ color: 'var(--color-text-secondary)' }}>{project.category}</p>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <h3 className="text-lg font-semibold mb-4">Timeline</h3>
-              <p className="text-gray-600">{project.year}</p>
+              <h3 className="text-lg font-semibold mb-4 font-mono text-sm tracking-wide uppercase" style={{ color: 'var(--color-text-muted)' }}>Timeline</h3>
+              <p style={{ color: 'var(--color-text-secondary)' }}>{project.year}</p>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <h3 className="text-lg font-semibold mb-4">Technologies & Skills</h3>
+              <h3 className="text-lg font-semibold mb-4 font-mono text-sm tracking-wide uppercase" style={{ color: 'var(--color-text-muted)' }}>Technologies & Skills</h3>
               <ul className="mt-1 flex flex-wrap gap-2">
                 {project.technologies.map((t) => (
-                  <li key={t} className="rounded-md bg-neutral-100 px-3 py-1 text-sm">
+                  <li
+                    key={t}
+                    className="rounded-md px-3 py-1 text-sm font-mono"
+                    style={{
+                      backgroundColor: 'var(--color-surface-2)',
+                      color: 'var(--color-text-secondary)',
+                    }}
+                  >
                     {t}
                   </li>
                 ))}
@@ -283,15 +313,15 @@ export default function ProjectPage({
 
         {/* Overview section - narrow content width */}
         {project.fullDescription && (
-          <section className="mx-auto w-full max-w-3xl py-16">
+          <section className="mx-auto w-full max-w-prose py-16">
             <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <h2 className="text-3xl font-display font-bold mb-6">Overview</h2>
-              <p className="text-gray-600 leading-relaxed">
+              <h2 className="text-3xl font-display font-light mb-6" style={{ color: 'var(--color-text-primary)' }}>Overview</h2>
+              <p className="leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
                 {project.fullDescription}
               </p>
             </motion.div>
@@ -302,7 +332,7 @@ export default function ProjectPage({
 
       {/* Documentation media (Behance-style panels) */}
       {project.contentMedia?.length ? (
-        <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
+        <section className="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8 pb-20">
           <MediaRenderer items={project.contentMedia} />
         </section>
       ) : null}
