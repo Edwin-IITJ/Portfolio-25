@@ -193,10 +193,6 @@ const About = () => {
                 </p>
                 <p>
                   Before design, I worked as a <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Full-Stack Developer at IQVIA</span> for 2.5 years, building
-                  the Supply Integrity Management System using Angular, ASP.NET, and SQL. That experience grounds my design decisions in system constraints, data behaviour, and deployment realities.
-                </p>
-                <p>
-                  Before design, I worked as a <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Full-Stack Developer at IQVIA</span>, building
                   the Supply Integrity Management System using Angular, ASP.NET, and SQL. Thus I understand how design decisions translate into system constraints, data behavior, and deployment realities.&nbsp; My work spans AI product design (LiquidRead), enterprise UX
                   (<span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Immersive.IO</span> and{' '}
                   <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>IQVIA</span>, pharma-scale platforms), and XR interaction design

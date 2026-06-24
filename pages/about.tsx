@@ -11,7 +11,7 @@ export default function AboutPage() {
         <title>About - Edwin Meleth</title>
         <meta
           name="description"
-          content="Edwin Meleth is a Product Designer and Design Engineer specializing in AI-powered products, UX research, and XR interaction design. M.Des candidate at IIT Jodhpur."
+          content="Edwin Meleth is a Product Designer and Design Engineer specializing in AI-powered products, UX research, and XR interaction design. Creator of LiquidRead, a pioneering generative UI case study. M.Des from IIT Jodhpur. Currently at Swiggy Instamart. Available for hire as a design builder."
         />
         <link rel="canonical" href="https://edwinm.vercel.app/about" />
 

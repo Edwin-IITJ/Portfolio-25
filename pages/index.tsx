@@ -68,7 +68,7 @@ export default function Home() {
       <Head>
         <title>Edwin Meleth | Product Designer & Design Engineer</title>
         <meta name="description" content="Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des from IIT Jodhpur. Currently at Swiggy Instamart. Creator of LiquidRead and FairSplit. Formerly at IQVIA." />
-        <meta name="keywords" content="Product Designer, Design Engineer, AI Product Design, UX Designer, XR Design, Edwin Meleth, IIT Jodhpur, LiquidRead, FairSplit, AI-powered products, adaptive UI, Swiggy" />
+        <meta name="keywords" content="Product Designer, Design Engineer, AI Product Design, UX Designer, XR Design, Edwin Meleth, IIT Jodhpur, LiquidRead, FairSplit, AI-powered products, Swiggy, Instamart, AI-native design builder, generative UI, generative user interface, adaptive UI, hire design engineer, hire product designer, generative UI case study, AI-powered products, design builder for hire" />
         <meta name="author" content="Edwin Meleth" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://edwinm.vercel.app/" />

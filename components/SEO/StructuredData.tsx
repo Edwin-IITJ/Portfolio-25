@@ -33,9 +33,9 @@ const structuredData = {
       "isPartOf": { "@id": `${BASE}/#website` },
       "mainEntity": { "@id": `${BASE}/#person` },
       "about": { "@id": `${BASE}/#person` },
-      "description": "Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des candidate at IIT Jodhpur.",
+      "description": "Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. Design builder available for hire who uses AI natively and innovatively. Creator of LiquidRead, a pioneering generative UI case study. M.Des from IIT Jodhpur. B.Tech CS from MACE Kerala. 2.5 years of professional software development at IQVIA. Currently at Swiggy Instamart.",
       "inLanguage": "en",
-      "dateModified": "2026-05-15T00:00:00+05:30"
+      "dateModified": "2026-06-25T00:00:00+05:30"
     },
 
     // ── Person (core entity) ───────────────────────────────────────────────────
@@ -76,6 +76,16 @@ const structuredData = {
       // ── What Edwin knows ─────────────────────────────────────────────────────
       "knowsAbout": [
         "AI Product Design",
+        "AI-Native Design",
+        "AI-Assisted Design Workflow",
+        "Design Builder",
+        "AI Product Development",
+        "Generative UI",
+        "Generative UI Design",
+        "Generative User Interface",
+        "Runtime UI Generation",
+        "Adaptive Generative Interface",
+        "Adaptive UI",
         "Product Design",
         "Design Engineering",
         "UX Design",
@@ -86,6 +96,8 @@ const structuredData = {
         "Virtual Reality",
         "Augmented Reality",
         "Prompt Engineering",
+        "Research-to-Prompt Methodology",
+        "Vibe Coding",
         "Generative UI",
         "Adaptive UI",
         "User Research",
@@ -150,24 +162,30 @@ const structuredData = {
       ],
 
       "worksFor": {
-        "@type": "EducationalOrganization",
-        "name": "IIT Jodhpur",
-        "department": "School of Design",
+        "@type": "Organization",
+        "name": "Swiggy Instamart",
+        "department": "Behavioural Science Lab",
         "sameAs": [
-          "https://www.iitj.ac.in/school-of-design/",
-          "https://in.linkedin.com/company/school-of-design-iit-jodhpur"
+          "https://www.swiggy.com/instamart",
+          "https://www.linkedin.com/company/swiggy"
         ]
       },
 
       "hasOccupation": [
         {
           "@type": "Occupation",
-          "name": "Product Designer & Design Engineer",
+          "name": "Human-Centered Design Intern",
           "occupationLocation": {
-            "@type": "Place",
-            "name": "IIT Jodhpur"
+            "@type": "Organization",
+            "name": "Swiggy Instamart",
+            "sameAs": "https://www.swiggy.com/instamart"
           },
-          "description": "Master of Design candidate, specialising in AI product design and adaptive interfaces"
+          "description": "Human-Centered Design Intern in the Behavioural Science Lab at Swiggy Instamart. Applying design research and behavioural science to improve user experience."
+        },
+        {
+          "@type": "Occupation",
+          "name": "AI-Native Product Designer & Design Engineer",
+          "description": "Designs and builds intelligent, adaptive products using AI as a core design material. Specialises in generative UI, adaptive interfaces, and AI-assisted development workflows."
         },
         {
           "@type": "Occupation",
@@ -195,19 +213,34 @@ const structuredData = {
       // ── Projects as linked CreativeWork entities ───────────────────────────────
       "hasPart": [
         {
-          "@type": "CreativeWork",
-          "@id": `${BASE}/projects/liquidread`,
-          "name": "LiquidRead",
-          "url": `${BASE}/projects/liquidread`,
+          "@type": ["CreativeWork", "TechArticle"],
+          "@id": `${BASE}/projects/liquid-read`,
+          "name": "LiquidRead — Generative UI Case Study",
+          "url": `${BASE}/projects/liquid-read`,
           "description": "AI-powered reading companion using Google Gemini API. Generates personalised article summaries calibrated to the user's reading level, domain expertise, and session context. Multi-axis calibration system scores article complexity and adapts output format accordingly.",
-          "keywords": "AI product design, Gemini API, adaptive reading, personalised summaries, Next.js, TypeScript",
+          "keywords": "generative UI, generative user interface, adaptive reading, AI-generated interface, runtime UI generation, adaptive generative UI, Gemini API, personalised summaries, Next.js, TypeScript, generative UI case study, generative UI example",
+          "genre": "Generative UI Case Study",
+          "about": [
+            { "@type": "Thing", "name": "Generative UI", "description": "User interfaces generated at runtime by AI models rather than pre-designed statically" },
+            { "@type": "Thing", "name": "Adaptive User Interface", "description": "Interfaces that adapt to individual user characteristics and context" },
+            { "@type": "Thing", "name": "AI-Generated Interface", "description": "Interfaces where layout, content depth, and visual components are produced by large language models" }
+          ],
           "author": { "@id": `${BASE}/#person` }
         },
         {
           "@type": "CreativeWork",
-          "@id": `${BASE}/projects/lucidpast`,
+          "@id": `${BASE}/projects/fair-split`,
+          "name": "FairSplit",
+          "url": `${BASE}/projects/fair-split`,
+          "description": "AI-assisted Product Design and Engineering case study. A one-day design engineering sprint using Gemini 2.5 Flash for receipt OCR with deterministic Python arithmetic for fair bill splitting. Demonstrates AI-native rapid prototyping and research-grounded decision-making.",
+          "keywords": "AI-assisted design, Gemini API, receipt OCR, rapid prototyping, AI-native design, design engineering",
+          "author": { "@id": `${BASE}/#person` }
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": `${BASE}/projects/lucid-past`,
           "name": "LucidPast",
-          "url": `${BASE}/projects/lucidpast`,
+          "url": `${BASE}/projects/lucid-past`,
           "description": "XR interaction system for gaze-driven exploration of institutional photographic archives. Uses Apple Vision Pro and Meta Quest 3. Implements SHARP Gaussian Splatting for volumetric 3D reconstruction of 2D archival photographs. Three-act progressive narrowing algorithm inspired by dream-logic associations.",
           "keywords": "XR design, VR, Apple Vision Pro, Meta Quest 3, Gaussian Splatting, archival photography, gaze interaction",
           "author": { "@id": `${BASE}/#person` }
@@ -237,6 +270,15 @@ const structuredData = {
           "url": `${BASE}/projects/aruler-redesign`,
           "description": "UX redesign of an augmented reality spatial measurement tool. Improved measurement accuracy feedback and spatial interface clarity.",
           "keywords": "AR design, augmented reality, UX redesign, spatial measurement",
+          "author": { "@id": `${BASE}/#person` }
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": `${BASE}/projects/pomodoro-tracker`,
+          "name": "Pomodoro Tracker",
+          "url": `${BASE}/projects/pomodoro-tracker`,
+          "description": "A live web app built as a rapid AI-assisted prototyping experiment using Google Antigravity. Demonstrates AI-native design building — from concept to deployed product using AI tools natively in the design and development workflow.",
+          "keywords": "AI-assisted development, rapid prototyping, vibe coding, AI-native design, Google Antigravity",
           "author": { "@id": `${BASE}/#person` }
         }
       ]

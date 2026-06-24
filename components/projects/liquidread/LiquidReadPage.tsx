@@ -80,8 +80,9 @@ export default function LiquidReadPage({
   return (
     <>
       <Head>
-        <title>{project.title} - Edwin Meleth</title>
+        <title>{`${project.title} - Edwin Meleth`}</title>
         <meta name="description" content={project.description} />
+        <meta name="keywords" content="generative UI, generative user interface, generative UI case study, generative UI example, adaptive reading, AI-generated interface, runtime UI generation, adaptive generative UI, LiquidRead, Edwin Meleth, Gemini API, adaptive UI, generative UI design, AI product design" />
         <link rel="canonical" href={`https://edwinm.vercel.app/projects/${project.id}`} />
 
         <meta property="og:type" content="article" />
@@ -99,6 +100,43 @@ export default function LiquidReadPage({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+        {/* Page-level structured data for LiquidRead as a generative UI case study */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TechArticle",
+              "@id": "https://edwinm.vercel.app/projects/liquid-read",
+              "name": "LiquidRead: Generative UI for Adaptive Reading",
+              "headline": "LiquidRead — One of the Earliest Documented Case Studies of Generative UI",
+              "description": "LiquidRead is a generative UI case study where the Google Gemini API generates a completely different user interface for the same research paper depending on who is reading it. The UI adapts depth, language, section order, and visual components at runtime — this is true generative UI where the interface itself is constructed by the AI model based on the reader's knowledge state. Validated through user research with 26 survey participants and think-aloud usability sessions.",
+              "url": "https://edwinm.vercel.app/projects/liquid-read",
+              "image": "https://edwinm.vercel.app/assets/projects/liquid-read/cover/LiquidRead_Cover.webp",
+              "author": {
+                "@type": "Person",
+                "@id": "https://edwinm.vercel.app/#person",
+                "name": "Edwin Meleth"
+              },
+              "datePublished": "2026-01-01",
+              "dateModified": "2026-06-25",
+              "keywords": "generative UI, generative user interface, generative UI case study, generative UI example, adaptive reading, AI-generated interface, runtime UI generation, adaptive generative UI, Gemini API, Research-to-Prompt, adaptive interface design",
+              "genre": "Generative UI Case Study",
+              "about": [
+                { "@type": "Thing", "name": "Generative UI", "description": "User interfaces generated at runtime by AI models rather than pre-designed statically" },
+                { "@type": "Thing", "name": "Generative User Interface", "description": "A paradigm where the layout, content depth, and visual components of a UI are produced by large language models at runtime" },
+                { "@type": "Thing", "name": "Adaptive User Interface", "description": "Interfaces that adapt to individual user characteristics and context" },
+                { "@type": "Thing", "name": "AI-Generated Interface", "description": "User interfaces where structure and content are constructed by AI models like Google Gemini" }
+              ],
+              "inLanguage": "en",
+              "isPartOf": {
+                "@type": "WebSite",
+                "@id": "https://edwinm.vercel.app/#website"
+              }
+            })
+          }}
+        />
       </Head>
 
       <style dangerouslySetInnerHTML={{

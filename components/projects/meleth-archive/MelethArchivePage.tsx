@@ -192,7 +192,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
       ibmPlexMono.variable
     )}>
       <Head>
-        <title>{project.title} — Edwin Meleth</title>
+        <title>{`${project.title} — Edwin Meleth`}</title>
         <meta name="description" content="An independent photographic archive and field survey preserving vernacular family photography and mid-century social history in Kerala, India (1949-1990s)." />
         <link rel="canonical" href={`https://edwinm.vercel.app/projects/${project.id}`} />
 

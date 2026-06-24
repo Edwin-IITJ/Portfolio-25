@@ -76,7 +76,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
   return (
     <>
       <Head>
-        <title>{project.title} – Edwin Meleth</title>
+        <title>{`${project.title} – Edwin Meleth`}</title>
         <meta name="description" content={project.description} />
         <link rel="canonical" href={`https://edwinm.vercel.app/projects/${project.id}`} />
 

@@ -66,7 +66,7 @@ export default function LucidPastPage({ project }: LucidPastPageProps) {
   return (
     <div className="bg-[#F5F0E8] text-[#1A1410] font-display font-light selection:bg-[#8B6F47] selection:text-[#F5F0E8] relative">
       <Head>
-        <title>{project.title} - Edwin Meleth | XR Design & Creative Technology</title>
+        <title>{`${project.title} - Edwin Meleth | XR Design & Creative Technology`}</title>
         <meta name="description" content="An XR Design and Creative Technology case study detailing a conceptual interaction framework for exploring institutional archives using gaze-driven navigation and Gaussian Splatting." />
         <link rel="canonical" href={`https://edwinm.vercel.app/projects/${project.id}`} />
 
