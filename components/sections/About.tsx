@@ -332,7 +332,7 @@ const About = () => {
                     <Image src="/images/Logo_MACE.webp" alt="Mar Athanasius College of Engineering logo" width={32} height={32} className="object-contain" />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-semibold text-sm leading-tight" style={{ color: 'var(--color-text-primary)' }}>B.Tech, CSE</p>
+                    <p className="font-semibold text-sm leading-tight" style={{ color: 'var(--color-text-primary)' }}>B.Tech., CSE</p>
                     <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Mar Athanasius College of Engineering · 2017 – 2021</p>
                     {/* <p className="text-xs" style={{ color: 'var(--color-text-muted)' }}>CGPA: 8.14</p> */}
                   </div>
