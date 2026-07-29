@@ -77,7 +77,7 @@ const About = () => {
     {
       category: 'AI-Native Workflow',
       icon: Sparkles,
-      items: ['AI-assisted development', 'Cursor', 'Claude', 'ChatGPT', 'Googel Antigravity', 'Claude Code', 'Prompt Engineering', 'AI Image Generation'],
+      items: ['Agentic Prototyping', 'Cursor', 'Claude', 'ChatGPT', 'Googel Antigravity', 'Claude Code', 'Prompt Engineering', 'AI Image Generation'],
     },
     {
       category: 'Design & Research',
