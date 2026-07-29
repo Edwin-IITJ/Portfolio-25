@@ -68,7 +68,7 @@ const Hero = () => {
                 borderColor: 'var(--color-border)',
               }}
             >
-              Product Designer & Design Engineer
+              Design Engineer
             </span>
           </motion.div>
 
@@ -89,8 +89,8 @@ const Hero = () => {
             className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            I design and build, moving from user research to production-ready interfaces.
-            Specializing in AI-powered products and adaptive experiences blending design, technology, and storytelling.
+            I design and build, moving from user research to production code.
+            Specializing in AI-powered products and adaptive experiences blending code, design, and storytelling.
           </motion.p>
 
           {/* CTA row */}

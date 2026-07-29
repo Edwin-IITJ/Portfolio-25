@@ -19,7 +19,7 @@ const structuredData = {
       "@id": `${BASE}/#website`,
       "url": BASE,
       "name": "Edwin Meleth Portfolio",
-      "description": "Portfolio of Edwin Meleth — Product Designer and Design Engineer specialising in AI-powered products, XR interaction systems, and adaptive interfaces.",
+      "description": "Portfolio of Edwin Meleth — Design Engineer who ships AI products in code, from user research to production front-end. Builds across interfaces, interactive media, and storytelling.",
       "publisher": { "@id": `${BASE}/#person` },
       "inLanguage": "en"
     },
@@ -29,13 +29,13 @@ const structuredData = {
       "@type": "ProfilePage",
       "@id": `${BASE}/#webpage`,
       "url": BASE,
-      "name": "Edwin Meleth | Product Designer & Design Engineer",
+      "name": "Edwin Meleth | Design Engineer",
       "isPartOf": { "@id": `${BASE}/#website` },
       "mainEntity": { "@id": `${BASE}/#person` },
       "about": { "@id": `${BASE}/#person` },
-      "description": "Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. Design builder available for hire who uses AI natively and innovatively. Creator of LiquidRead, a pioneering generative UI case study. M.Des from IIT Jodhpur. B.Tech CS from MACE Kerala. 2.5 years of professional software development at IQVIA. Currently at Swiggy Instamart.",
+      "description": "Edwin Meleth is a Design Engineer who ships AI products in code, from user research to production front-end. Creator of LiquidRead (generative UI, Gemini API), LucidPast (XR, Gaussian Splatting, custom Three.js components), and FairSplit (1-day AI-assisted build). M.Des from IIT Jodhpur. B.Tech CS from MACE Kerala. 2.5 years of full-stack development at IQVIA where he proactively shipped UX improvements across 20+ screens. Currently at Swiggy Instamart.",
       "inLanguage": "en",
-      "dateModified": "2026-06-25T00:00:00+05:30"
+      "dateModified": "2026-07-30T00:00:00+05:30"
     },
 
     // ── Person (core entity) ───────────────────────────────────────────────────
@@ -45,8 +45,8 @@ const structuredData = {
       "name": "Edwin Meleth",
       "url": BASE,
       "image": `${BASE}/og-image.png`,
-      "jobTitle": "Product Designer & Design Engineer",
-      "description": "Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des candidate at IIT Jodhpur. Formerly Associate Software Developer at IQVIA.",
+      "jobTitle": "Design Engineer",
+      "description": "Design Engineer who ships AI products in code, from user research to production front-end. M.Des from IIT Jodhpur, B.Tech CS. Formerly full-stack developer at IQVIA. Builds across interfaces, interactive media, and storytelling.",
       "email": "edwinmeleth@gmail.com",
 
       // ── Location ─────────────────────────────────────────────────────────────
@@ -75,11 +75,14 @@ const structuredData = {
 
       // ── What Edwin knows ─────────────────────────────────────────────────────
       "knowsAbout": [
+        "Design Engineering",
+        "Design Builder",
+        "UI Engineering",
+        "Front-End Engineering",
         "AI Product Design",
         "AI-Native Design",
-        "AI-Assisted Design Workflow",
-        "Design Builder",
-        "AI Product Development",
+        "AI-Assisted Development",
+        "Vibe Coding",
         "Generative UI",
         "Generative UI Design",
         "Generative User Interface",
@@ -87,30 +90,34 @@ const structuredData = {
         "Adaptive Generative Interface",
         "Adaptive UI",
         "Product Design",
-        "Design Engineering",
         "UX Design",
         "UI Design",
         "Interaction Design",
         "Usability Engineering",
+        "User Research",
+        "Heuristic Evaluation",
+        "Prompt Engineering",
+        "Research-to-Prompt Methodology",
         "XR Design",
         "Virtual Reality",
         "Augmented Reality",
-        "Prompt Engineering",
-        "Research-to-Prompt Methodology",
-        "Vibe Coding",
-        "Generative UI",
-        "Adaptive UI",
-        "User Research",
-        "Heuristic Evaluation",
         "Gaussian Splatting",
-        "Figma",
+        "Interactive Media",
+        "Storytelling",
+        "React",
         "Next.js",
         "TypeScript",
-        "Python",
         "JavaScript",
-        "SQL",
+        "Three.js",
+        "React Three Fiber",
         "Angular",
-        "Unreal Engine 5"
+        "ASP.NET",
+        "Python",
+        "SQL",
+        "Supabase",
+        "Gemini API",
+        "Figma",
+        "Framer Motion"
       ],
 
       // ── Formal credentials ────────────────────────────────────────────────────
@@ -184,8 +191,8 @@ const structuredData = {
         },
         {
           "@type": "Occupation",
-          "name": "AI-Native Product Designer & Design Engineer",
-          "description": "Designs and builds intelligent, adaptive products using AI as a core design material. Specialises in generative UI, adaptive interfaces, and AI-assisted development workflows."
+          "name": "Design Engineer",
+          "description": "Designs and builds AI-powered products in code, from user research to production front-end. Ships generative UI, adaptive interfaces, and interactive media using AI-native workflows."
         },
         {
           "@type": "Occupation",

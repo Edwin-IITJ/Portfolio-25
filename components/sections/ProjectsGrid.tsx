@@ -11,8 +11,8 @@ import { projectsData, Project } from '@/data/projects'
 // ── Layout config — controls visual priority for the Major tab ────────────────
 // Changing these IDs is the only thing needed to re-order the hierarchy.
 const HERO_ID = 'liquid-read'
-const MEDIUM_IDS = ['aruler-redesign', 'fair-split']
-const SMALL_IDS = ['lucid-past', 'digimal', 'aam-vr']
+const MEDIUM_IDS = ['lucid-past', 'fair-split']
+const SMALL_IDS = ['aruler-redesign', 'digimal', 'aam-vr']
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function projectHref(p: Project): string {

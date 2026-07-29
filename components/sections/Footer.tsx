@@ -63,7 +63,7 @@ const Footer = () => {
               </h3>
             </Link>
             <p style={{ color: 'var(--color-text-secondary)' }}>
-              Product Designer & Design Engineer building AI-powered products and adaptive interfaces.
+              Design Engineer building AI-powered products in code, across interfaces, interactive media, and storytelling.
             </p>
             {/* <div className="flex space-x-4">
               {socialLinks.map((social) => (

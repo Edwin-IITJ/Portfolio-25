@@ -11,21 +11,21 @@ export default function AboutPage() {
         <title>About - Edwin Meleth</title>
         <meta
           name="description"
-          content="Edwin Meleth is a Product Designer and Design Engineer specializing in AI-powered products, UX research, and XR interaction design. Creator of LiquidRead, a pioneering generative UI case study. M.Des from IIT Jodhpur. Currently at Swiggy Instamart. Available for hire as a design builder."
+          content="Edwin Meleth is a Design Engineer who ships AI products in code, from user research to production front-end. Creator of LiquidRead, a generative UI case study. M.Des from IIT Jodhpur, B.Tech CS. Currently at Swiggy Instamart. Builds across interfaces, interactive media, and storytelling."
         />
         <link rel="canonical" href="https://edwinm.vercel.app/about" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://edwinm.vercel.app/about" />
-        <meta property="og:title" content="About Edwin Meleth | Product Designer & Design Engineer" />
-        <meta property="og:description" content="Product Designer and Design Engineer specialising in AI-powered products, XR interaction design, and UX research. M.Des at IIT Jodhpur, formerly at IQVIA." />
+        <meta property="og:title" content="About Edwin Meleth | Design Engineer" />
+        <meta property="og:description" content="Design Engineer who ships AI products in code. M.Des at IIT Jodhpur, B.Tech CS, formerly full-stack at IQVIA. Builds across interfaces, interactive media, and storytelling." />
         <meta property="og:image" content="https://edwinm.vercel.app/og-image.png" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Edwin Meleth | Product Designer & Design Engineer" />
-        <meta name="twitter:description" content="Product Designer and Design Engineer specialising in AI-powered products, XR interaction design, and UX research." />
+        <meta name="twitter:title" content="About Edwin Meleth | Design Engineer" />
+        <meta name="twitter:description" content="Design Engineer who ships AI products in code. M.Des at IIT Jodhpur, B.Tech CS. Builds across interfaces, interactive media, and storytelling." />
         <meta name="twitter:image" content="https://edwinm.vercel.app/og-image.png" />
       </Head>
 
@@ -52,7 +52,7 @@ export default function AboutPage() {
                 About
               </h1>
               <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
-                Product Designer & Design Engineer · I design and build AI-powered products, conduct UX research, and create XR interaction experiences.
+                Design Engineer · I design and build AI-powered products in code, from user research to production interfaces, across storytelling and interactive media.
               </p>
             </div>
           </motion.section>

@@ -17,6 +17,7 @@
       ],
       "coverImage": "/assets/projects/liquid-read/cover/LiquidRead_Cover.webp",
       "featured": true,
+      "githubUrl": "https://github.com/Edwin-IITJ/LiquidRead",
       "layout": "liquidread",
       "contentMedia": [
         {}
@@ -200,6 +201,7 @@
       ],
       "coverImage": "/assets/projects/fair-split/cover/screen1.webp",
       "featured": true,
+      "githubUrl": "https://github.com/Edwin-IITJ/Fair-Split",
       "layout": "fairsplit",
       "contentMedia": [
         {}
@@ -223,6 +225,7 @@
       "projectUrl": "#",
       "behanceUrl": "",
       "featured": false,
+      "githubUrl": "https://github.com/Edwin-IITJ/LucidPast",
       "layout": "lucidpast",
       "contentMedia": [
         {}

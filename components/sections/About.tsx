@@ -70,24 +70,24 @@ const About = () => {
   // ── Skills data (unchanged) ───────────────────────────────────────────────
   const skills = [
     {
-      category: 'UX Skills',
+      category: 'Build & Ship',
+      icon: Code,
+      items: ['JavaScript', 'TypeScript', 'HTML/CSS', 'Angular', 'ASP.NET (C#)', 'SQL', 'Python', 'Supabase', 'GitHub'],
+    },
+    {
+      category: 'AI-Native Workflow',
+      icon: Sparkles,
+      items: ['AI-assisted development', 'Cursor', 'Claude', 'ChatGPT', 'Googel Antigravity', 'Claude Code', 'Prompt Engineering', 'AI Image Generation'],
+    },
+    {
+      category: 'Design & Research',
       icon: Users,
       items: ['User Research', 'Usability Testing', 'Heuristic Evaluation', 'Interaction Design', 'Wireframing', 'User Flows', 'Prototyping', 'Design Systems', 'Personas', 'Accessibility'],
     },
     {
-      category: 'Design & Prototyping',
+      category: 'Tools & Creative',
       icon: Hammer,
-      items: ['Figma', 'Adobe Photoshop', 'Vibe Coding', 'Procreate', 'DaVinci Resolve', 'Unreal Engine 5', 'Unity', 'Blender'],
-    },
-    {
-      category: 'AI-Assisted Design',
-      icon: Sparkles,
-      items: ['Figma Make', 'Cursor', 'Claude', 'ChatGPT', 'Perplexity', 'Google Antigravity', 'AI Image Generation', 'Prompt Engineering'],
-    },
-    {
-      category: 'Development & Tools',
-      icon: Code,
-      items: ['JavaScript', 'TypeScript', 'HTML/CSS', 'Bootstrap', 'Angular', 'ASP.NET (C#)', 'SQL', 'Python', 'Supabase', 'GitHub'],
+      items: ['Figma', 'Photoshop', 'Procreate', 'DaVinci Resolve'],
     },
   ]
 
@@ -187,16 +187,15 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
                 <p>
-                  I'm a <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Product Designer</span> and{' '}
-                  <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Design Engineer</span> with a Master's in Design
-                  from <span className="font-semibold" style={{ color: 'var(--color-accent)' }}>IIT Jodhpur</span>. I design intelligent interfaces and build them, moving fluidly between user research, prototyping, and production-ready front-end code.
+                  I'm a <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Design Engineer</span> with a Master's in Design
+                  from <span className="font-semibold" style={{ color: 'var(--color-accent)' }}>IIT Jodhpur</span> and a B.Tech in Computer Science. I build the interfaces I design, moving from user research through prototyping to production front-end code.
                 </p>
                 <p>
                   Before design, I worked as a <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Full-Stack Developer at IQVIA</span> for 2.5 years, building
                   the Supply Integrity Management System using Angular, ASP.NET, and SQL. Thus I understand how design decisions translate into system constraints, data behavior, and deployment realities.&nbsp; My work spans AI product design (LiquidRead), enterprise UX
                   (<span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Immersive.IO</span> and{' '}
-                  <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>IQVIA</span>, pharma-scale platforms), and XR interaction design
-                  (Aam, Digimal, ARuler).
+                  <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>IQVIA</span>), and XR interaction design
+                  (Aam, Digimal, LucidPast).
                 </p>
                 <p>Beyond design, I'm fascinated by narrative structure and the power of storytelling.</p>
               </div>

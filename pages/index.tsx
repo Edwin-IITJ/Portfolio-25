@@ -66,9 +66,9 @@ export default function Home() {
     <>
       {/* SEO Meta Tags */}
       <Head>
-        <title>Edwin Meleth | Product Designer & Design Engineer</title>
-        <meta name="description" content="Edwin Meleth is a Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des from IIT Jodhpur. Currently at Swiggy Instamart. Creator of LiquidRead and FairSplit. Formerly at IQVIA." />
-        <meta name="keywords" content="Product Designer, Design Engineer, AI Product Design, UX Designer, XR Design, Edwin Meleth, IIT Jodhpur, LiquidRead, FairSplit, AI-powered products, Swiggy, Instamart, AI-native design builder, generative UI, generative user interface, adaptive UI, hire design engineer, hire product designer, generative UI case study, AI-powered products, design builder for hire" />
+        <title>Edwin Meleth | Design Engineer</title>
+        <meta name="description" content="Edwin Meleth is a Design Engineer who ships AI products in code, from user research to production front-end. M.Des from IIT Jodhpur, B.Tech CS. Currently at Swiggy Instamart. Creator of LiquidRead (generative UI), LucidPast (XR + Gaussian Splatting), and FairSplit. Formerly full-stack developer at IQVIA. Builds across interfaces, interactive media, and storytelling." />
+        <meta name="keywords" content="Design Engineer, UI Engineer, front-end engineer, AI product design, design engineering, Edwin Meleth, IIT Jodhpur, LiquidRead, LucidPast, FairSplit, generative UI, adaptive interfaces, AI-powered products, Swiggy Instamart, interactive media, code and design, vibe coding, AI-native design builder, Gaussian Splatting, XR design, Three.js, React, Next.js, hire design engineer" />
         <meta name="author" content="Edwin Meleth" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://edwinm.vercel.app/" />
@@ -76,8 +76,8 @@ export default function Home() {
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://edwinm.vercel.app/" />
-        <meta property="og:title" content="Edwin Meleth | Product Designer & Design Engineer" />
-        <meta property="og:description" content="Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des from IIT Jodhpur. Currently at Swiggy Instamart." />
+        <meta property="og:title" content="Edwin Meleth | Design Engineer" />
+        <meta property="og:description" content="Design Engineer who ships AI products in code, from user research to production front-end. Builds across interfaces, interactive media, and storytelling. M.Des from IIT Jodhpur. Currently at Swiggy Instamart." />
         <meta property="og:image" content="https://edwinm.vercel.app/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -86,8 +86,8 @@ export default function Home() {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Edwin Meleth | Product Designer & Design Engineer" />
-        <meta name="twitter:description" content="Product Designer and Design Engineer specialising in AI-powered products, adaptive interfaces, and XR interaction design. M.Des from IIT Jodhpur." />
+        <meta name="twitter:title" content="Edwin Meleth | Design Engineer" />
+        <meta name="twitter:description" content="Design Engineer who ships AI products in code, from user research to production front-end. M.Des from IIT Jodhpur." />
         <meta name="twitter:image" content="https://edwinm.vercel.app/og-image.png" />
       </Head>
 
