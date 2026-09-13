@@ -871,7 +871,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
 
             <div className="pt-8 border-t border-[#b8976a]/15">
               <p className="font-garamond italic text-[#7a7060] text-[0.95rem] leading-relaxed">
-                This project was the direct origin of <Link href="/projects/lucidpast"><span className="text-[#b8976a] underline underline-offset-4 decoration-[#7a6045] hover:text-[#d9d0c0] cursor-pointer transition-colors">LucidPast</span></Link> , an XR system for navigating institutional photographic archives. The family survey was where I first understood what it means for a photograph to be truly inaccessible. That problem, felt very personally, became the design problem I tried to solve.
+                This project was the direct origin of <Link href="/projects/lucid-past"><span className="text-[#b8976a] underline underline-offset-4 decoration-[#7a6045] hover:text-[#d9d0c0] cursor-pointer transition-colors">LucidPast</span></Link> , an XR system for navigating institutional photographic archives. The family survey was where I first understood what it means for a photograph to be truly inaccessible. That problem, felt very personally, became the design problem I tried to solve.
               </p>
             </div>
           </div>
