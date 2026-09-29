@@ -1,5 +1,6 @@
 // pages/projects/[slug].tsx
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useState, useCallback } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,6 +19,7 @@ import LiquidReadPage from '../../components/projects/liquidread/LiquidReadPage'
 import FairSplitPage from '../../components/projects/fairsplit/FairSplitPage';
 import { cn } from '../../lib/utils';
 import { fadeInUp, fadeIn, staggerContainer } from '../../lib/animations';
+import NdaGate from '../../components/projects/NdaGate';
 
 // JSON-safe helper
 function removeUndefinedDeep<T>(obj: T): T {
@@ -66,9 +68,14 @@ export const getStaticProps: GetStaticProps<{
   const shuffled = [...siblings].sort(() => Math.random() - 0.5);
   const relatedProjects = shuffled.slice(0, 3);
 
+  // Strip protectedContent before sending to client via SSG.
+  // Protected content is served only via /api/case-studies/[slug] after auth.
+  // eslint-disable-next-line
+  const { protectedContent: _stripped, ...safeProject } = project as any;
+
   return {
     props: {
-      project: removeUndefinedDeep(project),
+      project: removeUndefinedDeep(safeProject),
       relatedProjects: removeUndefinedDeep(relatedProjects),
       groupLabel: GROUP_LABELS[group],
     },
@@ -80,6 +87,18 @@ export default function ProjectPage({
   relatedProjects,
   groupLabel,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  // NDA state: tracks content loaded after authentication
+  const [ndaUnlockedContent, setNdaUnlockedContent] = useState<
+    NonNullable<typeof project.protectedContent>
+  >(undefined as any);
+
+  const handleNdaUnlock = useCallback(
+    (content: NonNullable<typeof project.protectedContent>) => {
+      setNdaUnlockedContent(content);
+    },
+    []
+  );
+
   if (project.layout === 'lucidpast') {
     return <LucidPastPage project={project} relatedProjects={relatedProjects} />;
   }
@@ -141,6 +160,8 @@ export default function ProjectPage({
         <meta name="twitter:title" content={`${project.title} – Edwin Meleth`} />
         <meta name="twitter:description" content={project.description} />
         <meta name="twitter:image" content={`https://edwinm.vercel.app${project.coverImage}`} />
+        {/* Prevent search engine indexing of NDA-protected pages */}
+        {project.isNdaProtected && <meta name="robots" content="noindex, nofollow" />}
       </Head>
 
       {/* Header section */}
@@ -331,7 +352,17 @@ export default function ProjectPage({
       </section>
 
       {/* Documentation media (Behance-style panels) */}
-      {project.contentMedia?.length ? (
+      {project.isNdaProtected ? (
+        // NDA-protected: show gate; after unlock, show protected contentMedia
+        <section className="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8 pb-20">
+          <NdaGate slug={project.id} onUnlock={handleNdaUnlock}>
+            {ndaUnlockedContent?.contentMedia?.length ? (
+              <MediaRenderer items={ndaUnlockedContent.contentMedia} />
+            ) : null}
+          </NdaGate>
+        </section>
+      ) : project.contentMedia?.length ? (
+        // Public project: render contentMedia normally
         <section className="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8 pb-20">
           <MediaRenderer items={project.contentMedia} />
         </section>

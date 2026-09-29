@@ -93,7 +93,7 @@ const About = () => {
 
   // ── Stats (unchanged — commented entries preserved) ───────────────────────
   const stats = [
-    { number: '2.5+', label: 'Years Experience' },
+    { number: '3', label: 'Years Experience' },
     // { number: '20+', label: 'Projects Completed' },
     { number: '15+', label: 'Licenses & Certifications' },
     // { number: '5+',  label: 'Awards Won' },
@@ -189,15 +189,13 @@ const About = () => {
                 <p>
                   I'm a <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Design Engineer</span> with a Master's in Design
                   from <span className="font-semibold" style={{ color: 'var(--color-accent)' }}>IIT Jodhpur</span> and a B.Tech in Computer Science. I build the interfaces I design, moving from user research through prototyping to production front-end code.
+                  Currently solving problems at the intersection of operations and behavioural science.
                 </p>
                 <p>
-                  Before design, I worked as a <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Full-Stack Developer at IQVIA</span> for 2.5 years, building
-                  the Supply Integrity Management System using Angular, ASP.NET, and SQL. Thus I understand how design decisions translate into system constraints, data behavior, and deployment realities.&nbsp; My work spans AI product design (LiquidRead), enterprise UX
-                  (<span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Immersive.IO</span> and{' '}
-                  <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>IQVIA</span>), and XR interaction design
-                  (Aam, Digimal, LucidPast).
+                  Before, I worked as a <span className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>Full-Stack Developer at IQVIA</span> for 2.5 years, building
+                  the Supply Integrity Management System using Angular, ASP.NET, and SQL.
                 </p>
-                <p>Beyond design, I'm fascinated by narrative structure and the power of storytelling.</p>
+                <p>Beyond, I'm fascinated by narrative structure and the power of storytelling.</p>
               </div>
             </div>
 

@@ -77,6 +77,22 @@ export type Project = {
 
   // Layout preference
   layout?: 'standard' | 'minimal' | 'lucidpast' | 'aam' | 'meleth-archive' | 'liquidread' | 'fairsplit';
+
+  // NDA protection — presentation-only case studies.
+  // Content is gated behind password + NDA acknowledgment.
+  isNdaProtected?: boolean;
+
+  // Protected content — NEVER sent via getStaticProps.
+  // Served only via /api/case-studies/[slug] after authentication.
+  protectedContent?: {
+    /** Extended description revealed after auth (public one acts as teaser). */
+    fullDescription?: string;
+    challenges?: string;
+    solution?: string;
+    results?: string;
+    /** Full Behance-style media sequence, hidden until authenticated. */
+    contentMedia?: ProjectMedia[];
+  };
 };
 
 export type ProjectsData = {
@@ -167,6 +183,13 @@ function ensureProject(p: any): Project {
 
     // Layout
     layout: (p.layout === 'standard' || p.layout === 'minimal' || p.layout === 'lucidpast' || p.layout === 'aam' || p.layout === 'meleth-archive' || p.layout === 'liquidread' || p.layout === 'fairsplit') ? p.layout : undefined,
+
+    // NDA fields — protectedContent is preserved in the data layer.
+    // getStaticProps in [slug].tsx strips it before SSG; API route serves it.
+    isNdaProtected: typeof p.isNdaProtected === 'boolean' ? p.isNdaProtected : undefined,
+    protectedContent: p.protectedContent
+      ? (p.protectedContent as Project['protectedContent'])
+      : undefined,
   } as const;
 
   // Prune undefined keys so getStaticProps never sees undefined values.

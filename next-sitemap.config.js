@@ -1,6 +1,24 @@
 // next-sitemap.config.js
 
 /** @type {import('next-sitemap').IConfig} */
+const fs = require('fs');
+const path = require('path');
+
+// Since this is a plain JS file running in Node, we cannot directly import the TypeScript data file.
+// Instead, we parse the TS file content to find NDA protected projects.
+const projectsContent = fs.readFileSync(path.join(__dirname, 'data/projects.ts'), 'utf-8');
+const ndaSlugs = [];
+
+const blocks = projectsContent.split('id:');
+for (let i = 1; i < blocks.length; i++) {
+  if (blocks[i].includes('isNdaProtected: true')) {
+    const match = blocks[i].match(/^\s*['"]?([^'",\s]+)['"]?/);
+    if (match) {
+      ndaSlugs.push(`/projects/${match[1]}`);
+    }
+  }
+}
+
 module.exports = {
   siteUrl: 'https://edwinm.vercel.app',
   generateRobotsTxt: false, // We created manual robots.txt
