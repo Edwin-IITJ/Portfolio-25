@@ -5,14 +5,18 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Lock } from 'lucide-react'
 import { projectsData, Project } from '@/data/projects'
 
-// ── Layout config — controls visual priority for the Major tab ────────────────
-// Changing these IDs is the only thing needed to re-order the hierarchy.
-const HERO_ID = 'liquid-read'
-const MEDIUM_IDS = ['lucid-past', 'fair-split']
-const SMALL_IDS = ['aruler-redesign', 'digimal', 'aam-vr']
+// ── Tab types ─────────────────────────────────────────────────────────────────
+type TabKey = 'nda' | 'major' | 'other' | 'lab'
+
+const TAB_LABELS: Record<TabKey, string> = {
+  nda: 'NDA Protected',
+  major: 'Major Projects',
+  other: 'Other Works',
+  lab: 'Lab',
+}
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function projectHref(p: Project): string {
@@ -23,54 +27,22 @@ function projectHref(p: Project): string {
 
 // ── Shared sub-components ─────────────────────────────────────────────────────
 
-function LiveBadge() {
-  return (
-    <div
-      className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-semibold shadow-lg flex items-center gap-1.5"
-      style={{
-        backgroundColor: 'var(--color-success)',
-        color: 'var(--color-bg)',
-      }}
-    >
-      <span className="relative flex h-2 w-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: 'var(--color-bg)' }} />
-        <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: 'var(--color-bg)' }} />
-      </span>
-      LIVE
-    </div>
-  )
-}
-
-function ViewOverlay({ label = 'View Case Study' }: { label?: string }) {
-  return (
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6 z-10"
-      style={{ transitionDuration: 'var(--motion-default)' }}
-    >
-      <span className="font-medium text-sm flex items-center gap-2 tracking-wide" style={{ color: 'var(--color-text-primary)' }}>
-        {label}
-        <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-      </span>
-    </div>
-  )
-}
-
 function TechPills({ techs, max = 3 }: { techs: string[]; max?: number }) {
   return (
-    <div className="flex flex-wrap gap-1.5">
+    <div className="flex flex-wrap items-start" style={{ gap: '4px' }}>
       {techs.slice(0, max).map(t => (
         <span
           key={t}
-          className="text-xs px-2.5 py-1 rounded-full font-mono"
-          style={{
-            backgroundColor: 'var(--color-surface-2)',
-            color: 'var(--color-text-muted)',
-          }}
+          className="tag-pill"
         >
           {t}
         </span>
       ))}
       {techs.length > max && (
-        <span className="text-xs px-2 py-1" style={{ color: 'var(--color-text-muted)' }}>
+        <span
+          className="text-xs px-2 py-1"
+          style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-sans), sans-serif' }}
+        >
           +{techs.length - max}
         </span>
       )}
@@ -78,21 +50,24 @@ function TechPills({ techs, max = 3 }: { techs: string[]; max?: number }) {
   )
 }
 
-// ── Tier 1: HERO card (LiquidRead) ───────────────────────────────────────────
-// Full-width, tall image, rich content block, flagship label.
+// ── Hero card (LiquidRead — full-width featured card) ─────────────────────────
 function HeroCard({ project }: { project: Project }) {
   return (
     <Link href={projectHref(project)}>
       <div
-        className="group cursor-pointer rounded-card overflow-hidden border card-hover"
+        className="group cursor-pointer overflow-hidden card-hover flex flex-col w-full"
         style={{
-          backgroundColor: 'var(--color-surface)',
-          borderColor: 'var(--color-border)',
+          borderRadius: '12px',
+          border: '1px solid var(--color-black-solid)',
+          backgroundColor: 'var(--color-bg)',
         }}
       >
-        {/* Image */}
-        <div className="relative w-full overflow-hidden h-[400px] md:h-[460px] img-grain"
-          style={{ backgroundColor: 'var(--color-surface-2)' }}
+        {/* Image — locked aspect from design: 782×375 */}
+        <div
+          className="relative overflow-hidden w-full aspect-[4/3] md:aspect-[782/375]"
+          style={{
+            backgroundColor: 'var(--color-surface-2)',
+          }}
         >
           <Image
             src={project.coverImage}
@@ -104,59 +79,101 @@ function HeroCard({ project }: { project: Project }) {
               (e.target as HTMLImageElement).src = '/images/placeholder-project.jpg'
             }}
           />
-          {project.isLiveProject && <LiveBadge />}
-          <ViewOverlay label="View Case Study" />
-          {/* Contextual label */}
-          <div
-            className="absolute top-5 right-5 z-10 text-xs font-semibold px-3.5 py-1.5 rounded-full border tracking-wide font-mono"
-            style={{
-              backgroundColor: 'rgba(26, 24, 21, 0.85)',
-              borderColor: 'var(--color-border)',
-              color: 'var(--color-accent)',
-              backdropFilter: 'blur(8px)',
-            }}
-          >
-            New
-          </div>
+          {/* "New" badge */}
+          {project.isNew && (
+            <div
+              className="absolute z-10 font-mono"
+              style={{
+                right: '20px',
+                top: '20px',
+                paddingLeft: '13.63px',
+                paddingRight: '13.63px',
+                paddingTop: '5.63px',
+                paddingBottom: '5.63px',
+                backgroundColor: 'var(--color-orange-9-85)',
+                borderRadius: '9999px',
+                outline: '1px solid var(--color-border)',
+                outlineOffset: '-1px',
+                backdropFilter: 'blur(4px)',
+                color: 'var(--color-accent)',
+                fontSize: '12px',
+                fontWeight: 600,
+                lineHeight: '16px',
+                letterSpacing: '0.3px',
+              }}
+            >
+              New
+            </div>
+          )}
         </div>
 
         {/* Content */}
-        <div className="p-8 md:p-10">
-          <div className="flex items-start justify-between gap-4 mb-3">
+        <div className="flex flex-col items-start" style={{ padding: '20px', gap: '16px' }}>
+          {/* Category */}
+          <div className="w-full">
             <span
-              className="text-xs font-bold tracking-widest uppercase font-mono"
-              style={{ color: 'var(--color-accent)' }}
+              className="font-mono"
+              style={{
+                color: 'var(--color-black-solid)',
+                fontSize: '12px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                lineHeight: '16px',
+                letterSpacing: '1.2px',
+              }}
             >
               {project.category}
             </span>
           </div>
-          <h3
-            className="text-3xl md:text-4xl font-display font-medium mb-4 leading-tight transition-colors"
-            style={{
-              color: 'var(--color-text-primary)',
-              transitionDuration: 'var(--motion-fast)',
-            }}
-          >
-            {project.title}
-          </h3>
-          <p
-            className="text-base md:text-lg leading-relaxed mb-7 max-w-4xl"
-            style={{ color: 'var(--color-text-secondary)' }}
-          >
-            {project.description}
-          </p>
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <TechPills techs={project.technologies} max={5} />
-            <span
-              className="text-sm font-medium flex items-center gap-1.5 group-hover:gap-3 transition-all shrink-0"
+
+          {/* Title + Description */}
+          <div className="flex flex-col items-start" style={{ gap: '12px', width: '100%' }}>
+            <h3
+              className="font-display"
               style={{
-                color: 'var(--color-accent)',
-                transitionDuration: 'var(--motion-fast)',
+                color: 'var(--color-black-solid)',
+                fontSize: '36px',
+                fontWeight: 500,
+                lineHeight: '40px',
               }}
             >
-              Case Study
-              <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </span>
+              {project.title}
+            </h3>
+            <p
+              style={{
+                maxWidth: '896px',
+                color: 'var(--color-black-solid)',
+                fontSize: '18px',
+                fontFamily: 'var(--font-sans), sans-serif',
+                fontWeight: 400,
+                lineHeight: '28px',
+              }}
+            >
+              {project.description}
+            </p>
+          </div>
+
+          {/* Tech pills + Case Study link */}
+          <div className="flex flex-col items-start w-full" style={{ gap: '16px' }}>
+            <TechPills techs={project.technologies} max={5} />
+            <div className="flex items-center" style={{ gap: '12px' }}>
+              <span
+                style={{
+                  color: '#565656',
+                  fontSize: '14px',
+                  fontFamily: 'var(--font-sans), sans-serif',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                }}
+              >
+                Case Study
+              </span>
+              <ArrowRight
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                style={{ color: '#565656', transitionDuration: 'var(--motion-fast)' }}
+                strokeWidth={1.5}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -164,20 +181,24 @@ function HeroCard({ project }: { project: Project }) {
   )
 }
 
-// ── Tier 2: MEDIUM card (ARuler, FairSplit) ───────────────────────────────────
-// 50/50 grid, substantial image, comfortable content area.
+// ── Medium card (50/50 grid cards) ────────────────────────────────────────────
 function MediumCard({ project }: { project: Project }) {
   return (
     <Link href={projectHref(project)} className="h-full block">
       <div
-        className="group cursor-pointer rounded-card overflow-hidden border card-hover h-full flex flex-col"
+        className="group cursor-pointer overflow-hidden card-hover h-full flex flex-col"
         style={{
-          backgroundColor: 'var(--color-surface)',
-          borderColor: 'var(--color-border)',
+          backgroundColor: 'var(--color-bg)',
+          borderRadius: '12px',
+          border: '1px solid var(--color-black-solid)',
         }}
       >
-        <div className="relative w-full overflow-hidden h-[260px] md:h-[300px] shrink-0 img-grain"
-          style={{ backgroundColor: 'var(--color-surface-2)' }}
+        {/* Image — locked aspect from design: 378×243 */}
+        <div
+          className="relative overflow-hidden shrink-0 w-full aspect-[4/3] md:aspect-[378/243]"
+          style={{
+            backgroundColor: 'var(--color-surface-2)',
+          }}
         >
           <Image
             src={project.coverImage}
@@ -189,188 +210,156 @@ function MediumCard({ project }: { project: Project }) {
               (e.target as HTMLImageElement).src = '/images/placeholder-project.jpg'
             }}
           />
-          {project.isLiveProject && <LiveBadge />}
-          <ViewOverlay />
         </div>
-        <div className="p-6 md:p-7 flex flex-col flex-1">
-          <div className="flex items-center justify-between mb-2.5">
-            <span
-              className="text-xs font-bold tracking-widest uppercase font-mono"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              {project.category}
-            </span>
-            <span className="text-xs font-mono" style={{ color: 'var(--color-text-muted)' }}>{project.year}</span>
-          </div>
-          <h3
-            className="text-xl md:text-2xl font-display font-medium mb-3 leading-snug transition-colors"
-            style={{
-              color: 'var(--color-text-primary)',
-              transitionDuration: 'var(--motion-fast)',
-            }}
-          >
-            {project.title}
-          </h3>
-          <p
-            className="text-sm leading-relaxed mb-5 flex-1"
-            style={{ color: 'var(--color-text-secondary)' }}
-          >
-            {project.description}
-          </p>
-          <TechPills techs={project.technologies} max={3} />
-        </div>
-      </div>
-    </Link>
-  )
-}
 
-// ── Tier 3: SMALL card (LucidPast, Digimal, Aam) ─────────────────────────────
-// 3-column grid, compact image, tight content. Polished but clearly secondary.
-function SmallCard({ project }: { project: Project }) {
-  return (
-    <Link href={projectHref(project)} className="h-full block">
-      <div
-        className="group cursor-pointer rounded-card overflow-hidden border card-hover h-full flex flex-col"
-        style={{
-          backgroundColor: 'var(--color-surface)',
-          borderColor: 'var(--color-border)',
-        }}
-      >
-        <div className="relative w-full overflow-hidden h-[192px] shrink-0 img-grain"
-          style={{ backgroundColor: 'var(--color-surface-2)' }}
+        {/* Content */}
+        <div
+          className="flex flex-col flex-1 bg-white"
+          style={{ padding: '20px' }}
         >
-          <Image
-            src={project.coverImage}
-            alt={project.title}
-            fill
-            className="object-cover"
-            loading="lazy"
-            onError={e => {
-              (e.target as HTMLImageElement).src = '/images/placeholder-project.jpg'
-            }}
-          />
-          {project.isLiveProject && <LiveBadge />}
-          <ViewOverlay />
-        </div>
-        <div className="p-5 flex flex-col flex-1">
-          <div className="flex items-center justify-between mb-1.5">
-            <span
-              className="text-xs font-bold tracking-widest uppercase font-mono"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              {project.category}
-            </span>
-            <span className="text-xs font-mono" style={{ color: 'var(--color-text-muted)' }}>{project.year}</span>
-          </div>
-          <h3
-            className="text-base font-display font-medium mb-2 leading-snug transition-colors"
-            style={{
-              color: 'var(--color-text-primary)',
-              transitionDuration: 'var(--motion-fast)',
-            }}
-          >
-            {project.title}
-          </h3>
-          <p
-            className="text-xs leading-relaxed mb-3 flex-1 line-clamp-3"
-            style={{ color: 'var(--color-text-secondary)' }}
-          >
-            {project.description}
-          </p>
-          <TechPills techs={project.technologies} max={2} />
-        </div>
-      </div>
-    </Link>
-  )
-}
+          <div className="flex flex-col items-start" style={{ gap: '16px' }}>
+            {/* Category row */}
+            <div className="flex flex-col items-start" style={{ gap: '12px', width: '100%' }}>
+              <div className="w-full flex items-start justify-between">
+                <span
+                  className="font-mono"
+                  style={{
+                    color: 'var(--color-black-solid)',
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    lineHeight: '16px',
+                    letterSpacing: '1.2px',
+                  }}
+                >
+                  {project.category}
+                </span>
+                <span
+                  className="font-mono"
+                  style={{
+                    color: 'var(--color-black-solid)',
+                    fontSize: '12px',
+                    fontWeight: 400,
+                    lineHeight: '16px',
+                  }}
+                >
+                  {project.year}
+                </span>
+              </div>
 
-// ── Uniform card (Other Works / Lab) ─────────────────────────────────────────
-function UniformCard({ project, priority }: { project: Project; priority: boolean }) {
-  return (
-    <Link href={projectHref(project)} className="h-full block">
-      <div
-        className="group cursor-pointer rounded-card overflow-hidden border card-hover h-full flex flex-col"
-        style={{
-          backgroundColor: 'var(--color-surface)',
-          borderColor: 'var(--color-border)',
-        }}
-      >
-        <div className="relative w-full overflow-hidden h-[192px] shrink-0 img-grain"
-          style={{ backgroundColor: 'var(--color-surface-2)' }}
-        >
-          <Image
-            src={project.coverImage}
-            alt={project.title}
-            fill
-            className="object-cover"
-            priority={priority}
-            loading={priority ? undefined : 'lazy'}
-            onError={e => {
-              (e.target as HTMLImageElement).src = '/images/placeholder-project.jpg'
-            }}
-          />
-          {project.isLiveProject && <LiveBadge />}
-          <ViewOverlay />
-          {project.featured && (
-            <div
-              className="absolute top-3 right-3 z-10 text-xs font-semibold px-2.5 py-1 rounded-full font-mono"
-              style={{
-                backgroundColor: 'var(--color-accent)',
-                color: 'var(--color-bg)',
-              }}
-            >
-              Featured
+              {/* Title */}
+              <h3
+                className="font-display"
+                style={{
+                  color: 'var(--color-black-solid)',
+                  fontSize: '24px',
+                  fontWeight: 500,
+                  lineHeight: '32px',
+                }}
+              >
+                {project.title}
+              </h3>
+
+              {/* Description */}
+              <p
+                style={{
+                  color: 'var(--color-black-solid)',
+                  fontSize: '14px',
+                  fontFamily: 'var(--font-sans), sans-serif',
+                  fontWeight: 400,
+                  lineHeight: '22.75px',
+                  maxWidth: '322px',
+                }}
+              >
+                {project.description}
+              </p>
             </div>
-          )}
-        </div>
-        <div className="p-5 flex flex-col flex-1">
-          <div className="flex items-center justify-between mb-1.5">
-            <span
-              className="text-xs font-bold tracking-widest uppercase font-mono"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              {project.category}
-            </span>
-            <span className="text-xs font-mono" style={{ color: 'var(--color-text-muted)' }}>{project.year}</span>
+
+            {/* Tech pills */}
+            <TechPills techs={project.technologies} max={3} />
           </div>
-          <h3
-            className="text-base font-display font-medium mb-2 leading-snug transition-colors"
-            style={{
-              color: 'var(--color-text-primary)',
-              transitionDuration: 'var(--motion-fast)',
-            }}
-          >
-            {project.title}
-          </h3>
-          {project.description && (
-            <p
-              className="text-xs leading-relaxed mb-3 flex-1 line-clamp-3"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              {project.description}
-            </p>
-          )}
-          <TechPills techs={project.technologies} max={2} />
         </div>
       </div>
     </Link>
+  )
+}
+
+// ── NDA Locked State ──────────────────────────────────────────────────────────
+function NdaLockedState() {
+  return (
+    <div
+      className="flex flex-col items-center justify-center text-center w-full max-w-[783px]"
+      style={{
+        minHeight: '400px',
+        borderRadius: '12px',
+        outline: '1px dashed rgba(46, 43, 40, 0.3)',
+        outlineOffset: '-1px',
+        padding: '48px',
+        gap: '20px',
+      }}
+    >
+      <div
+        className="flex items-center justify-center"
+        style={{
+          width: '64px',
+          height: '64px',
+          borderRadius: '9999px',
+          backgroundColor: 'var(--color-surface-2)',
+        }}
+      >
+        <Lock className="w-6 h-6" style={{ color: 'var(--color-text-secondary)' }} strokeWidth={1.5} />
+      </div>
+      <h3
+        className="font-display"
+        style={{
+          fontSize: '24px',
+          fontWeight: 500,
+          lineHeight: '32px',
+          color: 'var(--color-text-primary)',
+        }}
+      >
+        NDA Protected Work
+      </h3>
+      <p
+        style={{
+          fontSize: '16px',
+          fontFamily: 'var(--font-sans), sans-serif',
+          fontWeight: 400,
+          lineHeight: '24px',
+          color: 'var(--color-text-secondary)',
+          maxWidth: '420px',
+        }}
+      >
+        These case studies contain confidential work and are available upon request
+        with appropriate authorization.
+      </p>
+      <a
+        href="mailto:edwinmeleth@gmail.com"
+        className="inline-flex items-center justify-center transition-all"
+        style={{
+          paddingLeft: '20px',
+          paddingRight: '20px',
+          paddingTop: '12px',
+          paddingBottom: '12px',
+          backgroundColor: 'var(--color-black-solid)',
+          borderRadius: '9999px',
+          color: '#FFFFFF',
+          fontSize: '14px',
+          fontFamily: 'var(--font-sans), sans-serif',
+          fontWeight: 500,
+          lineHeight: '20px',
+          transitionDuration: 'var(--motion-fast)',
+        }}
+      >
+        Request Access
+      </a>
+    </div>
   )
 }
 
 // ── Main component ────────────────────────────────────────────────────────────
 const ProjectsGrid = () => {
-  const [activeTab, setActiveTab] = useState<'major' | 'other' | 'lab'>('major')
-  const [projects, setProjects] = useState(projectsData.majorProjects)
-
-  useEffect(() => {
-    setProjects(
-      activeTab === 'major'
-        ? projectsData.majorProjects
-        : activeTab === 'other'
-          ? projectsData.otherWorks
-          : projectsData.labWorks
-    )
-  }, [activeTab])
+  const [activeTab, setActiveTab] = useState<TabKey>('major')
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -389,155 +378,196 @@ const ProjectsGrid = () => {
     },
   }
 
-  // Build the major tab project slots by priority ID
-  const allMajor = projectsData.majorProjects
-  const hero = allMajor.find(p => p.id === HERO_ID)
-  const mediumCards = MEDIUM_IDS
-    .map(id => allMajor.find(p => p.id === id))
-    .filter(Boolean) as Project[]
-  const smallCards = SMALL_IDS
-    .map(id => allMajor.find(p => p.id === id))
-    .filter(Boolean) as Project[]
+  // Get featured projects for the active tab, sorting the "isNew" one to the top
+  const getTabProjects = (tab: TabKey): Project[] => {
+    let sourceProjects: Project[] = []
+    switch (tab) {
+      case 'major':
+        sourceProjects = projectsData.majorProjects
+        break
+      case 'other':
+        sourceProjects = projectsData.otherWorks
+        break
+      case 'lab':
+        sourceProjects = projectsData.labWorks
+        break
+      case 'nda':
+        return []
+    }
 
-  // Any future projects not yet in the layout config go to overflow
-  const coveredIds = new Set([HERO_ID, ...MEDIUM_IDS, ...SMALL_IDS])
-  const overflow = allMajor.filter(p => !coveredIds.has(p.id))
+    // Only take projects marked as featured
+    const featured = sourceProjects.filter(p => p.featured)
+    if (featured.length === 0) return []
+
+    // Find the first project marked as isNew for the hero slot
+    const heroIndex = featured.findIndex(p => p.isNew)
+    
+    if (heroIndex > 0) {
+      // Move the hero project to the beginning of the array
+      const heroProject = featured.splice(heroIndex, 1)[0]
+      featured.unshift(heroProject)
+    }
+
+    // Limit to max 3 projects for the home page preview
+    return featured.slice(0, 3)
+  }
+
+  // Unified tiered layout for all project categories
+  const renderTieredLayout = (projects: Project[]) => {
+    if (projects.length === 0) return null
+    const [first, ...rest] = projects
+    return (
+      <div className="flex flex-col items-center gap-6 w-full lg:max-w-[1200px]">
+        {/* Hero card */}
+        <motion.div variants={itemVariants} className="w-full">
+          <HeroCard project={first} />
+        </motion.div>
+
+        {/* Medium cards row */}
+        {rest.length > 0 && (
+          <div className="flex flex-col md:flex-row items-start justify-between gap-6 w-full">
+            {rest.map(p => (
+              <motion.div key={p.id} variants={itemVariants} className="w-full md:w-[calc(50%-12px)]">
+                <MediumCard project={p} />
+              </motion.div>
+            ))}
+          </div>
+        )}
+      </div>
+    )
+  }
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-content mx-auto">
-
-      {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-12"
-      >
-        <h2
-          className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-4"
-          style={{ color: 'var(--color-text-primary)' }}
-        >
+    <section id="projects" className="w-full">
+      <div className="flex flex-col items-center w-full max-w-[1024px] mx-auto px-4 md:px-9 gap-5">
+        {/* Section Header: Title + Subtitle + Doodle */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-[32px] w-full">
+        <h2 className="section-heading font-display" style={{ whiteSpace: 'nowrap' }}>
           Featured Work
         </h2>
         <p
-          className="text-lg md:text-xl max-w-2xl mx-auto"
-          style={{ color: 'var(--color-text-secondary)' }}
+          className="font-display"
+          style={{
+            maxWidth: '414px',
+            color: 'var(--color-black-solid)',
+            fontSize: '20px',
+            fontWeight: 300,
+            lineHeight: '28px',
+          }}
         >
           A selection of AI product design, UX research, and XR interaction projects.
         </p>
-      </motion.div>
-
-      {/* Tab Navigation */}
-      <div className="flex justify-center mb-12">
-        <div
-          className="inline-flex rounded-xl p-1.5 border"
-          style={{
-            backgroundColor: 'var(--color-surface)',
-            borderColor: 'var(--color-border)',
-          }}
-        >
-          {(['major', 'other', 'lab'] as const).map(tab => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className="px-6 md:px-8 py-3 rounded-lg font-medium transition-all text-sm"
-              style={{
-                backgroundColor: activeTab === tab ? 'var(--color-accent)' : 'transparent',
-                color: activeTab === tab ? 'var(--color-bg)' : 'var(--color-text-muted)',
-                transitionDuration: 'var(--motion-fast)',
-              }}
-            >
-              {tab === 'major' ? 'Major Projects' : tab === 'other' ? 'Other Works' : 'Lab'}
-            </button>
-          ))}
-        </div>
+        {/* Doodle illustration — decorative */}
+        <img
+          src="/images/featuredwork.webp"
+          alt="Decorative illustration"
+          className="hidden md:block object-contain"
+          style={{ width: '164px', height: '171px' }}
+        />
       </div>
 
-      {/* Projects */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={containerVariants}
-        >
+      {/* Content area: Tabs (left) + Cards (right) */}
+      <div className="w-full flex flex-col items-end gap-4">
+        <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-6">
 
-          {/* ── Major tab: deliberate 3-tier hierarchy ── */}
-          {activeTab === 'major' && (
-            <div className="space-y-6">
+          {/* Tab Navigation — pill list */}
+          <div
+            className="flex flex-row md:flex-col items-start w-full md:w-auto overflow-x-auto no-scrollbar shrink-0 gap-2 md:gap-0"
+            style={{
+              padding: '4px',
+              backgroundColor: 'var(--color-bg)',
+              borderRadius: '12px',
+              outline: '1px solid var(--color-border)',
+              outlineOffset: '-1px',
+            }}
+          >
+            {(['nda', 'major', 'other', 'lab'] as TabKey[]).map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className="text-center md:text-left transition-all overflow-hidden whitespace-nowrap shrink-0"
+                style={{
+                  width: 'auto',
+                  minWidth: '122px',
+                  padding: '12px',
+                  borderRadius: '8px',
+                  backgroundColor: activeTab === tab ? 'var(--color-black-solid)' : 'transparent',
+                  color: activeTab === tab ? '#FFFFFF' : 'var(--color-black-solid)',
+                  fontSize: '14px',
+                  fontFamily: 'var(--font-sans), sans-serif',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                  transitionDuration: 'var(--motion-fast)',
+                }}
+              >
+                {TAB_LABELS[tab]}
+              </button>
+            ))}
+          </div>
 
-              {/* Tier 1 — Hero: LiquidRead */}
-              {hero && (
+          {/* Project Cards */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={containerVariants}
+            >
+              {activeTab === 'nda' ? (
                 <motion.div variants={itemVariants}>
-                  <HeroCard project={hero} />
+                  <NdaLockedState />
                 </motion.div>
+              ) : (
+                /* Dynamic tiered layout for all other tabs */
+                renderTieredLayout(getTabProjects(activeTab))
               )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-              {/* Tier 2 — Medium duo: ARuler + FairSplit */}
-              {mediumCards.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {mediumCards.map(p => (
-                    <motion.div key={p.id} variants={itemVariants} className="h-full">
-                      <MediumCard project={p} />
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-
-              {/* Tier 3 — Secondary trio: LucidPast + Digimal + Aam */}
-              {smallCards.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {smallCards.map(p => (
-                    <motion.div key={p.id} variants={itemVariants} className="h-full">
-                      <SmallCard project={p} />
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-
-              {/* Overflow — any future projects not yet in the ID config */}
-              {overflow.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {overflow.map(p => (
-                    <motion.div key={p.id} variants={itemVariants} className="h-full">
-                      <SmallCard project={p} />
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-
-            </div>
-          )}
-
-          {/* ── Other Works / Lab: uniform 3-col grid ── */}
-          {activeTab !== 'major' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project, idx) => (
-                <motion.div key={project.id} variants={itemVariants} className="h-full">
-                  <UniformCard project={project} priority={idx < 3} />
-                </motion.div>
-              ))}
-            </div>
-          )}
-
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Empty State */}
-      {projects.length === 0 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center py-20"
-          style={{ color: 'var(--color-text-muted)' }}
-        >
-          {activeTab === 'lab'
-            ? 'Experimental projects and prototypes. Check back for new work!'
-            : 'No projects to display yet.'}
-        </motion.div>
-      )}
-
+        {/* Show More button */}
+        {activeTab !== 'nda' && (
+          <Link
+            href={`/projects?tab=${activeTab}`}
+            className="flex items-center justify-center transition-all group"
+            style={{
+              width: '130px',
+              height: '40px',
+              paddingLeft: '16px',
+              paddingRight: '16px',
+              paddingTop: '8px',
+              paddingBottom: '8px',
+              borderRadius: '9999px',
+              outline: '1px solid var(--color-black-solid)',
+              outlineOffset: '-1px',
+              gap: '8px',
+              transitionDuration: 'var(--motion-fast)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-black-solid)'
+              e.currentTarget.style.color = '#FFFFFF'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent'
+              e.currentTarget.style.color = 'var(--color-black-solid)'
+            }}
+          >
+            <span
+              style={{
+                fontSize: '14px',
+                fontFamily: 'var(--font-sans), sans-serif',
+                fontWeight: 500,
+                lineHeight: '20px',
+              }}
+            >
+              Show More
+            </span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
+          </Link>
+        )}
+      </div>
+      </div>
     </section>
   )
 }

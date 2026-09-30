@@ -78,7 +78,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <style>{`
         #nprogress { pointer-events: none; }
         #nprogress .bar {
-          background: #C9A96E;
+          background: #000000;
           position: fixed;
           z-index: 9999;
           top: 0; left: 0;
@@ -89,7 +89,7 @@ export default function App({ Component, pageProps }: AppProps) {
           position: absolute;
           right: 0; top: 0;
           width: 100px; height: 100%;
-          box-shadow: 0 0 10px #C9A96E, 0 0 5px #C9A96E;
+          box-shadow: 0 0 10px rgba(0,0,0,0.3), 0 0 5px rgba(0,0,0,0.2);
           opacity: 1;
           transform: rotate(3deg) translate(0px, -4px);
         }

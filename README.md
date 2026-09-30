@@ -54,12 +54,22 @@ A production-ready portfolio built with Next.js 14, TypeScript, and Tailwind CSS
 
 ## Customization
 
-### Update Projects
-Edit `data/projects.json` with your project metadata:
+### Content & Layout Management (projects.json)
+The site's project content and homepage layout are fully data-driven via `data/projects.json`. 
+- **Categories:** Projects are divided into arrays: `majorProjects`, `otherWorks`, `labWorks`, and `ndaWorks`.
+- **Homepage Engine:** The `ProjectsGrid` component dynamically scans the selected tab for projects marked with `"featured": true`. It automatically promotes the project marked `"isNew": true` to the Hero slot, and fills the remaining slots with the other featured projects.
+- **Update flow:** A content manager simply flips boolean flags in `projects.json` to alter the homepage structure without touching React components.
+
 ```json
 {
-  "majorProjects": [...],
-  "otherWorks": [...]
+  "majorProjects": [
+    {
+      "id": "project-slug",
+      "featured": true,
+      "isNew": true,
+      ...
+    }
+  ]
 }
 ```
 
@@ -103,12 +113,15 @@ NEXT_PUBLIC_CONTACT_EMAIL=your-email@example.com
 *   **Fonts not displaying**: Restart the development server and hard refresh your browser (Ctrl + Shift + R or Cmd + Shift + R).
 *   **Type errors**: Run `npm run type-check` to identify TypeScript issues.
 
-## Recent Architectural Updates
+## Recent Architectural Updates (Team Handoff Notes)
 
-*   Restructured the LiquidRead case study to prioritize core UI screenshots and isolate technical diagrams within accordions for improved scannability.
-*   Modernized the About section with a three-zone editorial layout and integrated live Credly verification badges.
-*   Resolved Search Console structured data warnings by enforcing mainEntity fields and ISO 8601 timestamps.
-*   Refactored the LiquidRead onboarding flow into a sequenced state machine.
+*   **Dynamic Layout Engine:** Refactored `ProjectsGrid` to build layouts dynamically based on `featured` and `isNew` boolean tags in `projects.json`, deprecating hardcoded project IDs.
+*   **Centralized Project Hub:** Built `pages/projects/index.tsx` featuring tabbed navigation (`?tab=major`), acting as the core directory for all project types.
+*   **Ultrawide Fluidity (1440p+):** Overhauled container max-widths and flexbox behaviors to scale gracefully to 1440px and 1920px displays without losing the handcrafted aesthetic, replacing rigid 1024px constraints.
+*   **DRY Component Systems:** Standardized disparate UI elements (e.g. the glassmorphic `<BackButton />`) into `components/ui/` to ensure visual uniformity across both custom layout engines (LiquidRead, LucidPast, Aam) and standard template pages.
+*   **Mobile-First Polish:** Converted rigid inline pixel styles to fluid Tailwind responsive classes across Hero, About, Contact, and Footer for flawless mobile stacking.
+*   **Restructured the LiquidRead case study** to prioritize core UI screenshots and isolate technical diagrams within accordions for improved scannability.
+*   **Modernized the About section** with a three-zone editorial layout and integrated live Credly verification badges.
 
 ## Deployment
 

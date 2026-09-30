@@ -17,6 +17,7 @@
       ],
       "coverImage": "/assets/projects/liquid-read/cover/LiquidRead_Cover.webp",
       "featured": true,
+      "isNew": true,
       "githubUrl": "https://github.com/Edwin-IITJ/LiquidRead",
       "layout": "liquidread",
       "contentMedia": [
@@ -200,7 +201,7 @@
         "Gemini API"
       ],
       "coverImage": "/assets/projects/fair-split/cover/screen1.webp",
-      "featured": true,
+      "featured": false,
       "githubUrl": "https://github.com/Edwin-IITJ/Fair-Split",
       "layout": "fairsplit",
       "contentMedia": [
@@ -224,7 +225,7 @@
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "",
-      "featured": false,
+      "featured": true,
       "githubUrl": "https://github.com/Edwin-IITJ/LucidPast",
       "layout": "lucidpast",
       "contentMedia": [
@@ -396,7 +397,7 @@
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/226515375/Who-VR-A-VR-Short-Film",
-      "featured": false,
+      "featured": true,
       "challenges": "Maintaining viewer comfort and horizon stability during moving platform shots, handling stitch seams and exposure shifts, and capturing clean location audio in busy outdoor settings.",
       "solution": "Previsualized shot types and lighting plans guided stable monopod placements, while an ambisonic workflow and careful post stitching/color balanced the scenes for immersive presence.",
       "results": "A cohesive VR documentary slice with clear narrative beats, lake‑side visuals, thorough storyboard coverage, and spatial audio that anchors attention and presence throughout the experience.",
@@ -454,7 +455,7 @@
         "/projects/mehndi/screenshot-3.jpg"
       ],
       "behanceUrl": "https://www.behance.net/gallery/239881955/Mehndi-Sand-Animation",
-      "featured": false,
+      "featured": true,
       "challenges": "Selecting a folk song that was emotionally powerful yet not widely known; navigating verse-by-verse translation from Marwari without any team members speaking the language; learning and controlling the sand medium for the first time under tight time constraints; coordinating a near 24-hour animation schedule with a single camera setup; and integrating live-action performance footage with abstract sand visuals in a coherent narrative flow.",
       "solution": "Conducted field research at Mehrangarh Fort to collaborate directly with a traditional singer, recorded multiple performances, and shortlisted the song with the strongest emotional core. Developed storyboards for each verse and filler, drawing from mehndi motifs and Rajasthani visual traditions to ground the style. Set up a dark-room lightbox studio and worked in rotating shifts to keep animation continuous. Prioritized 'quality over quantity' by trimming weaker shots and focusing on clear, expressive movements. Intercut sand animation with performance footage of Pappu Ram to retain authenticity while enhancing the emotional arc.",
       "results": "The teaser for Mehndi was screened at the end of Prof. Delwyn’s talk, “Hand-Crafted Animation,” at IIT Jodhpur, where it received strong audience appreciation. The project strengthened the team’s understanding of hand-made, analogue animation and the value of patience in frame-by-frame work. It also reinforced the importance of field research, collaboration with local artists, and embracing visible traces of the maker’s hand as an aesthetic strength in an era dominated by digital and AI-generated imagery.",
@@ -512,7 +513,7 @@
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/your-project-id",
-      "featured": false,
+      "featured": true,
       "contentMedia": [
         {
           "type": "image",
@@ -616,7 +617,8 @@
       "coverImage": "/assets/projects/pomodoro-tracker/cover.png",
       "images": [],
       "projectUrl": "https://edwinm.vercel.app/live/pomodoro",
-      "featured": false,
+      "featured": true,
+      "isNew": true,
       "isLiveProject": true,
       "liveProjectPath": "/live/pomodoro"
     },
@@ -638,7 +640,7 @@
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "",
-      "featured": false,
+      "featured": true,
       "contentMedia": [
         {
           "type": "image",
@@ -661,7 +663,7 @@
       "images": [],
       "projectUrl": "#",
       "behanceUrl": "https://www.behance.net/gallery/224496345/Lights-Sound-Camera",
-      "featured": false,
+      "featured": true,
       "challenges": "Capturing the essence of Jodhpur's streets in monochrome while maintaining narrative depth and compositional interest.",
       "solution": "Focused on high-contrast lighting, leading lines, and negative space to create visually striking images that tell stories of everyday life.",
       "results": "Created a compelling photo series that effectively showcases street photography techniques and the cultural richness of Ghanta Ghar.",
@@ -746,31 +748,6 @@
           "alt": "essay"
         }
       ]
-    },
-    {
-      "id": "this-website",
-      "title": "Personal Portfolio Website",
-      "description": "This very website - a modern portfolio built with Next.js and advanced animations.",
-      "fullDescription": "Designed and developed a personal portfolio website showcasing creative and technical projects.",
-      "category": "Rapid Prototyping",
-      "year": "2025",
-      "technologies": [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Framer Motion"
-      ],
-      "coverImage": "/projects/this-website/cover.png",
-      "images": [],
-      "projectUrl": "https://edwinm.vercel.app/",
-      "behanceUrl": "#",
-      "githubUrl": "https://github.com/Edwin-IITJ/Portfolio-25",
-      "featured": false,
-      "challenges": "Building a performant, visually appealing portfolio that effectively showcases diverse projects while maintaining fast load times.",
-      "solution": "Leveraged Next.js for server-side rendering, Tailwind for styling, and Framer Motion for smooth animations to create an engaging user experience.",
-      "results": "Successfully deployed a fast, responsive portfolio website that effectively presents projects and skills to potential collaborators and employers.",
-      "isLiveProject": true,
-      "liveProjectPath": "/"
     }
   ]
 }

@@ -7,6 +7,7 @@ import { Playfair_Display, EB_Garamond, IBM_Plex_Mono } from 'next/font/google';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '../../sections/Navbar';
 import Footer from '../../sections/Footer';
+import BackButton from '../../ui/BackButton';
 import RelatedProjects from '../RelatedProjects';
 import HorizontalScrollStrip from '../../shared/HorizontalScrollStrip';
 import { type Project } from '../../../data/projects';
@@ -341,15 +342,7 @@ export default function MelethArchivePage({ project, relatedProjects }: MelethAr
       <Navbar />
 
       <div className="fixed top-20 left-4 md:left-8 z-[100] pointer-events-auto">
-        <Link href="/projects">
-          <motion.div
-            className="inline-flex items-center gap-2 text-[#F5F0E8]/70 hover:text-[#F5F0E8] transition-colors cursor-pointer font-sans text-sm"
-            whileHover={{ x: -5 }}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Back to Projects</span>
-          </motion.div>
-        </Link>
+        <BackButton />
       </div>
 
       <main className="pt-20">

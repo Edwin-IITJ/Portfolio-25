@@ -33,10 +33,11 @@ const Button = ({
     ghost: '',
   }
   
+  // ── Handcrafted Light theme styles ────────────────────────────────────────
   const variantStyles: Record<string, React.CSSProperties> = {
     primary: {
-      backgroundColor: 'var(--color-accent)',
-      color: 'var(--color-bg)',
+      backgroundColor: 'var(--color-black-solid)',
+      color: '#FFFFFF',
     },
     secondary: {
       backgroundColor: 'var(--color-surface-2)',
@@ -44,8 +45,8 @@ const Button = ({
     },
     outline: {
       backgroundColor: 'transparent',
-      color: 'var(--color-accent)',
-      border: '1px solid var(--color-accent)',
+      color: 'var(--color-black-solid)',
+      border: '1px solid var(--color-black-solid)',
     },
     ghost: {
       backgroundColor: 'transparent',
@@ -55,20 +56,20 @@ const Button = ({
 
   const hoverStyles: Record<string, React.CSSProperties> = {
     primary: {
-      backgroundColor: '#B8953D',
-      color: 'var(--color-bg)',
+      backgroundColor: '#333333',
+      color: '#FFFFFF',
     },
     secondary: {
-      backgroundColor: 'var(--color-border)',
+      backgroundColor: '#E8E8E8',
       color: 'var(--color-text-primary)',
     },
     outline: {
-      backgroundColor: 'var(--color-accent)',
-      color: 'var(--color-bg)',
-      border: '1px solid var(--color-accent)',
+      backgroundColor: 'var(--color-black-solid)',
+      color: '#FFFFFF',
+      border: '1px solid var(--color-black-solid)',
     },
     ghost: {
-      backgroundColor: 'var(--color-surface)',
+      backgroundColor: 'var(--color-surface-2)',
       color: 'var(--color-text-primary)',
     },
   }

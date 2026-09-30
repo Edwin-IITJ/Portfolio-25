@@ -1,23 +1,66 @@
-/* styles/globals.css — Edwin Meleth Design System */
+/* styles/globals.css — Edwin Meleth Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ * Theme: Handcrafted Light (v2)
+ * Predecessor: Archival Warmth (dark) — tokens archived below for dark-mode toggle.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design System CSS Custom Properties ──────────────────────────────────── */
+/* ── ARCHIVED: Archival Warmth (Dark Theme) ──────────────────────────────────
+ * Preserved for future dark-mode toggle. Do not delete.
+ *
+ * :root.dark, [data-theme="dark"] {
+ *   --color-bg:             #0E0D0B;
+ *   --color-surface:        #1A1815;
+ *   --color-surface-2:      #252220;
+ *   --color-border:         #2E2B28;
+ *   --color-text-primary:   #F4EFE6;
+ *   --color-text-secondary: #C0B5AB;
+ *   --color-text-muted:     #9E9388;
+ *   --color-accent:         #C9A96E;
+ *   --color-accent-soft:    #3D3020;
+ *   --color-data:           #6E9EC9;
+ *   --color-success:        #6E9E7A;
+ *   --color-destructive:    #9E6E6E;
+ *
+ *   --color-orange-9-85:    rgba(26, 24, 21, 0.85);
+ *
+ *   Scrollbar: dark track (#0E0D0B), border thumb (#2E2B28)
+ *   Selection: accent-soft bg, accent text
+ *   Grain overlays: .grain-overlay (0.035 opacity), .img-grain (0.06 overlay)
+ *   Glass effect: rgba(26,24,21,0.8) + blur(12px)
+ * }
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+/* ── Design System CSS Custom Properties (Light / Handcrafted) ───────────── */
 :root {
-  /* Colors */
-  --color-bg:             #0E0D0B;
-  --color-surface:        #1A1815;
-  --color-surface-2:      #252220;
+  /* Surfaces */
+  --color-bg:             #FFFFFF;
+  --color-surface:        #FFFFFF;
+  --color-surface-2:      #F5F5F5;
   --color-border:         #2E2B28;
-  --color-text-primary:   #F4EFE6;
-  --color-text-secondary: #C0B5AB;
-  --color-text-muted:     #9E9388;
+  --color-black-solid:    #000000;
+
+  /* Text */
+  --color-text-primary:   #000000;
+  --color-text-secondary: #7B7B7B;
+  --color-text-muted:     #7B7B7B;
+
+  /* Accent — gold preserved from Archival Warmth */
   --color-accent:         #C9A96E;
-  --color-accent-soft:    #3D3020;
+  --color-accent-soft:    rgba(201, 169, 110, 0.1);
+
+  /* Semantic */
   --color-data:           #6E9EC9;
   --color-success:        #6E9E7A;
   --color-destructive:    #9E6E6E;
+
+  /* Dark context (Contact section, Footer) */
+  --color-dark-bg:        #000000;
+  --color-dark-surface:   #1A1815;
+  --color-orange-9-85:    rgba(26, 24, 21, 0.85);
 
   /* Motion */
   --motion-instant:    100ms;
@@ -42,7 +85,7 @@
     color: var(--color-text-primary);
   }
 
-  /* Custom Scrollbar — dark archival */
+  /* Custom Scrollbar — light theme */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -52,46 +95,38 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-border);
+    background: #D4D4D4;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-muted);
+    background: #ABABAB;
   }
 
-  /* Selection — gold accent */
+  /* Selection — black on light gold */
   ::selection {
     background: var(--color-accent-soft);
-    color: var(--color-accent);
+    color: var(--color-text-primary);
   }
 
   ::-moz-selection {
     background: var(--color-accent-soft);
-    color: var(--color-accent);
+    color: var(--color-text-primary);
   }
 }
 
 /* ── Component Utilities ──────────────────────────────────────────────────── */
 @layer components {
 
-  /* Gold gradient text (replaces old blue gradient) */
-  .gradient-text {
-    background: linear-gradient(135deg, #C9A96E 0%, #E8D5A8 50%, #C9A96E 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Card hover — restrained, per design system */
+  /* Card hover — restrained border highlight */
   .card-hover {
     transition: border-color var(--motion-default) var(--ease-design),
-                background-color var(--motion-default) var(--ease-design);
+                box-shadow var(--motion-default) var(--ease-design);
   }
 
   .card-hover:hover {
-    border-color: var(--color-accent);
-    background-color: var(--color-surface-2);
+    border-color: var(--color-text-primary);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   }
 
   .smooth-transition {
@@ -100,7 +135,7 @@
 
   .focus-visible-outline {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
-    --tw-ring-color: var(--color-accent);
+    --tw-ring-color: var(--color-text-primary);
     --tw-ring-offset-color: var(--color-bg);
   }
 
@@ -109,44 +144,53 @@
     transition: all var(--motion-fast) ease-out;
   }
 
-  /* Glass effect — dark archival */
-  .glass-effect {
-    background: rgba(26, 24, 21, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--color-border);
+  /* Navbar blur — light context */
+  .navbar-blur {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
   .container-custom {
     @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Grain texture overlay — archival film feel */
-  .grain-overlay::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
+  /* Tag pill — handcrafted style */
+  .tag-pill {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono;
+    background: var(--color-bg);
+    color: var(--color-text-secondary);
+    outline: 1px solid var(--color-black-solid);
+    outline-offset: -1px;
   }
 
-  /* Image grain overlay for project thumbnails */
-  .img-grain::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    opacity: 0.06;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
-    mix-blend-mode: overlay;
+  /* Section heading — Space Grotesk Light */
+  .section-heading {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 48px;
+    color: var(--color-text-primary);
   }
+
+  /* ── ARCHIVED UTILITIES (dark theme, commented for future use) ──────────
+   *
+   * .gradient-text {
+   *   background: linear-gradient(135deg, #C9A96E 0%, #E8D5A8 50%, #C9A96E 100%);
+   *   -webkit-background-clip: text;
+   *   -webkit-text-fill-color: transparent;
+   *   background-clip: text;
+   * }
+   *
+   * .glass-effect {
+   *   background: rgba(26, 24, 21, 0.8);
+   *   backdrop-filter: blur(12px);
+   *   -webkit-backdrop-filter: blur(12px);
+   *   border: 1px solid var(--color-border);
+   * }
+   *
+   * .grain-overlay::before { ... }  (film grain texture)
+   * .img-grain::after { ... }       (image grain overlay)
+   * ──────────────────────────────────────────────────────────────────────── */
 }
 
 /* ── Animation Keyframes ──────────────────────────────────────────────────── */
@@ -181,7 +225,7 @@
   }
 }
 
-/* Fade-in reveal — page-turn feel */
+/* Fade-in reveal */
 @keyframes reveal-up {
   from {
     opacity: 0;

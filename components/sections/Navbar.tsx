@@ -11,7 +11,7 @@ const Navbar = () => {
   const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('')
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +34,7 @@ const Navbar = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px', // Trigger when section is 20% from top
+      rootMargin: '-20% 0px -70% 0px',
       threshold: 0
     }
 
@@ -46,7 +46,6 @@ const Navbar = () => {
       })
     }, observerOptions)
 
-    // Observe all sections
     sections.forEach((sectionId) => {
       const element = document.getElementById(sectionId)
       if (element) {
@@ -74,17 +73,16 @@ const Navbar = () => {
   }, [isMobileMenuOpen])
 
   const navItems = [
-    { name: 'Home', href: '/#home' },
-    { name: 'Work', href: '/#projects' },
-    { name: 'About', href: '/#about' },
-    { name: 'Contact', href: '/#contact' }
+    { name: 'Home', href: '/#home', sectionId: 'home' },
+    { name: 'Work', href: '/#projects', sectionId: 'projects' },
+    { name: 'About', href: '/#about', sectionId: 'about' },
+    { name: 'Contact', href: '/#contact', sectionId: 'contact' }
   ]
 
   const handleNavClick = (e: React.MouseEvent, href: string) => {
     e.preventDefault()
     setIsMobileMenuOpen(false)
 
-    // If on homepage, scroll directly
     if (router.pathname === '/') {
       const hash = href.split('#')[1]
       const element = document.getElementById(hash)
@@ -92,7 +90,6 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: 'smooth' })
       }
     } else {
-      // Navigate to homepage first, then scroll
       router.push(href)
     }
   }
@@ -102,61 +99,60 @@ const Navbar = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all navbar-blur"
         style={{
           transitionDuration: 'var(--motion-default)',
-          backgroundColor: isScrolled ? 'rgba(26, 24, 21, 0.85)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
-          borderBottom: isScrolled ? '1px solid var(--color-border)' : '1px solid transparent',
+          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.85)' : 'transparent',
+          borderBottom: isScrolled ? '1px solid rgba(46, 43, 40, 0.15)' : '1px solid transparent',
         }}
       >
-        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link
-              href="/"
-              className="text-xl md:text-2xl font-display font-light transition-colors"
-              style={{
-                color: 'var(--color-accent)',
-                transitionDuration: 'var(--motion-fast)',
-              }}
-            >
-              Edwin Meleth
+        <div className="max-w-[1024px] w-full mx-auto" style={{ paddingLeft: '24px', paddingRight: '16px' }}>
+          <div className="flex items-center justify-between" style={{ paddingTop: '16px', paddingBottom: '16px' }}>
+            {/* Logo — placeholder for custom asset */}
+            <Link href="/" className="flex-shrink-0">
+              <img
+                src="/images/Logo_EM.png"
+                alt="Edwin Meleth logo"
+                style={{ width: '45px', height: '34px', objectFit: 'contain' }}
+              />
             </Link>
 
+            {/* Spacer */}
+            <div className="flex-1" />
+
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center" style={{ gap: '40px' }}>
               {navItems.map((item) => {
-                const sectionId = item.href.split('#')[1]
-                const isActive = activeSection === sectionId
+                const isActive = activeSection === item.sectionId
 
                 return (
                   <Link
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="transition-colors font-medium relative group text-sm tracking-wide"
+                    className="relative transition-colors"
                     style={{
-                      color: isActive ? 'var(--color-accent)' : 'var(--color-text-secondary)',
+                      color: 'var(--color-black-solid)',
+                      fontFamily: 'var(--font-sans), sans-serif',
+                      fontSize: '14px',
+                      fontWeight: 500,
+                      lineHeight: '20px',
+                      letterSpacing: '0.35px',
                       transitionDuration: 'var(--motion-fast)',
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!isActive) e.currentTarget.style.color = 'var(--color-text-primary)'
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isActive) e.currentTarget.style.color = 'var(--color-text-secondary)'
                     }}
                   >
                     {item.name}
-                    <span
-                      className="absolute bottom-0 left-0 h-[1px] transition-all"
-                      style={{
-                        backgroundColor: 'var(--color-accent)',
-                        width: isActive ? '100%' : '0',
-                        transitionDuration: 'var(--motion-default)',
-                      }}
-                    />
+                    {/* Active underline indicator */}
+                    {isActive && (
+                      <span
+                        className="absolute left-0 bottom-[-2px]"
+                        style={{
+                          width: '40px',
+                          height: '1px',
+                          backgroundColor: 'var(--color-black-solid)',
+                        }}
+                      />
+                    )}
                   </Link>
                 )
               })}
@@ -164,20 +160,29 @@ const Navbar = () => {
                 href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-lg font-medium text-sm transition-all border"
+                className="transition-all"
                 style={{
-                  color: 'var(--color-accent)',
-                  borderColor: 'var(--color-accent)',
-                  backgroundColor: 'transparent',
+                  paddingLeft: '15.63px',
+                  paddingRight: '15.63px',
+                  paddingTop: '7.63px',
+                  paddingBottom: '7.63px',
+                  borderRadius: '9999px',
+                  outline: '1px solid var(--color-black-solid)',
+                  outlineOffset: '-1px',
+                  color: 'var(--color-black-solid)',
+                  fontFamily: 'var(--font-sans), sans-serif',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  lineHeight: '20px',
                   transitionDuration: 'var(--motion-fast)',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-accent)'
-                  e.currentTarget.style.color = 'var(--color-bg)'
+                  e.currentTarget.style.backgroundColor = 'var(--color-black-solid)'
+                  e.currentTarget.style.color = '#FFFFFF'
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = 'transparent'
-                  e.currentTarget.style.color = 'var(--color-accent)'
+                  e.currentTarget.style.color = 'var(--color-black-solid)'
                 }}
               >
                 Resume
@@ -188,7 +193,7 @@ const Navbar = () => {
             <button
               className="md:hidden p-2 rounded-lg transition-colors"
               style={{
-                color: 'var(--color-text-secondary)',
+                color: 'var(--color-black-solid)',
                 transitionDuration: 'var(--motion-fast)',
               }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -212,7 +217,7 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="fixed inset-0 z-40 md:hidden"
-            style={{ backgroundColor: 'rgba(14, 13, 11, 0.7)' }}
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
@@ -224,14 +229,13 @@ const Navbar = () => {
             transition={{ type: 'tween', duration: 0.3 }}
             className="fixed top-16 right-0 bottom-0 w-64 z-50 md:hidden overflow-y-auto border-l"
             style={{
-              backgroundColor: 'var(--color-surface)',
-              borderColor: 'var(--color-border)',
+              backgroundColor: 'var(--color-bg)',
+              borderColor: 'rgba(46, 43, 40, 0.15)',
             }}
           >
             <div className="flex flex-col p-6">
               {navItems.map((item, index) => {
-                const sectionId = item.href.split('#')[1]
-                const isActive = activeSection === sectionId
+                const isActive = activeSection === item.sectionId
 
                 return (
                   <motion.div
@@ -245,9 +249,9 @@ const Navbar = () => {
                       onClick={(e) => handleNavClick(e, item.href)}
                       className="text-lg transition-colors py-2 border-b block"
                       style={{
-                        color: isActive ? 'var(--color-accent)' : 'var(--color-text-secondary)',
-                        fontWeight: isActive ? '600' : '400',
-                        borderColor: 'var(--color-border)',
+                        color: isActive ? 'var(--color-black-solid)' : 'var(--color-text-secondary)',
+                        fontWeight: isActive ? 600 : 400,
+                        borderColor: 'rgba(46, 43, 40, 0.15)',
                         transitionDuration: 'var(--motion-fast)',
                       }}
                     >
@@ -260,14 +264,16 @@ const Navbar = () => {
                 href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 px-4 py-2 rounded-lg transition-colors text-center font-medium border"
+                className="mt-4 px-4 py-2 transition-colors text-center font-medium"
                 style={{
-                  color: 'var(--color-accent)',
-                  borderColor: 'var(--color-accent)',
+                  borderRadius: '9999px',
+                  color: 'var(--color-black-solid)',
+                  outline: '1px solid var(--color-black-solid)',
+                  outlineOffset: '-1px',
                   transitionDuration: 'var(--motion-fast)',
                 }}
               >
-                Download Resume
+                Resume
               </a>
             </div>
           </motion.div>

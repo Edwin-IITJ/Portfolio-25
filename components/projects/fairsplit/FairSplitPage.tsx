@@ -7,6 +7,7 @@ import { ArrowLeft, ChevronDown, ChevronUp, Check, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../../sections/Navbar';
 import Footer from '../../sections/Footer';
+import BackButton from '../../ui/BackButton';
 import RelatedProjects from '../RelatedProjects';
 import { type Project } from '../../../data/projects';
 import { fadeInUp, fadeIn, staggerContainer } from '../../../lib/animations';
@@ -664,11 +665,7 @@ export default function FairSplitPage({ project, relatedProjects, groupLabel }: 
 
       {/* Back button */}
       <div className="fixed top-20 left-4 md:left-8 z-[100]">
-        <Link href="/projects">
-          <span className="inline-flex items-center gap-2 text-xs px-3 py-1.5 border border-[var(--ruled)] bg-[var(--paper)] text-[var(--ink4)] font-mono tracking-widest uppercase hover:bg-[var(--surf)] transition-colors">
-            <ArrowLeft className="w-3 h-3" /> Back
-          </span>
-        </Link>
+        <BackButton />
       </div>
 
       <div className="fs">
@@ -680,7 +677,7 @@ export default function FairSplitPage({ project, relatedProjects, groupLabel }: 
           {/* Background image */}
           <div className="fs-hero__bg">
             <SafeImage
-              src="/assets/projects/fair-split/images/dark-light.webp"
+              src="/assets/projects/fair-split/images/cover.webp"
               alt="Fair Split live product"
               fallback=""
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}

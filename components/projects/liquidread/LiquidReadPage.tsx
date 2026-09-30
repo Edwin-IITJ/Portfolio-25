@@ -12,6 +12,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../../sections/Navbar';
 import Footer from '../../sections/Footer';
+import BackButton from '../../ui/BackButton';
 import RelatedProjects from '../RelatedProjects';
 import { type Project } from '../../../data/projects';
 import { fadeInUp, fadeIn, staggerContainer } from '../../../lib/animations';
@@ -199,10 +200,7 @@ export default function LiquidReadPage({
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 70%, oklch(from var(--color-primary) l c h / 0.10) 0%, transparent 65%), radial-gradient(ellipse 40% 30% at 50% 20%, oklch(from #1A7880 l c h / 0.07) 0%, transparent 55%)' }} />
           <div className="container-custom relative z-10">
             <motion.div variants={fadeIn} initial="hidden" animate="visible">
-              <Link href="/projects" className="inline-flex items-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors mb-10 group">
-                <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 group-hover:text-[var(--color-primary)] transition-transform" />
-                Back to Projects
-              </Link>
+              <BackButton />
             </motion.div>
             <motion.h1 variants={fadeInUp} initial="hidden" animate="visible" className="text-5xl md:text-7xl font-normal text-[var(--color-text)] leading-[1.05] tracking-tight mb-4" style={{ fontFamily: "'Lora', Georgia, serif" }}>
               LiquidRead

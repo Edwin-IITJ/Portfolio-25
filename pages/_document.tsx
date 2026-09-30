@@ -16,10 +16,11 @@ export default function Document() {
         <link rel="manifest" href="/site.webmanifest" />
 
         {/* ── Theme colour ─────────────────────────────────────────────────────
-            Matches the brand indigo used in the blob background (#6366f1).
+            Handcrafted Light theme — white background.
             Controls browser chrome colour on Android / PWA.
+            (Previous: #0E0D0B — Archival Warmth dark theme)
         */}
-        <meta name="theme-color" content="#0E0D0B" />
+        <meta name="theme-color" content="#FFFFFF" />
 
         {/* ── Encoding / compat ────────────────────────────────────────────── */}
         <meta charSet="utf-8" />

@@ -1,9 +1,9 @@
+// components/sections/Hero.tsx
 'use client'
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
-import Button from '../ui/Button'
+import Image from 'next/image'
 
 const Hero = () => {
   const titleRef = useRef<HTMLHeadingElement>(null)
@@ -35,37 +35,76 @@ const Hero = () => {
     el?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  // Social links
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/Edwin-IITJ', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:edwinmeleth@gmail.com', label: 'Email' },
+    { href: 'https://github.com/Edwin-IITJ', label: 'GitHub', icon: 'github' },
+    { href: 'https://www.linkedin.com/in/edwinmeleth', label: 'LinkedIn', icon: 'linkedin' },
+    { href: 'mailto:edwinmeleth@gmail.com', label: 'Email', icon: 'mail' },
   ]
+
+  const renderIcon = (icon: string) => {
+    switch (icon) {
+      case 'github':
+        return (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+            <path d="M9 18c-4.51 2-5-2-7-2" />
+          </svg>
+        )
+      case 'linkedin':
+        return (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect width="4" height="12" x="2" y="9" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        )
+      case 'mail':
+        return (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        )
+      default:
+        return null
+    }
+  }
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col overflow-hidden grain-overlay"
-      style={{ backgroundColor: 'var(--color-bg)' }}
+      className="w-full pt-[60px] md:pt-[103px]"
+      style={{
+        backgroundColor: 'var(--color-bg)',
+      }}
     >
-      {/* ── Top spacer (accounts for navbar) ── */}
-      <div className="h-20" />
+      {/* Hero layout: Text (top/left) + Illustration (bottom/right) */}
+      <div className="flex flex-col md:flex-row items-center md:items-start w-full max-w-[1024px] mx-auto justify-between px-4 md:px-16">
 
-      {/* ── Main content — vertically centered via flex-grow ── */}
-      <div className="flex-grow flex items-center justify-center relative z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Left: Text content */}
+        <div className="flex flex-col items-start flex-shrink-0 w-full md:w-1/2 lg:w-[500px] py-2 gap-6 md:gap-[28px]">
           {/* Role badge */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-5"
           >
             <span
-              className="inline-block font-medium text-sm md:text-base px-5 py-2 rounded-full border font-mono tracking-wide"
+              className="inline-block font-mono"
               style={{
-                color: 'var(--color-text-secondary)',
-                backgroundColor: 'var(--color-surface)',
-                borderColor: 'var(--color-border)',
+                paddingLeft: '19.63px',
+                paddingRight: '19.63px',
+                paddingTop: '7.63px',
+                paddingBottom: '7.63px',
+                borderRadius: '9999px',
+                outline: '1px solid var(--color-border)',
+                outlineOffset: '-1px',
+                color: 'var(--color-black-solid)',
+                fontSize: '16px',
+                fontWeight: 500,
+                lineHeight: '24px',
+                letterSpacing: '0.4px',
               }}
             >
               Design Engineer
@@ -75,92 +114,144 @@ const Hero = () => {
           {/* Name */}
           <h1
             ref={titleRef}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-light mb-5 overflow-hidden leading-[1.05]"
-            style={{ color: 'var(--color-text-primary)' }}
+            className="font-display overflow-hidden text-[40px] md:text-[clamp(48px,6vw,60px)] leading-none"
+            style={{
+              fontWeight: 300,
+              color: 'var(--color-black-solid)',
+            }}
           >
             Edwin Meleth
           </h1>
 
-          {/* Tagline */}
-          <motion.p
+          {/* Description */}
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10"
-            style={{ color: 'var(--color-text-secondary)' }}
+            className="flex flex-col items-start"
+            style={{ gap: '8px' }}
           >
-            I design and build, moving from user research to production code.
-            Specializing in AI-powered products and adaptive experiences blending code, design, and storytelling.
-          </motion.p>
+            <p
+              style={{
+                color: 'var(--color-black-solid)',
+                fontSize: '16px',
+                fontFamily: 'var(--font-sans), sans-serif',
+                fontWeight: 400,
+                lineHeight: '24px',
+                maxWidth: '420px',
+              }}
+            >
+              I design and build, moving from user research to production code.
+              Specializing in AI-powered products and adaptive experiences blending
+              code, design, and storytelling.
+            </p>
 
-          {/* CTA row */}
+            {/* Employer + Alma mater logos — decorative */}
+            <div className="flex flex-col items-start gap-[10px]">
+              <div className="inline-flex items-center justify-center gap-[15px]">
+                <img
+                  src="/images/Logo_Instamart.webp"
+                  alt="Swiggy Instamart"
+                  style={{ width: '50px', height: '21px', objectFit: 'contain' }}
+                />
+                <img
+                  src="/images/Logo_IQVIA.webp"
+                  alt="IQVIA"
+                  style={{ width: '75px', height: '13.4px', objectFit: 'contain' }}
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Social links */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.55 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center mb-8"
-          >
-            <Button onClick={scrollToProjects} size="lg">
-              See My Work
-            </Button>
-            <Button variant="outline" size="lg" href="#contact">
-              Get In Touch
-            </Button>
-          </motion.div>
-
-          {/* Social row */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="flex justify-center gap-3"
+            className="flex items-start"
+            style={{ gap: '12px' }}
           >
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-full transition-all"
+                target={social.icon === 'mail' ? undefined : '_blank'}
+                rel={social.icon === 'mail' ? undefined : 'noopener noreferrer'}
+                className="flex items-center justify-center transition-all"
                 style={{
-                  color: 'var(--color-text-muted)',
+                  padding: '10px',
+                  borderRadius: '9999px',
+                  outline: '1px solid var(--color-black-solid)',
+                  outlineOffset: '-1px',
+                  color: 'var(--color-black-solid)',
                   transitionDuration: 'var(--motion-fast)',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--color-accent)'
-                  e.currentTarget.style.backgroundColor = 'var(--color-accent-soft)'
+                  e.currentTarget.style.backgroundColor = 'var(--color-black-solid)'
+                  e.currentTarget.style.color = '#FFFFFF'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--color-text-muted)'
                   e.currentTarget.style.backgroundColor = 'transparent'
+                  e.currentTarget.style.color = 'var(--color-black-solid)'
                 }}
                 aria-label={social.label}
               >
-                <social.icon className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                {renderIcon(social.icon)}
               </a>
             ))}
           </motion.div>
-        </div>
-      </div>
 
-      {/* ── Scroll indicator — in normal flow, guaranteed spacing ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-        className="relative z-10 flex flex-col items-center pb-8 pt-6 cursor-pointer"
-        onClick={scrollToProjects}
-      >
-        <span
-          className="text-xs tracking-widest uppercase mb-2 font-mono"
-          style={{ color: 'var(--color-text-muted)' }}
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.65 }}
+          >
+            <button
+              onClick={scrollToProjects}
+              className="flex items-center justify-center transition-all"
+              style={{
+                width: '130px',
+                height: '40px',
+                paddingLeft: '16px',
+                paddingRight: '16px',
+                paddingTop: '8px',
+                paddingBottom: '8px',
+                backgroundColor: 'var(--color-black-solid)',
+                borderRadius: '9999px',
+                color: '#FFFFFF',
+                fontSize: '14px',
+                fontFamily: 'var(--font-sans), sans-serif',
+                fontWeight: 500,
+                lineHeight: '20px',
+                transitionDuration: 'var(--motion-fast)',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#333333' }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-black-solid)' }}
+            >
+              See My Work
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Right: Hero illustration — real asset 469×529 */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="flex-shrink-0 w-full md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0"
         >
-          Scroll
-        </span>
-        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-          <ArrowDown className="w-4 h-4" style={{ color: 'var(--color-text-muted)' }} />
+          <div className="relative w-full max-w-[469px]" style={{ aspectRatio: '469/529' }}>
+            <Image
+              src="/images/hero.webp"
+              alt="Hand-drawn illustration of Edwin"
+              fill
+              priority
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

@@ -72,6 +72,9 @@ export type Project = {
   isLiveProject?: boolean;
   liveProjectPath?: string;
 
+  // Badge fields:
+  isNew?: boolean;
+
   // Behance-style long-form documentation sequence:
   contentMedia?: ProjectMedia[];
 
@@ -175,6 +178,9 @@ function ensureProject(p: any): Project {
     // Live project fields
     isLiveProject: typeof p.isLiveProject === 'boolean' ? p.isLiveProject : undefined,
     liveProjectPath: p.liveProjectPath ? String(p.liveProjectPath) : undefined,
+
+    // Badge fields
+    isNew: typeof p.isNew === 'boolean' ? p.isNew : undefined,
 
     // ContentMedia now comes directly from JSON
     contentMedia: Array.isArray(p.contentMedia)

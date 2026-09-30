@@ -95,9 +95,15 @@ export default function Home() {
       <StructuredData />
 
       {/* Main Content */}
-      <div className="relative z-10">
+      <div className="relative z-10" style={{ backgroundColor: 'var(--color-bg)' }}>
         <Navbar />
-        <main className="overflow-x-hidden w-full">
+        <main
+          className="flex flex-col items-center w-full"
+          style={{
+            gap: '40px', // gap-10 from design
+            backgroundColor: 'var(--color-bg)',
+          }}
+        >
           <Hero />
           <ProjectsGrid />
           <About />

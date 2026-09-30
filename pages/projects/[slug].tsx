@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 import Navbar from '../../components/sections/Navbar';
 import Footer from '../../components/sections/Footer';
+import BackButton from '../../components/ui/BackButton';
 import MediaRenderer from '../../components/projects/MediaRenderer';
 import RelatedProjects from '../../components/projects/RelatedProjects';
 import { projectsData, type Project } from '../../data/projects';
@@ -174,18 +175,7 @@ export default function ProjectPage({
       >
         {/* Back to Projects */}
         <div className="max-w-content mx-auto py-8">
-          <Link href="/projects">
-            <motion.div
-              className="inline-flex items-center transition-colors cursor-pointer"
-              style={{ color: 'var(--color-text-secondary)' }}
-              whileHover={{ x: -5 }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'var(--color-accent)' }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'var(--color-text-secondary)' }}
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" strokeWidth={1.5} />
-              Back to Projects
-            </motion.div>
-          </Link>
+          <BackButton />
         </div>
 
         {/* Title */}

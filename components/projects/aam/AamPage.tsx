@@ -6,6 +6,7 @@ import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../../sections/Navbar';
 import Footer from '../../sections/Footer';
+import BackButton from '../../ui/BackButton';
 import RelatedProjects from '../RelatedProjects';
 import { type Project } from '../../../data/projects';
 import MediaRenderer from '../MediaRenderer';
@@ -370,12 +371,7 @@ const AamPage: React.FC<AamPageProps> = ({ project, relatedProjects, groupLabel 
       <Navbar />
 
       <div className="fixed top-20 left-4 md:left-8 z-[100] pointer-events-auto">
-        <Link href="/projects">
-          <span className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 transition-all cursor-pointer font-sans text-sm px-3 py-1.5 rounded-full">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Back to Projects</span>
-          </span>
-        </Link>
+        <BackButton />
       </div>
 
       <div className="aam-scope">

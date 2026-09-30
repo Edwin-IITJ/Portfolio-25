@@ -9,38 +9,37 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // ── Archival Warmth Design System ──────────────────────────
-        bg:          '#0E0D0B',
-        surface:     '#1A1815',
-        'surface-2': '#252220',
+        // ── Handcrafted Light Design System ─────────────────────────────
+        bg:          '#FFFFFF',
+        surface:     '#FFFFFF',
+        'surface-2': '#F5F5F5',
         border:      '#2E2B28',
 
-        'text-primary':   '#F4EFE6',
-        'text-secondary': '#C0B5AB',
-        'text-muted':     '#9E9388',
+        'text-primary':   '#000000',
+        'text-secondary': '#7B7B7B',
+        'text-muted':     '#7B7B7B',
 
         accent:       '#C9A96E',
-        'accent-soft': '#3D3020',
+        'accent-soft': 'rgba(201, 169, 110, 0.1)',
+
+        'black-solid': '#000000',
 
         data:         '#6E9EC9',
         success:      '#6E9E7A',
         destructive:  '#9E6E6E',
 
-        // ── Legacy aliases (so existing Tailwind classes don't break during migration)
+        // ── Legacy aliases (preserve for any existing references) ──────
         primary: {
-          50:  '#3D3020',
-          100: '#3D3020',
+          50:  'rgba(201, 169, 110, 0.1)',
+          100: 'rgba(201, 169, 110, 0.1)',
           200: '#C9A96E',
           400: '#C9A96E',
           500: '#C9A96E',
           600: '#C9A96E',
           700: '#B8953D',
-          800: '#3D3020',
-          900: '#0E0D0B',
-          950: '#0E0D0B',
-        },
-        accent_legacy: {
-          500: '#C9A96E',
+          800: 'rgba(201, 169, 110, 0.1)',
+          900: '#FFFFFF',
+          950: '#FFFFFF',
         },
       },
       fontFamily: {
@@ -67,7 +66,7 @@ module.exports = {
         'ds-8': '96px',
       },
       maxWidth: {
-        'content': '1120px',
+        'content': '1024px',
         'prose':   '680px',
       },
       transitionDuration: {
