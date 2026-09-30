@@ -32,7 +32,7 @@ const Footer = () => {
       height: 167,
     },
     {
-      href: 'https://www.behance.net/edwinmeleth',
+      href: 'https://www.behance.net/edwin_m',
       label: 'Behance',
       placeholder: '/images/BeBear.webp',
       width: 236,
