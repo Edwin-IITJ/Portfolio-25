@@ -113,15 +113,38 @@ NEXT_PUBLIC_CONTACT_EMAIL=your-email@example.com
 *   **Fonts not displaying**: Restart the development server and hard refresh your browser (Ctrl + Shift + R or Cmd + Shift + R).
 *   **Type errors**: Run `npm run type-check` to identify TypeScript issues.
 
-## Recent Architectural Updates (Team Handoff Notes)
+## AI Developer Notes & Coding Principles (For Future LLMs)
 
-*   **Dynamic Layout Engine:** Refactored `ProjectsGrid` to build layouts dynamically based on `featured` and `isNew` boolean tags in `projects.json`, deprecating hardcoded project IDs.
+If you are an AI assistant picking up this project, adhere to these principles established during the recent codebase audit:
+
+1. **DRY & Single Source of Truth:** Reuse existing components instead of duplicating logic. (e.g., `components/ui/SafeImage.tsx` handles both Next.js and native image fallbacks).
+2. **"Behind the Scenes" Refactoring:** When cleaning up code, *do not alter the UX or visual aesthetic* unless explicitly instructed. Replace inline `style={{...}}` with Tailwind or `globals.css` utility classes (like `.btn-outline-pill`, `.link-hover-accent`) only if it achieves the exact same visual output (including hover states).
+3. **Responsive Constraints:** The site uses a full-bleed `<section w-full>` architecture with inner wrappers (`max-w-[1024px] mx-auto`) to constrain content. *Do not apply max-width to the outer section element*, as backgrounds must bleed to the edges on ultrawide monitors.
+4. **Data-Driven UI:** Push static content to data structures (`data/projects.ts` or future `data/about.ts`) rather than hardcoding large text blocks inside `.tsx` components.
+5. **Accessibility (a11y):** Ensure interactive elements are keyboard accessible (use `:focus-visible` in CSS classes instead of inline JS `onMouseEnter`). Maintain ARIA roles for custom widgets like tab lists.
+
+## Recent Code Quality Audit & Updates (Team Handoff)
+
+We recently performed a comprehensive codebase audit to improve maintainability and performance.
+
+### Completed:
+*   **Unified SafeImage:** Extracted the duplicated `SafeImage` component across custom project pages into a unified `components/ui/SafeImage.tsx` handling both `next/image` and native `<img>` modes.
+*   **Hover Interaction Standardization:** Removed brittle inline React mouse event handlers (`onMouseEnter`) in favor of centralized CSS utility classes (`.btn-outline-pill`, `.link-hover-accent`) for buttons and links, ensuring keyboard accessibility and cleaner code.
+*   **Scalable Routing:** Replaced a long `if` statement chain in `pages/projects/[slug].tsx` with a constant time lookup map (`CUSTOM_LAYOUTS`) for custom project layouts.
+*   **Accessibility & Hygiene:** Added ARIA roles to the projects tab navigation, migrated inline NProgress styles to `globals.css`, and removed unused variable declarations.
+*   **Dynamic Layout Engine:** Refactored `ProjectsGrid` to build layouts dynamically based on `featured` and `isNew` boolean tags in `projects.json`.
 *   **Centralized Project Hub:** Built `pages/projects/index.tsx` featuring tabbed navigation (`?tab=major`), acting as the core directory for all project types.
 *   **Ultrawide Fluidity (1440p+):** Overhauled container max-widths and flexbox behaviors to scale gracefully to 1440px and 1920px displays without losing the handcrafted aesthetic, replacing rigid 1024px constraints.
-*   **DRY Component Systems:** Standardized disparate UI elements (e.g. the glassmorphic `<BackButton />`) into `components/ui/` to ensure visual uniformity across both custom layout engines (LiquidRead, LucidPast, Aam) and standard template pages.
-*   **Mobile-First Polish:** Converted rigid inline pixel styles to fluid Tailwind responsive classes across Hero, About, Contact, and Footer for flawless mobile stacking.
-*   **Restructured the LiquidRead case study** to prioritize core UI screenshots and isolate technical diagrams within accordions for improved scannability.
-*   **Modernized the About section** with a three-zone editorial layout and integrated live Credly verification badges.
+*   **DRY Component Systems:** Standardized disparate UI elements (e.g. the glassmorphic `<BackButton />`) into `components/ui/` to ensure visual uniformity across custom layout engines.
+
+### Left To Do (Future Tasks):
+*   **Decompose `About.tsx` (Medium Effort):** The file is over 500 lines long. It should be broken down into smaller, focused sub-components (`ExperienceCard.tsx`, `SkillsGrid.tsx`, etc.).
+*   **Extract Data from `About.tsx` (Medium Effort):** The work experience, education, and bio paragraphs are hardcoded inside the JSX. Extracting these to a `data/about.ts` file will make content updates easier.
+*   **Minor Accessibility Tweaks (Small Effort):**
+    *   Add `<AnimatePresence>` to the mobile menu in `Navbar.tsx` so it animates out cleanly.
+    *   Add a "Skip to main content" link for keyboard navigation.
+    *   Fix HTML semantics in `About.tsx` where an `<h3>` is styled awkwardly using conflicting text size classes.
+    *   Add `loading="lazy"` to the static footer illustrations.
 
 ## Deployment
 
