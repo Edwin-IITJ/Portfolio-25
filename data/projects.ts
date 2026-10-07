@@ -202,33 +202,7 @@ function ensureProject(p: any): Project {
   return pruneUndefinedShallow(base);
 }
 
-// OPTIONAL: Use this function only for projects needing programmatic logic
-// Most projects should define contentMedia directly in projects.json
-function augmentContentMedia(p: Project): Project {
-  // Example: Add special logic for specific projects if needed
-  // For most projects, contentMedia is already in JSON, so just return as-is
 
-  // Uncomment below if you want to add special handling for specific projects:
-  /*
-  if (p.id === 'special-project') {
-    const specialDocs: ProjectMedia[] = [
-      {
-        type: 'youtube',
-        videoId: 'dQw4w9WgXcQ',
-        title: 'Project Demo',
-        caption: 'Full walkthrough video'
-      },
-    ];
-
-    return pruneUndefinedShallow({
-      ...p,
-      contentMedia: [...(p.contentMedia || []), ...specialDocs],
-    });
-  }
-  */
-
-  return p;
-}
 
 function normalizeData(input: any): ProjectsData {
   const majors = Array.isArray(input?.majorProjects) ? input.majorProjects : [];
@@ -237,18 +211,15 @@ function normalizeData(input: any): ProjectsData {
 
   const majorProjects: Project[] = majors
     .map(ensureProject)
-    .map(rewritePaths)
-    .map(augmentContentMedia);
+    .map(rewritePaths);
 
   const otherWorks: Project[] = others
     .map(ensureProject)
-    .map(rewritePaths)
-    .map(augmentContentMedia);
+    .map(rewritePaths);
 
   const labWorks: Project[] = labs
     .map(ensureProject)
-    .map(rewritePaths)
-    .map(augmentContentMedia);
+    .map(rewritePaths);
 
   return { majorProjects, otherWorks, labWorks };
 }

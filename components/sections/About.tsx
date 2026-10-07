@@ -145,7 +145,6 @@ const About = () => {
                   style={{
                     color: 'var(--color-text-secondary)',
                     fontSize: '12px',
-                    fontFamily: 'var(--font-sans), sans-serif',
                     lineHeight: '16px',
                     letterSpacing: '0.3px',
                   }}
@@ -155,10 +154,8 @@ const About = () => {
                     href="https://anshulsdoc.framer.website/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2 transition-colors"
-                    style={{ transitionDuration: 'var(--motion-fast)' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-accent)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-text-secondary)' }}
+                    className="underline underline-offset-2 link-hover-accent"
+                    style={{ color: 'var(--color-text-secondary)' }}
                   >
                     Anshul Sharma
                   </a>

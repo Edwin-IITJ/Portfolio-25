@@ -4,21 +4,6 @@ import { motion } from 'framer-motion'
 import { Mail, MapPin, Github, Linkedin } from 'lucide-react'
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'edwinmeleth@gmail.com',
-      href: 'mailto:edwinmeleth@gmail.com',
-    },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'Bengaluru, Karnataka, India',
-      href: null,
-    },
-  ]
-
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Edwin-IITJ', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/edwinmeleth', label: 'LinkedIn' },
@@ -75,22 +60,18 @@ const Contact = () => {
                 <Mail className="w-6 h-6" style={{ color: '#FFFFFF' }} strokeWidth={1.5} />
               </div>
               <div style={{ paddingLeft: '16px' }}>
-                <p style={{ color: '#FFFFFF', fontSize: '14px', fontFamily: 'var(--font-sans), sans-serif', fontWeight: 400, lineHeight: '20px' }}>
+                <p style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
                   Email
                 </p>
                 <a
                   href="mailto:edwinmeleth@gmail.com"
-                  className="transition-colors"
+                  className="link-hover-accent"
                   style={{
                     color: '#FFFFFF',
                     fontSize: '16px',
-                    fontFamily: 'var(--font-sans), sans-serif',
                     fontWeight: 500,
                     lineHeight: '24px',
-                    transitionDuration: 'var(--motion-fast)',
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-accent)' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = '#FFFFFF' }}
                 >
                   edwinmeleth@gmail.com
                 </a>
@@ -118,10 +99,10 @@ const Contact = () => {
                 <MapPin className="w-6 h-6" style={{ color: '#FFFFFF' }} strokeWidth={1.5} />
               </div>
               <div style={{ paddingLeft: '16px' }}>
-                <p style={{ color: '#FFFFFF', fontSize: '14px', fontFamily: 'var(--font-sans), sans-serif', fontWeight: 400, lineHeight: '20px' }}>
+                <p style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 400, lineHeight: '20px' }}>
                   Location
                 </p>
-                <p style={{ color: '#FFFFFF', fontSize: '16px', fontFamily: 'var(--font-sans), sans-serif', fontWeight: 500, lineHeight: '24px' }}>
+                <p style={{ color: '#FFFFFF', fontSize: '16px', fontWeight: 500, lineHeight: '24px' }}>
                   Bengaluru, Karnataka, India
                 </p>
               </div>
@@ -142,24 +123,11 @@ const Contact = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center transition-all"
+                  className="btn-outline-pill-dark"
                   style={{
                     width: '48px',
                     height: '48px',
                     padding: '10px',
-                    borderRadius: '9999px',
-                    outline: '1px solid #FFFFFF',
-                    outlineOffset: '-1px',
-                    color: '#FFFFFF',
-                    transitionDuration: 'var(--motion-fast)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFFFFF'
-                    e.currentTarget.style.color = 'var(--color-black-solid)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent'
-                    e.currentTarget.style.color = '#FFFFFF'
                   }}
                   aria-label={social.label}
                 >

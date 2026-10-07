@@ -472,6 +472,8 @@ const ProjectsGrid = () => {
 
           {/* Tab Navigation — pill list */}
           <div
+            role="tablist"
+            aria-label="Project categories"
             className="flex flex-row md:flex-col items-start w-full md:w-auto overflow-x-auto no-scrollbar shrink-0 gap-2 md:gap-0"
             style={{
               padding: '4px',
@@ -484,6 +486,8 @@ const ProjectsGrid = () => {
             {(['nda', 'major', 'other', 'lab'] as TabKey[]).map(tab => (
               <button
                 key={tab}
+                role="tab"
+                aria-selected={activeTab === tab}
                 onClick={() => setActiveTab(tab)}
                 className="text-center md:text-left transition-all overflow-hidden whitespace-nowrap shrink-0"
                 style={{
@@ -494,7 +498,6 @@ const ProjectsGrid = () => {
                   backgroundColor: activeTab === tab ? 'var(--color-black-solid)' : 'transparent',
                   color: activeTab === tab ? '#FFFFFF' : 'var(--color-black-solid)',
                   fontSize: '14px',
-                  fontFamily: 'var(--font-sans), sans-serif',
                   fontWeight: 500,
                   lineHeight: '20px',
                   transitionDuration: 'var(--motion-fast)',
@@ -530,7 +533,7 @@ const ProjectsGrid = () => {
         {activeTab !== 'nda' && (
           <Link
             href={`/projects?tab=${activeTab}`}
-            className="flex items-center justify-center transition-all group"
+            className="btn-outline-pill group"
             style={{
               width: '130px',
               height: '40px',
@@ -538,25 +541,12 @@ const ProjectsGrid = () => {
               paddingRight: '16px',
               paddingTop: '8px',
               paddingBottom: '8px',
-              borderRadius: '9999px',
-              outline: '1px solid var(--color-black-solid)',
-              outlineOffset: '-1px',
               gap: '8px',
-              transitionDuration: 'var(--motion-fast)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-black-solid)'
-              e.currentTarget.style.color = '#FFFFFF'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.color = 'var(--color-black-solid)'
             }}
           >
             <span
               style={{
                 fontSize: '14px',
-                fontFamily: 'var(--font-sans), sans-serif',
                 fontWeight: 500,
                 lineHeight: '20px',
               }}

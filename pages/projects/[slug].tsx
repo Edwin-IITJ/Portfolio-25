@@ -100,37 +100,19 @@ export default function ProjectPage({
     []
   );
 
-  if (project.layout === 'lucidpast') {
-    return <LucidPastPage project={project} relatedProjects={relatedProjects} />;
-  }
+  // Layout lookup map — scales without adding more if-blocks
+  const CUSTOM_LAYOUTS: Record<string, React.ComponentType<any>> = {
+    lucidpast: LucidPastPage,
+    aam: AamPage,
+    'meleth-archive': MelethArchivePage,
+    liquidread: LiquidReadPage,
+    fairsplit: FairSplitPage,
+  };
 
-  if (project.layout === 'aam') {
+  const CustomLayout = project.layout ? CUSTOM_LAYOUTS[project.layout] : undefined;
+  if (CustomLayout) {
     return (
-      <AamPage 
-        project={project} 
-        relatedProjects={relatedProjects} 
-        groupLabel={groupLabel} 
-      />
-    );
-  }
-
-  if (project.layout === 'meleth-archive') {
-    return <MelethArchivePage project={project} relatedProjects={relatedProjects} />;
-  }
-
-  if (project.layout === 'liquidread') {
-    return (
-      <LiquidReadPage
-        project={project}
-        relatedProjects={relatedProjects}
-        groupLabel={groupLabel}
-      />
-    );
-  }
-
-  if (project.layout === 'fairsplit') {
-    return (
-      <FairSplitPage
+      <CustomLayout
         project={project}
         relatedProjects={relatedProjects}
         groupLabel={groupLabel}

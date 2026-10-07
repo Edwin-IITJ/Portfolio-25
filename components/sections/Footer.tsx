@@ -111,7 +111,6 @@ const Footer = () => {
           style={{
             color: 'rgba(255, 255, 255, 0.4)',
             fontSize: '12px',
-            fontFamily: 'var(--font-sans), sans-serif',
             fontWeight: 400,
             lineHeight: '16px',
           }}

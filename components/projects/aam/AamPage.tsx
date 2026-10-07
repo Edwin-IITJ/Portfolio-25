@@ -22,28 +22,9 @@ interface AamPageProps {
 
 
 
-const SafeImage = ({ src, alt, fallback, className = "", aspect = "auto" }: { src: string, alt: string, fallback: string, className?: string, aspect?: string }) => {
-  const [error, setError] = useState(false);
-  const aspectClass = aspect === "16/9" ? "aspect-16-9" : aspect === "4/3" ? "aspect-4-3" : "";
+import SafeImage from '../../ui/SafeImage';
 
-  if (error) return (
-    <div className={`ph ${className} ${aspectClass}`} style={{ height: aspect !== 'auto' ? '100%' : undefined }}>
-      {fallback}
-    </div>
-  );
 
-  return (
-    <div className={aspectClass} style={{ overflow: 'hidden', borderRadius: 'var(--rm)' }}>
-      <img
-        src={src}
-        alt={alt}
-        className={className}
-        style={{ width: '100%', height: 'auto', display: 'block' }}
-        onError={() => setError(true)}
-      />
-    </div>
-  );
-};
 
 const Collapsible = ({ isOpen, children, className = "" }: { isOpen: boolean, children: React.ReactNode, className?: string }) => (
   <AnimatePresence initial={false}>

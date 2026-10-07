@@ -18,25 +18,8 @@ interface FairSplitPageProps {
   groupLabel?: string;
 }
 
-/* ─── SafeImage ─────────────────────────────────────────────────────────── */
-const SafeImage = ({
-  src, alt, fallback, className = '', style,
-}: {
-  src: string; alt: string; fallback: string;
-  className?: string; style?: React.CSSProperties;
-}) => {
-  const [err, setErr] = useState(false);
-  if (err) return (
-    <div className={`fs-ph ${className}`} style={style}>
-      <span className="fs-ph__inner">{fallback}</span>
-    </div>
-  );
-  return (
-    <img src={src} alt={alt} className={className}
-      style={{ width: '100%', height: 'auto', display: 'block', ...style }}
-      onError={() => setErr(true)} />
-  );
-};
+import SafeImage from '../../ui/SafeImage';
+
 
 /* ─── Collapsible ────────────────────────────────────────────────────────── */
 const Collapsible = ({ isOpen, children }: { isOpen: boolean; children: React.ReactNode }) => (

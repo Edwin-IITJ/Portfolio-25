@@ -133,7 +133,6 @@ const Navbar = () => {
                     className="relative transition-colors"
                     style={{
                       color: 'var(--color-black-solid)',
-                      fontFamily: 'var(--font-sans), sans-serif',
                       fontSize: '14px',
                       fontWeight: 500,
                       lineHeight: '20px',
@@ -160,29 +159,15 @@ const Navbar = () => {
                 href="/Resume_EdwinMeleth.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-all"
+                className="btn-outline-pill"
                 style={{
                   paddingLeft: '15.63px',
                   paddingRight: '15.63px',
                   paddingTop: '7.63px',
                   paddingBottom: '7.63px',
-                  borderRadius: '9999px',
-                  outline: '1px solid var(--color-black-solid)',
-                  outlineOffset: '-1px',
-                  color: 'var(--color-black-solid)',
-                  fontFamily: 'var(--font-sans), sans-serif',
                   fontSize: '14px',
                   fontWeight: 500,
                   lineHeight: '20px',
-                  transitionDuration: 'var(--motion-fast)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-black-solid)'
-                  e.currentTarget.style.color = '#FFFFFF'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent'
-                  e.currentTarget.style.color = 'var(--color-black-solid)'
                 }}
               >
                 Resume

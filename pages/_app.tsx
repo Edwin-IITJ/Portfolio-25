@@ -72,29 +72,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div className={`${dmSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans`}>
-      {/*
-        NProgress bar styles — gold accent (#C9A96E) from the design system.
-      */}
-      <style>{`
-        #nprogress { pointer-events: none; }
-        #nprogress .bar {
-          background: #000000;
-          position: fixed;
-          z-index: 9999;
-          top: 0; left: 0;
-          width: 100%; height: 2px;
-        }
-        #nprogress .peg {
-          display: block;
-          position: absolute;
-          right: 0; top: 0;
-          width: 100px; height: 100%;
-          box-shadow: 0 0 10px rgba(0,0,0,0.3), 0 0 5px rgba(0,0,0,0.2);
-          opacity: 1;
-          transform: rotate(3deg) translate(0px, -4px);
-        }
-      `}</style>
-
       <Component {...pageProps} />
       <Analytics />
       <SpeedInsights />

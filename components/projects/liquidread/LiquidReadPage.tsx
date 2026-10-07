@@ -3,9 +3,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
-  ArrowLeft,
   ChevronDown,
   ChevronUp,
 } from 'lucide-react';
@@ -23,43 +21,8 @@ interface LiquidReadPageProps {
   groupLabel?: string;
 }
 
-const SafeImage = ({
-  src,
-  alt,
-  className = '',
-  width = 800,
-  height = 500,
-  style,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-  width?: number;
-  height?: number;
-  style?: React.CSSProperties;
-}) => {
-  const [err, setErr] = useState(false);
-  if (err)
-    return (
-      <div
-        className={`bg-gray-100 flex items-center justify-center rounded-xl ${className}`}
-        style={{ minHeight: 160 }}
-      >
-        <span className="text-gray-400 text-sm">{alt}</span>
-      </div>
-    );
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-      style={style}
-      onError={() => setErr(true)}
-    />
-  );
-};
+import SafeImage from '../../ui/SafeImage';
+
 
 export default function LiquidReadPage({
   project,
@@ -231,6 +194,7 @@ export default function LiquidReadPage({
 
             <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] flex justify-center max-w-4xl mx-auto">
               <SafeImage
+                mode="nextjs"
                 src="/assets/projects/liquid-read/docs/desktop-card.webp"
                 alt="LiquidRead desktop card view"
                 width={800}
